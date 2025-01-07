@@ -1,0 +1,82 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="myshop_AddrRegister" class="ec-base-layer">
+    <!--@css(/css/module/myshop/addrRegister_pop.css)-->
+    <!--
+        $return_url = /myshop/addr_popup/list.html
+    -->
+    <div class="header">
+        <h1>Address Book</h1>
+    </div>
+
+    <div class="content">
+        <div class="ec-base-help">
+            <h2>About Address Book</h2>
+            <div class="inner">
+                <ul>
+                    <li>You can add up to 10 addresses. Your address book will be automatically updated with the shipping address entered in your latest order, unless the addresses are manually added.</li>
+                    <li>If you do not want an automatic update, go to "Address Book" and change your auto update setting to "Fixed."</li>
+                    <li>To set a default shipping address, find the shipping address you want to make your primary and click "Edit". Check "Save as my default shipping address", then click "Save".</li>
+                </ul>
+            </div>
+        </div>
+        <p class="required"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /> Required Field</p>
+        <div class="ec-base-table typeWrite">
+            <table border="1" summary="">
+                <caption>Add Address</caption>
+                <colgroup>
+                    <col style="width:140px" />
+                    <col style="width:auto" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope="row">Address Label <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.ma_rcv_title}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Name(Recipient) <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.ma_rcv_name} {$form.ma_rcv_name_last}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Country <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.ma_rcv_contry_code}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Address Line 1 <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.address_addr1}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Address Line 2 <span class="{$addr2_display|display}"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></span></th>
+                    <td>{$form.address_addr2}</td>
+                </tr>
+                <tr>
+                    <th scope="row">City <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.city_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">State/Province <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.state_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Zip/ Postal code <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.address_zip1} <input type="checkbox" name="nozip" id="nozip" {$no_zip_checked} /><label for="nozip">No zip/postal code</label></td>
+                </tr>
+                <tr class="{$use_delivery_tel_display|display}">
+                    <th scope="row">Phone <span class="{$phone1_display|display}"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></span></th>
+                    <td>{$form.ma_rcv_phone}</td>
+                </tr>
+                <tr class="{$use_delivery_cell_display|display}">
+                    <th scope="row">Mobile <span class="{$phone2_display|display}"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></span></th>
+                    <td>{$form.ma_rcv_mobile_no}</td>
+                </tr>
+                <tr class="right">
+                    <td colspan="2">{$form.ma_main_flag}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnEmFix sizeS" onclick="{$action_check}">Save</a>
+        <a href="list.html" class="btnNormalFix sizeS">Cancel</a>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div module="Mall_UrgencycallSearchoutline" class="ec-base-layer">
+    <!--@css(/css/module/board/urgencycallSearchoutline.css)-->
+    <h1>{$sPrdOrdText}</h1>
+    <div class="wrap">
+        <div class="content">
+            <div id="tablist" class="ec-base-tab {$tabDisplay|display}">
+                <ul>
+                    <li id="liOrdtab" class="selected" onClick="{$clickOrdTab}"><a href="#none" id="tabordno" name="tabordno">Order No</a></li>
+                    <li id="liPrdtab" onClick="{$clickPrdTab}" ><a href="#none" id="tabprdno" name="tabprdno">Product</a></li>
+                </ul>
+            </div>
+            {$form.isLogin}
+
+            <div id="urgencyOrder" class="urgencyOrder {$ordDisplay|display}"></div>
+
+            <div id="urgencyProduct" class="urgencyProduct ec-base-table typeWrite {$prdDisplay|display}">
+                <table border="1" class="boardSearch">
+                    <caption>Item Search</caption>
+                    <colgroup>
+                        <col style="width:102px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                {$form.selPrdsearch}
+                            </th>
+                            <td>
+                                <span class="ec-base-field">
+                                    {$form.txtProductInfo}
+                                    <a href="#none" id="execSearch" name="execSearch" onClick="{$search_product}" class="btnStrong">Search</a>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="prdSearchResult"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="ec-base-button gFull">
+        <button type="button" class="btnEm" onclick="{$closeSearchLayer}">Close</button>
+    </div>
+    <button type="button" class="btnClose close" onclick="{$closeSearchLayer}">Close</button>
+</div>

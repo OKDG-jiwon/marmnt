@@ -1,0 +1,59 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea" module="Myshop_Head">
+    <h2>{$mileage_name}</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="myshop_mileagePackage">
+    <div module="myshop_summary">
+        <!--@css(/css/module/myshop/summary.css)-->
+        <h3>{$mileage_name}</h3>
+        <div class="ec-base-table gClearBorderTop">
+            <table border="1">
+                <caption>{$mileage_name}</caption>
+                <colgroup>
+                    <col style="width:110px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody class="right middle">
+                    <tr class="first">
+                        <th scope="row">Total <br>{$mileage_name}</th>
+                        <td><strong class="txtEm">{$total_mileage}</strong></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Aavailabe <br>{$mileage_name}</th>
+                        <td><strong class="txtEm">{$avail_mileage}</strong></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{$mileage_name} Used</th>
+                        <td>{$used_mileage}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pending <br>{$mileage_name}</th>
+                        <td>{$unavail_mileage}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{$mileage_name} to be Refunded</th>
+                        <td>{$refunded_mileage}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div module="myshop_historyList">
+    <!--
+        $login_page = /member/login.html
+    -->
+    </div>
+
+    <div class="navigation">
+        <ul>
+            <li><a href="/myshop/mileage/mileageList.html">Reward Points</a></li>
+            <li><a href="/myshop/mileage/unavailList.html">Pending Reward Points</a></li>
+            <li><a href="/myshop/mileage/couponList.html">Membership Reward Points</a></li>
+        </ul>
+    </div>
+</div>

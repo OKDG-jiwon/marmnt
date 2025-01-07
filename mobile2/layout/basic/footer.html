@@ -1,0 +1,129 @@
+<footer module="layout_footerPackage">
+    <!--@css(/css/module/layout/footerPackage.css)-->
+    <div class="footerMenu">
+        <p module="layout_info">
+            <span class="left">
+                <a href="tel:{$phone}" class="btnUtil typeTel">Customer Service <strong>{$phone}</strong></a>
+            </span>
+            <a href="#wrap" class="btnUtil typeTop">Top</a>
+        </p>
+        <div class="util">
+            <span>
+                <a href="/shopinfo/guide.html" class="btnUtil">Help</a>
+                <a href="/shopinfo/customer.html" class="btnUtil">Contact Us</a>
+                <a href="/board/consult/list.html" class="btnUtil">1:1 Posts</a>
+            </span>
+            <div module="Layout_ReferenceCurrencyList" class="list mobileFooter">
+                <!--@css(/css/module/layout/multiCurrency.css)-->
+                <button type="button" class="toggle" id="reference_currency_button">
+                    <span class="btn-global">Reference currency</span>
+                    <span class="currencyNow">{$current_reference_currency_code} {$current_reference_currency_symbol}</span>
+                </button>
+                <ul module="Layout_ReferenceCurrencyListitem" class="referencecurrencylistitem" id="reference_currency_list">
+                    <li class="">
+                        <a href="#">
+                            <span class="name">{$reference_currency_code}</span>
+                            <span class="unit">{$reference_currency_symbol}</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#">
+                            <span class="name">{$reference_currency_code}</span>
+                            <span class="unit">{$reference_currency_symbol}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#none" onclick="javascript:isPCver();" class="btnUtil typeRight">Full Site</a>
+        </div>
+        <ul class="policy">
+            <li><a href="/shopinfo/company.html">About Us</a></li>
+            <li><a href="/member/mall_agreement.html">Terms and Conditions</a></li>
+            <li><a href="/member/privacy.html"><strong>Privacy Policy</strong></a></li>
+        </ul>
+    </div>
+    <div module="Layout_footer">
+        <address>
+            <div class="footerInfo">
+                <dl>
+                    <dt>Business Name</dt>
+                    <dd>{$mall_name}</dd>
+                </dl>
+                <dl>
+                    <dt>CEO</dt>
+                    <dd><a href="mailto:{$email}">{$president_name}</a></dd>
+                </dl>
+                <dl>
+                    <dt>Phone</dt>
+                    <dd><a href="tel:{$phone}">{$phone}</a></dd>
+                </dl>
+                <dl>
+                    <dt>Address</dt>
+                    <dd>{$mall_addr1}<br>{$mall_addr2}</dd>
+                </dl>
+                <dl class="{$company_regno|display}">
+                    <dt>Business Registration</dt>
+                    <dd>{$company_regno}</dd>
+                </dl>
+                <dl class="{$network_regno|display}">
+                    <dt>E-Commerce Permit</dt>
+                    <dd>{$network_regno}</dd>
+                </dl>
+                <dl class="{$cpo_email|display}">
+                    <dt>Personal Information Manager</dt>
+                    <dd><a href="mailto:{$cpo_email}">{$cpo_name}</a></dd>
+                </dl>
+                <dl class="{$hosting_by_display|display}">
+                    <dt>Web hosting by</dt>
+                    <dd>cafe24 corp.</dd>
+                </dl>
+            </div>
+        </address>
+        <p class="copyright">Copyright&copy; {$mall_name}. All Rights Reserved.</p>
+    </div>
+</footer>
+<div id="progressPaybar" style="display:none;">
+
+    <div id="progressPaybarBackground" class="layerProgress"></div>
+
+    <div id="progressPaybarView">
+        <p class="graph">Payment in Process</p>
+        <p class="txt">
+            This window will automatically close<br>
+            when payment is processed.<br>
+            Do not close this window until <br>
+            processing completes.
+        </p>
+    </div>
+</div>
+<div module="Layout_multishopShipping" class="ec-base-layer typeModal">
+    <!--@css(/css/module/layout/multishopShipping.css)-->
+    <!--@js(/js/module/layout/multishopShipping.js)-->
+    <h1>WORLD SHIPPING</h1>
+    <div class="wrap worldshipLayer">
+        <p class="desc">PLEASE SELECT THE DESTINATION COUNTRY AND LANGUAGE :</p>
+        <div class="select">
+            <select module="Layout_multishopShippingCountrylist">
+                <option value="{$country_code}"{$country_default_selected}>SHIPPING TO : {$country_name}</option>
+                <option value="{$country_code}"{$country_default_selected}>SHIPPING TO : {$country_name}</option>
+            </select>
+        </div>
+        <div class="select">
+            <select module="Layout_multishopShippingLanguagelist">
+                <option value="{$shop_domain}"{$shop_default_selected}>LANGUAGE : {$shop_language_name}</option>
+                <option value="{$shop_domain}"{$shop_default_selected}>LANGUAGE : {$shop_language_name}</option>
+            </select>
+        </div>
+    </div>
+    <div class="ec-base-button gFull">
+        <a href="#none" class="btnSubmit">GO</a>
+    </div>
+	<a href="#none" class="btnClose">Close</a>
+</div>
+<div class="btnTop" id="btnTop">
+    <a href="#">Top</a>
+</div>
+<div module="mobilequick_display">
+    {$quick_link}
+    {$quick_button}
+</div>

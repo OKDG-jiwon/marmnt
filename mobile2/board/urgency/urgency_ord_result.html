@@ -1,0 +1,71 @@
+
+<div module="Mall_UrgencycallOrdLogout" class="{$displayLogout|display}">
+    <div class="ec-base-table typeWrite">
+        <table border="1">
+            <caption>Search for order number</caption>
+            <colgroup>
+                <col style="width:85px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Order No</th>
+                    <td>
+                        <input type="text" id="{$order_id1}" class="inputOrdNum"> - <input type="text" id="{$order_id2}" class="inputOrdNum"> <a href="#none" class="btnStrong" onclick="{$insertfn}">Register</a>
+                        <p class="ec-base-help typeDash">ex) 00000000 - 0000000</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div module="Mall_UrgencycallOrdResult" class="{$displayLogin|display}">
+    <div class="content">
+        <p class="ordPagenum">{$form.ordPagenum}</p>
+        <div class="boardList">
+            <div class="{$displayPrdlist|display}">
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName">{$product_name}</strong>
+                            <ul class="info">
+                                <li>Order No : {$order_id}</li>
+                            </ul>
+                        </div>
+                        <div class="ec-base-button">
+                            <a href="#none" class="btnStrong" onClick="{$selectfn}">Select</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName">{$product_name}</strong>
+                            <ul class="info">
+                                <li>Order No : {$order_id}</li>
+                            </ul>
+                        </div>
+                        <div class="ec-base-button">
+                            <a href="#none" class="btnStrong" onClick="{$selectfn}">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="empty {$displayEmpty|display}">No Search Results.</p>
+        </div>
+        <div module="Mall_UrgencycallOrdPage" class="ec-base-paginate typeList {$displayLogin|display}">
+            <a href="#none" onClick="{$prev}" class="btnPrev">Previous Page</a>
+            <ol>
+                <li><a href="#none" onClick="{$select_pageno}" class="{$curPageClass}">{$num}</a></li>
+                <li><a href="#none" onClick="{$select_pageno}" class="{$curPageClass}">{$num}</a></li>
+                <li><a href="#none" onClick="{$select_pageno}" class="{$curPageClass}">{$num}</a></li>
+                <li><a href="#none" onClick="{$select_pageno}" class="{$curPageClass}">{$num}</a></li>
+            </ol>
+            <a href="#none" onClick="{$next}" class="btnNext">Next Page</a>
+        </div>
+    </div>
+</div>

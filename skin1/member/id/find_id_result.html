@@ -1,0 +1,37 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot ID</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot ID</h2>
+</div>
+
+<div module="member_findidresult" class="ec-base-box typeThin">
+    <!--@css(/css/module/member/find_id_result.css)-->
+    <div class="findId">
+        <h3 class="boxTitle">Forgot ID</h3>
+        <p class="info">You have successfully recovered your ID.</p>
+        <div class="ec-base-box typeMember gMessage">
+            <p class="message">Thank you for shopping with us.<br />The following <span class="txtEm">{$idCnt}</span> ID was found with the information you have provided us.</p>
+            <div class="information">
+                <p class="thumbnail"><img src="//img.echosting.cafe24.com/skin/base/member/img_member_default.gif" alt="" /></p>
+                <div class="description">
+                    <ul class="ec-base-desc gSmall">
+                        <li class="{$display_name|display}"><strong class="term">Name</strong><strong class="desc"> : {$name}</strong></li>
+                        <li><strong class="term">{$searchType}</strong><span class="desc"> : {$searchInfo}</span></li>
+                        <li>{$searchIds}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ec-base-button gBlank20">
+            <a href="javascript:go_findlogin('{$id}');" class="btnSubmitFix sizeM">Sign in</a>
+            <a href="javascript:go_findpwd('{$id}','{$mtype}');" class="btnEm sizeM">Forgot Password</a>
+        </div>
+    </div>
+</div>

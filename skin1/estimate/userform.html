@@ -1,0 +1,54 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Estimate_Userform" class="ec-base-layer">
+    <!--@css(/css/module/estimate/userform.css)-->
+    <!--
+        $action_url = /estimate/print.html
+    -->
+    <div class="header">
+        <h1>Price Quote Request Form</h1>
+    </div>
+
+    <div class="content">
+        <h2>Personal Information</h2>
+        <div class="ec-base-table">
+            {$form.begin}
+            <table border="1" summary="">
+                <caption>Personal Information</caption>
+                <colgroup>
+                    <col style="width:150px" />
+                    <col style="width:auto" />
+                </colgroup>
+                <tr>
+                    <th scope="row">Your Name</th>
+                    <td>{$form.user_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mobile</th>
+                    <td>{$form.mobile}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td>
+                        {$form.email}
+                        <p class="gBlank5">- Please enter your email address to receive online quote.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Agree to privacy policy</th>
+                    <td>
+                        <div class="agree">{$privacy_agreement}</div>
+                        <p class="gBlank5">
+                            <span class="gSpace20">Do you agree to the collection and use of personal data?</span>
+                            {$form.agree_T}<label for="agreement_check_T">I agree</label> {$form.agree_F}<label for="agreement_check_F">I disagree</label>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            {$form.end}
+        </div>
+    </div>
+
+    <div class="ec-base-button">
+        <a href="#none" class="btnSubmitFix sizeS" onclick="{$action_confirm}">Submit</a>
+    </div>
+</div>

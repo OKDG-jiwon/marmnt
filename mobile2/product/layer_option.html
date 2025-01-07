@@ -1,0 +1,373 @@
+<!--@layout(/layout/basic/layer.html)-->
+<div module="product_detail" id="{$product_detail_option_layer}" class="ec-base-layer typeModal">
+    <!--@css(/css/module/product/detail_option.css)-->
+    <h1>Select Product</h1>
+    <div class="wrap optionArea">
+        <div class="ec-base-table typeWrite gClearCell gClearBorder">
+            <p class="name">{$name}</p>
+            <table border="1" module="product_option">
+                <!--
+                $use_per_add_option = yes
+                $default_option = yes
+                -->
+                <caption>Product Summary</caption>
+                <colgroup>
+                    <col style="width:80px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody module="product_option">
+                    <tr>
+                        <th scope="row">{$option_name}</th>
+                        <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                    </tr>
+                    <tr module="product_quantity">
+                        <th scope="row">Quantity</th>
+                        <td>
+                            <div class="ec-base-qty">
+                                <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                {$form.quantity}
+                                <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr module="product_addoption">
+                        <th scope="row">{$add_option_name}</th>
+                        <td>
+                            {$form.add_option}
+                            <span class="byte" title="current/max">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="{$option_push_button_display|display}" id="{$option_push_button_id}">
+                        <td colspan="2" class="right"><button type="button" class="btnStrong" onclick="{$action_push_button}">Select item with details above </button></td>
+                    </tr>
+                    <tr module="product_fileoption">
+                        <th scope="row">{$file_option_name}</th>
+                        <td class="fileInfo">
+                            {$form.file_option}
+                            <ul class="ec-base-help typeDash">
+                                <li>You can upload up to 5 files and each file can be up to {$file_option_limit} MB in size. </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="quantity {$quantity_display|display}">
+                        <th scope="row">Quantity</th>
+                        <td>
+                            <div class="ec-base-qty">
+                                <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                {$form.quantity}
+                                <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr module="product_quantity" class="quantity">
+                        <th scope="row">Quantity</th>
+                        <td>
+                            <div class="ec-base-qty">
+                                <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                {$form.quantity}
+                                <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="productSet normal" module="product_setproduct">
+            <!--
+            $use_per_add_option = yes
+            -->
+            <ul class="product">
+                <li>
+                    <div class="information">
+                        <p class="name">{$product_name} <span class="qty">(Sold in sets of {$set_quantity})</span></p>
+                    </div>
+                    <div class="ec-base-table typeWrite gClearCell gClearBorder">
+                        <table border="1">
+                            <caption>Product Option</caption>
+                            <colgroup>
+                                <col style="width:80px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">Select Product</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>]
+                                        {$form.add_option}
+                                        <span class="byte" title="current/max">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                     </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li>
+                    <div class="information">
+                        <p class="name">{$product_name} <span class="qty">(Sold in sets of {$set_quantity})</span></p>
+                    </div>
+                    <div class="ec-base-table typeWrite gClearCell gClearBorder">
+                        <table border="1">
+                            <caption>Product Option</caption>
+                            <colgroup>
+                                <col style="width:80px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">Select Product</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>]
+                                        {$form.add_option}
+                                        <span class="byte" title="current/max">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                     </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+            <dl module="product_quantity" class="quantity set">
+                <dt>Quantity</dt>
+                <dd>
+                    <div class="ec-base-qty">
+                        <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                        {$form.quantity}
+                        <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="productSet normal" module="product_addproduct">
+            <!--
+            $use_per_add_option = yes
+            -->
+            <strong class="title toggle"><span>Buy together</span></strong>
+            <ul class="product">
+                <li>
+                    <div class="information">
+                        <p class="name">{$product_name}</p>
+                        <p class="price {$product_price_del}">{$product_price}</p>
+                        <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                    </div>
+                    <div class="ec-base-table typeWrite gClearCell gClearBorder">
+                        <table border="1">
+                            <caption>Product Option</caption>
+                            <colgroup>
+                                <col style="width:80px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">Select Product</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="current/max">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">Select item with details above </button></div>
+                </li>
+                <li>
+                    <div class="information">
+                        <p class="name">{$product_name}</p>
+                        <p class="price {$product_price_del}">{$product_price}</p>
+                        <p class="salePrice {$product_sale_price_display|display}">{$product_sale_price}</p>
+                    </div>
+                    <div class="ec-base-table typeWrite gClearCell gClearBorder">
+                        <table border="1">
+                            <caption>Product Option</caption>
+                            <colgroup>
+                                <col style="width:80px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody module="product_option">
+                                <tr>
+                                    <th scope="row">{$option_name}</th>
+                                    <td>{$form.option}<p class="value">{$option_desc}</p></td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody module="product_noneoption">
+                                <tr>
+                                    <th scope="row">Select Product</th>
+                                    <td>{$form.noneoption}</td>
+                                </tr>
+                                <tr module="product_quantity" class="quantity">
+                                    <th scope="row">Quantity</th>
+                                    <td>
+                                        <div class="ec-base-qty">
+                                            <img class="{$quantity_down_class}" alt="down" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_down.jpg" width="33" height="29">
+                                            {$form.quantity}
+                                            <img class="{$quantity_up_class}" alt="up" src="//img.echosting.cafe24.com/skin/mobile/common/ico_quantity_up.jpg" width="33" height="29">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr module="product_addoption">
+                                    <th scope="row">{$add_option_name}</th>
+                                    <td>
+                                        {$form.add_option}
+                                        <span class="byte" title="current/max">[ <strong class="length">0</strong> / {$option_maxlength} ]</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="selectButton {$add_option_push_button_display|display}" id="{$add_option_push_button_id}"><button type="button" class="btnStrong" onclick="{$add_action_push_button}">Select item with details above </button></div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="{$total.total_id}" class="{$total.total_display|display}">
+            <table border="1" summary="">
+                <caption>Product List</caption>
+                <colgroup>
+                    <col style="width:auto;">
+                    <col style="width:100px;">
+                    <col style="width:35px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <!-- Do not delete. -->
+                <tbody>
+                </tbody>
+                <!-- // Do not delete. -->
+            </table>
+        </div>
+        <div id="{$total.total_price_id}" class="totalPrice">
+            <strong>Merchandise Total</strong> <span class="{$total.total_cnt}"><strong class="price">0</strong></span>
+        </div>
+        <p class="ec-base-help {$price_warning_class}">Discounted amount of your subtotal will appear when you place your orders.</p>
+        <div module="product_action">
+            <div class="ec-base-button gColumn {$action_display|display}">
+                <a href="#none" class="btnSubmit {$buy_display|display}" onclick="{$action_buy}"><span id="{$btn_buy_mobile_id}">Checkout</span><span class="{$btn_reserve_class|display}" id="{$btn_reserve_mobile_id}">Backorder</span></a>
+                <button type="button" class="btnEm {$basket_display|display}" onclick="{$action_basket}">Cart</button>
+                <button type="button" class="btnEm {$wishlist_display|display}" onclick="{$action_wishlist}">Wish List</button>
+            </div>
+            <div class="ec-base-button gColumn {$action_soldout_display|display}">
+                <button type="button" class="btnSubmit {$soldout_display|display}">Sold Out</button>
+                <button type="button" class="btnEm {$wishlist_display|display}" onclick="{$action_wishlist}">Wish List</button>
+            </div>
+            <div id="NaverChk_Button" style="display:none;"></div>
+            <div id="{$app_payment_button_box_id}"></div>
+        </div>
+    </div>
+    <a href="#none" class="btnClose" onclick="closeBuyLayer();">Close</a>
+</div>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+    <title>Search/Apply Coupons</title>
+    <!--@css(/css/module/order/ec_orderform/form_onetouch.css)-->
+    <!-- If you want to create your own style, create a new CSS style sheet. Try coding #userStyle #mCafe24Order { } . -->
+
+
+    <!--@js(/layout/basic/js/common.js)-->
+</head>
+<body id="popup" class="layer">
+<div id="userStyle">
+    <div id="mCafe24Order">
+        <div module="Coupon_SelectNew" class="ec-base-layer typeWide gClearFlex">
+            <!--
+                $prd_non_coupon_display = F
+            -->
+            <h1>Search/Apply Coupons</h1>
+            <div class="wrap">
+                <div class="pannelArea {$bPrdCoupon|display}">
+                    <div class="title">
+                        <h2>Apply Product Coupon</h2>
+                    </div>
+                    <div class="contents">
+                        <div module="Coupon_aPrd" class="segment">
+                            <div class="ec-base-box">
+                                <strong class="prdName">{$product_name}<span>{$sOptStr}</span><span id="{$coupon_prd_hidden}">{$sHidden}</span></strong>
+                                <div class="ec-base-table gCellNarrow">
+                                    <table border="1">
+                                        <caption>Apply Product Coupon</caption>
+                                        <colgroup>
+                                            <col style="width:102px" />
+                                            <col style="width:auto" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">Price</th>
+                                            <td class="right">{$sOrdPrice}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Discount Type</th>
+                                            <td id="{$coupon_prd_total_sale_price}" class="right">{$sTotalMemberSalePrice}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <span id="{$coupon_prd_select}" class="gBlank14">{$sCoupon}</span>
+                            <div class="totalPay gBlank14">
+                                <h3 class="heading">Discounted Amount</h3>
+                                <strong class="txtStrong">{$sCouponSaleSpan}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pannelArea {$bOrdCoupon|display}">
+                    <div class="title">
+                        <h2>Apply Purchase Coupon</h2>
+                    </div>
+                    <div class="contents">
+                        <div class="segment">
+                            <ul id="{$selected_order_coupon_id}" class="ordCouponList">
+                                <li>{$sOrdCoupon}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pannelArea ec-shipCoupon">
+                    <div class="title">
+                        <h2>Apply Shipping Coupon</h2>
+                    </div>
+                    <div class="contents">
+                        <div class="segment">
+                            <div class="ec-base-box">
+                                <ul id="{$selected_ship_coupon_id}" class="shipCouponList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ec-base-fold theme2 eToggle">
+                    <div class="title">
+                        <h2>Coupon Discounts</h2>
+                        <span class="txtStrong gRight">{$price_unit_head}<span id="{$total_coupon_discount_id}">0</span>{$price_unit_tail}</span>
+                    </div>
+                    <div class="contents">
+                        <div class="ec-base-table gCellNarrow">
+                            <table border="1">
+                                <caption>Coupon Discounts</caption>
+                                <colgroup>
+                                    <col style="width:138px" />
+                                    <col style="width:auto" />
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Apply Product Coupon</th>
+                                    <td class="right">{$price_unit_head}<span id="{$product_coupon_discount_id}">0</span>{$price_unit_tail}/<span id="{$product_coupon_mileage_id}">0</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Apply Purchase Coupon</th>
+                                    <td class="right">{$price_unit_head}<span id="{$order_coupon_discount_id}">0</span>{$price_unit_tail}/<span id="{$order_coupon_mileage_id}">0</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Apply Shipping Coupon</th>
+                                    <td class="right">{$price_unit_head}<span id="{$ship_coupon_discount_id}">0</span>{$price_unit_tail}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="helpArea">
+                            <ul class="ec-base-help">
+                                <li>Please note the actual price you pay for your order may vary depending on your membership level.</li>
+                                <li>Coupon discounts are calculated once your membership level discount is applied to your order total.</li>
+                                <li>Additional coupons can be added to your order regardless of any limit on the number of coupons used. You can use one extra product coupon and one extra checkout coupon.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-base-button gFull">
+                <button type="button" class="btnSubmit" onclick="{$action_result}">Apply Coupon</button>
+            </div>
+            <button type="button" class="btnClose" onclick="javascript:self.close();">Close</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Myshop_couponProductPackage" class="ec-base-layer">
+    <!--@css(/css/module/myshop/couponProductPackage.css)-->
+    <h1>Search Applicable Products</h1>
+    <div class="wrap">
+        <div module="myshop_CouponProductSearch">
+            <fieldset>
+                <legend>Apply Coupon and Search Product</legend>
+                <p>{$form.coupon_no} is applicable to the following products.</p>
+                <p>{$form.search_key} {$form.search} <button type="button" onclick="{$action_form_submit}" class="btnStrong">Search</button></p>
+            </fieldset>
+        </div>
+
+       <div class="title">
+           <p class="result"><strong>{$totalPrd}</strong>results</p>
+           {$ec_list_size}
+       </div>
+
+        <div module="myshop_CouponProductList">
+            <div class="item {$display_product_list|display}">
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" onerror="" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName" title="Product"><a href="/product/detail.html?product_no={$product_no}&main_cate_no={$main_cate_no}&display_group={$display_group}" target="_blank">{$product_name}</a></strong>
+                            <ul class="info">
+                                <li class="price" title="Price"><strong>{$product_price|number_format}</strong></li>
+                                <li>{$category_add_basket}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" onerror="" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName" title="Product"><a href="/product/detail.html?product_no={$product_no}&main_cate_no={$main_cate_no}&display_group={$display_group}" target="_blank">{$product_name}</a></strong>
+                            <ul class="info">
+                                <li class="price" title="Price"><strong>{$product_price|number_format}</strong></li>
+                                <li>{$category_add_basket}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="empty {$display_no_product_list|display}">
+                No products were found for this coupon.
+            </p>
+        </div>
+
+        <div module="myshop_CouponProductPaging" class="ec-base-paginate typeList">
+            <a href="{$prev_url}" class="btnPrev">Previous</a>
+            <ol>
+                <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+                <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+                <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            </ol>
+            <a href="{$next_url}" class="btnNext">Next</a>
+        </div>
+    </div>
+    <button type="button" class="btnClose" onclick="window.close()">Close</button>
+</div>

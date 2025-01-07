@@ -1,0 +1,41 @@
+<!--@layout(/layout/basic/layer.html)-->
+<div module="Product_RestockEmail" class="ec-base-layer">
+    <!--@css(/css/module/product/restock_email.css)-->
+    <h1>Request back-in-stock notification</h1>
+    <div class="wrap">
+        <div class="product">
+            <p class="prdImg"><img src="{$product_image}" alt="" /></p>
+            <div class="info">
+                <h2>{$product_name}</h2>
+                <p>Option Information</p>
+                <p>{$restock_option_name}</p>
+
+                <div class="optionWrap">
+                    <ul module="Product_optionstock">
+                         <li>
+                             <span class="name">{$option_name}</span>
+                             <div class="option">{$form.option}<p class="value">{$option_desc}</p></div>
+                         </li>
+                     </ul>
+                </div>
+            </div>
+        </div>
+        <div class="emailArea">
+            <p><strong>Enter your email address and we'll notify you when this item is back in stock.</strong></p>
+            <div class="contact">
+                <p>Your email address :<strong> {$member_id}</strong></p>
+                <p>{$form.email}</p>
+            </div>
+            <ul class="info">
+            	<li>Products that you have requested for notifications will be added to your wishlist.</li>
+                <li>Please note that the requested product's price/options may change after it is restocked. Check the product information carefully before making a purchase.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ec-base-button gColumn">
+        <button type="button" onclick="{$action_write}" class="btnSubmit">SUBMIT</button>
+        <button type="button" onclick="self.close();" class="btnEm">CANCEL</button>
+    </div>
+    <button type="button" class="btnClose" onclick="window.close()">Close</button>
+</div>

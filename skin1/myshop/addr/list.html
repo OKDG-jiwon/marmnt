@@ -1,0 +1,102 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Address Book</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Address Book</h2>
+    <p>Please add frequently used shipping addresses.</p>
+</div>
+
+<div module="myshop_AddrList">
+    <!--
+        $return_url = /myshop/addr/list.html
+    -->
+    <div class="ec-base-table typeList">
+        <table border="1" summary="">
+            <caption>Address List</caption>
+            <colgroup>
+                <col style="width:27px" />
+                <col style="width:90px" />
+                <col style="width:120px" />
+                <col style="width:120px" />
+                <col style="width:150px" />
+                <col style="width:auto" />
+                <col style="width:76px" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col"><span class="{$list_display|display}">{$sCheckAll}</span></th>
+                    <th scope="col">Setting</th>
+                    <th scope="col">Address Label</th>
+                    <th scope="col">Recipient</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody class="{$list_display|display} center">
+                <tr>
+                    <td>{$checkbox}</td>
+                    <td>{$fix_display_none}<a href="{$fix_url}" class="btnNormal {$notfix_display|display}">Auto</a><a href="{$fix_url}" class="btnEm {$fix_display|display}">Fixed</a></td>
+                    <td><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/ico_addr_default.gif" class="{$default_img_display|display}" alt="Default"/> {$ma_rcv_title}</td>
+                    <td>{$ma_rcv_name}<p>{$c_receiver_name_en}</p><p>{$c_receiver_name_phonetic}</p></td>
+                    <td>{$ma_rcv_phone}<p>{$ma_rcv_mobile_no}</p></td>
+                    <td class="left">
+                        <ul>
+                            <li>{$ma_rcv_addr1}</li>
+                            <li>{$ma_rcv_addr2}</li>
+                            <li>{$receiver_city_en} {$receiver_state_en} {$ma_rcv_zipcode} {$country_name_en}</li>
+                        </ul>
+                    </td>
+                    <td><a href="modify.html?ma_idx={$ma_idx}" class="btnNormal {$notfix_display}">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>{$checkbox}</td>
+                    <td>{$fix_display_none}<a href="{$fix_url}" class="btnNormal {$notfix_display|display}">Auto</a><a href="{$fix_url}" class="btnEm {$fix_display|display}">Fixed</a></td>
+                    <td><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/ico_addr_default.gif" class="{$default_img_display|display}" alt="Default"/> {$ma_rcv_title}</td>
+                    <td>{$ma_rcv_name}<p>{$c_receiver_name_en}</p><p>{$c_receiver_name_phonetic}</p></td>
+                    <td>{$ma_rcv_phone}<p>{$ma_rcv_mobile_no}</p></td>
+                    <td class="left">
+                        <ul>
+                            <li>{$ma_rcv_addr1}</li>
+                            <li>{$ma_rcv_addr2}</li>
+                            <li>{$receiver_city_en} {$receiver_state_en} {$ma_rcv_zipcode} {$country_name_en}</li>
+                        </ul>
+                    </td>
+                    <td><a href="modify.html?ma_idx={$ma_idx}" class="btnNormal {$notfix_display}">Edit</a></td>
+                </tr>
+            </tbody>
+            <tbody class="{$nodata_display|display}">
+                <tr>
+                    <td colspan="7" class="message">There is no address in your address book.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ec-base-button">
+        <span class="gLeft {$delete_display|display}" >
+            <a href="#none" class="btnNormal sizeS" onclick="{$action_delete}; return false;">Remove Selected Address</a>
+        </span>
+        <span class="gRight">
+            <a href="register.html" class="btnSubmitFix sizeS">Add</a>
+        </span>
+    </div>
+</div>
+
+<div class="ec-base-help">
+    <h3>About Address Book</h3>
+    <div class="inner">
+        <ol>
+            <li class="item1">You can add up to 50 addresses. Your address book will be automatically updated with the shipping address entered in your latest order, unless the addresses are manually added.</li>
+            <li class="item2">If you do not want an automatic update, go to "Address Book" and change your auto update setting to "Fixed."</li>
+            <li class="item3">To set a default shipping address, find the shipping address you want to make your primary and click "Edit". Check "Save as my default shipping address", then click "Save".</li>
+        </ol>
+    </div>
+</div>

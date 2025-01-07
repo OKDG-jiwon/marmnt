@@ -1,0 +1,67 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Welcome</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Welcome</h2>
+</div>
+
+<div module="member_joinComplete">
+    <!--@css(/css/module/member/joincomplete.css)-->
+    <div class="joinComplete">
+        <h3><img src="//img.echosting.cafe24.com/skin/base_en_US/member/h3_join_complete.gif" alt="Join" /></h3>
+        <p class="desc">Your account has been created!</p>
+        <div class="ec-base-box typeMember gMessage">
+            <strong class="message">Thank you for shopping with us.</strong>
+            <div class="information">
+                <p class="thumbnail"><img src="{$group_image}" alt="{$group_name}" onerror="this.src='//img.echosting.cafe24.com/skin/base/member/img_member_default.gif';" /></p>
+                <div class="description">
+                    <dl class="ec-base-desc gBlank5">
+                        <dt>ID</dt><dd>{$member_id}</dd>
+                        <dt class="{$display_member_name|display}">Name</dt><dd class="{$display_member_name|display}">{$member_name}</dd>
+                        <dt>Email</dt><dd>{$member_email}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="memberSpecial" module="member_BenefitJoin">
+            <p>Thank you for signing up.<br/>Your membership level is [{$group_name}].</p>
+            <p class="{$display_no_benefit|display}"> Receive an {$use_dc} of <strong>{$dc_price}{$dc_type}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price}</strong>. {$dc_max_percent}</p>
+            <p class="{$display_with_all|display}"> Receive {$use_dc_mileage} of <strong>{$dc_price_mileage}{$dc_type_mileage}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price_mileage}</strong>. {$dc_max_mileage_percent}</p>
+        </div>
+        <p class="memberAge {$under_fourteen_display|display}">
+            <strong>If you are under 14 years of age</strong>, please note that you will be able to use your account once your account has been verified through the account confirmation process.
+        </p>
+        <div class="ec-base-button gBlank20">
+            <a href="/member/login.html" class="btnSubmitFix sizeM {$display_login_chk|display}">Log in</a>
+            <a href="{$redirect_function}" class="btnEmFix sizeM">complete</a>
+        </div>
+    </div>
+</div>
+
+<div module="coupon_join">
+    <!--@css(/css/module/coupon/join.css)-->
+    <div class="couponSkinArea">
+        <ul class="grid3">
+            <li>
+                <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                    <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name}</strong>
+                    <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                    <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                </div>
+            </li>
+            <li>
+                <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                    <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name}</strong>
+                    <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                    <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

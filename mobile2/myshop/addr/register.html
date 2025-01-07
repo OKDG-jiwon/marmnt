@@ -1,0 +1,64 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Address Book</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="myshop_AddrRegister">
+    <!--@css(/css/module/myshop/addrRegister.css)-->
+    <!--
+        $return_url = /myshop/addr/list.html
+        $isRuleBasedAddrForm = T
+    -->
+    <h3>Add New Address</h3>
+
+    <div class="ec-base-table typeWrite gClearBorderTop">
+        <table border="1">
+            <caption>Add frequently used shipping address</caption>
+            <colgroup>
+                <col style="width:115px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Address Label <img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5"></th>
+                    <td>{$form.ma_rcv_title}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5"></th>
+                    <td>{$form.ma_rcv_name}{$form.ma_rcv_name_last}</td>
+                </tr>
+                <tr class="{$english_name_display|display}">
+                    <th scope="row">English Name <img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5" id="{$icon_id_english_name}"></th>
+                    <td>{$form.ma_rcv_name_en}{$form.name_en_last}</td>
+                </tr>
+                <tr class="{$pron_name_display|display}">
+                    <th scope="row">Phonetics <img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5" id="{$icon_id_pron_name}"></th>
+                    <td>{$form.ma_rcv_name_phonetic}{$form.name_phonetic_last}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Address Line <img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5"></th>
+                    <td>{$form.address}</td>
+                </tr>
+                <tr class="{$use_delivery_tel_display|display}">
+                    <th scope="row">Phone <span class="{$phone1_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5"></span></th>
+                    <td>{$form.ma_rcv_phone}</td>
+                </tr>
+                <tr class="{$use_delivery_cell_display|display}">
+                    <th scope="row">Mobile <span class="{$phone2_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_required.png" alt="Required" width="5" height="5"></span></th>
+                    <td>{$form.ma_rcv_mobile_no}</td>
+                </tr>
+                <tr class="shipping">
+                    <td colspan="2">{$form.ma_main_flag}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ec-base-button gColumn">
+        <a href="#none" onclick="{$action_check}" class="btnSubmit">Add</a>
+        <a href="list.html" class="btnEm">Cancel</a>
+    </div>
+</div>

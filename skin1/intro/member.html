@@ -1,0 +1,50 @@
+<!--@layout(/layout/basic/intro.html)-->
+<div module="Intro_memberPackage" class="intro membership">
+    <!--@css(/css/module/intro/intro.css)-->
+    <h1>Members Sign In</h1>
+    <div class="alert">
+        <div class="inner">
+            <h2>For <strong class="txtEm">Registered Members Only Members Sign In</strong></h2>
+            <p class="info">To order products, please Sign In. If you are not a member yet, please sign Up now!</p>
+        </div>
+    </div>
+    <div module="Member_Login" class="member">
+        <!--
+            $forbidIpUrl = member/adminFail.html
+            $defaultReturnUrl = /index.html
+        -->
+        <h2>Member Sign In</h2>
+        <fieldset class="login">
+            <legend>Member Sign In</legend>
+            <label class="id ePlaceholder" title="{$login_id_type_text}">{$form.member_id}</label>
+            <label class="password ePlaceholder" title="Password">{$form.member_passwd}</label>
+            <p class="security"><img src="//img.echosting.cafe24.com/skin/base/member/ico_access.gif" alt="" /> Secure Sign In</p>
+            <a href="#none" onclick="{$action_func_login}" class="btnLogin">Sign In</a>
+        </fieldset>
+        <div class="join">
+            <a href="/member/id/find_id.html{$skip_intro}">Forgot ID</a>
+            <a href="/member/passwd/find_passwd_info.html{$skip_intro}">Forgot Password</a>
+            <a href="/member/join.html{$skip_intro}">Join</a>
+        </div>
+        <ul class="snsArea">
+            <li class="{$display_naver|display}">
+                <a href="#none" onclick="{$naver_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_naver_login.gif" alt="Login with Naver" /></a>
+            </li>
+            <li class="{$display_facebook|display}">
+                <a href="#none" onclick="{$facebook_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_facebook_login.gif" alt="Login with Facebook" /></a>
+            </li>
+            <li class="{$display_google|display}">
+                <a href="#none" onclick="{$google_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_google_login.gif" alt="Login with Google" /></a>
+            </li>
+            <li class="{$display_kakao|display}">
+                <a href="#none" onclick="{$kakao_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_kakao_login.gif" alt="Start with Kakao" /></a>
+            </li>
+            <li class="{$display_line|display}">
+                <a href="#none" onclick="{$line_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_line_login.gif" alt="Login with LINE" /></a>
+            </li>
+            <li class="{$display_apple|display}">
+                <a href="#none" onclick="{$apple_func_login}"><img src="//img.echosting.cafe24.com/skin/base_en_US/member/btn_apple_login.gif" alt="Login with Apple" /></a>
+            </li>
+        </ul>
+    </div>
+</div>

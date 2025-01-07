@@ -1,0 +1,39 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Forgot ID</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="member_findidresult">
+    <!--@css(/css/module/member/findidresult.css)-->
+    <div class="info">
+        <p class="message">You have successfully recovered your ID.</p>
+        The following <strong class="txtEm">{$idCnt}</strong> ID was found with the information you have provided us.
+    </div>
+    <div class="ec-base-table gClearCell">
+        <table border="1">
+            <caption>ID Search Result</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr class="{$display_name|display}">
+                    <th scope="row">Name</th>
+                    <td>{$name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{$searchType}</th>
+                    <td>{$searchInfo}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="list">{$searchIds}</p>
+    <div class="ec-base-button gColumn">
+        <a href="javascript:go_findlogin('{$id}');" class="btnSubmit">Sign In</a>
+        <a href="javascript:go_findpwd('{$id}','{$mtype}');" class="btnEm">Forgot Password</a>
+    </div>
+</div>

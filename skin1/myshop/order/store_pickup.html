@@ -1,0 +1,132 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="MyShop_OrderHistoryStorepickup" class="ec-base-layer">
+    <!--@css(/css/module/myshop/orderStorePickup.css)-->
+    <div class="header">
+        <h1>Pickup Information</h1>
+    </div>
+    <div class="content">
+        <p class="ec-base-box">
+            <strong>{$delivery.mall_name}({$delivery.mall_domain}) Pickup Information</strong><br />Please see below for your in-store pickup information.
+        </p>
+
+        <h3>Order Details</h3>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+                <caption>Order Details</caption>
+                <colgroup>
+                    <col style="width:140px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Order Number</th>
+                        <td>{$order.order_id}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Order Date</th>
+                        <td>{$order.date}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>{$order.name}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Product Description</h3>
+        <div class="ec-base-table typeList">
+            <table border="1" summary="">
+                <caption>Product Description</caption>
+                <colgroup>
+                    <col style="width:auto;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="row">Item</th>
+                        <th scope="row">Option</th>
+                        <th scope="row">Quantity</th>
+                        <th scope="row">Merchandise Total</th>
+                    </tr>
+                </thead>
+                <tbody class="center">
+                    <tr>
+                        <td class="left"><strong>{$product_title.product_name}</strong></td>
+                        <td>{$product_title.option_str}</td>
+                        <td>{$product_title.quantity}</td>
+                        <td><strong class="txtEm">{$product_title.total_product_price}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Pickup Person</h3>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+                <caption>Pickup Person</caption>
+                <colgroup>
+                    <col style="width:120px;" />
+                    <col style="width:252px;" />
+                    <col style="width:120px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Pickup Person</th>
+                        <td colspan="3">{$delivery.name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone</th>
+                        <td>{$delivery.rphone_1}</td>
+                        <th scope="row">Mobile</th>
+                        <td>{$delivery.rphone_2}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Shipping Comment</th>
+                        <td colspan="3">{$delivery.message}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Pickup Store</h3>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+                <caption>Pickup Store</caption>
+                <colgroup>
+                    <col style="width:120px;" />
+                    <col style="width:252px;" />
+                    <col style="width:120px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Pickup Store</th>
+                        <td colspan="3">{$delivery.store_name} : {$delivery.store_receive_addr}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone</th>
+                        <td>{$delivery.store_main_phone}</td>
+                        <th scope="row">Store Hours</th>
+                        <td>{$delivery.store_office_hour}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Availability</th>
+                        <td colspan="3">{$delivery.store_receive_period}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Store Details</th>
+                        <td colspan="3">{$delivery.store_receive_info}</td>
+                    </tr>
+                    <tr class="{delivery.store_receive_map_display|display}">
+                        <th scope="row">Map</th>
+                        <td colspan="3">{$delivery.store_receive_map}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

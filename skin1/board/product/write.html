@@ -1,0 +1,144 @@
+﻿<!--@layout(/layout/basic/layout.html)-->
+<div module="board_writePackage_4">
+    <!--@css(/css/module/board/writePackage.css)-->
+    <div module="board_title_4">
+        <div class="path">
+            <span>Current Page</span>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/board/index.html">Forum</a></li>
+                <li title="Current Page"><strong>{$board_name}</strong></li>
+            </ol>
+        </div>
+
+        <div class="titleArea">
+            <h2>{$board_title}</h2>
+            <p>{$board_info}</p>
+        </div>
+    </div>
+
+    <div module="board_write_4">
+        <!--
+            $write_success_url = /board/product/list.html
+            $product_select_url = /product/search_board_list.html
+            $order_select_url = /order/search_board_list.html
+            $login_page_url = /member/login.html
+            $deny_access_url = /index.html
+         -->
+
+        <div class="ec-base-box typeProduct {$display_product|display}">
+            <p class="thumbnail"><a href="{$link_product_detail}"><img id="{$product_img_id}" src="{$url_product_img}" onerror="this.src='//img.echosting.cafe24.com/thumb/75x75.gif'" alt="" /></a></p>
+            <div class="information">
+                {$product_icon}
+                <h3><a href="/product/detail.html{$param_product}" id="{$product_name_link_id}">{$product_name}</a></h3>
+                <p class="price">{$product_price} {$product_tax_type_text}</p>
+                <p class="button">
+                    <span id="{$product_view_id}" class="{$display_product_info|display}"><a href="/product/detail.html{$param_product}" id="{$product_link_id}" class="btnEm" target="_blank" >Product Description</a></span>
+                    <span class="{$display_product_select|display}"><a href="#none" class="btnNormal" onclick="{$action_product_select}">Product Information</a></span>
+                    <span class="{$display_order_select|display}"><a href="#none" class="btnNormal" onclick="{$action_order_select}">Order History</a></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="ec-base-table typeWrite">
+            <table border="1" summary="">
+            <caption>Write Form</caption>
+            <colgroup>
+                <col style="width:130px;" />
+                <col style="width:auto;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td>{$form.board_category} {$form.subject} {$form.notice} {$form.is_post}</td>
+                </tr>
+                <tr class="{$config.is_login|display}">
+                    <th scope="row">Posted by</th>
+                    <td>{$form.writer}</td>
+                </tr>
+                <tr class="{$config.use_write_email|display}">
+                    <th scope="row">Email</th>
+                    <td>{$form.email}</td>
+                </tr>
+                <tr class="{$config.is_use_point|display}">
+                    <th scope="row">Rate</th>
+                    <td>{$form.point}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="clear">
+                        {$form.content}
+                    </td>
+                </tr>
+                <tr class="ucc">
+                    <th scope="row">Video URL</th>
+                    <td>{$form.ucc}</td>
+                </tr>
+            </tbody>
+
+            <tbody class="{$config.use_attach|display}">
+                <tr>
+                    <th scope="row">Attachment1</th>
+                    <td>{$form.attach_file}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment2</th>
+                    <td>{$form.attach_file}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment3</th>
+                    <td>{$form.attach_file}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment4</th>
+                    <td>{$form.attach_file}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment5</th>
+                    <td>{$form.attach_file}</td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr class="{$config.use_password|display}">
+                    <th scope="row">Password</th>
+                    <td>{$form.password} <span class="{$password_rule_help_display|display}">(Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters)</span></td>
+                </tr>
+                <tr class="{$config.use_secret|display}">
+                    <th scope="row">Private Setting</th>
+                    <td>{$form.secure}</td>
+                </tr>
+                <tr class="captcha {$config.use_captcha_write|display}">
+                    <th scope="row">Security code</th>
+                    <td>
+                        {$captcha_image} {$captcha_refresh}
+                        <p class="gBlank5">{$form.captcha} <span class="ec-base-help txtInfo">You can only enter alphanumeric characters with no spaces. (Case sensitive)</span></p>
+                    </td>
+                </tr>
+                <tr class="agree {$config.is_login|display} {$display_privacy_agreement|display}">
+                    <th scope="row">Collection and use of <br />personal information ("Privacy Policy")</th>
+                    <td>
+                        {$form.privacy_agreement}<br />
+                        I have read and agree to the privacy policy. {$form.privacy_agreement_radio}
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <ul class="info">
+            <li>We reserve the right to hide your post without notice if it includes content or images that are irrelevant to the product, such as profanity/slander, personal information, or advertisements/promotional content.</li>
+            <li>We may use your post (including images and videos) for operational or marketing purposes.</li>
+        </ul>
+
+        <div class="ec-base-button">
+            <span class="gLeft">
+                <span class="{$config.is_admin|display}"><a href="#none" class="btnNormalFix sizeS" onclick="{$action_comment_admin}">View Answer</a></span>
+                <a href="{$link_board_list}" class="btnNormalFix sizeS">List</a>
+            </span>
+            <span class="gRight">
+                <a href="#none" class="btnSubmitFix sizeS" onclick="{$action_write}">Submit</a>
+                <a href="{$link_board_list}" class="btnBasicFix sizeS">Cancel</a>
+            </span>
+        </div>
+    </div>
+</div>

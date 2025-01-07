@@ -1,0 +1,68 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Address Book</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="myshop_AddrList">
+    <!--@css(/css/module/myshop/addrList.css)-->
+    <!--
+        $return_url = /myshop/addr/list.html
+    -->
+    <h3>Address List</h3>
+
+    <div class="addList {$list_display|display}">
+        <div class="description">
+            <p class="name"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_addr_default.png" width="38" class="{$default_img_display|display}" alt="Default"/><span>{$ma_rcv_title}</span> ({$ma_rcv_name})</p>
+            <div class="info">
+                <p class="engName">{$ma_rcv_name}</p>
+                <ul class="address">
+                    <li>{$ma_rcv_addr1}</li>
+                    <li>{$ma_rcv_addr2}</li>
+                    <li>{$receiver_city_en} {$receiver_state_en} {$ma_rcv_zipcode} {$country_name_en}</li>
+                </ul>
+                <p class="number">{$ma_rcv_phone}<span class="line"></span>{$ma_rcv_mobile_no}</p>
+            </div>
+            <div class="ec-base-button">
+                <span class="gLeft">
+                    <a href="{$fix_url}" class="btnBasic {$fix_display|display}">Fixed</a>
+                    <a href="{$fix_url}" class="btnNormal {$notfix_display|display}">Auto</a>
+                </span>
+                <a href="modify.html?ma_idx={$ma_idx}" onclick="" class="btnNormal">Edit</a>
+                <a href="#none" onclick="{$action_delete}; return false;" class="btnNormal">Remove</a>
+            </div>
+        </div>
+        <div class="description">
+            <p class="name"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_addr_default.png" width="38" class="{$default_img_display|display}" alt="Default"/><span>{$ma_rcv_title}</span> ({$ma_rcv_name})</p>
+            <div class="info">
+                <p class="engName">{$ma_rcv_name}</p>
+                <ul class="address">
+                    <li>{$ma_rcv_addr1}</li>
+                    <li>{$ma_rcv_addr2}</li>
+                    <li>{$receiver_city_en} {$receiver_state_en} {$ma_rcv_zipcode} {$country_name_en}</li>
+                </ul>
+                <p class="number">{$ma_rcv_phone}<span class="line"></span>{$ma_rcv_mobile_no}</p>
+            </div>
+            <div class="ec-base-button">
+                <span class="gLeft">
+                    <a href="{$fix_url}" class="btnBasic {$fix_display|display}">Fixed</a>
+                    <a href="{$fix_url}" class="btnNormal {$notfix_display|display}">Auto</a>
+                </span>
+                <a href="modify.html?ma_idx={$ma_idx}" onclick="" class="btnNormal">Edit</a>
+                <a href="#none" onclick="{$action_delete}; return false;" class="btnNormal">Remove</a>
+            </div>
+        </div>
+    </div>
+
+    <p class="empty {$nodata_display|display}">There is no address in your address book.</p>
+
+    <div class="btnAdd">
+        <a href="register.html" class="btnStrong">Add new address</a>
+    </div>
+    <div class="help">
+        <p>If you do not want this automatic update, go to Address Book and change the auto update setting to "Fixed".</p>
+    </div>
+</div>
+

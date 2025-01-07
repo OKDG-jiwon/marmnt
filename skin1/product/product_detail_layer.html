@@ -1,0 +1,30 @@
+<div  module="product_detail" class="ec-base-tooltip">
+    <h3>Additional Product Details</h3>
+    <div module="product_detaildesign" class="content">
+        <!--
+            count = 10
+        -->
+        <table border="1" summary="">
+            <caption>{$name} Basic Information</caption>
+            <tbody>
+                <tr class="{$item_display|display}">
+                    <th scope="row">{$item_title}</th>
+                    <td>{$item_content}</td>
+                </tr>
+                <tr class="{$item_display|display}">
+                    <th scope="row">{$item_title}</th>
+                    <td>{$item_content}</td>
+                </tr>
+                <tr class="{$colorchip_display|display} color">
+                    <th scope="row">Item Color</th>
+                    <td module="product_Colorchip">
+                        <span class="chips" style="background-color:{$color}"></span>
+                        <span class="chips" style="background-color:{$color}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="button" class="btnClose eLayerCloseButton" id="CloseButton_{$product_no}"><img src="//img.echosting.cafe24.com/skin/base_en_US/product/ico_option_close.gif" alt="Close" /></button>
+    <span class="edge"></span>
+</div>

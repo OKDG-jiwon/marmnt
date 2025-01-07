@@ -1,0 +1,51 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Free Gift</strong></li>
+    </ol>
+</div>
+<div class="titleArea">
+    <h2>Free Gift</h2>
+</div>
+<div module="gift_list">
+    <!--@css(/css/module/order/gift_list.css)-->
+    <div module="gift_second">
+        <div class="title">
+            <h3>{$category_name}</h3>
+        </div>
+        <div class="ec-base-box typeThinBg giftInfo">
+            [{$period_start} ~ {$period_end}]
+            <!--
+                ※ Option
+                - Date only: {$period_start_date} ~ {$period_end_date}
+                - Time only: {$period_start_time} ~ {$period_end_time}
+            -->
+            {$benefit_name}
+            <span class="txtNormal">
+                ( {$benefit_member}
+                {$benefit_product_type}
+                <span class="{$product_type_display|display}"><a href="{$benefit_search_key}" class="btnNormal">For select items</a></span>
+                When total purchase amount is above {$order_price_range_min}<span class="{$order_price_range_max_display|display}"> and below {$order_price_range_max} </span>)
+             </span>
+        </div>
+        <div module="gift_Third">
+            <ul>
+                <li>
+                    <img src="{$gift_image}" alt="" />
+                    <span>{$product_name}</span>
+                    <strong class="point">Points: {$product_price}</strong>
+                </li>
+                <li>
+                    <img src="{$gift_image}" alt="" />
+                    <span>{$product_name}</span>
+                    <strong class="point">Points: {$product_price}</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div module="gift_listempty">
+    <p class="empty"><img src="//img.echosting.cafe24.com/skin/base_en_US/order/txt_gift.gif" alt="No gift promotions found." /></p>
+</div>

@@ -1,0 +1,178 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="현재 위치"><strong>Coupon Zone</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Coupon Zone</h2>
+</div>
+
+<div module="Coupon_zonePackage">
+    <!--@css(/css/module/coupon/zonePackage.css)-->
+    <!--@js(/js/module/coupon/zonePackage.js)-->
+    <div class="ec-base-tab">
+        <ul class="menu">
+            <li class="selected"><a href="#none" onclick="couponZone.showBestCoupon();">Best Coupons</a></li>
+            <li><a href="#none" onclick="couponZone.showNewCoupon();">New Coupons</a></li>
+        </ul>
+    </div>
+
+    <div id="dBestCoupon" module="Coupon_Zonebest">
+        <!--
+            $count = 2
+        -->
+        <div class="couponSkinArea">
+            <ul class="grid2">
+                <li>
+                    <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                        <div class="detail" {$call_coupon_detail}>
+                            <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                            <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                            <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                        </div>
+                        <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                        <div class="detail" {$call_coupon_detail}>
+                            <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                            <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                            <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                        </div>
+                        <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="dNewCoupon" module="Coupon_Zonenew" style="display:none">
+        <!--
+            $count = 2
+        -->
+        <div class="couponSkinArea">
+            <ul class="grid2">
+                <li>
+                    <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                        <div class="detail" {$call_coupon_detail}>
+                            <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                            <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                            <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                        </div>
+                        <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                        <div class="detail" {$call_coupon_detail}>
+                            <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                            <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                            <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                        </div>
+                        <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div module="Coupon_Zone">
+        <!--
+            $coupon_down_result_url = /coupon/coupon_down_result.html
+        -->
+        <div class="couponZone">
+            <div class="title">
+                <h3>{$zone_title}</h3>
+                <p>
+                    <a href="#none" id="imgZonecheckAll" class="btnNormal" onclick="couponZone.allCheck('{$zone_form_id}')">Select All</a>
+                    <a href="#none" class="btnNormal" onclick="couponZone.setDown('{$zone_form_id}')">Download Selected Coupon</a>
+                </p>
+            </div>
+            {$form_start}
+            <div class="couponSkinArea">
+                <ul module="Coupon_aZonelist" class="grid3">
+                    <li>
+                        <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                            <div class="detail" {$call_coupon_detail}>
+                                <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                                <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                                <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                            </div>
+                            <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                            <p class="chkBtn">{$coupon_checkbox}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                            <div class="detail" {$call_coupon_detail}>
+                                <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                                <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                                <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                            </div>
+                            <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                            <p class="chkBtn">{$coupon_checkbox}</p>
+                        </div>
+                    </li>
+                </ul>
+                {$form_end}
+            </div>
+        </div>
+
+        <div class="couponZone">
+            <div class="title">
+                <h3>{$zone_title}</h3>
+                <p>
+                    <a href="#none" onclick="couponZone.allCheck('{$zone_form_id}')"><img alt="Select All" src="//img.echosting.cafe24.com/skin/base_en_US/coupon/btn_select.gif" id="imgZonecheckAll" img_on="//img.echosting.cafe24.com/skin/base_en_US/coupon/btn_select.gif" img_off="//img.echosting.cafe24.com/skin/base_en_US/coupon/btn_select_cancel.gif" /></a>
+                    <a href="#none" class="btnNormal" onclick="couponZone.setDown('{$zone_form_id}')">Download Selected Coupon</a>
+                </p>
+            </div>
+            {$form_start}
+            <div class="couponSkinArea">
+                <ul module="Coupon_aZonelist" class="grid3">
+                    <li>
+                        <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                            <div class="detail" {$call_coupon_detail}>
+                                <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                                <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                                <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                            </div>
+                            <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                            <p class="chkBtn">{$coupon_checkbox}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="coupon {$background_class}" style="background-image:url('{$background_url}')">
+                            <div class="detail" {$call_coupon_detail}>
+                                <strong class="title" style="color:#483b1b; font-family:Arial; font-size:11px;">{$coupon_name|cut:13,...}</strong>
+                                <p class="discount" style="color:#d07b01; font-family:Dotum;"><span style="font-family:Verdana;">{$coupon_content}</span></p>
+                                <p class="period" style="color:#685219; font-family:Dotum;">{$coupon_period}</p>
+                            </div>
+                            <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="Download" /></a></div>
+                            <p class="chkBtn">{$coupon_checkbox}</p>
+                        </div>
+                    </li>
+                </ul>
+                {$form_end}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ec-base-help">
+    <h3>How to use coupons</h3>
+    <div class="inner">
+        <ol>
+            <li class="item1">Please <strong>log in first </strong>to download and use coupons.</li>
+            <li class="item2">Click on the coupon to see coupon details.</li>
+            <li class="item3">Expired coupons will be deleted automatically from the list.</li>
+            <li class="item4">You cannot save more than one of the same kind of coupon in your coupon list. (It can be downloaded again after each use.)</li>
+            <li class="item5"><strong>Application of coupon discount may very depending on the type of coupon.</strong></li>
+        </ol>
+    </div>
+</div>
+

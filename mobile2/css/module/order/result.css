@@ -1,0 +1,27 @@
+
+.xans-order-result { margin:14px 7px 0; padding:0 0 19px; }
+
+/* Toggle */
+.xans-order-result .ec-base-fold.theme2  { margin:-1px 0 0; }
+.xans-order-result .ec-base-fold.theme3  { margin:-1px 0 0; }
+.xans-order-result .ec-base-fold .ec-base-prdInfo { border-top:1px solid #d5d5d5; }
+
+/* Infomation */
+.xans-order-result .infomation { margin:14px 0; padding:7px 0; color:#353535; font-size:13px; line-height:18px; text-align:center; border:1px solid #d5d5d5; background:#fff; }
+.xans-order-result .infomation p { padding:7px 0 7px; }
+.xans-order-result .infomation strong { font-size:15px; color:#508bed; }
+
+/* List */
+.xans-order-result .ec-base-fold.theme2 > .contents .ec-base-table td { padding-right:34px; }
+.xans-order-result .ec-base-table td > button { margin:7px 0 0; }
+.xans-order-result .totalList .contents { border-top:1px solid #d5d5d5; }
+.xans-order-result .totalList .ec-base-table .totalPay { color:#508bed; border-bottom:1px solid #d5d5d5;}
+.xans-order-result .totalList .ec-base-table .totalPay th { padding:14px 0 14px 14px; font-size:13px; color:#508bed; }
+.xans-order-result .totalList .ec-base-table .totalPay td { padding:14px 34px 14px 0; font-size:15px; text-align:right; }
+  /* Eximbay DCC */
+    .totalPay .eximbayDCC .btnTip { display:inline-block; overflow:hidden; padding:0; margin:0; border:0; white-space:nowrap; width:14px; height:14px; font-size:1px; line-height:0; vertical-align:middle; color:transparent; text-indent:-150%; cursor:pointer; background:url("//img.echosting.cafe24.com/skin/mobile/common/ico_help.png") right center no-repeat; background-size:14px 14px; }
+    .totalPay .eximbayDCC .ec-base-tooltip ul li { padding:0; border:none; }
+.xans-order-result .totalList ul { background-color:#fff; }
+.xans-order-result .totalList ul li { overflow:hidden; padding:14px; border-top:1px solid #d5d5d5; font-size:13px; }
+.xans-order-result .totalList ul li strong { padding:0 0 0 10px; font-weight:normal; color:#757575; background:url("//img.echosting.cafe24.com/skin/mobile_en_US/product/ico_bullet.png") left center no-repeat; background-size:7px 7px; }
+.xans-order-result .totalList ul li span { float:right; padding:0 25px 0 0; word-break:break-all; }

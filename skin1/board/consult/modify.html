@@ -1,0 +1,117 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ModifyPackage_9">
+    <!--@css(/css/module/board/modifyPackage_9.css)-->
+    <div module="board_title_9">
+        <div class="path">
+            <span>Current Page</span>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/myshop/index.html">My Account</a></li>
+                <li title="Current Page"><strong>{$board_name}</strong></li>
+            </ol>
+        </div>
+
+        <div class="titleArea">
+            <h2>{$board_title}</h2>
+            <p>{$board_info}</p>
+        </div>
+    </div>
+
+    <div module="board_modify_9">
+        <!--
+            $modify_success_url = /board/consult/read.html
+        -->
+        <div class="ec-base-table gLayoutFixed {$display_parent_form|display}">
+            <table border="1" summary="">
+            <caption>Private Post</caption>
+            <colgroup>
+                <col style="width:130px;" />
+                <col style="width:auto;" />
+                <col style="width:130px;" />
+                <col style="width:auto;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td colspan="3">{$parent_subject}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Posted by</th>
+                    <td>{$parent_writer}</td>
+                    <th scope="row">Reply</th>
+                    <td>{$parent_consult}</td>
+                </tr>
+                <tr class="{$config.use_date|display}">
+                    <th scope="row">Submitted on</th>
+                    <td colspan="3">{$parent_write_date}</td>
+                </tr>
+                <tr class="view">
+                    <td colspan="4">
+                        <div class="detail">{$parent_content}</div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div class="ec-base-table typeWrite">
+            <table border="1" summary="">
+            <caption>Private Post Reply Form</caption>
+            <colgroup>
+                <col style="width:130px;" />
+                <col style="width:auto;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td>{$form.subject}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td>{$form.email} <span class="gBlank5">Reply me via email.{$form.cons_re}</span></td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <td colspan="2" class="clear">
+                        {$form.content}
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody class="{$config.use_attach|display}">
+                <tr>
+                    <th scope="row">Attachment1</th>
+                    <td>{$form.attach_file} {$attached_file1}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment2</th>
+                    <td>{$form.attach_file} {$attached_file2}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment3</th>
+                    <td>{$form.attach_file} {$attached_file3}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment4</th>
+                    <td>{$form.attach_file} {$attached_file4}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Attachment5</th>
+                    <td>{$form.attach_file} {$attached_file5}</td>
+                </tr>
+            </tbody>
+
+            </table>
+        </div>
+
+        <div class="ec-base-button">
+            <span class="gLeft"><a href="{$link_board_list}"class="btnNormalFix sizeS">List</a></span>
+            <span class="gRight">
+                <a href="#none" class="btnEmFix sizeS" onclick="{$action_modify}">Modify</a>
+                <a href="{$link_board_list}" class="btnBasicFix sizeS">Cancel</a>
+            </span>
+        </div>
+    </div>
+</div>

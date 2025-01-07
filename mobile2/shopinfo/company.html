@@ -1,0 +1,64 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>About Us</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="뒤로가기"></a>
+    </span>
+</div>
+<div module="mall_company">
+    <!--@css(/css/module/mall/company.css)-->
+    <div class="info" module="Layout_footer">
+        <div class="ec-base-table">
+            <table border="1">
+                <caption>About Us</caption>
+                <colgroup>
+                    <col style="width:110px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Business Name</th>
+                        <td>{$mall_name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CEO</th>
+                        <td><a href="mailto:{$email}">{$president_name}</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone</th>
+                        <td><a href="tel:{$phone}">{$phone}</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Address</th>
+                        <td>{$mall_addr1}<br />{$mall_addr2}</td>
+                    </tr>
+                    <tr class="{$company_regno|display}">
+                        <th scope="row">Business Registration</th>
+                        <td>{$company_regno}</td>
+                    </tr>
+                    <tr class="{$network_regno|display}">
+                        <th scope="row">E-commerce Permit</th>
+                        <td>{$network_regno}</td>
+                    </tr>
+                    <tr class="{$cpo_email|display}">
+                        <th scope="row">Personal Information Manager</th>
+                        <td><a href="mailto:{$cpo_email}">{$cpo_name}</a></td>
+                    </tr>
+                    <tr class="{$hosting_by_display|display}">
+                        <th scope="row">Web hosting by</th>
+                        <td>cafe24 corp.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="info">
+        <h3>Our Brand</h3>
+        <div class="desc">{$info}</div>
+    </div>
+    <div class="info {$map_display|display}">
+        <h3>Location</h3>
+        <span>{$map_image}</span>
+    </div>
+</div>

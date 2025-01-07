@@ -1,0 +1,52 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Forgot Password</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="member_passwordverification">
+    <!--@css(/css/module/member/user_verification.css)-->
+    <div class="ec-base-table typeWrite">
+        <table border="1">
+            <caption>user verification</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">user verification</th>
+                    <td>{$form.user_verification_method_type}</td>
+                </tr>
+                <tr id="{$user_verification_email_info}" class="email">
+                    <th scope="row">e-mail</th>
+                    <td class="middle">
+                        <strong class="txtEm">{$user_verification_email}</strong>
+                        <a href="#none" class="btnNormal mini" onclick="{$action_func_user_verification}">receive a verification code</a>
+                    </td>
+                </tr>
+                <tr id="{$user_verification_mobile_info}" class="mobile">
+                    <th scope="row">mobile</th>
+                    <td class="middle">
+                        <strong class="txtEm">{$user_verification_mobile}</strong>
+                        <a href="#none" class="btnNormal mini" onclick="{$action_func_user_verification}">receive a verification code</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">verification code</th>
+                    <td>{$form.verification_code}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p class="ec-base-help {$display_user_verification_email_desc|display}" id="{$user_verification_email_desc}">Your verification code is valid for 60 minutes once it is issued, and you can request it again in 30 seconds after previous request.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ec-base-button gFull">
+        <a href="#none" class="btnSubmit" onclick="{$action_func_user_verification_submit}">OK</a>
+    </div>
+</div>

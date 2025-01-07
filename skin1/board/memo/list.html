@@ -1,0 +1,198 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_MemoPackage_1001">
+    <!--@css(/css/module/board/memoPackage_1001.css)-->
+    <div module="board_title_1001">
+        <div class="path">
+            <span>Current Page</span>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/board/index.html">Forum</a></li>
+                <li title="Current Page"><strong>{$board_name}</strong></li>
+            </ol>
+        </div>
+
+        <div class="titleArea">
+            <h2>{$board_title} {$board_adult_icon}</h2>
+            <p>{$board_info}</p>
+        </div>
+    </div>
+
+    <div module="board_memowrite_1001">
+        <fieldset>
+            <legend>Add Memo</legend>
+            <div class="input">
+                <span class="{$config.is_login|display}">Name :{$form.writer}</span>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password :{$form.secure_password}</span>
+                <span class="secret {$config.use_secret|display}"><label>{$form.secure} Private</label></span>
+                <p class="ec-base-help {$password_rule_help_display|display}">Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters</p>
+            </div>
+            <p>
+                {$form.content}
+                <a href="#none" class="btnSubmit sizeL" onclick="{$action_memo_insert}">Submit</a>
+            </p>
+            <p class="captcha {$config.use_captcha_write|display}">
+                {$captcha_image} {$captcha_refresh}
+                {$form.captcha}
+                <span class="ec-base-help">You can only enter alphanumeric characters with no spaces. (Case sensitive)</span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="memoList">
+        <div module="board_memolist_1001">
+            <div class="memoArea">
+                <p class="name">
+                    {$member_icon} {$writer}
+                    <span class="ip {$display_ip|display}">({$client_ip})</span>
+                    <span class="date {$display_use_date|display}">{$write_date}</span>
+                </p>
+                <div class="memo">{$icon_lock} {$content|nl2br} {$icon_new}</div>
+                <p class="ec-base-button">
+                    <span class="gLeft">
+                        <a href="#none" onclick="{$action_comment_write}" class="btnNormal {$display_use_comment|display}">Comment <img src="//img.echosting.cafe24.com/skin/base/common/btn_icon_reply.gif" alt="" /></a>
+                        <span class="text">{$comment_count}</span>
+                    </span>
+                    <span class="gRight {$display_mod_button|display}">
+                        <a href="#none" class="btnNormal" onclick="{$action_memo_modify}">Modify</a>
+                        <a href="#none" class="btnNormal" onclick="{$action_memo_delete}"><i class="icoDelete"></i> Delete</a>
+                    </span>
+                </p>
+
+                {$view_form_div}<!-- Variables to Memo display area (for modify or delete) -->
+
+                <div id="{$comment_form_id}" class="replyWrap" style="display:none; ">
+                    <div module="board_memocmt_1001">
+                        <div class="reply">
+                            <p class="name">
+                                {$comment_member_icon} {$comment_name}
+                                <span class="ip {$display_ip|display}">({$comment_client_ip})</span>
+                                <span class="date {$display_use_date|display}">{$comment_date}</span>
+                            </p>
+                            <p class="btn {$comment_display_button|display}">
+                                <a href="#none" class="btnNormal" onclick="{$action_comment_modify}">Modify</a>
+                                <a href="#none" class="btnNormal" onclick="{$action_comment_delete}"><i class="icoDelete"></i> Delete</a>
+                            </p>
+                            <div class="memo">{$comment_icon_lock} {$comment_content}</div>
+                        </div>
+                        {$view_form_div}<!-- Variables to Memo's reply display area (for modify or delete) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="commentView" module="board_memoformcmtsecret_1001">
+        <p>Password : {$form.comment_password}
+            <a href="#none" onclick="{$action_secret_submit}">Submit</a>
+            <a href="#none" onclick="{$action_secret_cancel}">Cancel</a>
+        </p>
+    </div>
+
+    <div class="commentView" module="board_memoformsecret_1001">
+        <p>Password : {$form.secure_password}
+            <a href="#none" class="btnNormal" onclick="{$action_secret_submit}">Submit</a>
+            <a href="#none" class="btnNormal" onclick="{$action_secret_cancel}">Cancel</a>
+        </p>
+    </div>
+
+    <div class="replyModify" module="board_memoformmodify_1001">
+        <fieldset>
+            <legend>Edit Memo</legend>
+            <p>
+                <span id="{$memo_name_id}" class="{$config.is_login|display}">Name : {$form.writer} </span>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password : {$form.secure_password} </span>
+                <span class="secret {$config.use_secret|display}"><label>{$form.secure} Private</label></span>
+            </p>
+            <p class="modify">
+                {$form.content}
+                <span class="submit">
+                    <a href="#none" onclick="{$action_modify_submit}" class="btnEm sizeL">Modify</a>
+                    <a href="#none" class="btnNormal sizeL" onclick="{$action_modify_cancel}">Cancel</a>
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="replyModify" module="board_memoformdelete_1001">
+        <fieldset>
+            <legend>Remove Memo</legend>
+            <p>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password : {$form.secure_password} </span>
+            </p>
+            <p class="modify">
+                {$form.content}
+                <span class="submit">
+                    <a href="#none" class="btnEm sizeL" onclick="{$action_delete_submit}">Delete</a>
+                    <a href="#none" class="btnNormal sizeL" onclick="{$action_delete_cancel}">Cancel</a>
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="replyModify" module="board_memoformcmtwrite_1001">
+        <fieldset>
+            <legend>Reply</legend>
+            <div class="input">
+                <span class="{$config.is_login|display}">Name : {$form.comment_name} </span>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password : {$form.comment_password} </span>
+                <span class="secret {$config.use_secret|display}"><label>{$form.secure} Private</label></span>
+                <p class="ec-base-help {$password_rule_help_display|display}">Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters</p>
+            </div>
+            <p class="modify">
+                {$form.comment}
+                <span class="submit">
+                    <a href="#none" class="btnSubmit sizeL" onclick="{$action_comment_submit}">Submit</a>
+                    <a href="#none" class="btnNormal sizeL" onclick="{$action_comment_cancel}">Cancel</a>
+                </span>
+            </p>
+            <p class="captcha {$config.use_captcha_comment|display}">
+                {$captcha_image} {$captcha_refresh}
+                {$form.captcha}
+                <span class="ec-base-help">You can only enter alphanumeric characters with no spaces. (Case sensitive)</span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="replyModify" module="board_memoformcmtmodify_1001">
+        <fieldset>
+            <legend>Edit Comment</legend>
+            <p>
+                <span id="{$memo_name_id}" class="{$config.is_login|display}">Name : {$form.comment_name} </span>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password : {$form.comment_password} </span>
+                <span class="secret {$config.use_secret|display}"><label>{$form.secure} Private</label></span>
+            </p>
+            <p class="modify">
+                {$form.comment_modify}
+                <span class="submit">
+                    <a href="#none" class="btnEm sizeL" onclick="{$action_comment_update}">Modify</a>
+                    <a href="#none" class="btnNormal sizeL" onclick="{$action_comment_cancel}">Cancel</a>
+                </span>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="replyModify" module="board_memoformcmtdelete_1001">
+        <fieldset>
+            <legend>Remove Comment</legend>
+            <p>
+                <span id="{$memo_password_id}" class="{$config.is_login|display}">Password : {$form.comment_password} </span>
+            </p>
+            <p class="modify">
+                {$form.comment_modify}
+                <span class="submit">
+                    <a href="#none" onclick="{$action_comment_delete}" class="btnEm sizeL">Delete</a>
+                    <a href="#none" class="btnNormal sizeL" onclick="{$action_comment_cancel}">Cancel</a>
+                </span>
+            </p>
+        </fieldset>
+    </div>
+</div>
+
+<div module="board_paging_1001" class="ec-base-paginate">
+    <a href="{$param_prev}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+</div>

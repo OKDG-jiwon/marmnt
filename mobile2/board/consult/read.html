@@ -1,0 +1,65 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ReadPackage_9">
+    <!--@css(/css/module/board/readPackage_9.css)-->
+    <div id="titleArea" module="board_title_9">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="board_read_9">
+        <!--
+            $delete_success_url = /board/consult/list.html
+        -->
+        <div class="boardRead">
+            <p class="title">
+                <strong class="label hide">Title</strong>
+                <h3>{$subject}</h3>
+            </p>
+            <div class="info">
+                <p class="writer">
+                    <strong class="label hide">Posted by</strong>
+                    {$writer}
+                    <span class="{$config.display_ip|display}">(ip:{$ip})</span>
+                </p>
+                <p class="regdate {$config.use_date|display}">
+                    <strong class="label hide">Date</strong>
+                    {$write_date}
+                </p>
+                <p class="comment">
+                    <strong class="label">Answered</strong>
+                    {$consult}
+                </p>
+            </div>
+            <div class="ec-base-button">
+                <a href="/board/consult/modify.html{$param_modify}" class="btnNormal {$modify_button_auth|display}">Edit</a>
+                <button type="button" class="btnNormal {$delete_button_auth|display}" onclick="{$action_delete}">Remove</button>
+            </div>
+            <div class="content">
+                <strong class="label hide">Message</strong>
+                {$content_image}<p>{$content}</p>
+            </div>
+        </div>
+        <div class="boardRead typeReply {$display_consult_reply}">
+            <h3>Reply</h3>
+            <div class="info">
+                <p class="writer">
+                    <strong class="label hide">Replied by</strong>
+                    {$reply_name}
+                </p>
+                <p class="regdate {$config.use_date|display}">
+                    <strong class="label hide">Date</strong>
+                    {$reply_date}
+                </p>
+            </div>
+            <div class="content">
+                <p>{$reply_content}</p>
+            </div>
+        </div>
+        <p class="waitMessage {$display_consult_noreply}">We will get back to you as soon as possible!</p>
+        <div class="ec-base-button {$reply_button_auth|display}">
+            <a href="/board/consult/reply.html{$param_reply}" class="btnStrong {$config.is_admin|display}">Write Reply</a>
+        </div>
+    </div>
+</div>

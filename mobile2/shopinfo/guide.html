@@ -1,0 +1,35 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Help</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="mall_faq">
+    <!--@css(/css/module/mall/faq.css)-->
+    <dl class="ec-base-fold theme4 eToggle">
+        <dt>How to Join</dt>
+        <dd>{$member_info}</dd>
+        <dt>How to order</dt>
+        <dd>{$order_info}</dd>
+        <dt class="{$payment_info_display|display}">Payment</dt>
+        <dd class="{$payment_info_display|display}">{$payment_info}</dd>
+        <dt class="{$shipping_info_display|display}">Shipping</dt>
+        <dd class="{$shipping_info_display|display}">
+            <ul>
+                <li>Shipping Method : {$shipping_method}</li>
+                <li>Shipping Area : {$shipping_area}</li>
+                <li>Shipping Rate : {$shipping_fee}</li>
+                <li>Delivery Time : {$shipping_period}</li>
+                <li>{$shipping_agreement}</li>
+            </ul>
+        </dd>
+        <dt class="{$product_change_info_display|display}">Returns &amp; Exchanges</dt>
+        <dd class="{$product_change_info_display|display}">{$product_change_info}</dd>
+        <dt>Refunds</dt>
+        <dd>{$refund_info}</dd>
+        <dt>Other</dt>
+        <dd>{$etc_info}</dd>
+    </dl>
+</div>

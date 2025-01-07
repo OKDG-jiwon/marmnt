@@ -1,0 +1,45 @@
+<div module="Layout_SearchHeader" class="searchBox" id="{$search_box_id}">
+    <!--@css(/css/module/layout/searchHeader.css)-->
+    <!--
+        $category_page=/product/list.html
+    -->
+    <fieldset>
+        <legend>Search</legend>
+        <div class="searchForm">
+            {$form.keyword}
+            <button type="button" class="btnDelete">Remove</button>
+            <div class="autoList" id="{$searchdata_auto_list_id}">
+                <ul class="autoDrop" id="{$search_auto_id}"></ul>
+            </div>
+        </div>
+    </fieldset>
+    <div class="ec-base-tab">
+        <ul class="searchTab {$hot_use_display|display}">
+            <li class="selected"><a href="#none">Popular keywords</a></li>
+            <li><a href="#none">Recent keywords</a></li>
+        </ul>
+    </div>
+    <div module="search_hotkeyword">
+        <ul>
+            <li><a href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+            <li><a href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+        </ul>
+    </div>
+    <div module="search_recentkeyword">
+        <p class="{$recent_none_display|display}">There are no keywords to display.</p>
+        <ul class="{$recent_list_display|display}">
+            <li data-index="{$recent_keyword_index}">
+                <a href="{$recent_keyword_url}">{$recent_keyword_name}</a>
+                <button type="button" class="btnDelete" onclick="{$recent_keyword_remove}">Remove</button>
+            </li>
+            <li data-index="{$recent_keyword_index}">
+                <a href="{$recent_keyword_url}">{$recent_keyword_name}</a>
+                <button type="button" class="btnDelete" onclick="{$recent_keyword_remove}">Remove</button>
+            </li>
+        </ul>
+        <div class="button">
+            <button type="button" class="btnDeleteAll" onclick="{$recent_keyword_remove_all}">Remove all search results</button>
+        </div>
+    </div>
+    <button type="button" class="btnClose" id="{$search_cancel_id}">Close</button>
+</div>

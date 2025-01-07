@@ -1,0 +1,103 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="product_request" class="ec-base-layer">
+<!--@css(/css/module/product/product_request.css)-->
+    <div class="header">
+        <h1>Share My Wishlist</h1>
+    </div>
+
+    <div class="topImage {$top_image_display|display}">
+        <img src="{$top_image}" alt="" />
+    </div>
+
+    <div class="content">
+        <div class="titleArea">
+            <h2> Item(s) to share</h2>
+            <span class="count">(Remaining Times : {$limit_txt})</span>
+        </div>
+        <div class="ec-base-table typeList">
+            <table border="1" summary="">
+                <caption>Item(s) to share</caption>
+                <colgroup>
+                    <col style="width:100px" />
+                    <col style="width:auto" />
+                    <col style="width:150px" />
+                </colgroup>
+                <tbody class="head">
+                    <tr>
+                        <td>Image</td>
+                        <td>Product Information</td>
+                        <td>Price</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="scroll">
+                <table border="1" summary="">
+                    <caption>Item(s) to share</caption>
+                    <colgroup>
+                        <col style="width:100px" />
+                        <col style="width:auto" />
+                        <col style="width:133px" />
+                    </colgroup>
+                    <tbody class="center">
+                        <tr>
+                            <td class="image"><a href="/product/detail.html?product_no={$product_no}" target="opener"><img src="{$product_image}" alt="" /></a></td>
+                            <td class="product left">
+                                <strong><a href="/product/detail.html?product_no={$product_no}" target="opener">{$product_name}</a></strong>
+                            </td>
+                            <td class="price right"><strong>{$product_price}</strong><br/>{$product_tax_type_text}</td>
+                        </tr>
+                        <tr>
+                            <td class="image"><a href="/product/detail.html?product_no={$product_no}" target="opener"><img src="{$product_image}" alt="" /></a></td>
+                            <td class="product left">
+                                <strong><a href="/product/detail.html?product_no={$product_no}" target="opener">{$product_name}</a></strong>
+                            </td>
+                            <td class="price right"><strong>{$product_price}</strong><br/>{$product_tax_type_text}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="titleArea">
+            <h2>Send E-mail</h2>
+        </div>
+        <div class="ec-base-table typeWrite">
+            <table border="1" summary="">
+                <caption>Send E-mail</caption>
+                <colgroup>
+                    <col style="width:150px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Sender</th>
+                        <td>{$form.sender}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Recipient</th>
+                        <td>{$form.recipient}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Message</th>
+                        <td>{$mail_contents}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="ec-base-help">
+            <h2>E-mail must NOT include</h2>
+            <div class="inner">
+                <ul>
+                    <li>Spam contents. Commercial URLs or any information harmful to minors.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-button">
+        <button type="submit" class="btnSubmitFix sizeS">Send</button>
+        <a href="#none" onclick="self.close();" class="btnNormalFix sizeS">Cancel</a>
+    </div>
+</div>

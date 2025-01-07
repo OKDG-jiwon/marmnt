@@ -1,0 +1,373 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ReadPackage_8">
+    <!--@css(/css/module/board/readPackage.css)-->
+    <!--@js(/js/module/board/readPackage.js)-->
+    <div id="titleArea" module="board_title_8">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="board_read_8" class="{$block_target_class}" {$block_data_attr}>
+        <!--
+            $delete_success_url = /board/gallery/list.html
+            $login_page_url = /member/login.html
+            $deny_access_url = /board/gallery/list.html
+        -->
+        <div class="boardView">
+            <div class="title">
+                <strong class="label hide">Title</strong>
+                <h3 class="{$block_content_class}">{$subject}</h3>
+            </div>
+            <div class="info">
+                <p class="writer">
+                    <strong class="label hide">Posted by</strong>
+                    {$member_icon}
+                    {$writer}<span class="{$config.display_ip|display}">(ip:{$ip})</span>
+                </p>
+                <p class="regdate {$config.use_date|display}">
+                    <strong class="label hide">Date</strong>
+                    {$write_date}
+                </p>
+                <p class="hit {$config.use_cnt|display}">
+                    <strong class="label">Views</strong>
+                    {$hit_count}
+                </p>
+                <p class="rating {$config.is_use_point|display}">
+                    <strong class="label">Rate</strong>
+                    <img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" />
+                </p>
+                <p class="vote {$config.is_use_recom|display}">
+                    <strong class="label">Recommend</strong>
+                    {$vote_count}
+                    <a href="#none" class="btnNormal" onclick="{$action_vote}"><span class="btnIcon"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_recommend.png" alt="" /></span> Recommend this</a>
+                </p>
+            </div>
+            <div class="content">
+                <strong class="label hide">Message</strong>
+                <div class="{$block_content_class}">{$content_image}{$content}</div>
+                <div class="ec-base-button report-button">
+                    <span class="gRight">
+                        <a href="#none" class="btnNormal {$is_report_display|display}" onclick="{$board_report_display}">Report</a>
+                        <a href="#none" class="btnNormal {$block_request_btn}" onclick="{$block_action}">Block</a>
+                        <a href="#none" class="btnNormal {$unblock_request_btn}" onclick="{$unblock_action}">Unblock</a>
+                    </span>
+                </div>
+                <!--@import(/board/report_popup.html)-->
+            </div>
+            <p class="attach {$config.use_attach|display}">
+                 <strong class="label">Attachment</strong>
+                 <span>{$attach_file}</span>
+            </p>
+            <div class="password {$delete_button_auth|display}">
+                <strong class="label {$delete_button_auth|display} {$config.use_password|display}">Password</strong>
+                <div class="form {$board_password_type}">
+                    <span class="passwordForm {$config.use_password|display}">{$form.password}</span>
+                    <span class="gRight">
+                        <a href="/board/gallery/modify.html{$param_modify}" class="btnBasic {$modify_button_auth|display}">Edit</a>
+                        <button type="button" class="btnBasic {$delete_button_auth|display}" onclick="{$action_delete}">Remove</button>
+                    </span>
+                    <p class="ec-base-help {$config.use_password|display}">Please enter your password to remove or edit this message.</p>
+                </div>
+            </div>
+        </div>
+        <div class="ec-base-button">
+            <div class="gLeft"><a href="{$link_board_list}" class="btnStrong">List</a></div>
+            <a href="/board/gallery/reply.html{$param_reply}" class="btnStrong {$reply_button_auth|display}">Reply</a>
+        </div>
+    </div>
+</div>
+
+<div module="board_CommentPackage_8">
+    <!--@css(/css/module/board/commentPackage.css)-->
+
+    <div module="board_commentempty_8">
+         <div class="commentTitle">
+            <h3>Comments</h3>
+        </div>
+        <p>There are no comments to display.</p>
+    </div>
+
+    <div module="board_commentlist_8">
+        <!--
+            $delete_page_url = /board/gallery/comment_del.html
+            $delete_success_url = /board/gallery/read.html
+        -->
+        <div class="commentTitle">
+            <h3>Comments</h3>
+        </div>
+        <ul class="boardComment">
+            <li class="{$comment_reply_css}" id="{$comment_reply_id}">
+                <div class="info">
+                    <p class="writer">
+                        <strong class="label hide">Posted by</strong>
+                         {$comment_name}
+                    </p>
+                    <p class="regdate">
+                        <strong class="label hide">Date</strong>
+                        {$comment_write_date}
+                    </p>
+                    <p class="rating {$config.is_use_point|display}">
+                        <strong class="label hide">Rate</strong>
+                        <img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$comment_point_count}.png" alt="{$comment_point_count}points">
+                    </p>
+                </div>
+                <div class="content">
+                    <span class="{$is_spam_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_spam.png" alt="Spam" /></span>
+                    {$icon_mobile} {$comment_icon_lock} {$comment_content}
+                    <div module="board_commentimagelist_8">
+                        <ul class="thumbnail">
+                            <li><a href="#none" onclick="{$action_comment_image}">{$comment_image}</a></li>
+                            <li><a href="#none" onclick="{$action_comment_image}">{$comment_image}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ec-base-button">
+                    <div class="gLeft">
+                        <button type="button" class="btnNormal mini replyList {$comment_reply_list_display|display}" onclick="{$action_comment_view}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_view.png" alt="Reply to Comment" width="13" height="13" /><span>({$comment_reply_count})</span></button>
+                        <button type="button" class="btnNormal mini reply {$comment_reply_display|display}" onclick="{$action_comment_reply_new}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_write.png" alt="Write" width="13" height="13" /></button>
+                    </div>
+                    <button type="button" class="btnNormal mini {$comment_modify_display|display}" onclick="{$action_comment_update_new}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_modify.png" alt="Edit" width="13" height="13" /></button>
+                    <button type="button" class="btnNormal mini {$comment_delete_display|display}" onclick="{$action_comment_delete}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_delete.png" alt="Remove" width="13" height="13" /></button>
+                </div>
+            </li>
+            <li class="{$comment_reply_css}" id="{$comment_reply_id}">
+                <div class="info">
+                    <p class="writer">
+                        <strong class="label hide">Posted by</strong>
+                         {$comment_name}
+                    </p>
+                    <p class="regdate">
+                        <strong class="label hide">Date</strong>
+                        {$comment_write_date}
+                    </p>
+                    <p class="rating {$config.is_use_point|display}">
+                        <strong class="label hide">Rate</strong>
+                        <img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$comment_point_count}.png" alt="{$comment_point_count}points">
+                    </p>
+                </div>
+                <div class="content">
+                    <span class="{$is_spam_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_spam.png" alt="Spam" /></span>
+                    {$icon_mobile} {$comment_icon_lock} {$comment_content}
+                    <div module="board_commentimagelist_8">
+                        <ul class="thumbnail">
+                            <li><a href="#none" onclick="{$action_comment_image}">{$comment_image}</a></li>
+                            <li><a href="#none" onclick="{$action_comment_image}">{$comment_image}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ec-base-button">
+                    <div class="gLeft">
+                        <button type="button" class="btnNormal mini replyList {$comment_reply_list_display|display}" onclick="{$action_comment_view}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_view.png" alt="Reply to Comment" width="13" height="13" /><span>({$comment_reply_count})</span></button>
+                        <button type="button" class="btnNormal mini reply {$comment_reply_display|display}" onclick="{$action_comment_reply_new}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_write.png" alt="Write" width="13" height="13" /></button>
+                    </div>
+                    <button type="button" class="btnNormal mini {$comment_modify_display|display}" onclick="{$action_comment_update_new}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_modify.png" alt="Edit" width="13" height="13" /></button>
+                    <button type="button" class="btnNormal mini {$comment_delete_display|display}" onclick="{$action_comment_delete}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/btn_comment_delete.png" alt="Remove" width="13" height="13" /></button>
+                </div>
+            </li>
+        </ul>
+        <!--@import(/board/image_popup.html)-->
+    </div>
+
+    <div module="board_commentpaging_8" class="ec-base-paginate typeList">
+        <a href="{$param_prev}" class="btnPrev">Previous</a>
+        <ol>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        </ol>
+        <a href="{$param_next}" class="btnNext">Next</a>
+    </div>
+
+    <div module="board_commentform_8">
+        <div class="boardCommentModify">
+            <fieldset>
+                <legend>Edit Comment</legend>
+                <div class="info">
+                    <p class="name">
+                        <strong class="label">Name </strong>
+                        {$form.comment_name}
+                    </p>
+                    <p class="modifyPassword {$comment_modify_password_display|display}">
+                        <strong class="label">Password</strong>
+                        {$form.comment_password}
+                    </p>
+                </div>
+                <p class="modifyComment">
+                    <strong class="label hide">Message</strong>
+                    {$form.comment_modify}
+                    <div class="ec-base-table typeWrite">
+                        <table border="1">
+                            <colgroup>
+                                <col style="width:130px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="{$config.use_comment_attach|display}">
+                            <tr>
+                                <th scope="row">Attachment1</th>
+                                <td>{$form.attach_file} <span class="ecActionCommentDelFile"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment2</th>
+                                <td>{$form.attach_file} <span class="ecActionCommentDelFile"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment3</th>
+                                <td>{$form.attach_file} <span class="ecActionCommentDelFile"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment4</th>
+                                <td>{$form.attach_file} <span class="ecActionCommentDelFile"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment5</th>
+                                <td>{$form.attach_file} <span class="ecActionCommentDelFile"></span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </p>
+                <p class="modifyByte {$config.comment_size|display}">{$comment_byte} / {$comment_size} byte</p>
+                <div class="ec-base-button">
+                    <div class="secret gLeft {$comment_secret_display|display}">
+                        <label>{$form.secure} Private Comment</label>
+                    </div>
+                    <a href="#none" class="btnStrong mini" onclick="{$action_comment_update}">Edit</a>
+                    <a href="#none" class="btnNormal mini" onclick="{$action_comment_cancel_new}">Cancel</a>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+
+    <div module="board_commentformsecret_8" class="ec-base-button">
+        <div class="gLeft">Password {$form.secure_password}</div>
+        <a href="#none" class="btnStrong mini" onclick="{$action_secret_submit}">OK</a>
+        <a href="#none" class="btnNormal mini" onclick="{$action_secret_cancel}">Cancel</a>
+    </div>
+
+    <div module="board_commentwrite_8">
+        <div class="boardCommentWrite {$comment_write_display|display}">
+            <fieldset>
+                <legend>Add Comment</legend>
+                <div class="info">
+                    <p class="name {$comment_input_name|display}">
+                        <strong class="label">Name</strong>
+                        {$form.comment_name}
+                    </p>
+                    <p class="password {$comment_input_password_display|display}">
+                        <strong class="label">Password</strong>
+                        {$form.comment_password}
+                    </p>
+                </div>
+                <p class="ec-base-help {$password_rule_help_display|display}">Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters</p>
+                <div class="comment">
+                    <strong class="label hide">Message</strong>
+                    {$form.comment}
+                    <div class="ec-base-table typeWrite">
+                        <table border="1">
+                            <colgroup>
+                                <col style="width:130px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="{$config.use_comment_attach|display}">
+                            <tr>
+                                <th scope="row">Attachment1</th>
+                                <td>{$form.attach_file}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment2</th>
+                                <td>{$form.attach_file}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment3</th>
+                                <td>{$form.attach_file}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment4</th>
+                                <td>{$form.attach_file}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Attachment5</th>
+                                <td>{$form.attach_file}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="byteRating">
+                    <p class="byte {$config.comment_size|display}">{$comment_byte} / {$comment_size} byte</p>
+                    <p class="rating {$config.is_use_point|display}">
+                        <strong class="label">Rate</strong>
+                        {$form.comment_point}
+                    </p>
+                </div>
+                <div class="captcha {$config.use_captcha_comment|display}">
+                    <span class="img">{$captcha_image} {$captcha_refresh}</span>
+                    <div class="form">
+                        {$form.captcha}
+                        <p class="ec-base-help">Enter without any spaces. <br>(Case sensitive)</p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="ec-base-button">
+            <div class="secret gLeft {$comment_secret_display|display}">
+                <label>{$form.secure} Add Private Comment</label>
+            </div>
+            <button type="button" onclick="{$action_comment_insert}" class="btnStrong mini {$comment_button|display}">Add Comment</button>
+        </div>
+        <div class="boardCommentAuthority {$comment_write_display_none|display}">
+            <p>Comments can be added by {$comment_auth_name} only.</p>
+        </div>
+    </div>
+
+    <div module="board_commentreply_8">
+        <div class="boardCommentWrite {$comment_write_display|display}">
+            <fieldset>
+                <legend>Add Comment</legend>
+                <div class="info">
+                    <p class="name {$comment_input_name|display}">
+                        <strong class="label">Name</strong>
+                        {$form.comment_name}
+                    </p>
+                    <p class="password {$comment_input_password_display|display}">
+                        <strong class="label">Password</strong>
+                        {$form.comment_password}
+                    </p>
+                </div>
+                <p class="ec-base-help {$password_rule_help_display|display}">Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters</p>
+                <div class="comment">
+                    <strong class="label hide">Message</strong>
+                    {$form.comment}
+                </div>
+                <div class="byteRating">
+                    <p class="byte {$config.comment_size|display}">{$comment_byte} / {$comment_size} byte</p>
+                </div>
+                <div class="ec-base-button">
+                    <div class="secret gLeft {$comment_secret_display|display}">
+                        <label>{$form.secure} Private Comment</label>
+                    </div>
+                    <button type="button" class="btnStrong mini {$comment_button|display}" onclick="{$action_comment_insert}">Add</button>
+                </div>
+                <div class="captcha {$config.use_captcha_comment|display}">
+                    <span class="img">{$captcha_image} {$captcha_refresh}</span>
+                    <div class="form">
+                        {$form.captcha}
+                        <p class="ec-base-help">Enter without any spaces. <br>(Case sensitive)</p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="boardCommentAuthority {$comment_write_display_none|display}">
+            <p>Comments can be added by {$comment_auth_name} only.</p>
+        </div>
+    </div>
+</div>
+<div module="board_movement_8">
+    <!--@css(/css/module/board/movement.css)-->
+    <ul class="boardMovement">
+        <li class="prev {$prev_display|display}"><strong>Prev</strong><a href="{$link_board_detail_prev}">{$prev_subject}</a></li>
+        <li class="next {$next_display|display}"><strong>Next</strong><a href="{$link_board_detail_next}">{$next_subject}</a></li>
+    </ul>
+</div>

@@ -1,0 +1,40 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot Password</h2>
+</div>
+
+<div module="member_passwordverification" class="ec-base-box typeThin">
+    <!--@css(/css/module/member/user_verification.css)-->
+    <div class="inner">
+        <h3 class="boxTitle">user verification</h3>
+        <fieldset>
+            <legend>user verification</legend>
+            <ul class="ec-base-desc">
+                <li><strong class="term">user verification</strong><span class="desc">{$form.user_verification_method_type}</span></li>
+                <li id="{$user_verification_email_info}"><strong class="term">e-mail</strong><span class="desc"><strong class="txtEm">{$user_verification_email}</strong> <a href="#none" class="btnNormal" onclick="{$action_func_user_verification}">Receive a verification code</a></span></li>
+                <li id="{$user_verification_mobile_info}"><strong class="term">mobile</strong><span class="desc"><strong class="txtEm number">{$user_verification_mobile}</strong> <a href="#none" class="btnNormal" onclick="{$action_func_user_verification}">Receive a verification code</a></span></li>
+                <li>
+                    <strong class="term">verification code</strong>
+                    <div class="desc">{$form.verification_code}
+                        <div class="txtInfo">
+                            <p id="{$user_verification_email_desc}" class="{$display_user_verification_email_desc|display}">Your verification code is valid for 60 minutes once it is issued, and you can request it again in 30 seconds after previous request.</p>
+                            <p id="{$user_verification_mobile_desc}" class="{$display_user_verification_mobile_desc|display}">Your verification code is valid for 3 minutes once it is issued,<br /> and you can request it again in 30 seconds after previous request.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="ec-base-button gColumn">
+                <a href="#none" class="btnSubmit sizeM" onclick="{$action_func_user_verification_submit}">Submit</a>
+                <a href="#none" class="btnNormal sizeM" onclick="{$action_func_user_verification_cancel}">Cancel</a>
+            </div>
+        </fieldset>
+    </div>
+</div>

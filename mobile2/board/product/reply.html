@@ -1,0 +1,95 @@
+﻿<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ReplyPackage_4">
+    <!--@css(/css/module/board/replyPackage.css)-->
+    <!--@js(/js/module/board/uccurl.js)-->
+    <div id="titleArea" module="board_title_4">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+    <div module="board_reply_4">
+        <!--
+            $login_page_url = /member/login.html
+            $deny_access_url = /index.html
+        -->
+        <div class="ec-base-table typeWrite">
+            <table border="1">
+                <caption>Reply Form</caption>
+                <colgroup>
+                    <col style="width:80px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Title</th>
+                        <td>{$form.board_category} {$form.subject} {$form.notice} {$form.is_post}</td>
+                    </tr>
+                    <tr class="{$config.is_login|display}">
+                        <th scope="row">Posted by</th>
+                        <td>{$form.writer}</td>
+                    </tr>
+                    <tr class="{$config.use_write_email|display}">
+                        <th scope="row">Email Address</th>
+                        <td>{$form.email}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="write">{$form.content}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Video URL</th>
+                        <td class="uccUrlSize">{$form.ucc}</td>
+                    </tr>
+                </tbody>
+                <tbody class="{$config.use_attach|display}">
+                    <tr>
+                        <th scope="row">Attachment1</th>
+                        <td>{$form.attach_file}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Attachment2</th>
+                        <td>{$form.attach_file}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Attachment3</th>
+                        <td>{$form.attach_file}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Attachment4</th>
+                        <td>{$form.attach_file}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Attachment5</th>
+                        <td>{$form.attach_file}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="{$config.use_password|display}">
+                        <th scope="row">Password</th>
+                        <td>{$form.password} <p class="grid {$password_rule_help_display|display}">Combination in 10-16 characters containing at least two of the followings: upper and lower case letters/numbers/special letters</p></td>
+                    </tr>
+                    <tr class="{$config.use_secret|display}">
+                        <th scope="row">Private</th>
+                        <td>{$form.secure}</td>
+                    </tr>
+                    <tr class="{$config.use_captcha_write|display}">
+                        <th scope="row">Security Code</th>
+                            <td>
+                            {$captcha_image} {$captcha_refresh}
+                            <span>{$form.captcha}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="{$config.is_login|display} {$display_privacy_agreement|display} privacy">
+            <p>{$form.privacy_agreement_radio}</p>
+            <span><a href="/board/agreement.html" target="_blank">See Details</a></span>
+        </div>
+
+        <div class="ec-base-button gColumn">
+            <button type="button" class="btnSubmit" onclick="{$action_reply}">Post</button>
+            <a href="{$link_board_list}" class="btnEm">Cancel</a>
+        </div>
+    </div>
+</div>

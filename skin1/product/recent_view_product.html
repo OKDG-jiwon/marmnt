@@ -1,0 +1,99 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Recently Viewed</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Recently Viewed</h2>
+</div>
+
+<div module="product_recentlist" class="ec-base-table typeList">
+    <!--@css(/css/module/product/recentlist.css)-->
+    <!--
+        $count = 10
+    -->
+    <table border="1" summary="" class="{$list_display|display}">
+        <caption>Recently viwed products</caption>
+        <colgroup>
+            <col style="width:92px">
+            <col style="width:auto">
+            <col style="width:120px">
+            <col style="width:130px">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product Details</th>
+                <th scope="col">Price</th>
+                <th scope="col">Select</th>
+            </tr>
+        </thead>
+        <tbody module="product_listitem">
+            <tr>
+                <td class="image"><a href="{$link_product_detail}"><img src="{$image_medium}" alt="" /></a></td>
+                <td class="product">
+                    <a href="{$link_product_detail}">{$product_name}</a>
+                     {$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$pickup_icon} {$regular_delivery_icon}
+
+
+                    <ul module="product_setproduct">
+                        <li>{$product_name}</li>
+                        <li>{$product_name}</li>
+                    </ul>
+                </td>
+                <td class="price right">
+                    <p class="{$strike_custom_price} {$custom_price_display|display}"><strong>{$product_custom}</strong></p>
+                    <p class="{$discount}"><strong class="txtEm">{$price}</strong>{$product_tax_type_text}</p>
+                    <p class="{$product_sale_price_display|display} txtEm"><strong>{$product_sale_price}</strong></p>
+                </td>
+                <td class="button center">
+                    <a href="#none" onclick="{$act_order}" class="btnSubmit {$disp_order|display}">Checkout</a>
+                    <a href="#none" onclick="{$act_basket}" class="btnNormal {$disp_basket|display}">Add to Cart</a>
+                    <a href="#none" class="btnNormal {$class_del}" rel="{$rel_del}"><i class="icoDelete"></i> Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="image"><a href="{$link_product_detail}"><img src="{$image_medium}" alt="" /></a></td>
+                <td class="product">
+                    <a href="{$link_product_detail}">{$product_name}</a>
+                     {$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$pickup_icon} {$regular_delivery_icon}
+
+
+                    <ul module="product_setproduct">
+                        <li>{$product_name}</li>
+                        <li>{$product_name}</li>
+                    </ul>
+                </td>
+                <td class="price right">
+                    <p class="{$strike_custom_price} {$custom_price_display|display}"><strong>{$product_custom}</strong></p>
+                    <p class="{$discount}"><strong class="txtEm">{$price}</strong>{$product_tax_type_text}</p>
+                    <p class="{$product_sale_price_display|display} txtEm"><strong>{$product_sale_price}</strong></p>
+                </td>
+                <td class="button center">
+                    <a href="#none" onclick="{$act_order}" class="btnSubmit {$disp_order|display}">Checkout</a>
+                    <a href="#none" onclick="{$act_basket}" class="btnNormal {$disp_basket|display}">Add to Cart</a>
+                    <a href="#none" class="btnNormal {$class_del}" rel="{$rel_del}"><i class="icoDelete"></i> Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="message {$empty_display|display}">You have no recently viewed items.</p>
+</div>
+
+<div module="product_recentlistpaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_first.gif" alt="First" /></a>
+    <a href="{$param_before}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+    <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_last.gif" alt="Last" /></a>
+</div>

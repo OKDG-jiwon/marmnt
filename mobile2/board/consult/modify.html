@@ -1,0 +1,123 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ModifyPackage_9">
+    <!--@css(/css/module/board/modifyPackage.css)-->
+    <div id="titleArea" module="board_title_9">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="board_modify_9">
+        <!--
+            $modify_success_url = /board/consult/read.html
+        -->
+        <div class="boardModifyArea">
+            <div class="ec-base-table typeWrite {$display_parent_form|display}">
+                <table border="1">
+                    <caption>Edit Private Post</caption>
+                    <colgroup>
+                        <col style="width:80px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Title</th>
+                            <td>{$parent_subject}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Posted by</th>
+                            <td>{$parent_writer}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <ul>
+                                    <li class="comment">
+                                        <strong>Answered</strong> <span>{$parent_consult}</span>
+                                    </li>
+                                    <li class="date {$config.use_date|display}">
+                                        <strong>Date</strong> <span>{$parent_write_date}</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{$parent_content}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ec-base-table typeWrite">
+                <table border="1" summary="">
+                    <caption>Private Post Reply Form</caption>
+                    <colgroup>
+                        <col style="width:75px">
+                        <col style="width:auto">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Title</th>
+                            <td>{$form.subject}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email Address</th>
+                            <td class="grid">
+                                {$form.email}
+                                <p>Notify me via email when I get a reply.</p>
+                                <p>{$form.cons_re}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                {$form.content}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody class="{$config.use_attach|display}">
+                        <tr>
+                            <th scope="row">Attachment1</th>
+                            <td>
+                                {$form.attach_file}
+                                <p class="line">{$attached_file1}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Attachment2</th>
+                            <td>
+                                {$form.attach_file}
+                                <p class="line">{$attached_file2}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Attachment3</th>
+                            <td>
+                                {$form.attach_file}
+                                <p class="line">{$attached_file3}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Attachment4</th>
+                            <td>
+                                {$form.attach_file}
+                                <p class="line">{$attached_file4}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Attachment5</th>
+                            <td>
+                                {$form.attach_file}
+                                <p class="line">{$attached_file5}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ec-base-button gColumn">
+                <button type="button" class="btnSubmit" onclick="{$action_modify}">Edit</button>
+                <a href="{$link_board_list}"  class="btnEm">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

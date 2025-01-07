@@ -1,0 +1,11 @@
+.xans-member-findid.ec-base-box { padding:49px 0 39px; }
+.xans-member-findid .findId { width:375px; margin:0 auto; }
+.xans-member-findid .findId p { margin:7px 0 0; }
+.xans-member-findid .findId strong { display:inline-block; margin:0 0 5px; padding:0 4px 0 4px; width:125px; font-weight:normal; }
+.xans-member-findid .findId .check { margin-bottom:20px; margin-left:140px; color:#353535; }
+.xans-member-findid .findId input[type=text],
+.xans-member-findid .findId input[type=password] { height:28px; line-height:28px; }
+.xans-member-findid .findId #name,
+.xans-member-findid .findId #email { width:226px; }
+
+.xans-member-findid .findId .ec-base-button { padding:40px 0 10px; }

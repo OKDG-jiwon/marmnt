@@ -1,0 +1,86 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>My orders</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_ko_KR/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+<div module="Myshop_OrderHistoryTab" class="ec-base-tab gBlank7">
+    <ul>
+        <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}"><span>Orders<span class="number">({$total_orders})</span></span></a></li>
+        <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}"><span>Cancel/Exchange/Return<span class="number">({$total_orders_cs})</span></span></a></li>
+    </ul>
+</div>
+<div module="Myshop_OrderOldHistoryList">
+    <!--@css(/css/module/myshop/orderOldHistorylist.css)-->
+    <!--
+        $login_url = /member/login.html
+    -->
+    <div class="orderList {$list_display|display}">
+
+        <div class="order">
+            <h3>
+                <span class="date" title="Order Date">{$order_date}</span>
+                <span class="number" title="Order No."><a href="detail_old.html{$param_detail}">({$order_id})</a></span>
+            </h3>
+            <div class="ec-base-prdInfo">
+                <div class="prdBox">
+                    <div class="description">
+                        <strong class="prdName" title="Product">{$product_name}</strong>
+                        <ul class="info">
+                            <li>
+                                <span class="price" title="Price">
+                                    <strong>{$product_price}</strong>
+                                </span>
+                                <span class="ec-base-qty" title="Quantity">Total: {$product_count}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prdFoot" title="Order Status">
+                    <div class="gLeft">
+                        {$cur_state}
+                    </div>
+                </div>
+            </div>
+            <a href="detail_old.html{$param_detail}" class="btnDetail">Details</a>
+        </div>
+        <div class="order">
+            <h3>
+                <span class="date" title="Order Date">{$order_date}</span>
+                <span class="number" title="Order No."><a href="detail_old.html{$param_detail}">({$order_id})</a></span>
+            </h3>
+            <div class="ec-base-prdInfo">
+                <div class="prdBox">
+                    <div class="description">
+                        <strong class="prdName" title="Product">{$product_name}</strong>
+                        <ul class="info">
+                            <li>
+                                <span class="price" title="Price">
+                                    <strong>{$product_price}</strong>
+                                </span>
+                                <span class="ec-base-qty" title="Quantity">Total: {$product_count}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="prdFoot" title="Order Status">
+                    <div class="gLeft">
+                        {$cur_state}
+                    </div>
+                </div>
+            </div>
+            <a href="detail_old.html{$param_detail}" class="btnDetail">Details</a>
+        </div>
+    </div>
+    <p class="empty {$empty_display|display}">You have no order history.</p>
+</div>
+
+<div class="{$empty_display|display} ec-base-paginate typeList" module="Myshop_OrderHistoryPaging">
+    <a href="{$param_prev}" class="btnPrev">Previous</a>
+    <ol>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+    </ol>
+    <a href="{$param_next}" class="btnNext">Next</a>
+</div>

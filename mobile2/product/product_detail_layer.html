@@ -1,0 +1,35 @@
+<div module="product_detail">
+    <h3>Additional Product Details</h3>
+    <div module="product_detaildesign" class="content">
+        <!--
+
+            count = 10
+        -->
+        <div class="ec-base-table gClearBorder">
+            <table border="1">
+                <caption>Additional Product Details</caption>
+                <colgroup>
+                    <col style="width:115px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody>
+                    <tr class="{$item_display|display}">
+                        <th scope="row">{$item_title}</th>
+                        <td>{$item_content}</td>
+                    </tr>
+                    <tr class="{$item_display|display}">
+                        <th scope="row">{$item_title}</th>
+                        <td>{$item_content}</td>
+                    </tr>
+                    <tr class="{$colorchip_display|display} color">
+                        <th scope="row">Item Color</th>
+                        <td module="product_Colorchip">
+                            <span class="chips" style="background-color:{$color}"></span>
+                            <span class="chips" style="background-color:{$color}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

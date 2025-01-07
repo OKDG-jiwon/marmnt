@@ -1,0 +1,71 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Order_deferedpaymentguide" class="ec-base-layer">
+  <!--@css(/css/module/order/deferedpaymentguide.css)-->
+  <div class="header">
+    <h1><span class="{$calculation_org_title_display|display}">Transaction fee </span></h1>
+  </div>
+  <div class="content">
+    <div class="ec-base-help">
+      <h2><span class="{$calculation_org_title_display|display}">Transaction fee </span></h2>
+      <div class="inner">
+        <ul>
+          <li>Base for calculating transaction fee: {$calculation_standard_title} ({$calculation_standard_comment})</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ec-base-table">
+      <table border="1" summary="">
+        <caption>Transaction fee</caption>
+        <colgroup>
+          <col style="width:160px;" />
+          <col style="width:auto;" />
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">Transaction fee</th>
+          <td>
+            <span id="ec-order-company">{$shipping_company_select}</span>
+            <div class="ec-base-table typeList">
+              <table border="1" summary="">
+                <caption>Transaction fee</caption>
+                <colgroup>
+                  <col style="width:58px;" />
+                  <col style="width:auto;" />
+                  <col style="width:230px;" />
+                </colgroup>
+                <tbody class="head">
+                <tr>
+                  <td scope="col">No.</td>
+                  <td scope="col">Payment amount</td>
+                  <td scope="col">Fee</td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="scroll">
+                <table border="1" summary="">
+                  <caption>Transaction fee</caption>
+                  <colgroup>
+                    <col style="width:58px;" />
+                    <col style="width:auto;" />
+                    <col style="width:213px;" />
+                  </colgroup>
+                  <tbody  module="Order_CommissionList" class="center">
+                  <tr>
+                    <td>{$idx}</td>
+                    <td>{$min_amount} ~ {$max_amount} </td>
+                    <td>{$payment_commission} {$payment_commission_ref_price}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ec-base-button">
+    <a href="#none" class="btnNormalFix sizeS" onclick="window.close()">Close</a>
+  </div>
+</div>

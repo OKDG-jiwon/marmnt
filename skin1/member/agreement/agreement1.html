@@ -1,0 +1,15 @@
+<!--layout(/layout/basic/popup.html)-->
+<div module="member_join" id="{$join_confirm_layer_id}" class="mTerm ec-base-layer">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/member/activation.css)-->
+    <div class="header">
+        <h3>Terms of Use</h3>
+    </div>
+    <div class="content">
+        <div id="activationTerms">{$service_desc}</div>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnNormalFix sizeS" onclick="self.close();">Close</a>
+    </div>
+    <a href="#none" class="close"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="Close" onclick="self.close();" /></a>
+</div>

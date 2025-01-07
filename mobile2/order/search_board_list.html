@@ -1,0 +1,56 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Order_BoardListPackage" class="ec-base-layer">
+    <!--@css(/css/module/order/boardListPackage.css)-->
+    <h1>Select from Orders</h1>
+    <div class="wrap">
+        <div class="boardList">
+            <div module="Order_BoardList">
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName">{$product_name}</strong>
+                            <ul class="info">
+                                <li class="price"><strong>{$product_price}</strong> {$product_tax_type_text}</li>
+                                <li>Order No. : {$order_id}</li>
+                                <li>Order Date : {$order_date}</li>
+                            </ul>
+                        </div>
+                        <div class="ec-base-button gLeft">
+                            <button type="button" onclick="{$action_product_select}" class="btnStrong">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><img src="{$image_tiny}" alt="" width="71" height="71" /></div>
+                        <div class="description">
+                            <strong class="prdName">{$product_name}</strong>
+                            <ul class="info">
+                                <li class="price"><strong>{$product_price}</strong> {$product_tax_type_text}</li>
+                                <li>Order No. : {$order_id}</li>
+                                <li>Order Date : {$order_date}</li>
+                            </ul>
+                        </div>
+                        <div class="ec-base-button gLeft">
+                            <button type="button" onclick="{$action_product_select}" class="btnStrong">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div module="Order_BoardPaging" class="ec-base-paginate typeList">
+            <a href="{$param_before}" class="btnPrev">Previous</a>
+            <ol>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            </ol>
+            <a href="{$param_next}" class="btnNext">Next</a>
+        </div>
+    </div>
+    <button type="button" class="btnClose" onclick="window.close()">Close</button>
+</div>

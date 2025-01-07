@@ -1,0 +1,14 @@
+.xans-member-findpasswd { margin:14px 7px 0; padding:0 0 29px; color:#1b1b1b; font-size:13px; }
+
+/* emailMssage */
+.xans-member-findpasswd .emailMssage { border-bottom:1px solid #d7d5d5; }
+.xans-member-findpasswd .emailMssage .summary { margin:0; padding:15px 7px 0; color:#353535; line-height:1.5; font-weight:bold; letter-spacing:-0.4px;  }
+.xans-member-findpasswd .emailMssage .ec-base-button { margin:0; padding:15px 0 20px; }
+.xans-member-findpasswd .emailMssage .ec-base-button > .btnSubmit { margin:0; }
+.xans-member-findpasswd .emailMssage + .ec-base-button { margin:0; padding:20px 0 0; }
+.xans-member-findpasswd .emailMssage + .ec-base-button > .btnSubmit { margin:0; }
+
+/* INPUT SIZE */
+.xans-member-findpasswd #member_id,
+.xans-member-findpasswd #name,
+.xans-member-findpasswd #email { width:100%; }

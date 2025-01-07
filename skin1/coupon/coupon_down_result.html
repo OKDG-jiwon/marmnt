@@ -1,0 +1,20 @@
+<div module="Coupon_Downlayer">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/coupon/couponDownResult.css)-->
+    <div class="couponDownResult ec-base-layer" id="couponDownLayer">
+        <div class="header">
+            <h3>Coupon Download Complete</h3>
+        </div>
+        <div class="content">
+            <p class="total"><strong>{$total} downloads</strong> [<strong class="point">{$success_cnt}</strong>done / <strong>{$fail_cnt}</strong>failed]</p>
+            <p class="desc">Please see details below.</p>
+            <div class="couponList">
+                {$content}
+            </div>
+        </div>
+        <div class="ec-base-button">
+            <a href="/myshop/coupon/coupon.html" class="btnNormal sizeS">Go to My Coupons</a>
+        </div>
+        <a href="#none" class="close" onclick="location.reload();"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="Close" /></a>
+    </div>
+</div>

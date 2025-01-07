@@ -1,0 +1,65 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Welcome</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div class="progress">
+    <ol>
+        <li class="done">Policies</li>
+        <li class="done">Create Profile</li>
+        <li class="done"><strong title="Complete">Complete</strong></li>
+    </ol>
+</div>
+
+<div module="member_joinComplete">
+    <!--@css(/css/module/member/joinComplete.css)-->
+    <div class="welcome">
+        <p class="complete">Thank you for signing up, <strong>{$member_name}</strong>.</p>
+        <p>Your membership level is <strong>[{$group_name}]</strong>.</p>
+        <div module="member_BenefitJoin" class="memberSpecial">
+            <ul class="ec-base-help">
+                <li class="{$display_no_benefit|display}">
+                    Receive an {$use_dc} of <strong>{$dc_price}{$dc_type}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price}</strong>. {$dc_max_percent}<br>
+                    <span class="{$display_mobile_use_dc|display}">(Receive an {$mobile_use_dc} of {$mobile_dc_price}{$mobile_dc_price_type} when you purchase {$dc_pay} {$mobile_dc_min_price} via our mobile website. {$mobile_dc_max_percent})</span>
+                </li>
+                <li class="{$display_with_all|display}">
+                    Receive {$use_dc_mileage} of <strong>{$dc_price_mileage}{$dc_type_mileage}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price_mileage}</strong>. {$dc_max_mileage_percent}<br>
+                    <span class="{$display_mobile_use_mileage|display}">(Receive {$mobile_use_dc_mileage} of {$mobile_dc_mileage_price_o_percent}{$mobile_dc_mileage_unit} when you purchase {$dc_pay} {$mobile_dc_mileage_min_buy_amount} via our mobile website. {$mobile_dc_mileage_max_percent_buy_amount})</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ec-base-table gClearCell">
+        <table border="1">
+            <caption>Complete registration</caption>
+            <colgroup>
+                <col style="width:100px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td>{$member_id}</td>
+                </tr>
+                <tr class="{$display_member_name|display}">
+                    <th scope="row">Name</th>
+                    <td>{$member_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email Address</th>
+                    <td>{$member_email}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="{$under_fourteen_display|display}">
+        <strong>If you are under 14 years of age</strong>, please note that you will be able to use your account once your account has been verified through the account confirmation process.
+    </p>
+    <div class="ec-base-button gColumn">
+        <a href="/member/login.html" class="btnSubmit {$display_login_chk|display}">Sign In</a>
+        <a href="{$redirect_function}" class="btnEm">complete</a>
+    </div>
+</div>

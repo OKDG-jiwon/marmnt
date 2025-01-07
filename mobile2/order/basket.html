@@ -1,0 +1,407 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Cart</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="Order_BasketPackage">
+    <!--@css(/css/module/order/basketPackage.css)-->
+    <!--@js(/js/module/order/basket.js)-->
+
+    <p module="Order_Empty">Your cart is empty.</p>
+
+    <div module="Order_BasketOption">
+        <!-- Do not delete this code
+            $product_weight_display=F
+            $checked_product_calc=T
+        -->
+    </div>
+
+    <div class="ec-base-fold theme1 selected eToggle" module="Order_EmptyItem">
+        <div class="title">
+            <h2>Products in Cart</h2>
+        </div>
+
+        <div class="contents">
+            <div class="title subTitle" module="Order_NormOverseaTitle">
+                <h3>Products ({$item_total})</h3>
+            </div>
+            <div module="Order_NormOversea">
+                <div module="Order_list">
+
+                    <div class="ec-base-prdInfo">
+                        <span class="{$use_basket_multiple_selection|display}"><input type="checkbox" id="{$chk_id}" name="{$chk_name}"></span>
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" alt="" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product"><span id="{$prod_id}">{$product_name_link}</span> {$icon} {$pickup_icon} {$benefit_icons}</strong>
+                                <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                <ul class="info">
+                                    <li class="{$subscription_show_display|display}">Delivery frequency <span class="txtEm">{$subscription_option_str}</span></li>
+                                    <li class="{$subscription_show_display|display}">Number of deliveries <span class="txtEm">{$max_expected_pay_seq_str}</span></li>
+                                    <li class="{$product_weight_display|display}">Weight: <span>{$product_weight} kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                    <li>
+                                        <ul class="price">
+                                            <li id="{$product_purchase_price_div_id}">Product subtotal: {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}" >Discount: {$product_discount_price_front_head}<span class="txtWarn">-{$product_discount_price_front}</span>{$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_hide_display|display}">
+                                        <a href="javascript:;" class="QuantityDown qtyDown" onclick="{$out_shortcut}"><img alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29"></a>
+                                        {$form.quantity}
+                                        <a href="javascript:;" class="QuantityUp qtyUp" onclick="{$add_shortcut}"><img alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" ></a>
+                                        <span><a href="#none" class="btnBasic" onclick="{$action_modify}">Edit</a></span>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_show_display|display}">{$quantity}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="option" module="Order_optionAll">
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                        </ul>
+                        <div class="ec-base-button">
+                            <div class="gLeft">
+                                <a href="#none" onclick="{$action_move_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_delete.png" alt="Remove" width="13" height="13" /></a>
+                                <a href="#none" onclick="{$action_wish_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_addwishlist.png" alt="Wish List" width="13" height="13" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ec-base-prdInfo">
+                        <span class="{$use_basket_multiple_selection|display}"><input type="checkbox" id="{$chk_id}" name="{$chk_name}"></span>
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" alt="" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product"><span id="{$prod_id}">{$product_name_link}</span> {$icon} {$pickup_icon} {$benefit_icons}</strong>
+                                <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                <ul class="info">
+                                    <li class="{$subscription_show_display|display}">Delivery frequency <span class="txtEm">{$subscription_option_str}</span></li>
+                                    <li class="{$subscription_show_display|display}">Number of deliveries <span class="txtEm">{$max_expected_pay_seq_str}</span></li>
+                                    <li class="{$product_weight_display|display}">Weight: <span>{$product_weight} kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                    <li>
+                                        <ul class="price">
+                                            <li id="{$product_purchase_price_div_id}">Product subtotal: {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}" >Discount: {$product_discount_price_front_head}<span class="txtWarn">-{$product_discount_price_front}</span>{$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_hide_display|display}">
+                                        <a href="javascript:;" class="QuantityDown qtyDown" onclick="{$out_shortcut}"><img alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29"></a>
+                                        {$form.quantity}
+                                        <a href="javascript:;" class="QuantityUp qtyUp" onclick="{$add_shortcut}"><img alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" ></a>
+                                        <span><a href="#none" class="btnBasic" onclick="{$action_modify}">Edit</a></span>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_show_display|display}">{$quantity}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="option" module="Order_optionAll">
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                        </ul>
+                        <div class="ec-base-button">
+                            <div class="gLeft">
+                                <a href="#none" onclick="{$action_move_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_delete.png" alt="Remove" width="13" height="13" /></a>
+                                <a href="#none" onclick="{$action_wish_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_addwishlist.png" alt="Wish List" width="13" height="13" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div module="Order_NormIndividual">
+                <div module="Order_list">
+
+                    <div class="ec-base-prdInfo">
+                        <span class="{$use_basket_multiple_selection|display}"><input type="checkbox" id="{$chk_id}" name="{$chk_name}"></span>
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" alt="" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="product Name"><span id="{$prod_id}">{$product_name_link}</span> {$icon} {$pickup_icon} {$benefit_icons}</strong>
+                                <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                <ul class="info">
+                                    <li class="{$subscription_show_display|display}">Delivery frequency <span class="txtEm">{$subscription_option_str}</span></li>
+                                    <li class="{$subscription_show_display|display}">Number of deliveries <span class="txtEm">{$max_expected_pay_seq_str}</span></li>
+                                    <li class="{$product_weight_display|display}">Weight: <span>{$product_weight} kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                    <li>
+                                        <ul class="price">
+                                            <li id="{$product_purchase_price_div_id}">Product subtotal: {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}" >Discount: {$product_discount_price_front_head}<span class="txtWarn">-{$product_discount_price_front}</span>{$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_hide_display|display}">
+                                        <a href="javascript:;" class="QuantityDown qtyDown" onclick="{$out_shortcut}"><img alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29"></a>
+                                        {$form.quantity}
+                                        <a href="javascript:;" class="QuantityUp qtyUp" onclick="{$add_shortcut}"><img alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" ></a>
+                                        <span><a href="#none" class="btnBasic" onclick="{$action_modify}">Edit</a></span>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_show_display|display}">{$quantity}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="option" module="Order_optionAll">
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                        </ul>
+                        <div class="ec-base-button">
+                            <div class="gLeft">
+                                <a href="#none" onclick="{$action_move_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_delete.png" alt="Remove" width="13" height="13" /></a>
+                                <a href="#none" onclick="{$action_wish_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_addwishlist.png" alt="Wish List" width="13" height="13" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="ec-base-prdInfo">
+                        <span class="{$use_basket_multiple_selection|display}"><input type="checkbox" id="{$chk_id}" name="{$chk_name}"></span>
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" alt="" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="product Name"><span id="{$prod_id}">{$product_name_link}</span> {$icon} {$pickup_icon} {$benefit_icons}</strong>
+                                <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                <ul class="info">
+                                    <li class="{$subscription_show_display|display}">Delivery frequency <span class="txtEm">{$subscription_option_str}</span></li>
+                                    <li class="{$subscription_show_display|display}">Number of deliveries <span class="txtEm">{$max_expected_pay_seq_str}</span></li>
+                                    <li class="{$product_weight_display|display}">Weight: <span>{$product_weight} kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                    <li>
+                                        <ul class="price">
+                                            <li id="{$product_purchase_price_div_id}">Product subtotal: {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}" >Discount: {$product_discount_price_front_head}<span class="txtWarn">-{$product_discount_price_front}</span>{$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_hide_display|display}">
+                                        <a href="javascript:;" class="QuantityDown qtyDown" onclick="{$out_shortcut}"><img alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29"></a>
+                                        {$form.quantity}
+                                        <a href="javascript:;" class="QuantityUp qtyUp" onclick="{$add_shortcut}"><img alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" ></a>
+                                        <span><a href="#none" class="btnBasic" onclick="{$action_modify}">Edit</a></span>
+                                    </li>
+                                    <li class="ec-base-qty {$nplusevent_show_display|display}">{$quantity}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="option" module="Order_optionAll">
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                            <li>
+                                <div class="name">
+                                    <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                                </div>
+                                <span class="{$nplusevent_hide_display|display}"><a href="#none" class="btnBasic {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a></span>
+                            </li>
+                        </ul>
+                        <div class="ec-base-button">
+                            <div class="gLeft">
+                                <a href="#none" onclick="{$action_move_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_delete.png" alt="Remove" width="13" height="13" /></a>
+                                <a href="#none" onclick="{$action_wish_item}" class="btnNormal"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/btn_basket_addwishlist.png" alt="Wish List" width="13" height="13" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div module="Order_Weight" class="{$total_weight_display|display}">
+                <div class="totalWeight">Order weight : <span>{$total_weight} kg</span></div>
+            </div>
+            <div module="Order_SelectOrder" class="ec-base-button {$use_basket_multiple_selection|display}">
+                <div class="gLeft">
+                    <a href="#none" class="btnNormal mini" id="product_select_all" data-status="off">Select All</a>
+                    <a href="#none" onclick="{$action_delete}" class="btnNormal mini">Remove Selected</a>
+                </div>
+                <a href="#none" onclick="{$action_order_store_pickup_select}" class="btnNormal mini {$action_order_store_pickup_select_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Select store pick up items</a>
+            </div>
+        </div>
+    </div>
+
+    <div module="Order_TotalOversea" class="{$oversea_delv_info_display|display} totalSummary" unroll="1">
+        <div class="ec-base-fold theme2 eToggle">
+            <div class="title">
+                <h3>Total</h3>
+                <p>
+                    {$total_product_price_display_front_head}<strong>{$total_product_price_display_front}</strong>{$total_product_price_display_front_tail}
+                    <span class="refer {$total_product_price_ref_display|display}">{$total_product_price_display_back_head}{$total_product_price_display_back}{$total_product_price_display_back_tail}</span>
+                </p>
+            </div>
+            <div class="more contents {$vat_total_display|display}">
+                <div class="ec-base-table gCellNarrow">
+                    <table border="1">
+                        <caption>Total</caption>
+                        <colgroup>
+                            <col style="width:150px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody class="right">
+                        <tr>
+                            <th scope="row">Merchandise</th>
+                            <td>{$total_product_base_display}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">VAT</th>
+                            <td>{$total_product_vat_display}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="{$oversea_total_benefit_price_title_area_id}" class="ec-base-fold theme2 eToggle {$total_benefit_layer_display|display}">
+            <div class="title">
+                <h3>Discount</h3>
+                <p>
+                    {$total_product_discount_price_front_head}<strong>{$total_product_discount_price_front}</strong><strong class="tail">{$total_product_discount_price_front_tail}</strong>
+                    <span class="refer {$total_product_discount_price_ref_display|display}">{$total_product_discount_price_back_head}<span id="{$oversea_total_product_discount_price_back_id}">{$total_product_discount_price_back}</span>{$total_product_discount_price_back_tail}</span>
+                </p>
+            </div>
+            <div id="{$oversea_total_benefit_price_area_id}" class="contents {$total_benefit_layer_display|display}">
+                <div class="ec-base-table gCellNarrow">
+                    <table border="1">
+                        <caption>Discount</caption>
+                        <colgroup>
+                            <col style="width:190px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody id="{$oversea_total_benefit_list_id}" class="right">
+                        <tr class="{$total_periodsale_price_display|display}">
+                            <th scope="row">Limited Time Discount</th>
+                            <td id="{$total_periodsale_price_id}">{$price_unit_head}{$total_periodsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_membersale_price_display|display}">
+                            <th scope="row">Membership Discount</th>
+                            <td id="{$total_membersale_price_id}">{$price_unit_head}{$total_membersale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_rebuysale_price_display|display}">
+                            <th scope="row">{$rebuysale_head}Repurchase Discount</th>
+                            <td id="{$total_rebuysale_price_id}">{$price_unit_head}{$total_rebuysale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_bulksale_price_display|display}">
+                            <th scope="row">Bulk Order Discount</th>
+                            <td id="{$total_bulksale_price_id}">{$price_unit_head}{$total_bulksale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_pbpsale_price_display|display}">
+                            <th scope="row">About PBP Discount</th>
+                            <td id="{$total_pbpsale_price_id}">{$price_unit_head}{$total_pbpsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_newproductsale_price|display}">
+                            <th scope="row">New Product Discount</th>
+                            <td id="{$total_newproductsale_price_id}">{$price_unit_head}{$total_newproductsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_setproductsale_price|display}">
+                            <th scope="row">Discounted amount for Set Items</th>
+                            <td id="{$total_setproductsale_price_id}">{$price_unit_head}{$total_setproductsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_paymethodsale_price_display|display}">
+                            <th scope="row">Payment Method Discount</th>
+                            <td id="{$total_paymethodsale_price_id}">{$price_unit_head}{$total_paymethodsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_membergroupsale_price_display|display}">
+                            <th scope="row">Membership Level Discount</th>
+                            <td id="{$oversea_total_membergroupsale_price_id}">{$price_unit_head}{$total_membergroupsale_price}{$price_unit_tail}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <h3>Total Amount</h3>
+            <p>
+                {$total_order_price_front_head}<strong id="{$oversea_total_order_price_front_id}">{$total_order_price_front}</strong>{$total_order_price_front_tail}
+                <span class="refer {$total_order_price_ref_display|display}">{$total_order_price_back_head}<span id="{$oversea_total_order_price_back_id}">{$total_order_price_back}</span>{$total_order_price_back_tail}</span>
+            </p>
+        </div>
+        <div class="totalMileage {$total_mileage_price_area_id} {$total_mileage_price_display|display}" unroll="1">
+            <div class="total">
+                Estimated points
+                <span class="numMileage">Up to <strong id="{$total_mileage_price_layer_id}">{$mileage_unit_head}{$total_mileage_price}{$mileage_unit_tail}</strong></span>
+            </div>
+            <div id="{$total_product_mileage_area}" class="title {$total_product_mileage_price_display|display}">
+                <h3>Product-based {$mileage_name}</h3>
+                <p><strong id="{$total_product_mileage_price_id}">{$mileage_unit_head}{$total_product_mileage_price}{$mileage_unit_tail}</strong></p>
+            </div>
+            <div id="{$total_member_mileage_area}" class="title {$total_member_mileage_price_display|display}">
+                <h3>Customer level-based {$mileage_name}</h3>
+                <p><strong id="{$total_member_mileage_price_id}">{$mileage_unit_head}{$total_member_mileage_price}{$mileage_unit_tail}</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="{$btn_order_display|display}" module="Order_TotalOrder" id="orderFixItem">
+        <div class="ec-base-button gColumn">
+            <a href="#none" onclick="{$action_order_select}" class="btnEm {$use_basket_multiple_selection|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout Selected</a>
+            <a href="#none" onclick="{$action_order_all}" class="btnSubmit {$buy_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout All</a>
+        </div>
+        <div id="{$app_payment_button_box_id}"></div>
+    </div>
+
+    <div module="Order_BasketPriceInfoGuide" class="{$basket_price_info_guide_display|display}">
+        <ul class="ec-base-help">
+            <li class="{$basket_price_sale_guide_display|display}">You can find details of discounts applied under Amount Due on Place Order form.</li>
+            <li class="{$basket_price_basic_guide_display|display}">Shipping fees will be added during the checkout stage.</li>
+            <li class="{$basket_price_tax_guide_display|display}">Taxes are added to the order total during the checkout stage.</li>
+        </ul>
+    </div>
+
+    <div class="ec-base-button gFixed {$btn_order_display|display}" module="Order_TotalOrder" id="orderFixArea">
+        <div class="state">
+            <span id="{$checked_order_count}" class="count"></span>
+            <span id="{$checked_order_price}" class="price"></span>
+        </div>
+        <div class="ec-base-button gColumn">
+            <a href="#none" onclick="{$action_order_select}" class="btnEm {$use_basket_multiple_selection|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout Selected</a>
+            <a href="#none" onclick="{$action_order_all}" class="btnSubmit {$buy_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout All</a>
+        </div>
+    </div>
+</div>
+
+
+<div id="ec-basketOptionModifyLayer" class="layerOptionModify" style="display:none;">
+    <ul>
+        <li class="ec-basketOptionModifyLayer-options" style="display:none;"><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+        <li class="ec-basketOptionModifyLayer-addOptions" style="display:none;"><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+    </ul>
+    <div class="ec-base-button gCenter">
+        <a href="#none" class="btnStrong ec-basketOptionModifyLayer-modify">Edit</a>
+        <a href="#none" class="btnNormal" onclick="$('#ec-basketOptionModifyLayer').hide();">Cancel</a>
+    </div>
+</div>

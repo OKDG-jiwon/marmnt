@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+    <title>Order Complete</title>
+    <!--@css(/css/module/order/ec_orderform/form_onetouch.css)-->
+    <!-- If you want to create your own style, create a new CSS style sheet. Try coding #userStyle #mCafe24Order { } . -->
+
+
+    <!--@js(/layout/basic/js/common.js)-->
+    <!--@js(/js/module/order/ec_orderform/orders.js)-->
+</head>
+<body id="userStyle">
+
+<header id="header">
+    <div class="header">
+        <h1 module="Layout_LogoTop"><a href="/index.html">{$mobile_title}</a></h1><!-- PC는 {$mall_name} / 모바일에서는 {$mobile_title} 변수 사용-->
+        <div class="headerMenu gLeft">
+            <span class="btnBack" module="Layout_MobileAction">
+                <a href="#none" onclick="{$go_back}">Back</a>
+            </span>
+        </div>
+        <div class="headerMenu gRight">
+            <span module="Layout_orderBasketcount" class="btnBasket">
+                <a href="/order/basket.html">Cart<span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
+            </span>
+            <a href="/myshop/index.html" module="Layout_statelogoff" class="btnMy">Login</a>
+            <a href="/myshop/index.html" module="Layout_statelogon" class="btnMy">My shopping</a>
+        </div>
+    </div>
+    <div class="titleArea">
+        <h1>Order Complete</h1>
+    </div>
+</header>
+
+<div id="mCafe24Order" class="typeHeader" module="Order_result" unroll="1">
+    <!-- Do not delete this code
+        $product_weight_display=F
+    -->
+
+    <div class="resultArea">
+        <p class="message"><strong>Your order has been placed.</strong></p>
+        <div class="resultInfo">
+            <div class="ec-base-table gCellNarrow">
+                <table border="1">
+                    <caption>Payment information</caption>
+                    <colgroup>
+                        <col style="width:94px">
+                        <col style="width:auto">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Order number</th>
+                        <td class="right"><span class="txtEm">{$order_id}</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Payment Amount</th>
+                        <td class="right">
+                                    <span class="txtEm">
+                                        {$result_order_price_front_head}{$result_order_price_front}{$result_order_price_front_tail}
+                                        <span class="refer {$result_order_ref_display|display}">({$result_order_price_back_head}{$result_order_price_back}{$result_order_price_back_tail})</span>
+                                    </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea">
+        <div class="title">
+            <h2>Method of Payment</h2>
+        </div>
+        <div class="contents">
+            <div class="segment">
+                <div class="ec-base-table typeView">
+                    <table border="1">
+                        <caption>Method of Payment</caption>
+                        <colgroup>
+                            <col style="width:110px">
+                            <col style="width:auto">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Method of Payment</th>
+                            <td>
+                                {$paymethod_name}
+                                <div class="methodDetail">{$paymethod_detail}</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea">
+        <div module="Order_deliverylist">
+            <div class="deliveryInfo">
+                <div class="title">
+                    <h2>Shipping Address{$delivery_idx}</h2>
+                </div>
+                <div class="contents">
+                    <div class="segment">
+                        <div class="ec-base-table typeView">
+                            <table border="1">
+                                <caption>Shipping Address</caption>
+                                <colgroup>
+                                    <col style="width:110px">
+                                    <col style="width:auto">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <td>
+                                        {$rname}<br>
+                                        {$english_name} {$pron_name}<br>
+                                        <span class="{$email_display|display}">({$o_email})</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Address</th>
+                                    <td>
+                                        {$rzipcode} {$raddr}
+                                        <div class="{$receive_info_display|display}">
+                                            Pickup Store {$store_name}
+                                            <span class="gBlank5">{$store_receive_addr}</span>
+                                            <p class="ec-base-help {$store_receive_period_display|display}"><span class="txtNormal">({$store_receive_period})</span></p>
+                                            <span class="gBlank5"><button type="button" onclick="{$action_open_store}" class="btnNormal mini">About store pickup</button></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="{$country_name_display|display}">
+                                    <th scope="row">Country</th>
+                                    <td>{$country_name}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Contact</th>
+                                    <td>{$rphone_1} <span class="ec-shop-delimiter {$r_phone_delimiter_display|display}"> / </span> {$rphone_2}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Shipping message</th>
+                                    <td>
+                                        {$sc_name}
+                                        <span class="gBlank5">{$hope_date}</span>
+                                        <span class="gBlank5">{$hope_time}</span>
+                                        <span class="gBlank5">{$rmessage}</span>
+                                    </td>
+                                </tr>
+                                <tr class="{$shipping_method_display|display}">
+                                    <th scope="row">Shipping Method</th>
+                                    <td>
+                                        <span class="gBlank5">{$shipping_method_name}</span>
+                                    </td>
+                                </tr>
+                                <tr class="{$deliverybinding_display|display}">
+                                    <th scope="row">Ordered items</th>
+                                    <td>
+                                        <!-- 상품 반복 -->
+                                        <div module="Order_deliverybindinglist">
+                                            <div class="ec-base-prdInfo">
+                                                <div class="prdBox">
+                                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                                                    <div class="description">
+                                                        <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                                        <ul class="info">
+                                                            <li title="Option">
+                                                                <p class="option {$option_str_display|display}">{$option_str}</p>
+                                                                <ul class="option" module="Order_optionSet">
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="quantity">Quantity: {$product_quantity} item(s)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //참고 -->
+                                            <!-- 상품 반복 -->
+                                            <div class="ec-base-prdInfo">
+                                                <div class="prdBox">
+                                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                                                    <div class="description">
+                                                        <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                                        <ul class="info">
+                                                            <li title="Option">
+                                                                <p class="option {$option_str_display|display}">{$option_str}</p>
+                                                                <ul class="option" module="Order_optionSet">
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="quantity">Quantity: {$product_quantity} item(s)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //참고 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="deliveryInfo">
+                <div class="title">
+                    <h2>Shipping Address{$delivery_idx}</h2>
+                </div>
+                <div class="contents">
+                    <div class="segment">
+                        <div class="ec-base-table typeView">
+                            <table border="1">
+                                <caption>Shipping Address</caption>
+                                <colgroup>
+                                    <col style="width:110px">
+                                    <col style="width:auto">
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <td>
+                                        {$rname}<br>
+                                        {$english_name} {$pron_name}<br>
+                                        <span class="{$email_display|display}">({$o_email})</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Address</th>
+                                    <td>
+                                        {$rzipcode} {$raddr}
+                                        <div class="{$receive_info_display|display}">
+                                            Pickup Store {$store_name}
+                                            <span class="gBlank5">{$store_receive_addr}</span>
+                                            <p class="ec-base-help {$store_receive_period_display|display}"><span class="txtNormal">({$store_receive_period})</span></p>
+                                            <span class="gBlank5"><button type="button" onclick="{$action_open_store}" class="btnNormal mini">About store pickup</button></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="{$country_name_display|display}">
+                                    <th scope="row">Country</th>
+                                    <td>{$country_name}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Contact</th>
+                                    <td>{$rphone_1} <span class="ec-shop-delimiter {$r_phone_delimiter_display|display}"> / </span> {$rphone_2}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Shipping message</th>
+                                    <td>
+                                        {$sc_name}
+                                        <span class="gBlank5">{$hope_date}</span>
+                                        <span class="gBlank5">{$hope_time}</span>
+                                        <span class="gBlank5">{$rmessage}</span>
+                                    </td>
+                                </tr>
+                                <tr class="{$shipping_method_display|display}">
+                                    <th scope="row">Shipping Method</th>
+                                    <td>
+                                        <span class="gBlank5">{$shipping_method_name}</span>
+                                    </td>
+                                </tr>
+                                <tr class="{$deliverybinding_display|display}">
+                                    <th scope="row">Ordered items</th>
+                                    <td>
+                                        <!-- 상품 반복 -->
+                                        <div module="Order_deliverybindinglist">
+                                            <div class="ec-base-prdInfo">
+                                                <div class="prdBox">
+                                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                                                    <div class="description">
+                                                        <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                                        <ul class="info">
+                                                            <li title="Option">
+                                                                <p class="option {$option_str_display|display}">{$option_str}</p>
+                                                                <ul class="option" module="Order_optionSet">
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="quantity">Quantity: {$product_quantity} item(s)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //참고 -->
+                                            <!-- 상품 반복 -->
+                                            <div class="ec-base-prdInfo">
+                                                <div class="prdBox">
+                                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                                                    <div class="description">
+                                                        <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                                        <ul class="info">
+                                                            <li title="Option">
+                                                                <p class="option {$option_str_display|display}">{$option_str}</p>
+                                                                <ul class="option" module="Order_optionSet">
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="quantity">Quantity: {$product_quantity} item(s)</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //참고 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea">
+        <div class="title">
+            <h2>Ordered items</h2>
+        </div>
+        <div class="contents">
+            <div class="orderArea {$oversea_display|display}" nspace="oversea">
+                <div module="Order_oversearesultlist">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                <ul class="info">
+                                    <li title="Expiration date" class="{$expiration_date_display|display}">Valid for {$expiration_date}</li>
+                                    <li title="Option">
+                                        <p class="option {$product_option_str_display|display}">{$option_str}</p>
+                                        <ul class="option" module="Order_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                        </ul>
+                                    </li>
+                                    <li>Qty: {$product_quantity} item(s)</li>
+                                    <li id="{$product_discount_price_div_id}" class="{$product_discount_price_display|display}">
+                                        Discount: <span class="txtWarn">-{$product_discount_price_front_head}<span id="{$product_discount_price_front_id}">{$product_discount_price_front}</span>{$product_sale_price_front_tail} </span>
+                                        <span class="txtWarn {$product_discount_price_ref_display|display}">({$product_discount_price_back_head}{$product_discount_price_back}{$product_discount_price_back_tail})</span></span>
+                                    </li>
+                                    <li class="{$product_weight_display|display}">Weight : {$product_weight} kg * {$product_quantity} = {$total_product_weight} kg</li>
+                                </ul>
+                                <div class="proPrice">
+                                    <span id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}{$product_purchase_price_front}{$product_purchase_price_front_tail} </span>
+                                    <span class="{$product_purchase_ref_display|display}">({$product_purchase_price_back_head}{$product_purchase_price_back}{$product_purchase_price_back_tail})</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="90" height="90"></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product name">{$set_product_icon} {$product_name_link}</strong>
+                                <ul class="info">
+                                    <li title="Expiration date" class="{$expiration_date_display|display}">Valid for {$expiration_date}</li>
+                                    <li title="Option">
+                                        <p class="option {$product_option_str_display|display}">{$option_str}</p>
+                                        <ul class="option" module="Order_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                                        </ul>
+                                    </li>
+                                    <li>Qty: {$product_quantity} item(s)</li>
+                                    <li id="{$product_discount_price_div_id}" class="{$product_discount_price_display|display}">
+                                        Discount: <span class="txtWarn">-{$product_discount_price_front_head}<span id="{$product_discount_price_front_id}">{$product_discount_price_front}</span>{$product_sale_price_front_tail} </span>
+                                        <span class="txtWarn {$product_discount_price_ref_display|display}">({$product_discount_price_back_head}{$product_discount_price_back}{$product_discount_price_back_tail})</span></span>
+                                    </li>
+                                    <li class="{$product_weight_display|display}">Weight : {$product_weight} kg *  {$product_quantity} = {$total_product_weight} kg</li>
+                                </ul>
+                                <div class="proPrice">
+                                    <span id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}{$product_purchase_price_front}{$product_purchase_price_front_tail} </span>
+                                    <span class="{$product_purchase_ref_display|display}">({$product_purchase_price_back_head}{$product_purchase_price_back}{$product_purchase_price_back_tail})</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="totalWeight {$total_weight_display|display}">Order weight : <span>{$total_weight} kg</span></div>
+        </div>
+    </div>
+
+    <div class="pannelArea {$gift_display|display}" nspace="gift">
+        <div class="title">
+            <h2>Gift</h2>
+        </div>
+        <div class="contents">
+            <div class="orderArea">
+                <div module="Order_giftresultlist">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$product_image}" alt="" width="90" height="90"></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product name"><span class="{$gift_icon_display|display}"><img src="{$gift_icon}" /></span> {$product_name}</strong>
+                                <ul class="info">
+                                    <li title="Option">
+                                        <p class="option {$option_display|display}">{$option_str}</p>
+                                    </li>
+                                    <li class="price">
+                                        <span title="Quantity" class="quantity">{$product_quantity} item(s)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="prdFoot" title="Total">
+                            <span class="gLeft">Total</span>
+                            <span class="txtStrong gRight">
+                                    {$price_unit_head}{$product_total_price}{$price_unit_tail}
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$product_image}" alt="" width="90" height="90"></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product name"><span class="{$gift_icon_display|display}"><img src="{$gift_icon}" /></span> {$product_name}</strong>
+                                <ul class="info">
+                                    <li title="Option">
+                                        <p class="option {$option_display|display}">{$option_str}</p>
+                                    </li>
+                                    <li class="price">
+                                        <span title="Quantity" class="quantity">{$product_quantity} item(s)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="prdFoot" title="Total">
+                            <span class="gLeft">Total</span>
+                            <span class="txtStrong gRight">
+                                    {$price_unit_head}{$product_total_price}{$price_unit_tail}
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea">
+        <div class="title">
+            <h2>Order total</h2>
+        </div>
+        <div class="contents">
+            <div class="segment">
+                <div class="ec-base-table gCellNarrow">
+                    <table border="1">
+                        <caption>Order total</caption>
+                        <colgroup>
+                            <col style="width:160px">
+                            <col style="width:auto">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Merchandise</th>
+                            <td class="right">{$price_unit_head}{$total_product_base_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_vat_display|display}">
+                            <th scope="row">VAT</th>
+                            <td class="right">+{$price_unit_head}{$total_vat_price}{$price_unit_tail}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Shipping</th>
+                            <td class="right">+{$price_unit_head}{$total_basic_ship_fee}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$total_local_ship_fee_display|display}">
+                            <th scope="row">Shipping Surcharge</th>
+                            <td class="right">+{$price_unit_head}{$total_local_ship_fee}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$defer_commission_display|display}">
+                            <th scope="row">Transaction Fee</th>
+                            <td class="right">+{$price_unit_head}{$defer_commission}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="{$admin_amount_display|display}">
+                            <th scope="row">Manually input amount</th>
+                            <td class="right">+{$price_unit_head}{$admin_amount}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="ec-order-expandwrap {$total_sale_display|display}">
+                            <th scope="row"><strong class="ec-order-expand">Discounts/Rewards</strong></th>
+                            <td class="right">-{$price_unit_head}{$total_sale_price_front}{$price_unit_tail}</td>
+                        </tr>
+                        <tr class="discountArea">
+                            <td colspan="2">
+                                <div class="ec-base-box {$total_benefit_display|display}">
+                                    <strong class="heading">Total</strong>
+                                    <div class="ec-base-table gCellNarrow">
+                                        <table border="1">
+                                            <caption>Discounts</caption>
+                                            <colgroup>
+                                                <col style="width:150px">
+                                                <col style="width:auto">
+                                            </colgroup>
+                                            <tbody>
+                                            <tr class="{$total_mobilesale_price_display|display}">
+                                                <th>Mobile discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_mobilesale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_periodsale_price_display|display}">
+                                                <th>Limited time discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_periodsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_membersale_price_display|display}">
+                                                <th>Membership discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_membersale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_rebuysale_price_display|display}">
+                                                <th>{$rebuysale_head} Repurchase discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_rebuysale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_bulksale_price_display|display}">
+                                                <th>Bulk order discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_bulksale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_pbpsale_price_display|display}">
+                                                <th>About PBP discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_pbpsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_newproductsale_price|display}">
+                                                <th>New product discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_newproductsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_setproductsale_price|display}">
+                                                <th>Discounted amount for Set Items</th>
+                                                <td class="right">-{$price_unit_head}{$total_setproductsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_paymethodsale_price_display|display}">
+                                                <th>Cash purchase discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_paymethodsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_shipfeesale_price_display|display}">
+                                                <th>Shipping Discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_shipfeesale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            <tr class="{$total_membergroupsale_price_display|display}">
+                                                <th>Membership level discount</th>
+                                                <td class="right">-{$price_unit_head}{$total_membergroupsale_price}{$price_unit_tail}</td>
+                                            </tr>
+                                            </tbody>
+                                            <tbody class="right {$total_appproductsale_price_display|display}">
+                                            {$total_appproductsale_price_detail}
+                                            </tbody>
+                                            <tbody class="right {$total_appordersale_price_display|display}">
+                                            {$total_appordersale_price_detail}
+                                            </tbody>
+                                            <tbody class="right {$discountcode_display|display}">
+                                            <tr>
+                                                <th>Promo code</th>
+                                                <td class="right">-{$price_unit_head}{$discountcode_price_view}{$price_unit_tail}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="ec-base-box {$coupon_display|display}">
+                                    <strong class="heading">Coupon discount</strong>
+                                    <div class="ec-base-table gCellNarrow">
+                                        <table border="1">
+                                            <caption>Discounts</caption>
+                                            <colgroup>
+                                                <col style="width:150px">
+                                                <col style="width:auto">
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <th>Coupon discount</th>
+                                                <td class="right">-{$price_unit_head}{$coupon_discount}{$price_unit_tail}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="ec-base-box {$total_addpay_summary_display|display}">
+                                    <strong class="heading">Additional Payment Method</strong>
+                                    <div class="ec-base-table gCellNarrow">
+                                        <table border="1">
+                                            <caption>Additional Payment Method</caption>
+                                            <colgroup>
+                                                <col style="width:150px">
+                                                <col style="width:auto">
+                                            </colgroup>
+                                            <tbody>
+                                            <tr class="{$mileage_display|display}">
+                                                <th scope="row">{$mileage_name}</th>
+                                                <td class="right">-{$price_unit_head}{$mileage_used_amount}{$mileage_unit}</td>
+                                            </tr>
+                                            <tr class="{$deposit_display|display}">
+                                                <th scope="row">{$deposit_name}</th>
+                                                <td class="right">-{$price_unit_head}{$deposit_used_amount}{$deposit_unit}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="{$total_tax_display|display}">
+                            <th scope="row">{$total_tax_name}</th>
+                            <td class="right">+<span>{$price_unit_head}{$total_tax}{$price_unit_tail}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="totalPay gBlank10">
+                    <h3 class="heading">Total</h3>
+                    <strong class="txtStrong">
+                        {$result_order_price_front_head}{$result_order_price_front}{$result_order_price_front_tail}
+                        <span class="refer {$result_order_ref_display|display}">({$result_order_price_back_head}{$result_order_price_back}{$result_order_price_back_tail})</span>
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea {$ordadd.display|display}">
+        <div class="title">
+            <h2>Additional information</h2>
+        </div>
+        <div class="contents">
+            <div class="segment">
+                <div class="ec-base-table typeView">
+                    <table border="1">
+                        <caption>Additional information</caption>
+                        <colgroup>
+                            <col style="width:94px">
+                            <col style="width:auto">
+                        </colgroup>
+                        <tbody module="Order_ordadd">
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>{$content}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>{$content}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pannelArea {$total_mileage_summary_display|display}">
+        <div class="title">
+            <h2>Reward Points Earned {$mileage_name}</h2>
+        </div>
+        <div class="contents">
+            <div class="segment">
+                <div class="ec-base-table gCellNarrow">
+                    <table border="1">
+                        <caption>Reward Points Earned {$mileage_name}</caption>
+                        <colgroup>
+                            <col style="width:160px">
+                            <col style="width:auto">
+                        </colgroup>
+                        <tbody>
+                        <tr class="{$total_product_mileage_display|display}">
+                            <th scope="row">Product {$mileage_name}</th>
+                            <td class="right">{$mileage_unit_head}{$total_product_mileage_price}{$mileage_unit}</td>
+                        </tr>
+                        <tr class="{$total_member_mileage_display|display}">
+                            <th scope="row">Member {$mileage_name}</th>
+                            <td class="right">{$mileage_unit_head}{$total_member_mileage_price}{$mileage_unit}</td>
+                        </tr>
+                        <tr class="{$total_coupon_mileage_display|display}">
+                            <th scope="row">Coupon {$mileage_name}</th>
+                            <td class="right">{$mileage_unit_head}{$total_coupon_mileage_price}{$mileage_unit}</td>
+                        </tr>
+                        <tr class="{$total_plusapp_mileage_display|display}">
+                            <th scope="row">Plus App orders {$mileage_name}</th>
+                            <td class="right">{$price_unit_head}{$total_plusapp_mileage_price}{$mileage_unit}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="totalPay">
+                <h3 class="heading">Total rewards {$mileage_name}</h3>
+                <strong class="txtEm">{$mileage_unit_head}{$total_mileage_price}{$mileage_unit_tail}</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-button gColumn">
+        <a href="/myshop/order/list.html" class="btnEm">Order Detail</a>
+        <a href="/" class="btnSubmit">Continue Shopping</a>
+    </div>
+</div>
+</body>
+</html>

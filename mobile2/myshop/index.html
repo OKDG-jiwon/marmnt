@@ -1,0 +1,139 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>My Account</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="layout_logincheck">
+<!--
+    $url = /member/login.html
+-->
+</div>
+
+<div class="myshopMain">
+    <div module="myshop_asyncbenefit">
+        <!--@css(/css/module/myshop/benefit.css)-->
+        <div class="info">
+            <div class="{$display_benefit|display}">
+                <div class="memberInfo">
+                    <span><img src="{$group_image}" alt="" onerror="this.src='//img.echosting.cafe24.com/skin/mobile_en_US/member/img_member_default.gif';" width="35" class="{$group_image_tag_class}"></span>
+                    <ul>
+                        <li><strong class="name">{$member_name}</strong> your membership level is <br><strong class="group">[<span class="{$displayGroupIcon|display}"><img src="{$group_icon}" alt="" class="{$group_icon_tag_class}"></span>{$group_name}]</strong>.</li>
+                    </ul>
+                    <ul class="{$bGradeAutoDisplay|display} gradeGuide" id="{$sGradeAutoDisplayId}">
+                        <li class="{$bChangeTypePrice|display} {$sAutoGradeDisplay}">Purchase {$sGradeIncreasePrice} to be promoted to [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}]</li>
+                        <li class="{$bChangeTypeCount|display} {$sAutoGradeDisplay}">{$sGradeIncreaseCount} more orders to be promoted to [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}]</li>
+                        <li class="{$bChangeTypePriceAndCount|display} {$sAutoGradeDisplay}">Purchase {$sGradeIncreasePrice} and place {$sGradeIncreaseCount} more orders to be promoted to [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}]</li>
+                        <li class="{$bChangeTypePriceOrCount|display} {$sAutoGradeDisplay}">Purchase {$sGradeIncreasePrice} or place {$sGradeIncreaseCount} more orders to be promoted to [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}]</li>
+                        <li class="{$bChangeMaxTypePrice|display}" id="{$sChangeMaxTypePriceId}">Purchase {$sGradeIncreasePrice} to maintain [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}] level.</li>
+                        <li class="{$bChangeMaxTypeCount|display}" id="{$sChangeMaxTypeCountId}">{$sGradeIncreaseCount} more orders to maintain [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}] level.</li>
+                        <li class="{$bChangeMaxTypePriceAndCount|display}" id="{$sChangeMaxTypePriceAndCountId}">Purchase {$sGradeIncreasePrice} and place {$sGradeIncreaseCount} more orders to maintain [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}] level.</li>
+                        <li class="{$bChangeMaxTypePriceOrCount|display}" id="{$sChangeMaxTypePriceOrCountId}">Purchase {$sGradeIncreasePrice} or place {$sGradeIncreaseCount} more orders to maintain [<span class="{$bDisplayNextGroupIcon|display} {$sNextGroupIconClass}"><img src="{$group_icon}" alt="" class="{$next_group_icon_tag_class}"></span>{$sNextGrade}] level.</li>
+                    </ul>
+                </div>
+                <div class="ec-base-help {$display_no_benefit|display}">
+                    <p class="txt11 {$display_no_benefit|display} {$display_no_benefit_class}">Receive an {$use_dc} of {$dc_price}{$dc_type} when you purchase {$dc_pay} {$dc_min_price}. {$dc_max_percent}</p>
+                    <p class="txt11 {$display_mobile_use_dc|display} {$display_mobile_use_dc_class}">(Receive an {$mobile_use_dc} of {$mobile_dc_price}{$mobile_dc_price_type} when you purchase {$dc_pay} {$mobile_dc_min_price} via our mobile website. {$mobile_dc_max_percent})</p>
+                    <p class="txt11 {$display_with_all|display} {$display_with_all_class}">Receive {$use_dc_mileage} of {$dc_price_mileage}{$dc_type_mileage} when you purchase {$dc_pay} {$dc_min_price_mileage}. {$dc_max_mileage_percent}</p>
+                    <p class="txt11 {$display_mobile_use_mileage|display} {$display_mobile_use_mileage_class}">(Receive {$mobile_use_dc_mileage} of {$mobile_dc_mileage_price_o_percent}{$mobile_dc_mileage_unit} when you purchase {$dc_pay} {$mobile_dc_mileage_min_buy_amount} via our mobile website. {$mobile_dc_mileage_max_percent_buy_amount})</p>
+                    <p class="txt11 {$display_member_group_dc_limit|display} {$display_member_group_dc_limit_class}">You have a total discount amount of <strong class="txtEm">{$dc_limit_remain}</strong> left to use by <strong class="txtEm">{$dc_limit_end_date}</strong>.</p>
+                    <p class="txt11 {$display_member_group_dc_limit|display} {$display_member_group_dc_limit_class}">You have <strong class="txtEm">{$dc_limit_remain}</strong> discounts left to use by <strong class="txtEm">{$dc_limit_end_date}</strong>.</p>
+                </div>
+           </div>
+            <div module="myshop_bankbook">
+                <ul>
+                    <li>{$mileage_name} : <a href="/myshop/mileage/historyList.html">{$avail_mileage}</a></li>
+                    <li class="{$display_deposit|display}">{$deposit_name} : <a href="/myshop/deposits/historyList.html">{$total_deposit}</a></li>
+                    <li class="{$display_coupon|display}">Coupons : <a href="/myshop/coupon/coupon.html">{$coupon_cnt}coupn(s)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="invite {$display_reco|display}">
+            <h3>Copy website URL</h3>
+            <div class="inputBox">
+                <input type="text" id="{$reco_url}" value="//{$shop_domain}/?reco_id={$member_id}" readonly="readonly" /><a href="#none" class="btnStrong" onclick="{$copy_func}">Copy</a>
+            </div>
+            <p class="ec-base-help">
+                Invite friends to our mall via friend invitation link.<br>
+                Invited friends will get {$reco_mileage2} {$mileage_name} after registrations.<br>
+                {$reco_mileage}
+            </p>
+       </div>
+    </div>
+
+    <div module="myshop_orderstate">
+        <!--@css(/css/module/myshop/orderState.css)-->
+        <div class="title">
+            <h3>My Order Status <span class="desc">(Last <em>3 months</em>)</span></h3>
+        </div>
+        <div class="state">
+            <ul class="order">
+                <li>
+                    <a href="{$shppiedBeforeUrl}">
+                        <strong>Awaiting Payment</strong>
+                        <span class="count">{$shppiedBeforeCount}</span>
+                        </a>
+                </li>
+                <li>
+                    <a href="{$shppiedStandbyUrl}">
+                        <strong>Preparing Shipment</strong>
+                        <span class="count">{$shppiedStandbyCount}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$shppiedBeginUrl}">
+                        <strong>In Transit</strong>
+                        <span class="count">{$shppiedBeginCount}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$shppiedComplateUrl}">
+                        <strong>Delivered</strong>
+                        <span class="count">{$shppiedComplateCount}</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="cs">
+                <li>
+                    <a href="{$orderCancelUrl}">
+                        <span class="icoDot"></span>
+                        <strong>Cancellations : </strong>
+                        <span class="count">{$orderCancelCount}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$orderExchangeUrl}">
+                        <span class="icoDot"></span>
+                        <strong>Exchanges : </strong>
+                        <span class="count">{$orderExchangeCount}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$orderReturnUrl}">
+                        <span class="icoDot"></span>
+                        <strong>Returns : </strong>
+                        <span class="count">{$orderReturnCount}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div module="myshop_main">
+        <!--@css(/css/module/myshop/main.css)-->
+        <ul>
+            <li class="order"><a href="/myshop/order/list.html">Orders</a></li>
+            <li class="modify"><a href="/member/modify.html">My Profile</a></li>
+            <li class="wishlist"><a href="/myshop/wish_list.html">Wish List <span class="count {$wish_count_display|display}">({$wish_count})</span></a></li>
+            <li class="mileage"><a href="/myshop/mileage/historyList.html">{$mileage_name}</a></li>
+            <li class="deposits {$deposit_display|display}"><a href="/myshop/deposits/historyList.html">{$deposit_name}</a></li>
+            <li class="consult {$consult_display|display}"><a href="/board/consult/list.html">Private Postings</a></li>
+            <li class="coupon {$coupon_display|display}"><a href="/myshop/coupon/coupon.html">Coupons <span class="count {$coupon_count_display|display}">({$coupon_count})</span></a></li>
+            <li class="board {$board_display|display}"><a href="/myshop/board_list.html">My Postings</a></li>
+            <li class="address"><a href="/myshop/addr/list.html">Address Book</a></li>
+            <li class="regularDelivery {$regular_delivery_display|display}"><a href="/myshop/regular_delivery.html">Subscriptions</a></li>
+        </ul>
+    </div>
+</div>

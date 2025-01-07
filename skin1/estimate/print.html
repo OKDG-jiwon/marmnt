@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Online Quote</title>
+</head>
+<body>
+
+<div class="estimateArea">
+    <!--@css(/css/module/estimate/estimateInfo.css)-->
+
+    <div module="Estimate_Print">
+        <strong>Help</strong>
+        <ul>
+            <li>To include the official seal in your print out, go to Internet Explorer menu [Tools] =&gt; [Internet Options] =&gt; [Advanced] and check <br />'Print background color and images' under [Print].</li>
+            <li class="{$display_email|display}">If you want to receive the online quote via email, please click on Sendbutton.</li>
+        </ul>
+        <p>
+            <a href="#none" class="btnPrint" onclick="{$action_print}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_icon_estimate_print.png" alt="" />Print</a>
+            <a href="#none" onclick="{$action_email}" class="btnEmail {$display_email|display}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_icon_estimate_email.png" alt="" />Send Email</a>
+            <a href="{$download_url}" class="btnDownload gBreak"><img src="//img.echosting.cafe24.com/skin/base/common/btn_icon_estimate_download.png" alt="" />Download file</a>
+        </p>
+    </div>
+
+    <div module="Estimate_EstimateInfo">
+        <h1>{$logo_image} Online Quote {$seal_image}</h1>
+
+        <table border="1" summary="">
+            <caption>Recipient</caption>
+            <colgroup>
+                <col width="30%" />
+                <col width="auto" />
+            </colgroup>
+
+            <tbody>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td>Dear {$user_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date</th>
+                    <td>{$estimate_date}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Method of Payment</th>
+                    <td>{$paymethod}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td>{$total_price}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table border="1" summary="">
+            <caption>Supplier Business Informatiom</caption>
+            <colgroup>
+                <col width="10%" />
+                <col width="20%" />
+                <col width="25%" />
+                <col width="20%" />
+                <col width="25%" />
+            </colgroup>
+
+            <tbody>
+                <tr>
+                    <th rowspan="5" scope="row">Supplier</th>
+                    <th scope="row">Company Name</th>
+                    <td colspan="3">{$mall_company_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Representative</th>
+                    <td colspan="3">{$mall_president_name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Business Address</th>
+                    <td colspan="3">{$mall_addr}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Business Conditions</th>
+                    <td>{$mall_company_condition}</td>
+                    <th scope="row">Business Field</th>
+                    <td>{$mall_company_line}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone</th>
+                    <td>{$mall_phone}</td>
+                    <th scope="row">Fax</th>
+                    <td>{$mall_fax}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Please find below the price quote you requested.</p>
+
+        <div module="Estimate_PurchaseList">
+            <table border="1" summary="">
+                <caption>List of Products</caption>
+                <colgroup>
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="25%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="auto" />
+                    <col width="auto" />
+                    <col width="auto" />
+                    <col width="auto" class="{$show_discount_amount_display|display}" />
+                </colgroup>
+
+                <thead>
+                    <tr>
+                        <th scope="col">NO</th>
+                        <th scope="col">Product Code</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">{$title_manu_name}</th>
+                        <th scope="col">{$title_made_in}</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col" class="{$show_discount_amount_display|display}">Discount</th>
+                    </tr>
+                </thead>
+
+                <tbody module="Estimate_list">
+                    <tr>
+                        <td class="number">{$num}</td>
+                        <td class="prdCode">{$product_no}</td>
+                        <td class="prdName">{$img}{$product_name}</td>
+                        <td class="maker">{$maker}</td>
+                        <td class="resource">{$product_resource}</td>
+                        <td class="unitPrice">{$unit_price}</td>
+                        <td class="quantity">{$quantity}</td>
+                        <td class="totalPrice">{$total_price}</td>
+                        <td class="totalSalePrice {$show_discount_amount_display|display}">{$total_unit_add_sale}</td>
+                    </tr>
+                    <tr>
+                        <td class="number">{$num}</td>
+                        <td class="prdCode">{$product_no}</td>
+                        <td class="prdName">{$img}{$product_name}</td>
+                        <td class="maker">{$maker}</td>
+                        <td class="resource">{$product_resource}</td>
+                        <td class="unitPrice">{$unit_price}</td>
+                        <td class="quantity">{$quantity}</td>
+                        <td class="totalPrice">{$total_price}</td>
+                        <td class="totalSalePrice {$show_discount_amount_display|display}">{$total_unit_add_sale}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div module="Estimate_TotalSummary">
+            <p class="{$include_tax_display|display}">VAT included.</p>
+            <table border="1" summary="">
+                <caption>Summary</caption>
+                <colgroup>
+                    <col width="30%" />
+                    <col width="auto" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Merchandise Total</th>
+                        <td>{$purchase_price}</td>
+                    </tr>
+                    <tr class="{$show_discount_amount_display|display}">
+                        <th scope="row" >Discount</th>
+                        <td>
+                            {$total_sale_price}
+                            <ul class="sale {$show_discount_amount_detail_display|display}">
+                                 <li class=" {$total_periodsale_price_display|display}"><span class="title">- Limited Time Discount</span>{$total_periodsale_price}</li>
+                                 <li class=" {$total_membersale_price_display|display}"><span class="title">- Membership Discount</span>{$total_membersale_price}</li>
+                                 <li class=" {$total_rebuysale_price_display|display}"><span class="title">- Repurchase Discount</span>{$total_rebuysale_price}</li>
+                                 <li class=" {$total_bulksale_price_display|display}"><span class="title">- Bulk Order Discount</span>{$total_bulksale_price}</li>
+                                 <li class=" {$total_newproductsale_price_display|display}"><span class="title">- New Product Discount</span>{$total_newproductsale_price}</li>
+                                 <li class=" {$total_membergroupsale_price_display|display}"><span class="title">- Membership Level Discount</span>{$total_membergroupsale_price}</li>
+                                 <li class=" {$total_setproductsale_price_display|display}"><span class="title">- Discounted amount for Set Items</span>{$total_setproductsale_price}</li>
+                            </ul>
+                            <ul class="sale {$total_appproductsale_price_detail_display|display}">
+                                {$total_appproductsale_price_detail}
+                            </ul>
+                            <ul class="sale {$total_appordersale_price_detail_display|display}">
+                                {$total_appordersale_price_detail}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Order Total</th>
+                        <td>{$total_price}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>{$comment}</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

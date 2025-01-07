@@ -1,0 +1,48 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Myshop_OrderHistoryAccount" class="ec-base-layer">
+    <!--@css(/css/module/myshop/orderHistoryAccount.css)-->
+    <div class="header">
+        <h1>Refund Account <span class="{$acc_reg_display|display}">Add New</span><span class="{$acc_mod_display|display}">Edit</span></h1>
+    </div>
+
+    <div class="content">
+        <div class="ec-base-table typeWrite">
+            <table border="1" summary="">
+                <caption>Refund Account <span class="{$acc_reg_display|display}">Add New</span><span class="{$acc_mod_display|display}">Edit</span></caption>
+                <colgroup>
+                    <col style="width:140px" />
+                    <col style="width:auto" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Account Holder</th>
+                        <td>
+                            {$form.acc_depositor}
+                            <p class="txtInfo gBlank10">The account you designate for refund must bear your name. </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bank Name</th>
+                        <td>{$form.acc_bank}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Account Number</th>
+                        <td>{$form.acc_no}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Confirm Password</th>
+                        <td>
+                            {$form.check_password}
+                            <p class="txtInfo gBlank10">Please enter your password for confirmation.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="ec-base-button">
+            <a href="#none" class="btnSubmitFix sizeS {$acc_reg_display|display}" onclick="RefundAccount.register(); return false;">Submit</a>
+            <a href="#none" class="btnSubmitFix sizeS {$acc_mod_display|display}" onclick="RefundAccount.modify(); return false;">Edit</a>
+            <a href="#none" class="btnNormalFix sizeS" onclick="RefundAccount.cancel(); return false;">Cancel</a>
+        </div>
+    </div>
+</div>

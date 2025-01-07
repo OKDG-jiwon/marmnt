@@ -1,0 +1,227 @@
+<!--@layout(/layout/basic/main_supply.html)-->
+<div module="Mall_SupplyMainimage">
+    <!--@css(/css/module/mall/supplyMainimage.css)-->
+    {$supply_main_image}
+</div>
+
+<div module="Mall_SupplySearch">
+    <!--@css(/css/module/mall/supplySearch.css)-->
+    <fieldset>
+        <legend class="title">Search Item(s) in Store</legend>
+        {$form.searchSupply}<input type="image" src="//img.echosting.cafe24.com/skin/base_en_US/layout/btn_search.gif" alt="Search" onclick="{$action_search_submit}" /></fieldset>
+</div>
+
+<div module="product_listrecommend" class="ec-base-product">
+    <!--
+        $count = 4
+            ※ Variable to set number of product display. If not set, up to 200 items will be displayed.
+            ※ If many products are displayed, shopping malls can become overloaded.
+        $basket_result = /product/add_basket.html
+        $basket_option = /product/basket_option.html
+    -->
+    <div class="title">
+        <h3><span>BEST SELLERS</span></h3>
+    </div>
+    <ul class="prdList grid4">
+        <li id="anchorBoxId_{$product_no}">
+            <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+            <div class="thumbnail">
+                <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                <span class="wish">{$list_wish_icon}</span>
+            </div>
+            <div class="description">
+                <div class="icon">
+                    <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                    <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                </div>
+                <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                <ul module="product_ListItem" class="spec">
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                </ul>
+            </div>
+        </li>
+        <li id="anchorBoxId_{$product_no}">
+            <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+            <div class="thumbnail">
+                <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                <span class="wish">{$list_wish_icon}</span>
+            </div>
+            <div class="description">
+                <div class="icon">
+                    <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                    <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                </div>
+                <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                <ul module="product_ListItem" class="spec">
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div module="product_listnew" class="ec-base-product">
+    <!--
+        $count = 8
+            ※ Variable to set number of product display. If not set, up to 200 items will be displayed.
+            ※ If many products are displayed, shopping malls can become overloaded.
+        $basket_result = /product/add_basket.html
+        $basket_option = /product/basket_option.html
+    -->
+    <div class="title">
+        <h3><span>NEW ARRIVALS</span></h3>
+    </div>
+    <ul class="prdList grid5">
+        <li id="anchorBoxId_{$product_no}">
+            <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+            <div class="thumbnail">
+                <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                <span class="wish">{$list_wish_icon}</span>
+            </div>
+            <div class="description">
+                <div class="icon">
+                    <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                    <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                </div>
+                <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                <ul module="product_ListItem" class="spec">
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                </ul>
+            </div>
+        </li>
+        <li id="anchorBoxId_{$product_no}">
+            <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+            <div class="thumbnail">
+                <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                <span class="wish">{$list_wish_icon}</span>
+            </div>
+            <div class="description">
+                <div class="icon">
+                    <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                    <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                </div>
+                <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                <ul module="product_ListItem" class="spec">
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div module="product_normalpackage">
+    <!--@css(/css/module/product/listnormal.css)-->
+    <div module="product_normalmenu">
+        <!--
+            $compare_page = /product/compare.html
+        -->
+        <div class="title" id="{$listmenu_position}">
+            <h3><span>HIT PRODUCT</span></h3>
+        </div>
+
+        <div class="function">
+            <p class="prdCount"><strong>{$total_count}</strong> items were found.</p>
+            <ul id="type">
+                <li><a href="{$param_3}" {$style_3}>Lowest Price</a></li>
+                <li><a href="{$param_4}" {$style_4}>Highest Price</a></li>
+                <li><a href="{$param_1}" {$style_1}>Name</a></li>
+                <li><a href="{$param_2}" {$style_2}>Manufacturer</a></li>
+                <li><a href="{$param_5}" {$style_5}>Newest</a></li>
+                <li class="{$favor_sort_display|display}"><a href="{$param_6}" {$style_6}>Most Popular</a></li>
+                <li><a href="{$param_7}" {$style_7}>Reviews</a></li>
+            </ul>
+            <span class="compare {$product_compare_display|display}"><a href="#none" class="btnCompare" onclick="{$product_compare_action}">Compare Products</a></span>
+        </div>
+
+        <fieldset class="condition {$select_search_display|display}">
+            <legend>Conditional Search</legend>
+            <p>
+                <!--@js(/js/module/product/product_selectsearch.js)-->
+                <select class="FirstSelect" module="product_FirstSelect">
+                    <option value="">-Select Condition-</option>
+                    <option value="{$value}" {$selected}>{$title}</option>
+                    <option value="{$value}" {$selected}>{$title}</option>
+                </select>
+                <select class="SecondSelect" module="product_SecondSelect">
+                    <option value="">-Select Condition-</option>
+                    <option value="{$value}" {$selected}>{$title}</option>
+                    <option value="{$value}" {$selected}>{$title}</option>
+                </select>
+                <a href="#SelectSearch" class="btnSubmit SelectSearch">Search</a>
+            </p>
+        </fieldset>
+    </div>
+
+    <div module="product_listnormal" class="ec-base-product">
+        <!--
+            $count = 12
+                ※ Variable to set number of product display. If not set, up to 200 items will be displayed.
+                ※ If many products are displayed, shopping malls can become overloaded.
+            $basket_result = /product/add_basket.html
+            $basket_option = /product/basket_option.html
+        -->
+        <ul class="prdList grid4">
+            <li id="anchorBoxId_{$product_no}">
+                <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+                <div class="thumbnail">
+                    <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                    <span class="wish">{$list_wish_icon}</span>
+                </div>
+                <div class="description">
+                    <div class="icon">
+                        <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                        <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                    </div>
+                    <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                    <ul module="product_ListItem" class="spec">
+                        <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                        <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    </ul>
+                </div>
+            </li>
+            <li id="anchorBoxId_{$product_no}">
+                <span class="chk"><input type="checkbox" class="{$product_compare_class} {$product_compare_display|display}" /></span>
+                <div class="thumbnail">
+                    <a href="/product/detail.html{$param}" name="anchorBoxName_{$product_no}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" /><span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span></a>
+                    <span class="wish">{$list_wish_icon}</span>
+                </div>
+                <div class="description">
+                    <div class="icon">
+                        <div class="promotion">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$benefit_icons}</div>
+                        <div class="button"><div class="option">{$option_preview_icon}</div> {$basket_icon} {$zoom_icon}</div>
+                    </div>
+                    <strong class="name"><a href="/product/detail.html{$param}" class="{$product_name_display|display}"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</a></strong>
+                    <ul module="product_ListItem" class="spec">
+                        <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                        <li class="{$item_display|display}"><strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div module="product_normalpaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_first.gif" alt="First" /></a>
+    <a href="{$param_before}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+    <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_last.gif" alt="Last" /></a>
+</div>
+
+
+<div module="Mall_SupplyInfo" class="supplyInfo {$supply_info_display|display}">
+    {$supply_info}
+</div>
+
+<!--@define(cmc_log)-->

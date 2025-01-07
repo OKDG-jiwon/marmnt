@@ -1,0 +1,166 @@
+<div id="{$join_confirm_layer_id}" class="joinConfirm ec-base-layer">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/member/join_confirm.css)-->
+    <div class="header">
+        <h3>Confirm Registration Information</h3>
+    </div>
+    <div class="content">
+        <p>In order to complete your registration, please confirm your account information and click “Sign Up”.</p>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+                <caption>Confirm Registration Information</caption>
+                <colgroup>
+                    <col style="width:130px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td><span id="{$join_confirm_field_email1}"></span></td>
+                    </tr>
+                    <tr class="{$display_use_id|display}">
+                        <th scope="row">ID</th>
+                        <td><span id="{$join_confirm_field_member_id}"></span></td>
+                    </tr>
+                    <tr class="{$display_name|display}">
+                        <th scope="row">Name</th>
+                        <td><span id="{$join_confirm_field_name}"></span></td>
+                    </tr>
+                    <tr class="{$display_eng_name|display}">
+                        <th scope="row">English Name</th>
+                        <td><span id="{$join_confirm_field_name_en}"></span></td>
+                    </tr>
+                    <tr class="{$display_pron_name|display}">
+                        <th scope="row">Phonetics</th>
+                        <td><span id="{$join_confirm_field_name_phonetic}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">Country</th>
+                        <td><span id="{$join_confirm_field_country}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">Address Line 1</th>
+                        <td><span id="{$join_confirm_field_addr1}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">Address Line 2</th>
+                        <td><span id="{$join_confirm_field_addr2}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">City</th>
+                        <td><span id="{$join_confirm_field_city_name}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">State/Province</th>
+                        <td><span id="{$join_confirm_field_state_name}"></span></td>
+                    </tr>
+                    <tr class="{$display_addr|display}">
+                        <th scope="row">Zip/ Postal code</th>
+                        <td><span id="{$join_confirm_field_postcode1}"></span></td>
+                    </tr>
+                    <tr class="{$display_phone|display}">
+                        <th scope="row">Telephone</th>
+                        <td><span id="{$join_confirm_field_phone}"></span></td>
+                    </tr>
+                    <tr class="{$display_mobile|display}">
+                        <th scope="row">Mobile Phone</th>
+                        <td><span id="{$join_confirm_field_mobile}"></span></td>
+                    </tr>
+                    <tr class="{$display_is_sms|display}">
+                        <th scope="row">SMS Messaging<br/>Service</th>
+                        <td><span id="{$join_confirm_field_is_sms}"></span></td>
+                    </tr>
+                    <tr class="{$display_is_news_mail|display}">
+                        <th scope="row">Newsletters</th>
+                        <td><span id="{$join_confirm_field_is_news_mail}"></span></td>
+                    </tr>
+                    <tr class="{$display_nick|display}">
+                        <th scope="row">Nickname</th>
+                        <td><span id="{$join_confirm_field_nick_name}"></span></td>
+                    </tr>
+                    <tr class="{$display_is_sex|display}">
+                        <th scope="row">Gender</th>
+                        <td><span id="{$join_confirm_field_is_sex}"></span></td>
+                    </tr>
+                    <tr class="{$display_birthday|display}">
+                        <th scope="row">Date of Birth</th>
+                        <td><span id="{$join_confirm_field_birth_month}"></span><span>/</span><span id="{$join_confirm_field_birth_day}"></span><span>/</span><span id="{$join_confirm_field_birth_year}"></span> <span class="{$display_calendar_type|display}"><span id="{$join_confirm_field_is_solar_calendar}"></span></span></td>
+                    </tr>
+                    <tr class="{$display_marry|display}">
+                        <th scope="row">Anniversary</th>
+                        <td><span id="{$join_confirm_field_marry_month}"></span><span>/</span><span id="{$join_confirm_field_marry_day}"></span><span>/</span><span id="{$join_confirm_field_marry_year}"></span></td>
+                    </tr>
+                    <tr class="{$display_add1|display}">
+                        <th scope="row">{$title_add1}</th>
+                        <td><span id="{$join_confirm_field_add1}"></span></td>
+                    </tr>
+                    <tr class="{$display_add2|display}">
+                        <th scope="row">{$title_add2}</th>
+                        <td><span id="{$join_confirm_field_add2}"></span></td>
+                    </tr>
+                    <tr class="{$display_add3|display}">
+                        <th scope="row">{$title_add3}</th>
+                        <td><span id="{$join_confirm_field_add3}"></span></td>
+                    </tr>
+                    <tr class="{$display_add4|display}">
+                        <th scope="row">{$title_add4}</th>
+                        <td><span id="{$join_confirm_field_add4}"></span></td>
+                    </tr>
+                    <tr class="{$display_add5|display}">
+                        <th scope="row">{$title_add5}</th>
+                        <td><span id="{$join_confirm_field_add5}"></span></td>
+                    </tr>
+                    <tr class="{$display_add6|display}">
+                        <th scope="row">{$title_add6}</th>
+                        <td><span id="{$join_confirm_field_add6}"></span></td>
+                    </tr>
+                    <tr class="{$display_add7|display}">
+                        <th scope="row">{$title_add7}</th>
+                        <td><span id="{$join_confirm_field_add7}"></span></td>
+                    </tr>
+                    <tr class="{$display_add8|display}">
+                        <th scope="row">{$title_add8}</th>
+                        <td><span id="{$join_confirm_field_add8}"></span></td>
+                    </tr>
+                    <tr class="{$display_add9|display}">
+                        <th scope="row">{$title_add9}</th>
+                        <td><span id="{$join_confirm_field_add9}"></span></td>
+                    </tr>
+                    <tr class="{$display_add10|display}">
+                        <th scope="row">{$title_add10}</th>
+                        <td><span id="{$join_confirm_field_add10}"></span></td>
+                    </tr>
+                    <tr class="{$display_add11|display}">
+                        <th scope="row">{$title_add11}</th>
+                        <td><span id="{$join_confirm_field_add11}"></span></td>
+                    </tr>
+                    <tr class="{$display_add12|display}">
+                        <th scope="row">{$title_add12}</th>
+                        <td><span id="{$join_confirm_field_add12}"></span></td>
+                    </tr>
+                    <tr class="{$display_add13|display}">
+                        <th scope="row">{$title_add13}</th>
+                        <td><span id="{$join_confirm_field_add13}"></span></td>
+                    </tr>
+                    <tr class="{$display_add14|display}">
+                        <th scope="row">{$title_add14}</th>
+                        <td><span id="{$join_confirm_field_add14}"></span></td>
+                    </tr>
+                    <tr class="{$display_add15|display}">
+                        <th scope="row">{$title_add15}</th>
+                        <td><span id="{$join_confirm_field_add15}"></span></td>
+                    </tr>
+                    <tr class="{$display_reco_id|display}">
+                        <th scope="row">Referrer</th>
+                        <td><span id="{$join_confirm_field_reco_id}"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnSubmitFix sizeS" id="{$btn_layer_join_id}">Sign Up</a>
+        <a href="#none" class="btnNormalFix sizeS" onclick="{$join_confirm_layer_off}">Close</a>
+    </div>
+    <a href="#none" class="close"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="Close" onclick="{$join_confirm_layer_off}" /></a>
+</div>

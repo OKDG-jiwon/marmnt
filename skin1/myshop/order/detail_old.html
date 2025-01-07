@@ -1,0 +1,492 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Order Details</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Order history</h2>
+</div>
+
+<div module="MyShop_OrderHistoryDetail" unroll="1">
+    <!--@css(/css/module/myshop/orderHistoryDetail.css)-->
+    <!--
+        $print_spec_url = /myshop/order/print/spec.html
+        $print_pg_card_url = /myshop/order/print/pg.html
+        $print_tax_url = /myshop/order/print/tax.html
+        $issue_tax_url = /myshop/order/issue/tax.html
+        $issue_cash_url = /myshop/order/issue/cash.html
+        $select_gift_url = /order/gift_select.html
+     -->
+
+    <div class="orderArea">
+        <div class="title">
+            <h3>Order details</h3>
+        </div>
+
+        <div class="ec-base-table">
+            <table border="1" summary="">
+            <caption>Order details</caption>
+            <colgroup>
+                <col style="width:160px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Order number</th>
+                    <td>{$order.order_id}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ordered on</th>
+                    <td>{$order.date}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ordered by</th>
+                    <td>{$order.name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Order status</th>
+                    <td>{$order.status}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="orderArea">
+        <div class="title">
+            <h3>Payment details</h3>
+        </div>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+            <caption>Payment details</caption>
+            <colgroup>
+                <col style="width:160px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+                <tr class="sum">
+                    <th scope="row">Subtotal</th>
+                    <td>{$total.price_unit_head}<strong class="txt14">{$total.total_order_price}</strong>{$total.price_unit_tail}</td>
+                </tr>
+            </tbody>
+            <tbody class="{$total.total_addpay_summary_display|display}">
+                <tr class="sum">
+                    <th scope="row">Additional payment</th>
+                    <td>{$total.price_unit_head}<strong class="txt14">{$total.total_addpay_price}</strong>{$total.price_unit_tail}</td>
+                </tr>
+                <tr class="{$total.mileage_display|display}">
+                    <th scope="row">Points</th>
+                    <td>{$total.price_unit_head}{$total.mileage_used}{$total.price_unit_tail}</td>
+                </tr>
+                <tr class="{$total.deposit_display|display}">
+                    <th scope="row">Credits</th>
+                    <td>{$total.price_unit_head}{$total.deposit_used}{$total.price_unit_tail}</td>
+                </tr>
+            </tbody>
+            <tbody class="{$total.total_addsale_summary_display|display}">
+                <tr class="sum">
+                    <th scope="row">Discount</th>
+                    <td>{$total.price_unit_head}<strong class="txt14">{$total.total_addsale_price}</strong>{$total.price_unit_tail}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="ec-base-table total">
+            <table border="1" summary="">
+            <caption>Payment details</caption>
+            <colgroup>
+                <col style="width:160px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+                <tr class="sum">
+                    <th scope="row">Order total</th>
+                    <td><span class="txtEm">{$total.price_unit_head}<strong class="txt18">{$payment.price}</strong>{$total.price_unit_tail}</span></td>
+                </tr>
+                <tr class="{$payment.paymethod_display|display}">
+                    <th scope="row">Payment method</th>
+                    <td>
+                        <strong>{$payment.paymethod}</strong>
+                        <p>{$payment.paymethod_detail} <a target="_blank" href="{$payment.bank_url}" class="btnNormal {$payment.display_banking|display}">Pay online</a></p>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="orderArea">
+        <div class="title">
+            <h3>Ordered items</h3>
+        </div>
+
+        <div class="ec-base-table typeList">
+            <table border="1" summary="" class="{$basic_display|display}">
+                <caption>Standard shipping</caption>
+                <colgroup>
+                    <col style="width:92px" />
+                    <col style="width:auto" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:100px" />
+                    <col style="width:150px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Product Subtotal</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tfoot class="right">
+                    <tr>
+                        <td colspan="6"><span class="gLeft">[Standard shipping]</span> Product subtotal <strong>{$basic.product_price}</strong> + Shipping fee {$basic.ship_fee} + Regional surcharge {$basic.special_ship_fee} = Total : <strong class="txtEm gIndent10"><span class="txt18">{$basic.total_price}</span></strong></td>
+                    </tr>
+                </tfoot>
+                <tbody module="Myshop_OrderHistoryDetailBasic" class="center">
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ec-base-table typeList">
+            <table border="1" summary="" class="{$individual_display|display}">
+                <caption>Individual shipping</caption>
+                <colgroup>
+                    <col style="width:92px" />
+                    <col style="width:auto" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:100px" />
+                    <col style="width:150px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Product Subtotal</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tfoot class="right">
+                    <tr>
+                        <td colspan="6"><span class="gLeft">[Individual shipping]</span> Product subtotal <strong>{$individual.product_price}</strong> + Shipping fee {$individual.ship_fee} + Regional surcharge{$individual.special_ship_fee} = Total : <strong class="total"><span>{$individual.total_price}</span></strong></td>
+                    </tr>
+                </tfoot>
+                <tbody module="Myshop_OrderHistoryDetailIndividual" class="center">
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ec-base-table typeList">
+            <table border="1" summary="" class="{$oversea_display|display}">
+                <caption>International shipping</caption>
+                <colgroup>
+                    <col style="width:92px" />
+                    <col style="width:auto" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:100px" />
+                    <col style="width:150px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Product Subtotal</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tfoot class="right">
+                    <tr>
+                        <td colspan="6"><span class="gLeft">[International shipping]</span> Product subtotal <strong>{$oversea.product_price}</strong> + Shipping fee {$oversea.ship_fee} + Regional surcharge {$oversea.special_ship_fee} = Total : <strong class="total"><span>{$oversea.total_price}</span></strong></td>
+                    </tr>
+                </tfoot>
+                <tbody module="Myshop_OrderHistoryDetailOversea" class="center">
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="thumb"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></a></td>
+                        <td class="left">
+                            <a href="/product/detail.html{$param_product}"><strong>{$name}</strong></a>
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                            <p class="{$review_button_display|display}"><a href="/board/product/write.html{$param_postscript}" class="btnSubmitFix">Customer reviews</a></p>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ec-base-table typeList">
+            <table border="1" summary="" class="{$gift_display|display}">
+                <caption>Gift</caption>
+                <colgroup>
+                    <col style="width:92px" />
+                    <col style="width:auto" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:100px" />
+                    <col style="width:150px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Details</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Product Subtotal</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Order Status</th>
+                    </tr>
+                </thead>
+                <tfoot class="right">
+                    <tr>
+                        <td colspan="6"><span class="gLeft">[Gift]</span> Product subtotal <strong>0</strong> + Shipping fee 0 + Regional surcharge 0 = Total : <strong class="total">0</strong></td>
+                    </tr>
+                </tfoot>
+                <tbody module="Myshop_OrderHistoryDetailGift" class="center">
+                    <tr>
+                        <td class="thumb"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></td>
+                        <td class="left">
+                            {$name}
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="thumb"><img src="{$thumbnail}" alt="{$name}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" /></td>
+                        <td class="left">
+                            {$name}
+                            <div class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></div>
+                        </td>
+                        <td>{$quantity}</td>
+                        <td><strong>{$price}</strong></td>
+                        <td><span class="txtInfo">{$type}</span></td>
+                        <td>
+                            <p class="txtEm">{$status}</p>
+                            <p class="txtEm">{$shipping_info}</p>
+                            <p><a href="#none" onclick="{$action_track}" class="btnNormalFix {$track_display|display}">Track order<a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="orderArea" module="Myshop_OrderHistoryDetailRefund">
+        <div class="title">
+            <h3>Refund details</h3>
+        </div>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+            <caption>Refund details</caption>
+            <colgroup>
+                <col style="width:160px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">{$payment_type}Amount</th>
+                    <td>{$payment_amount}<span class="{$display_detail|display}"> = {$product_amount} {$additional_amount}</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Paid by</th>
+                    <td>{$depositor}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{$payment_type}Method</th>
+                    <td>{$payment_info_type} {$payment_info_data}</td>
+                </tr>
+                <tr class="{$display_reason|display}">
+                    <th scope="row">Reason for refund</th>
+                    <td>{$reason}</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th scope="row">{$payment_type}Amount</th>
+                    <td>{$payment_amount}<span class="{$display_detail|display}"> = {$product_amount} {$additional_amount}</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Paid by</th>
+                    <td>{$depositor}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{$payment_type}Method</th>
+                    <td>{$payment_info_type} {$payment_info_data}</td>
+                </tr>
+                <tr class="{$display_reason|display}">
+                    <th scope="row">Reason for refund</th>
+                    <td>{$reason}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="orderArea">
+        <div class="title">
+            <h3>Shipping information</h3>
+        </div>
+        <div class="ec-base-table">
+            <table border="1" summary="">
+            <caption>Shipping information</caption>
+            <colgroup>
+                <col style="width:160px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Recipient</th>
+                    <td>{$delivery.name}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Address</th>
+                    <td>{$delivery.addr}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone</th>
+                    <td>{$delivery.phone}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Delivery instructions</th>
+                    <td>{$delivery.message}</td>
+                </tr>
+                <tr class="{$hope_shipping_date_display|display}">
+                    <th scope="row">Preferred delivery date</th>
+                    <td>{$delivery.hope_shipping_date}</td>
+                </tr>
+                <tr class="{$hope_shipping_time_display|display}">
+                    <th scope="row">Preferred delivery time</th>
+                    <td>{$delivery.hope_shipping_time}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="orderArea {$customer_msg_display|display}">
+        <div class="title">
+            <h3>Customer notice</h3>
+        </div>
+        <p class="customer">{$customer_msg}</p>
+    </div>
+
+    <div class="ec-base-button">
+        <span class="gLeft">
+            <a href="#none" onclick="{$action_issue_cash}" class="btnNormal {$issue_cash_display|display}">Request cash receipt</a>
+            <a href="#none" onclick="{$action_print_pg_cash}" class="btnNormal {$print_pg_cash_display|display}">Print cash receipt</a>
+            <a href="#none" onclick="{$action_issue_tax}" class="btnNormal {$issue_tax_display|display}">Request tax invoice</a>
+            <a href="#none" onclick="{$action_print_tax}" class="btnNormal {$print_tax_display|display}">Print tax invoice</a>
+            <a href="#none" onclick="{$action_print_spec}" class="btnNormal {$print_spec_display|display}">Print transaction summary</a>
+            <a href="#none" onclick="{$action_print_pg_card}" class="btnNormal {$print_pg_card_display|display}">Print sale slip</a>
+            <a href="#none" onclick="{$action_select_gift}" class="btnNormal {$select_gift_display|display}">Select a gift</a>
+        </span>
+        <span class="gRight">
+            <a  href="/myshop/order/list_old.html{$param_list}" class="btnSubmitFix sizeM">Go to My orders</a>
+        </span>
+    </div>
+</div>

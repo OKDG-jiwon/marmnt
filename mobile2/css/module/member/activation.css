@@ -1,0 +1,42 @@
+.popup #joinForm { height:100%; }
+
+/* activationArea */
+  .activationArea { margin:14px 7px 0; padding:0 0 29px; color:#63666e; font-size: 11px; }
+  .activationArea .titleArea { width:100%; margin:0; border:none; }
+  .activationArea .titleArea.accountArea { margin:-8px 0 0; }
+  .activationArea .titleArea h3 { height:30px; padding:13px 0 0 14px; border:1px solid #d5d5d5; font-size:13px; font-weight:bold; color:#4a5164; font-family:"Helvetica Neue",Helvetica,Arial; background:#f1f1f1; }
+  .activationArea .titleArea h3 span { float:right; padding:0 14px 0 0; color:#1b1b1b; font-size:11px; font-weight:normal; }
+  .activationArea .titleArea h3 span img { margin:0 3px 0 0; padding:4px 0 0; vertical-align:top; }
+  .activationArea p.required { margin:-25px 0 6px; color:#6292db; font-size:11px; text-align:right; }
+  .activationArea p.required img { vertical-align:middle; }
+
+/* tooltip */
+  .activationArea .ec-base-tooltip-area { position:relative; width:100%; }
+
+/* ec-base-table.typeWrite */
+  .activationArea .ec-base-table.typeWrite { color:#1b1b1b; margin:0 0 7px; }
+  .activationArea .ec-base-table.typeWrite th > img { vertical-align:top; padding:4px 0 0; }
+
+/* size*/
+  .activationArea input[type=password] { width:100%; }
+
+/* mAgreement */
+  .mAgreement { margin:10px 0 0; border:1px solid #ccc; }
+  .mAgreement .desc { padding:10px 14px; font-size:13px; line-height:20px; font-weight:bold; color:#4a5164; }
+  .mAgreement .desc .txtLink { color:#508bed; text-decoration:underline; }
+  .mAgreement .box { position:relative; padding:5px 75px 5px 14px; border-top:1px solid #ccc; background-color:#fff; }
+  .mAgreement .box + .box { border-top:none; }
+  .mAgreement .box label { font-size:12px; color:#1b1b1b; }
+  .mAgreement .box .btnDetail { position:absolute; top:8px; right:20px; font-size:11px; color:#757575; text-decoration:underline; }
+  .mAgreement .box ul { padding:0 0 0 27px; }
+  .mAgreement .box ul li { margin:7px 0 0; }
+
+.activationArea .ec-base-table .error { color:#f00; }
+
+/* tooltip */
+.activationArea .eTooltip { position:relative; display:inline-block; }
+.activationArea .ec-base-tooltip.typeUpper { left:25px; bottom:28px; width:390px; }
+.activationArea .ec-base-tooltip.typeUpper .edge { left:20%; }
+
+/* activationTerms */
+  #activationTerms { padding:10px; border:1px solid #ddd; color:#777; font-size:12px; background:#fff; }

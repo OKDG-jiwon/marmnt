@@ -1,0 +1,79 @@
+<!--@layout(/layout/basic/layout.html)-->
+
+<div id="titleArea">
+    <h2>Activate your account</h2>
+</div>
+
+<div module="member_activation" class="activationArea">
+    <!--@css(/css/module/member/activation.css)-->
+    <!--
+        $returnUrl = /member/join_result.html
+     -->
+    <div class="titleArea">
+        <h3>Personal Information <span><img src="//img.echosting.cafe24.com/skin/mobile_en_US/member/ico_required.png" width="5" height="5" alt="Required Field"> Required Fields</span></h3>
+    </div>
+    <div class="ec-base-table typeWrite gClearBorderTop">
+        <table border="1" summary="">
+            <caption>Personal Information</caption>
+            <colgroup>
+                <col style="width:100px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Password <img src="//img.echosting.cafe24.com/skin/mobile_en_US/member/ico_required.png" width="5" height="5" alt="Required"></th>
+                    <td>
+                        <div class="ec-base-tooltip-area">
+                            <span class="eTip">{$form.passwd}</span>
+                            <div class="ec-base-tooltip typeUpper">
+                                <div class="content">
+                                    <strong class="txtWarn">※ {$passwd_terms}</strong>
+                                    <ul class="ec-base-help typeDash txtWarn">
+                                        {$passwd_chk_info}
+                                    </ul>
+                                   <button type="button" class="btnClose eClose">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Confirm<br>Password <img src="//img.echosting.cafe24.com/skin/mobile_en_US/member/ico_required.png" width="5" height="5" alt="Required"></th>
+                    <td>{$form.user_passwd_confirm}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mAgreement">
+        <div class="desc">I agree to the <a href="agreement/agreement1.html" class="txtLink" target="_blank">Terms of Use</a> and the <a href="agreement/agreement2.html" class="txtLink" target="_blank">Privacy Policy</a>. (Required)</div>
+        <div class="{$display_privacy_optional|display} box">
+            <label class="gLabel">{$form.agree_privacy_optional_check} Collection and Use of Personal Information (Optional)</label>
+            <a href="agreement/agreement6.html" class="btnDetail" target="_blank">Show details</a>
+        </div>
+        <div class="{$display_information|display} box">
+            <label class="gLabel">{$form.agree_information_check} Sharing Information with Third Parties(optional)</label>
+            <a href="agreement/agreement3.html" class="btnDetail" target="_blank">Show details</a>
+        </div>
+        <div class="{$display_consignment|display} box">
+            <label class="gLabel">{$form.agree_consignment_check} Entrusting Personal Information (optional)</label>
+            <a href="agreement/agreement4.html" class="btnDetail" target="_blank">Show details</a>
+        </div>
+        <div class="{$display_marketing|display} box">
+            <label class="gLabel">{$sMarketingAgreeAllChecked} Agree to receive shopping information (optional)</label>
+            <ul class="check">
+                <li class="{$display_is_sms|display}">
+                    <span>Do you agree to receive SMS?</span><br>{$form.is_sms}
+                </li>
+                <li class="{$display_is_news_mail|display}">
+                    <span>Do you agree to receive e-mails?</span><br>{$form.is_news_mail}
+                </li>
+            </ul>
+            <a href="agreement/agreement5.html" class="btnDetail" target="_blank">Show details</a>
+        </div>
+    </div>
+
+    <div class="ec-base-button gFull">
+        <button type="button" class="btnSubmit" onclick="{$action_func_join}">Activate your account</button>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Shopping</a></li>
+        <li title="Current Page"><strong>Inquiry regarding bulk purchases</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Inquiry regarding bulk purchases</h2>
+    <p>May request for inquiries or information regarding bulk purchases.</p>
+</div>
+
+<div module="board_inquiryModify">
+    <!--@css(/css/module/board/inquiryModify.css)-->
+    <!--
+        $isRuleBasedAddrForm = T
+    -->
+    <div module="board_InquiryHead" class="ec-base-box typeProduct">
+        <p class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_img}" alt="" onerror="this.src='//img.echosting.cafe24.com/thumb/75x75.gif'" /></a></p>
+        <div class="information">
+            {$user_icon}{$new_icon}{$recommend_icon}{$soldout_icon}{$mileage_icon}
+            <h3><a href="/product/detail.html{$param_product}">{$product_name}</a></h3>
+            <p class="price">{$product_price} {$product_tax_type_text}</p>
+            <p class="button"><a href="/product/detail.html{$param_product}" class="btnEm" title="new window">Product Description</a></p>
+        </div>
+    </div>
+
+    <p class="required"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /> Required Fields</p>
+
+    <div class="ec-base-table typeWrite">
+        <table border="1" summary="">
+        <caption>Inquiry regarding bulk purchases</caption>
+        <colgroup>
+            <col style="width:150px;" />
+            <col style="width:auto;" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <th scope="row">Quantity <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>
+                    <span class="ec-base-qty">
+                        {$form.bi_product_cnt}
+                        <a href="#none"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="up" class="up" onclick="{$action_amount_up}" /></a>
+                        <a href="#none"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="down" class="down" onclick="{$action_amount_down}" /></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Subject <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.bi_inquire_subject}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="clear">
+                    {$form.bi_inquire_content}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Attachments1</th>
+                <td>{$form.inquiry_file1}<p class="gBlank5 txtInfo txt11">Attachments: 10M / csv, xls, doc, ppt, pdf</p></td>
+            </tr>
+            <tr>
+                <th scope="row">Attachments2</th>
+                <td>{$form.inquiry_file2}<p class="gBlank5 txtInfo txt11">Attachments: 10M / csv, xls, doc, ppt, pdf</p></td>
+            </tr>
+            <tr>
+                <th scope="row">Attachments3</th>
+                <td>{$form.inquiry_file3}<p class="gBlank5 txtInfo txt11">Attachments: 10M / csv, xls, doc, ppt, pdf</p></td>
+            </tr>
+            <tr>
+                <th scope="row">Attachments4</th>
+                <td>{$form.inquiry_file4}<p class="gBlank5 txtInfo txt11">Attachments: 10M / csv, xls, doc, ppt, pdf</p></td>
+            </tr>
+            <tr>
+                <th scope="row">Attachments5</th>
+                <td>{$form.inquiry_file5} {$attached_file5}<p class="gBlank5 txtInfo txt11">Attachments: 10M / csv, xls, doc, ppt, pdf</p></td>
+            </tr>
+            <tr>
+                <th scope="row">Subscribe for a catalog <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.bi_is_catalog}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <div class="title">
+        <h3>Customer Information</h3>
+    </div>
+    <div class="ec-base-table typeWrite">
+        <table border="1" summary="">
+        <caption>Customer Information</caption>
+        <colgroup>
+            <col style="width:150px;" />
+            <col style="width:auto;" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <th scope="row">Customer Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.bi_inquirer_name}</td>
+            </tr>
+            <tr>
+                <th scope="row">Company Name</th>
+                <td>{$form.bi_inquirer_company_name}</td>
+            </tr>
+            <tr>
+                <th scope="row">E-mail <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.bi_inquirer_email}</td>
+            </tr>
+            <tr>
+                <th scope="row">Address <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.address}</td>
+            </tr>
+            <tr>
+                <th scope="row">Contact <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                <td>{$form.bi_inquirer_phone} (Please type only in numbers.)</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <div class="ec-base-button">
+        <span class="gRight">
+            <a href="#none" class="btnEmFix sizeS" onclick="{$action_modify}">Modify</a>
+        </span>
+    </div>
+</div>

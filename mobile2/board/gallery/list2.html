@@ -1,0 +1,153 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="Board_ListPackage_8">
+    <!--@css(/css/module/board/listPackage.css)-->
+    <div id="titleArea" module="board_title_8">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="board_listheader_8" class="ec-base-tab gBlank7 {$list_type_display|display}">
+        <ul>
+            <li><a href="/board/gallery/list.html{$param_list}">Thumnail View</a></li>
+            <li class="selected"><a href="/board/gallery/list2.html{$param_list}">List View</a></li>
+        </ul>
+    </div>
+
+    <div class="ec-base-button">
+        <div class="gLeft"><input type="checkbox" name="showNotice" id="showNotice" onChange="BOARD.show_notice();" checked="checked" /><label for="showNotice">View Notices</label></div>
+        <div class="gRight {$write_display|display}" module="board_ButtonList_8"><a href="/board/gallery/write.html{$param_write}" class="btnStrong">Write</a></div>
+    </div>
+
+    <div class="boardSort">
+        <span module="board_category_8">{$form.board_category}</span>
+    </div>
+
+    <ul module="board_notice_8">
+        <!--
+            $count = 10
+            $subject_cut = 22
+            $login_page_url = /member/login.html
+            $deny_access_url = /index.html
+        -->
+        <li class="mNoticeFlag">
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject">{$notice_icon} {$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+        <li class="mNoticeFlag">
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject">{$notice_icon} {$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+    </ul>
+
+    <ul module="board_fixed_8">
+        <!--
+            $count = 10
+            $subject_cut = 22
+            $login_page_url = /member/login.html
+            $deny_access_url = /index.html
+        -->
+        <li>
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject">{$fixed_icon} {$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+        <li>
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject">{$fixed_icon} {$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+    </ul>
+
+    <ul module="board_list_8">
+        <!--
+            $subject_cut = 22
+            $login_page_url = /member/login.html
+            $deny_access_url = /index.html
+        -->
+        <li class="{$block_target_class}" {$block_data_attr}>
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject {$block_content_class}">{$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+        <li class="{$block_target_class}" {$block_data_attr}>
+            <p class="summary">
+                <a href="{$link_board_detail}">
+                    <strong class="subject {$block_content_class}">{$icon_re} {$icon_lock} {$icon_mobile} {$subject} <span class="comment">{$comment_count}</span> {$icon_hit} {$icon_file} {$icon_new}</strong>
+                    <span class="{$category_display|display}" title="Category">{$category_name}</span>
+                    <span class="name" title="Posted by">{$writer}</span>
+                    <span class="date {$date_display|display}" title="Date">{$write_date}</span>
+                    <span class="{$hit_display|display}">Views {$hit_count}</span>
+                    <span class="{$vote_display|display}">Recommend {$vote}</span>
+                    <span class="point {$point_display|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/board/ico_star{$point_count}.png" alt="{$point_count}points" /></span>
+                </a>
+            </p>
+        </li>
+    </ul>
+
+    <p module="board_empty_8" class="empty {$empty_display|display}">{$empty_message}</p>
+</div>
+
+<div module="board_paging_8" class="ec-base-paginate typeList">
+    <!--
+        $count = 5
+    -->
+    <a href="{$param_prev}" class="btnPrev">Previous</a>
+    <ol>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+    </ol>
+    <a href="{$param_next}" class="btnNext">Next</a>
+</div>
+
+<div module="board_search_8">
+    <!--@css(/css/module/board/search.css)-->
+    <fieldset class="boardSearch">
+        <legend>Search Postings</legend>
+        <div class="category">{$form.search_date} {$form.search_key}</div>
+        <div class="ec-base-field">{$form.search} <button class="btnStrong" onclick="{$action_search}">Search</button></div>
+    </fieldset>
+</div>

@@ -1,0 +1,87 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Membership Reward Points</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="myshop_couponMemberList">
+    <!--@css(/css/module/myshop/couponMemberList.css)-->
+    <!--
+        $only_html = no
+        $count = 10
+        $login_page = /member/login.html
+    -->
+    <div class="{$display_coupon|display}">
+        <div class="item">
+            <h3>
+                <span class="date" title="OrderDate">{$order_date}</span>
+                <span class="number" title="Order No."><a href="/myshop/order/detail.html?order_id={$order_id}">{$order_id}</a></span>
+            </h3>
+            <div class="ec-base-table gClearBorderTop">
+                <table border="1">
+                    <caption>Membership Reward Points</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Pending {$mileage_name}</th>
+                            <td>{$mileage_money}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Valid From</th>
+                            <td>{$mileage_type}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>{$mileage_detail}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="item">
+            <h3>
+                <span class="date" title="OrderDate">{$order_date}</span>
+                <span class="number" title="Order No."><a href="/myshop/order/detail.html?order_id={$order_id}">{$order_id}</a></span>
+            </h3>
+            <div class="ec-base-table gClearBorderTop">
+                <table border="1">
+                    <caption>Membership Reward Points</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Pending {$mileage_name}</th>
+                            <td>{$mileage_money}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Valid From</th>
+                            <td>{$mileage_type}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>{$mileage_detail}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p class="empty {$display_coupon_none|display}">You have no history to view.</p>
+</div>
+
+<div class="ec-base-paginate typeList" module="myshop_couponMemberPaging">
+    <a href="{$prev_url}" class="btnPrev">Previous</a>
+    <ol><li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+        <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+        <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+        <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+    </ol>
+    <a href="{$next_url}" class="btnNext">Next</a>
+</div>

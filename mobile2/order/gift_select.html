@@ -1,0 +1,72 @@
+<!--@layout(/layout/basic/layer.html)-->
+<div module="gift_select" class="ec-base-layer gClearFlex">
+    <!--@css(/css/module/order/gift_select.css)-->
+    <h1>Pick a gift</h1>
+    <div class="wrap">
+        <ul module="gift_point">
+            <li>Remaining points : <strong>{$able_point} points</strong></li>
+            <li>Points to use : <strong>{$use_point} points</strong></li>
+            <li>Total points available : <strong>{$total_point} points</strong></li>
+        </ul>
+        <div class="giftList">
+
+            <div class="ec-base-prdInfo">
+                {$product_choice}
+                <div class="prdBox">
+                    <div class="thumbnail"><img src="{$gift_image}" alt="" width="71" height="71" /></div>
+                    <div class="description">
+                        <strong class="prdName" title="Product">{$product_name} {$soldout_icon}</strong>
+                        <ul class="info">
+                            <li class="point">Points <strong>{$gift_price} points</strong></li>
+                            <li>{$option1}</li>
+                            <li>{$option2}</li>
+                            <li>{$option3}</li>
+                            <li>{$option4}</li>
+                            <li>{$option5}</li>
+                            <li>
+                                <span class="ec-base-qty {$display_amount|display}">
+                                    <button type="button" onclick="{$action_change_amount_down}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" alt="Decrease"></button>
+                                    {$product_amount}
+                                    <button type="button" onclick="{$action_change_amount_up}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" alt="Increase"></button>
+                                </span>
+                                <span class="{$display_choice_single_btn|display}"><button type="button" onclick="{$action_choice_single}" class="btnStrong">Select</button></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ec-base-prdInfo">
+                {$product_choice}
+                <div class="prdBox">
+                    <div class="thumbnail"><img src="{$gift_image}" alt="" width="71" height="71" /></div>
+                    <div class="description">
+                        <strong class="prdName" title="Product">{$product_name} {$soldout_icon}</strong>
+                        <ul class="info">
+                            <li class="point">Points <strong>{$gift_price} points</strong></li>
+                            <li>{$option1}</li>
+                            <li>{$option2}</li>
+                            <li>{$option3}</li>
+                            <li>{$option4}</li>
+                            <li>{$option5}</li>
+                            <li>
+                                <span class="ec-base-qty {$display_amount|display}">
+                                    <button type="button" onclick="{$action_change_amount_down}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" alt="Decrease"></button>
+                                    {$product_amount}
+                                    <button type="button" onclick="{$action_change_amount_up}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" alt="Increase"></button>
+                                </span>
+                                <span class="{$display_choice_single_btn|display}"><button type="button" onclick="{$action_choice_single}" class="btnStrong">Select</button></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-button gColumn">
+        <button type="button" class="btnSubmit {$display_choice_multi_btn|display}" onclick="{$action_gift_select}">Select</button>
+        <button type="button" class="btnEm" onclick="{$action_gift_cancel}">Cancel</button>
+    </div>
+    <a href="#none" class="btnClose" onclick="{$action_gift_close}">Close</a>
+</div>

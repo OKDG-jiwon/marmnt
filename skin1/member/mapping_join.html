@@ -1,0 +1,85 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Location</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Location"><strong>Link social media account</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Link social media account</h2>
+</div>
+
+<div module="member_joinMapping">
+    <!--@css(/css/module/member/mapping_join.css)-->
+    <h3 class="boxTitle">
+        An online store ID already exists for <em>{$provider_member_email}</em>.<br />
+        Do you want to log into the existing account and link it to your social media account?
+    </h3>
+    <div class="ec-base-box typeThin">
+        <ul class="accountList">
+            <li class="head">
+                <strong>ID</strong>
+                <strong>Registration date</strong>
+            </li>
+            <li>
+                <span>
+                    <label>
+                       <input type="radio" name="join_mapping_info" value="{$member_id}" provider="{$provider}" title="{$title}"><span class="snsId">{$title_ui}{$masking_member_id}</span>
+                    </label>
+                </span>
+                <span class="center">{$regist_date}</span>
+            </li>
+            <li>
+                <span>
+                    <label>
+                       <input type="radio" name="join_mapping_info" value="{$member_id}" provider="{$provider}" title="{$title}"><span class="snsId">{$title_ui}{$masking_member_id}</span>
+                    </label>
+                </span>
+                <span class="center">{$regist_date}</span>
+            </li>
+            <li>
+                <span>
+                    <label>
+                       <input type="radio" name="join_mapping_info" value="{$member_id}" provider="{$provider}" title="{$title}"><span class="snsId">{$title_ui}{$masking_member_id}</span>
+                    </label>
+                </span>
+                <span class="center">{$regist_date}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnSubmit sizeL" onclick="{$action_func_mapping}">Link account to selected ID</a><a href="#none" onclick="{$action_func_join}" class="btnNormal sizeL {$display_join|display}">Create new account (Do not link)</a>
+    </div>
+</div>
+
+<div module="Layout_login">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/member/layer_login.css)-->
+    <div class="layer-wrapper sizeM">
+        <div class="layer-inner">
+            <div class="ec-base-layer">
+                <div class="header">
+                    <h3>Log into {$mall_name}</h3>
+                </div>
+                <div class="content">
+                    <div class="login">
+                        <fieldset>
+                            <legend>Login</legend>
+                            <label class="id ePlaceholder" title="{$login_id_type_text}">{$form.member_id}</label>
+                            <label class="password ePlaceholder" title="Password">{$form.member_passwd}</label>
+                            <a href="#none" class="btnLogin" onclick="{$action_func_login}">Login</a>
+                            <p class="info">Forgot your ID/password?</p>
+                            <ul><li><a href="/member/id/find_id.html">Find my ID</a></li><li><a href="/member/passwd/find_passwd_info.html">Find my password</a></li></ul>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="ec-base-button">
+                    <button class="btnNormalFix sizeS" type="button" onclick="$('.xans-layout-login').hide();">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Myshop_depositRefundPackage" class="ec-base-layer">
+    <!--@css(/css/module/myshop/depositHistoryCallPackage.css)-->
+    <div module="Myshop_DepositRefundForm">
+        <!--
+            $login_page = /member/login.html
+            $deposit_page = /myshop/deposits/historyList.html
+        -->
+        <div class="header">
+            <h1>{$deposit_name} Cash Refund</h1>
+        </div>
+
+        <div class="content">
+            <div class="ec-base-help">
+                <h2>Help</h2>
+                <div class="inner">
+                    <ul>
+                        <li>Please fill out the form below to request cash refund for your {$deposit_name}.</li>
+                        <li>Once we receive your cash refund request, we will issue a refund to your bank account after verifying your {$deposit_name}.(This process may take longer in certain cases.)</li>
+                        <li>To protect your personal information and insure safe transaction, please make sure to provide us with verified banking information.</li>
+                        <li>For more details on our refund policy, please contact our customer service. </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ec-base-tab">
+                <ul class="menu">
+                    <li class="selected"><a href="refund_call.html">Submit Cash Refund Request</a></li>
+                    <li><a href="refund_cancel.html">Cancel Cash Refund Request</a></li>
+                </ul>
+            </div>
+
+            <div class="ec-base-table typeWrite">
+                <table border="1" summary="">
+                    <caption>Cash Refund Request</caption>
+                    <colgroup>
+                        <col style="width:180px" />
+                        <col style="width:160px;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Refundable {$deposit_name}</th>
+                            <td><strong class="price1">{$deposit_can_dissaving}</strong></td>
+                            <td>Pending store credits not included</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Pending Store Credits</th>
+                            <td><strong class="price2">{$deposit_refund_wait}</strong></td>
+                            <td>Store credits on pending for cash refund </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Requested Refund Amount</th>
+                            <td>{$form.request_deposit_amt} {$deposit_unit}</td>
+                            <td>This amount cannot exceed total refundable {$deposit_name}.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Refund Account Holder</th>
+                            <td>{$form.request_account_name}</td>
+                            <td>Please enter verified name of the account holder.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bank Name for Refunds</th>
+                            <td colspan="2">{$form.request_bank_code} <span class="gBlank5 {$display_bank_name_chk|display}">Please enter the bank name, branch name, and the account type for refunds.</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bank Account for Refunds</th>
+                            <td colspan="2">{$form.request_account_no} <span class="gBlank5">(Please enter numbers only without dashes.)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="ec-base-button">
+            <a href="#none" id="{$btn_refund_id}" class="btnSubmit sizeS">Submit Cash Refund</a>
+        </div>
+    </div>
+</div>

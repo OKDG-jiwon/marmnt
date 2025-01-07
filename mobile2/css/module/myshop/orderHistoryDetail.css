@@ -1,0 +1,89 @@
+/* Toggle */
+.xans-myshop-orderhistorydetail .ec-base-fold .title { margin-top:0; }
+.xans-myshop-orderhistorydetail .ec-base-fold.theme1 > .title { display:inherit; margin-bottom:0; }
+.xans-myshop-orderhistorydetail .ec-base-fold.theme1 > .contents { background:none; }
+.xans-myshop-orderhistorydetail .ec-base-fold.theme2 > .title h3 { font-weight:normal; }
+.xans-myshop-orderhistorydetail .ec-base-fold .subTitle { padding:14px 43px 14px 14px; line-height:1.3em; background-color:#f0f0f0; color:#508bed; border-bottom:1px solid #d5d5d5; -webkit-tap-highlight-color: rgba(255,255,255,0); }
+
+
+.xans-myshop-orderhistorydetail { margin:14px 7px 0; padding:0 0 29px; }
+.xans-myshop-orderhistorydetail .ec-base-fold .ec-base-prdInfo { border-top:1px solid #d5d5d5; }
+.xans-myshop-orderhistorydetail .ec-base-button { margin:14px 0 0; padding:0; }
+.xans-myshop-orderhistorydetail .contents .ec-base-button { margin:0; padding:7px 14px; border-top:1px solid #d5d5d5; }
+
+/* List */
+.xans-myshop-orderhistorydetail .ec-base-table table td > button { margin:7px 0 0; }
+.xans-myshop-orderhistorydetail .boardTotal table { font-size:13px; word-wrap:break-word; background-color:#fff; }
+.xans-myshop-orderhistorydetail .boardTotal table th { padding:14px 0 14px 14px; border-bottom:1px solid #ececec; font-weight:normal; color:#757575; text-align:left; }
+.xans-myshop-orderhistorydetail .boardTotal table td { padding:14px; border-bottom:1px solid #ececec; }
+.xans-myshop-orderhistorydetail .boardTotal .totalPay th,
+.xans-myshop-orderhistorydetail .boardTotal .totalPay td { color:#508bed; border-bottom:0; }
+.xans-myshop-orderhistorydetail .boardTotal .totalPay td { padding:0 34px 0 0; font-size:13px; text-align:right; }
+.xans-myshop-orderhistorydetail .boardTotal .totalPay + .totalBasicPrice th {border-top:1px solid #ececec;}
+.xans-myshop-orderhistorydetail .boardTotal .totalPay + .totalBasicPrice td {border-top:1px solid #ececec;}
+
+/* Eximbay DCC */
+      .totalPay .eximbayDCC .btnTip { display:inline-block; overflow:hidden; padding:0; margin:0; border:0; white-space:nowrap; width:14px; height:14px; font-size:1px; line-height:0; vertical-align:middle; color:transparent; text-indent:-150%; cursor:pointer; background:url("//img.echosting.cafe24.com/skin/mobile/common/ico_help.png") right center no-repeat; background-size:14px 14px; }
+      .totalPay .eximbayDCC .ec-base-tooltip ul li { padding:0; border:none; }
+.xans-myshop-orderhistorydetail .ec-base-table .prdInfo { background-color:#f1f1f1; }
+.xans-myshop-orderhistorydetail .ec-base-table .prdInfo th,
+.xans-myshop-orderhistorydetail .ec-base-table .prdInfo td { border-bottom:1px solid #d5d5d5; font-weight:bold; }
+.xans-myshop-orderhistorydetail .ec-base-table .additional ul { margin:14px 0 0; }
+.xans-myshop-orderhistorydetail .ec-base-table .additional ul li { padding:0 0 2px 7px; color:#757575; background:url("//img.echosting.cafe24.com/skin/mobile_en_US/myshop/ico_dot.png") 0 9px no-repeat; background-size:2px 2px; }
+.xans-myshop-orderhistorydetail .boardTotal table td { padding:14px 0; }
+
+.xans-myshop-orderhistorydetail .ec-base-table .total.first th,
+.xans-myshop-orderhistorydetail .ec-base-table .total.first td { color:#508bed; }
+.xans-myshop-orderhistorydetail .ec-base-table.boardList td { padding-right:34px; }
+.xans-myshop-orderhistorydetail .orderCs .cancel { border-bottom:1px solid #d5d5d5; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct thead th { border-bottom:1px solid #d5d5d5; background:#f9f9f9; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct tbody td { border-top:0; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct th:first-child,
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct td:first-child { border-right:1px solid #d5d5d5; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct th,
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct td { padding:14px; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct ul.option { margin:10px 0 0; }
+.xans-myshop-orderhistorydetail .ec-base-table table.csProduct span.option { margin:0 0 0 14px; padding:0; border-top-width:0; }
+.xans-myshop-orderhistorydetail div.xans-myshop-orderhistorydetailpickup table th { padding-left:14px; background:none; }
+
+.xans-myshop-orderhistorydetail .ec-base-prdInfo .description .price > div{line-height: 18px;}
+
+.xans-myshop-orderhistorydetail .cancelAddress .info { padding:14px; line-height:1.5em; background:#fff; }
+.xans-myshop-orderhistorydetail .cancelAddress .info span { color:#757575; }
+
+/* CS */
+.popup .xans-myshop-orderhistorydetail { margin:0; }
+.xans-myshop-orderhistorydetail .boardViewCS .prdInfo { border:1px solid #d5d5d5; margin:0 0 7px; padding:14px; background-color:#fff; }
+.xans-myshop-orderhistorydetail .boardViewCS .prdInfo strong { font-size:13px; }
+.xans-myshop-orderhistorydetail .boardViewCS .option { line-height:15px; margin:7px 0 0; padding:0; border-top:0; }
+.xans-myshop-orderhistorydetail .boardViewCS .titleArea { line-height:43px; border:1px solid #d5d5d5; border-top:0; background-color:#f1f1f1; }
+.xans-myshop-orderhistorydetail .boardViewCS:first-child .titleArea { border-top:1px solid #d5d5d5; }
+.xans-myshop-orderhistorydetail .boardViewCS .titleArea h3 { padding:0 0 0 14px; font-size:13px; text-align:left; color:#508bed; }
+
+
+.xans-myshop-orderhistorydetail .customer { padding:14px; background-color:#fff; font-size:13px; color:#56595c; }
+
+.xans-myshop-orderhistorydetail .ec-base-fold .refund.ec-base-table { border-top:1px solid #d5d5d5; }
+
+/* Change shipping address Button */
+.xans-myshop-orderhistorydetail .ec-base-table table td { position:relative; }
+
+/* Multiple delivery destinations */
+.xans-myshop-orderhistorydetail .ec-base-fold .ec-base-fold .contents .deliveryFoot{margin: 0; padding: 7px;background: #f1f1f1;border-top: 1px solid #d5d5d5;overflow:hidden;}
+.xans-myshop-orderhistorydetail .ec-base-fold .ec-base-fold .contents .deliveryFoot .gLeft{float:left;}
+.xans-myshop-orderhistorydetail .ec-base-fold .ec-base-fold .contents .deliveryFoot .gRight{float:right;}
+
+/* 송장 레이어 */
+.ec-base-layer.typeInvoice { overflow:hidden; z-index:500; top:50%; left:50%; transform: translate(-50%,-50%); min-width:332px; max-width:600px; width:92%; height:auto; margin:auto; background: none; border-radius:5px 5px 0 0;}
+.ec-base-layer.typeInvoice h1 { padding:0 14px; line-height:35px; font-size:13px; text-align:left; border-bottom:1px solid #ccc; color:#fff; background:#495164; border-radius:5px 5px 0 0; }
+.ec-base-layer.typeInvoice .wrap { max-height:400px; min-height:100px; height: auto; padding:14px; background:#fff; border-width: 0 1px 1px 1px; border-color: #ccc; border-style: solid; }
+
+/* 멀티송장 */
+.ec-base-table.gBorder:not(:first-child) { margin-top:10px; }
+.ec-base-table.gBorder th { background-color: #FAFAFD; padding: 4px 0; } 
+.ec-base-table.gBorder th, 
+.ec-base-table.gBorder td { border-left:1px solid #ececec;}
+.ec-base-table.gBorder td { padding: 4px 13px;}
+.ec-base-table.gBorder td.number { text-decoration: underline;}
+.ec-base-table.gBorder th:first-child, 
+.ec-base-table.gBorder td:first-child { border-left:0; }

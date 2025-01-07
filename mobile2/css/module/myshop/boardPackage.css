@@ -1,0 +1,12 @@
+.xans-myshop-boardpackage { margin:7px 0 0; font-size:11px; }
+.xans-myshop-boardpackage a { color:#757575; }
+
+/* List */
+.xans-myshop-boardpackage .list li { position:relative; overflow:hidden; padding:14px 0; border-bottom:1px solid #ececec; background:#fff; }
+.xans-myshop-boardpackage .list .summary { position:relative; padding:0 14px; }
+.xans-myshop-boardpackage .list .summary a:first-child { display:block; }
+.xans-myshop-boardpackage .list .subject { display:block; padding:0 0 6px; font-size:15px; line-height:20px; color:#1b1b1b; }
+.xans-myshop-boardpackage .list .subject b { font-weight:normal; color:#508bed; }
+.xans-myshop-boardpackage .list .icon { display:inline-block; width:1px; margin:0 7px; color:#cdcdcd; }
+.xans-myshop-boardpackage .list .date { position:relative; display:inline-block; padding:0 7px 0 8px; margin:0 0 0 7px; color:#757575; }
+.xans-myshop-boardpackage .list .date:before { display:block; content:""; position:absolute; top:2px; left:0; width:1px; height:11px; background:#d6d6d6; }

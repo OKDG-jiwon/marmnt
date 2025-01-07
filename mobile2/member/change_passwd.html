@@ -1,0 +1,46 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Change Password</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+<div module="member_changepasswd">
+    <!--@css(/css/module/member/change_passwd.css)-->
+    {$form.enc_password}
+    {$form.returnUrl}
+
+    <p class="info {$display_change_password|display}">To protect your personal information from illegal use, we recommend that you change your password every {$check_period} days.</p>
+
+	<div class="ec-base-table typeWrite">
+        <table border="1">
+            <caption>Change Password</caption>
+            <colgroup>
+                <col style="width:120px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr class="idCheck">
+                    <th scope="row">ID</th>
+                    <td class="middle">{$member_id}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Current Password</th>
+                    <td>{$form.passwd}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="pwConfirm">New Password</th>
+                    <td>{$form.new_passwd} <span class="ec-base-help typeDash">{$passwd_type_desc}</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Confirm New Password</th>
+                    <td>{$form.new_passwd_confirm}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ec-base-button gColumn">
+        <a href="#none" onclick="{$change_password_action}" class="btnSubmit">Change Password</a>
+        <a href="#none" onclick="{$after_action}" class="btnEm {$display_change_password|display}">Change Later</a>
+    </div>
+</div>

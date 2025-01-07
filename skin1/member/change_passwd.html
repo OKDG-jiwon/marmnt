@@ -1,0 +1,38 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Change Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Change Password</h2>
+</div>
+
+<div module="member_changepasswd" class="ec-base-box typeThin">
+    <!--@css(/css/module/member/change_passwd.css)-->
+    {$form.enc_password}
+    {$form.returnUrl}
+
+    <div class="change_pw">
+        <h3 class="boxTitle">Change Password</h3>
+        <p class="info {$display_change_password|display}">
+            To protect your personal information from illegal use, we recommend that you change your password every {$check_period} days.
+        </p>
+        <fieldset>
+            <legend>Current Password</legend>
+            <dl class="ec-base-desc">
+                <dt>ID</dt><dd><strong class="txtEm">{$member_id}</strong></dd>
+                <dt>Current password</dt><dd>{$form.passwd}</dd>
+                <dt>New Password</dt><dd>{$form.new_passwd}<span class="txtInfo gBlank5">{$passwd_type_desc}</span></dd>
+                <dt>Confirm New Password</dt><dd>{$form.new_passwd_confirm}</dd>
+            </dl>
+             <div class="ec-base-button gColumn">
+                <a href="#none" class="btnSubmit sizeM" onclick="{$change_password_action}">Change Password</a>
+                <a href="#none" class="btnNormal sizeM {$display_change_password|display}" onclick="{$after_action}">Change Later</a>
+            </div>
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="Order_StorePickupInfo" class="ec-base-layer">
+    <!--@css(/css/module/order/storePickupInfo.css)-->
+    <div class="header">
+        <h1>Store Details</h1>
+    </div>
+    <div class="content">
+        <dl>
+            <dt><strong>{$sc_name}</strong><br />{$receive_addr}</dt>
+            <dd>
+                <div class="ec-base-table">
+                    <table border="1">
+                        <caption>Store Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{$main_phone} <a href="tel:{$main_phone}" class="btnBasic">Call</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Store Hours</th>
+                                <td>{$office_hour}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Store Details</th>
+                                <td>{$receive_info}</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Map</th>
+                            </tr>
+                            <tr>
+                                <td class="map" colspan="2">{$receive_map}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </dd>
+        </dl>
+        <dl>
+            <dt><strong>{$sc_name}</strong><br />{$receive_addr}</dt>
+            <dd>
+                <div class="ec-base-table">
+                    <table border="1">
+                        <caption>Store Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{$main_phone} <a href="tel:{$main_phone}" class="btnBasic">Call</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Store Hours</th>
+                                <td>{$office_hour}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Store Details</th>
+                                <td>{$receive_info}</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Map</th>
+                            </tr>
+                            <tr>
+                                <td class="map" colspan="2">{$receive_map}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </dd>
+        </dl>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" onclick="window.close()" class="btnNormalFix sizeS">Close</a>
+    </div>
+</div>

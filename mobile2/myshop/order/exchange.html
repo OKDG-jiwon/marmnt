@@ -1,0 +1,453 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Request Exchange</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+<div module="Myshop_OrderHistoryApplyExchange">
+    <!--@css(/css/module/myshop/orderHistoryApplyExchange.css)-->
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>
+                <strong class="date" title="Date of Order">{$order_date_ymd}</strong>
+                <span class="number" title="Order Number">({$order_id})</span>
+            </h2>
+        </div>
+        <div class="contents">
+            <div class="{$product_no_receiver_display|display}">
+                <div module="Myshop_products">
+                    <div class="orderList">
+                        <div class="product">
+                            <span class="chk">{$form.checkbox}</span>
+                            <div class="description">
+                                <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                <strong class="name">{$product_name_link}</strong>
+                                <ul class="info">
+                                    <li>
+                                        <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                        <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="option {$option_display|display}">
+                            <div>{$option_str}</div>
+                            <ul module="Myshop_optionSet">
+                                <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                            </ul>
+                        </div>
+                        <div class="quantity">
+                            <span class="gLeft">Qty. to Request</span>
+                            <span class="gRight">
+                                <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                {$form.quantity}
+                                <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                            </span>
+                        </div>
+                        <div class="status">{$cur_state}</div>
+                    </div>
+                    <div class="orderList">
+                        <div class="product">
+                            <span class="chk">{$form.checkbox}</span>
+                            <div class="description">
+                                <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                <strong class="name">{$product_name_link}</strong>
+                                <ul class="info">
+                                    <li>
+                                        <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                        <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="option {$option_display|display}">
+                            <div>{$option_str}</div>
+                            <ul module="Myshop_optionSet">
+                                <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                            </ul>
+                        </div>
+                        <div class="quantity">
+                            <span class="gLeft">Qty. to Request</span>
+                            <span class="gRight">
+                                <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                {$form.quantity}
+                                <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                            </span>
+                        </div>
+                        <div class="status">{$cur_state}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="{$product_receiver_display|display}">
+                <div module="Myshop_productsMobile">
+                    <div class="{$display_receiver_column|display} ec-base-fold theme2 eToggle selected">
+                        <div class="title">
+                            <h3>Shipping address {$no}</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Shipping Information</caption>
+                                    <colgroup>
+                                        <col style="width:100px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>{$r_name}</strong>
+                                            <div><span class="{$r_zipcode_display|display}">[{$r_zipcode}]</span> <span data-class="{$raddr_display|display}">{$r_addr}</span></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$receive_info_display|display}">
+                                        <th scope="row">Pickup Store</th>
+                                        <td>{$store_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone</th>
+                                        <td>{$r_phone1}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mobile</th>
+                                        <td>{$r_phone2}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Shipment number</th>
+                                        <td>{$delivery_code}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div module="Myshop_ReceiverProductList">
+                                <div class="orderList">
+                                    <div class="product">
+                                        <span class="chk">{$form.checkbox}</span>
+                                        <div class="description">
+                                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                            <strong class="name">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li>
+                                                    <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                                    <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="option {$option_display|display}">
+                                        <div>{$option_str}</div>
+                                        <ul module="Myshop_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                        </ul>
+                                    </div>
+                                    <div class="quantity">
+                                        <span class="gLeft">Qty. to Request</span>
+                                        <span class="gRight">
+                                            <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                            {$form.quantity}
+                                            <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                            <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                                        </span>
+                                    </div>
+                                    <div class="status">{$cur_state}</div>
+                                </div>
+                                <div class="orderList">
+                                    <div class="product">
+                                        <span class="chk">{$form.checkbox}</span>
+                                        <div class="description">
+                                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                            <strong class="name">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li>
+                                                    <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                                    <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="option {$option_display|display}">
+                                        <div>{$option_str}</div>
+                                        <ul module="Myshop_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                        </ul>
+                                    </div>
+                                    <div class="quantity">
+                                        <span class="gLeft">Qty. to Request</span>
+                                        <span class="gRight">
+                                            <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                            {$form.quantity}
+                                            <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                            <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                                        </span>
+                                    </div>
+                                    <div class="status">{$cur_state}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="{$display_receiver_column|display} ec-base-fold theme2 eToggle">
+                        <div class="title">
+                            <h3>Shipping address {$no}</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Shipping Information</caption>
+                                    <colgroup>
+                                        <col style="width:100px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>{$r_name}</strong>
+                                            <div><span class="{$r_zipcode_display|display}">[{$r_zipcode}]</span> <span data-class="{$raddr_display|display}">{$r_addr}</span></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$receive_info_display|display}">
+                                        <th scope="row">Pickup Store</th>
+                                        <td>{$store_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone</th>
+                                        <td>{$r_phone1}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mobile</th>
+                                        <td>{$r_phone2}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Shipment number</th>
+                                        <td>{$delivery_code}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div module="Myshop_ReceiverProductList">
+                                <div class="orderList">
+                                    <div class="product">
+                                        <span class="chk">{$form.checkbox}</span>
+                                        <div class="description">
+                                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                            <strong class="name">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li>
+                                                    <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                                    <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="option {$option_display|display}">
+                                        <div>{$option_str}</div>
+                                        <ul module="Myshop_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                        </ul>
+                                    </div>
+                                    <div class="quantity">
+                                        <span class="gLeft">Qty. to Request</span>
+                                        <span class="gRight">
+                                            <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                            {$form.quantity}
+                                            <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                            <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                                        </span>
+                                    </div>
+                                    <div class="status">{$cur_state}</div>
+                                </div>
+                                <div class="orderList">
+                                    <div class="product">
+                                        <span class="chk">{$form.checkbox}</span>
+                                        <div class="description">
+                                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                                            <strong class="name">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li>
+                                                    <span class="price" title="Sales Price">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                                    <span class="quantity" title="Qty"><strong>{$quantity}</strong>item(s)</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="option {$option_display|display}">
+                                        <div>{$option_str}</div>
+                                        <ul module="Myshop_optionSet">
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                            <li><strong>{$product_name}</strong>{$option_str} ({$qty}item(s))</li>
+                                        </ul>
+                                    </div>
+                                    <div class="quantity">
+                                        <span class="gLeft">Qty. to Request</span>
+                                        <span class="gRight">
+                                            <img class="QuantityDown" alt="down" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_down.jpg" width="33" height="29" onclick="{$out_shortcut}">
+                                            {$form.quantity}
+                                            <img class="QuantityUp" alt="up" src="//img.echosting.cafe24.com/skin/mobile_en_US/order/ico_quantity_up.jpg" width="33" height="29" onclick="{$add_shortcut}">
+                                            <a class="btnBasic" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                                        </span>
+                                    </div>
+                                    <div class="status">{$cur_state}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ec-base-button gColumn {$select_button_display|display}">
+                <a href="#none" class="btnBasic" id="{$same_product_button_id}">Replacement</a>
+                <a href="#none" onclick="{$open_search_layer}" class="btnBasic">Exchange</a>
+            </div>
+        </div>
+    </div>
+    <p class="help">If your exchange request makes you ineligible for the received gift(s), whether they will be canceled, exchanged, or returned will be determined during the exchange process. </p>
+
+    <!-- This module is visible the first time the screen is loaded. After selecting a product, load the code for "exchange_product.html". -->
+    <div id="{$exchange_product_list_id}">
+        <div class="exchangProduct {$exchange_product_list_display|display}">
+            <div class="title">
+                <h3>Request Exchange</h3>
+            </div>
+            <p class="message">No item has been selected for exchange.<br> You can choose to submit your request without selecting an item for exchange.</p>
+        </div>
+    </div>
+
+    <div class="boardViewCS">
+        <div class="title">
+            <h3>Reason to Exchange</h3>
+        </div>
+        <div class="ec-base-table typeWrite gClearBorderTop">
+            <table border="1">
+                <caption>Reason to Exchange</caption>
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Select Reason</th>
+                        <td>
+                            <div class="ec-base-radio typeCS">
+                            {$form.reason_radio}
+                            </div>
+                            <p id="{$cs_shipfee_paid_by_id}" class="{$cs_shipfee_paid_by_display|display}">[Exchange shipping fee is covered by <span id="{$cs_shipfee_paid_by_who_id}" class="txtEm">Store</span>]</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reason Description</th>
+                        <td>{$form.reason_detail}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="boardViewCS {$cs_add_item_display|display}">
+        <div class="title">
+            <h3>Additional Information</h3>
+        </div>
+        <div class="ec-base-table typeWrite gClearBorderTop">
+            <table border="1">
+                <caption>Additional Information</caption>
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody module="Myshop_Csadd">
+                    <tr>
+                        <th scope="row">{$item_title}</th>
+                        <td>
+                            {$item_value}
+                            <p class="gBlank5">{$guide_content}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{$item_title}</th>
+                        <td>
+                            {$item_value}
+                            <p class="gBlank5">{$guide_content}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="{$cs_shipfee_payment_id}" class="boardViewCS {$cs_shipfee_payment_display|display}">
+        <div class="title">
+            <h3>Exchange shipping</h3>
+        </div>
+        <div class="ec-base-table typeWrite gClearBorderTop">
+            <table border="1">
+                <caption>Payment info</caption>
+                <colgroup>
+                    <col style="width:100px">
+                    <col style="width:auto">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope="row">Exchange shipping fee</th>
+                    <td>
+                        <span id="{$cs_shipfee_paid_by_select_id}" class="txtEm">Select reason for exchange.</span>
+                        <span id="{$cs_shipfee_paid_by_customer_id}" class="displaynone txtEm"><span class="txtEm">According to the reason given, the customer is responsible</span> for the exchange shipping costs and must pay the <span class="txtEm">{$price_front_head}<span id="{$cs_shipfee_price_slot_id}">{$shipfee_exchange}</span>{$price_front_tail}</span> exchange shipping fee.</span>
+                        <span id="{$cs_shipfee_paid_by_store_id}" class="displaynone txtEm"><span class="txtEm">According to the reason given, the store is responsible</span> for the exchange shipping costs and will pay the exchange shipping fee.</span>
+                    </td>
+                </tr>
+                <tr id="{$cs_shipfee_paymethod_id}" class="displaynone">
+                    <th scope="row">Payment method</th>
+                    <td>
+                        {$form.shipfee_paymethod}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="boardViewCS {$refund_info_display|display}">
+        <div class="title">
+            <h3>Refund Details</h3>
+        </div>
+        <div class="ec-base-table gClearBorderTop">
+            <table border="1">
+                <caption>Refund Details</caption>
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:auto;">
+                </colgroup>
+                <tbody class="{$refund_notice_display|display}">
+                    <tr>
+                        <th scope="row">Refund Estimate</th>
+                        <td>Total amount to be refunded will be available at 'Search Order Details', once seller accepts your requests.<br />Additional fees may occur depends on products to be exchanged.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Shipping Price Information</th>
+                        <td>{$cs_info_desc}</td>
+                    </tr>
+                </tbody>
+                <tbody class="{$refund_account_display|display}">
+                    <tr>
+                        <th scope="row">Refund Account</th>
+                        <td>
+                            <span id="{$id_acc_full_str}" class="{$acc_full_str_display|display}">{$acc_full_str}</span>
+                            <span id="{$id_acc_reg_disp}" class="{$acc_reg_display|display}"><a href="#none" class="btnBasic" onclick="OrderApply.popupAccount('./account.html');">Add Accounts</a></span>
+                            <span id="{$id_acc_mod_disp}" class="{$acc_mod_display|display}"><a href="#none" class="btnBasic" onclick="OrderApply.popupAccount('./account.html');">Change Accounts</a></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="help">In case of cash refund, amount will be transferred to registered accounts.</p>
+    </div>
+    {$form.is_new_cs_form}
+    <div class="ec-base-button gColumn">
+        <a href="#none" onclick="OrderApply.apply(); return false;" class="btnSubmit">Request Exchange</a>
+        <a href="/myshop/order/list.html{$back_page_param}" class="btnEm">Previous Page</a>
+    </div>
+</div>

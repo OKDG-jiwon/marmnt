@@ -1,0 +1,55 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_ReplyPackage_9">
+    <!--@css(/css/module/board/readPackage_9.css)-->
+    <div id="titleArea" module="board_title_9">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="Board_Read_9">
+        <div class="boardReply">
+            <p class="title">
+                <strong class="label hide">Title</strong>
+                <h3>{$subject}</h3>
+            </p>
+            <div class="info">
+                <p class="writer">
+                    <strong class="label hide">Posted by</strong>
+                    {$writer}
+                    <span class="{$config.display_ip|display}">(ip:{$ip})</span>
+                </p>
+                <p class="date {$config.use_date|display}">
+                    <strong class="label hide">Date</strong>
+                    {$write_date}
+                </p>
+                <p class="comment">
+                    <strong class="label">Answered</strong>
+                    {$consult}
+                </p>
+            </div>
+            <div class="content">
+                <strong class="label hide">Message</strong>
+                {$content_image}<p>{$content}</p>
+            </div>
+        </div>
+    </div>
+
+    <div module="board_reply_9">
+        <!--
+            $reply_success_url = /board/consult/list.html
+         -->
+        <div class="boardReply">
+            <h3>Add Reply</h3>
+            <div class="write">
+                {$form.content}
+            </div>
+        </div>
+
+        <div class="ec-base-button gColumn">
+            <button type="button" class="btnSubmit" onclick="{$action_reply}">Post</button>
+            <a href="{$link_board_list}" class="btnEm">Cancel</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,181 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Wish List</h2>
+    <span module="Layout_MobileAction"><a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a></span>
+</div>
+
+<div module="myshop_wishlist">
+    <!--@css(/css/module/myshop/wishlist.css)-->
+    <!--@js(/js/module/myshop/wishlist.js)-->
+    <!--
+        $login_page = /member/login.html
+        $count = 10
+        $use_per_add_option = yes
+    -->
+    <div module="myshop_wishlistitem">
+        <div class="ec-base-prdInfo">
+            {$checkbox}
+            <div class="prdBox">
+                <div class="thumbnail"><a href="{$link_product_detail}"><img src="{$image_medium}" alt="" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71"></a></div>
+                <div class="description">
+                    <strong class="prdName" title="Product">{$product_name_link} {$regular_delivery_icon}</strong>
+                    <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                    <ul class="info">
+                        <li class="price">
+                            <strong class="{$discount}" title="Price">{$product_price}{$product_tax_type_text}</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="option" module="Myshop_optionAll">
+                <li>
+                    <div class="name">
+                        <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                        <a href="#none" class="btnBasic change {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a>
+                    </div>
+                    <div class="layerOptionModify" id="{$option_modify_layer_id}">
+                        <div class="titleArea">
+                            <h2>Edit Option</h2>
+                        </div>
+                        <ul module="Myshop_optionList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <ul module="Myshop_optionAddList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <div class="ec-base-button gCenter">
+                            <a href="#none" class="btnStrong" onclick="{$action_option_modify}">Edit</a>
+                            <a href="#none" class="btnNormal" onclick="$('.layerOptionModify').hide();">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="name">
+                        <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                        <a href="#none" class="btnBasic change {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a>
+                    </div>
+                    <div class="layerOptionModify" id="{$option_modify_layer_id}">
+                        <div class="titleArea">
+                            <h2>Edit Optioin</h2>
+                        </div>
+                        <ul module="Myshop_optionList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <ul module="Myshop_optionAddList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <div class="ec-base-button gCenter">
+                            <a href="#none" class="btnStrong" onclick="{$action_option_modify}">Edit</a>
+                            <a href="#none" class="btnNormal" onclick="$('.layerOptionModify').hide();">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="ec-base-button">
+                <span class="gLeft">
+                    <a href="#none" class="btnNormal {$class_del}" rel="{$rel_del}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/btn_wish_delete.png" alt="Remove" width="13" height="13" /></a>
+                    <button type="button" onclick="{$act_basket}" class="btnNormal {$disp_basket|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/btn_wish_addBasket.png" alt="Add to Cart" width="13" height="13" /></button>
+                </span>
+                <button type="button" onclick="{$act_order}" class="btnStrong {$disp_order|display}">Checkout</button>
+            </div>
+        </div>
+        <div class="ec-base-prdInfo">
+            {$checkbox}
+            <div class="prdBox">
+                <div class="thumbnail"><a href="{$link_product_detail}"><img src="{$image_medium}" alt="" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71"></a></div>
+                <div class="description">
+                    <strong class="prdName" title="Product">{$product_name_link} {$regular_delivery_icon}</strong>
+                    <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                    <ul class="info">
+                        <li class="price">
+                            <strong class="{$discount}" title="Price">{$product_price}{$product_tax_type_text}</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="option" module="Myshop_optionAll">
+                <li>
+                    <div class="name">
+                        <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                        <a href="#none" class="btnBasic change {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a>
+                    </div>
+                    <div class="layerOptionModify" id="{$option_modify_layer_id}">
+                        <div class="titleArea">
+                            <h2>Edit Option</h2>
+                        </div>
+                        <ul module="Myshop_optionList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <ul module="Myshop_optionAddList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <div class="ec-base-button gCenter">
+                            <a href="#none" class="btnStrong" onclick="{$action_option_modify}">Edit</a>
+                            <a href="#none" class="btnNormal" onclick="$('.layerOptionModify').hide();">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="name">
+                        <span class="optionDesc"><span class="{$product_name_display|display}">{$product_name} : </span>{$option_str} <span class="{$qty_display|display}">({$qty} item(s))</span></span>
+                        <a href="#none" class="btnBasic change {$option_change_display|display}" onclick="{$action_option_change}">Edit Option</a>
+                    </div>
+                    <div class="layerOptionModify" id="{$option_modify_layer_id}">
+                        <div class="titleArea">
+                            <h2>Edit Option</h2>
+                        </div>
+                        <ul module="Myshop_optionList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <ul module="Myshop_optionAddList">
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                            <li><span class="optionItem">{$option_name}</span> {$form.option_value}</li>
+                        </ul>
+                        <div class="ec-base-button gCenter">
+                            <a href="#none" class="btnStrong" onclick="{$action_option_modify}">Edit</a>
+                            <a href="#none" class="btnNormal" onclick="$('.layerOptionModify').hide();">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="ec-base-button">
+                <span class="gLeft">
+                    <a href="#none" class="btnNormal {$class_del}" rel="{$rel_del}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/btn_wish_delete.png" alt="Remove" width="13" height="13" /></a>
+                    <button type="button" onclick="{$act_basket}" class="btnNormal {$disp_basket|display}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/myshop/btn_wish_addBasket.png" alt="Add to Cart" width="13" height="13" /></button>
+                </span>
+                <button type="button" onclick="{$act_order}" class="btnStrong {$disp_order|display}">Checkout</button>
+            </div>
+        </div>
+    </div>
+    <p class="empty {$empty_display|display}">You have no items in your wish list.</p>
+</div>
+
+<div module="myshop_wishlistbutton">
+    <!--@css(/css/module/myshop/wishlistbutton.css)-->
+    <div class="select">
+        <a href="#none" onclick="{$chk_wishlist}" class="btnNormal mini" id="product_select_all" data-status="off">Select All</a>
+        <a href="#none" onclick="{$action_delete}" class="btnNormal mini">Remove Selected Items</a>
+    </div>
+    <div class="button">
+        <div class="ec-base-button gFull">
+            <a href="#none" onclick="{$action_order_all}" class="btnSubmit">Checkout All</a>
+        </div>
+    </div>
+</div>
+<div class="ec-base-paginate typeList" module="myshop_wishlistpaging">
+    <a href="{$param_before}" class="btnPrev">Previous</a>
+    <ol>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+    </ol>
+    <a href="{$param_next}" class="btnNext">Next</a>
+</div>

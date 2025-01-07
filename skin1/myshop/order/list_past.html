@@ -1,0 +1,136 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Orders</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Orders</h2>
+</div>
+
+<div module="Myshop_OrderHistoryTab" class="ec-base-tab">
+    <ul class="menu">
+        <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">Order History ({$total_orders})</a></li>
+        <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">Cancellations/Returns/Exchanges ({$total_orders_cs})</a></li>
+        <li class="{$tab_class_past}"><a href="/myshop/order/list_past.html{$param_past}">Archived Orders ({$total_orders_past})</a></li>
+        <li class="{$tab_class_old} {$old_list_display|display}"><a href="/myshop/order/list_old.html{$param_old}">Transferred Orders ({$total_orders_old})</a></li>
+    </ul>
+</div>
+
+<div module="Myshop_OrderHistoryHead">
+    <!--@css(/css/module/myshop/orderHistoryHead.css)-->
+    <fieldset class="ec-base-box">
+        <legend>Time Period</legend>
+
+        <div class="periodSelect">
+
+            {$order_search_year}
+        </div>
+        <input alt="Search" id="order_search_btn" type="image" src="//img.echosting.cafe24.com/skin/admin_en_US/myshop/btn_search.gif" onclick="OrderHistory.searchPast(true)">
+    </fieldset>
+    <ul>
+        <li>You can check the summaries of your orders that have been fulfilled within the last 36 months in Recent orders tab.</li>
+        <li>Product subtotal refers to the sum of all the prices and the relevant extra charges for options (VAT included) for the products added to a cart.</li>
+    </ul>
+</div>
+
+<div module="Myshop_OrderHistoryListPast" class="ec-base-table typeList">
+    <!--@css(/css/module/myshop/orderHistoryListPast.css)-->
+    <!--
+        $login_url = /member/login.html
+    -->
+
+    <div class="title">
+        <h3>{$list_title}</h3>
+    </div>
+
+    <table border="1" summary="">
+        <caption>{$list_title}</caption>
+        <colgroup>
+            <col style="width:135px;" />
+            <col style="width:93px;" />
+            <col style="width:auto;" />
+            <col style="width:61px;" />
+            <col style="width:111px;" />
+            <col style="width:111px;" />
+            <col style="width:111px;" />
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">Order date<br />[Order number]</th>
+            <th scope="col">Image</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Cart total</th>
+            <th scope="col">Order status</th>
+            <th scope="col">Total amount paid</th>
+        </tr>
+        </thead>
+        <tbody class="center {$list_display|display}">
+        <tr>
+            <td {$rowspan} class="number {$display_column|display}">
+                {$order_date}
+                <p>[{$order_id}]</p>
+            </td>
+            <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+            <td class="product left top">
+                <strong class="name">{$product_name_link}</strong>
+                <div class="option {$option_display|display}">{$option_str}</div>
+                <ul class="option" module="Myshop_optionSet">
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                </ul>
+            </td>
+            <td>{$quantity}</td>
+            <td class="right"><strong>{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</strong><div class="{$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</div></td>
+            <td class="state gBorder">
+                <p class="txtEm">{$status}</p>
+            </td>
+            <td {$rowspan} class="{$display_column|display}">
+                <p><strong>{$total_order_price_front_head}{$total_order_price_front}{$total_order_price_front_tail}</strong></p>
+                <p class="{$total_order_price_ref_display|display}">({$total_order_price_back_head}{$total_order_price_back}{$total_order_price_back_tail})</p>
+            </td>
+        </tr>
+        <tr>
+            <td {$rowspan} class="number {$display_column|display}">
+                {$order_date}
+                <p>[{$order_id}]</p>
+            </td>
+            <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+            <td class="product left top">
+                <strong class="name">{$product_name_link}</strong>
+                <div class="option {$option_display|display}">{$option_str}</div>
+                <ul class="option" module="Myshop_optionSet">
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                </ul>
+            </td>
+            <td>{$quantity}</td>
+            <td class="right"><strong>{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</strong><div class="{$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</div></td>
+            <td class="state gBorder">
+                <p class="txtEm">{$status}</p>
+            </td>
+            <td {$rowspan} class="{$display_column|display}">
+                <p><strong>{$total_order_price_front_head}{$total_order_price_front}{$total_order_price_front_tail}</strong></p>
+                <p class="{$total_order_price_ref_display|display}">({$total_order_price_back_head}{$total_order_price_back}{$total_order_price_back_tail})</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="message {$empty_display|display}">You have no order history.</p>
+</div>
+
+<div module="Myshop_OrderHistoryPaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_first.gif" alt="First" /></a>
+    <a href="{$param_prev}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+    <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_last.gif" alt="Last" /></a>
+</div>

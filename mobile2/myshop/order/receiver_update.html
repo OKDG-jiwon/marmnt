@@ -1,0 +1,131 @@
+<!--@layout(/layout/basic/popup.html)-->
+<!--@css(/css/module/myshop/receiverUpdate.css)-->
+
+<div class="ec-base-layer" module="myshop_OrderReceiverUpdate">
+    <!--
+        $isRuleBasedAddrForm = T
+    -->
+    <div class="header">
+        <h1>Change shipping address</h1>
+        <button type="button" class="btnClose" id="{$receiver_update_popup_close_top_id}">Close</button>
+    </div>
+
+    <div class="content">
+        <div class="ec-base-table typeWrite">
+            <table summary="" border="1">
+                <caption>Change shipping address</caption>
+                <colgroup>
+                    <col style="width:102px;" />
+                    <col style="width:auto;" />
+                </colgroup>
+
+                <tbody class="{$r_info_display|display}">
+                <tr>
+                    <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.r_name}
+                    </td>
+                </tr>
+                <tr id="ec-receiverUpdate-address">
+                    <th scope="row">Address <img class="{$is_receiverUpdate_address_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.address}</td>
+                </tr>
+                <tr class="{$use_delivery_tel_display|display}">
+                    <th scope="row">Phone <img class="{$is_delivery_tel_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.r_phone}
+                    </td>
+                </tr>
+                <tr class="{$use_delivery_cell_display|display}">
+                    <th scope="row">Mobile <img class="{$is_delivery_cell_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.r_mobile}
+                    </td>
+                </tr>
+                <tr class="{$use_delivery_message_display|display}">
+                    <th scope="row">Delivery<br>instructions <img class="{$is_delivery_message_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>{$form.r_message}</td>
+                </tr>
+                </tbody>
+
+                <tbody class="{$f_info_display|display}">
+                <tr class="{$use_connected_name_input_display|display}">
+                    <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name}
+                    </td>
+                </tr>
+                <tr class="{$use_seperate_name_input_display|display}">
+                    <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name_1}
+                        {$form.f_name_2}
+                    </td>
+                </tr>
+                <tr class="{$use_orders_english_name_display|display} {$use_connected_name_input_display|display}">
+                    <th scope="row">Name<br />(English) <img class="{$is_orders_english_name_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name_en}
+                    </td>
+                </tr>
+                <tr class="{$use_orders_english_name_display|display} {$use_seperate_name_input_display|display}">
+                    <th scope="row">Name<br />(English) <img class="{$is_orders_english_name_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name_en_1}
+                        {$form.f_name_en_2}
+                    </td>
+                </tr>
+                <tr class="{$use_orders_pronounce_name_display|display} {$use_connected_name_input_display|display}">
+                    <th scope="row">Name<br />(Phonetically spelled) <img class="{$is_orders_pronounce_name_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name_phonetic}
+                    </td>
+                </tr>
+                <tr class="{$use_orders_pronounce_name_display|display} {$use_seperate_name_input_display|display}">
+                    <th scope="row">Name<br />(Phonetically spelled) <img class="{$is_orders_pronounce_name_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_name_phonetic_1}
+                        {$form.f_name_phonetic_2}
+                    </td>
+                </tr>
+                <tr id="ec-freceiverUpdate-address">
+                    <th scope="row">Address <img class="{$is_freceiverUpdate_address_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.faddress}
+                    </td>
+                </tr>
+                <tr class="{$use_delivery_tel_display|display}">
+                    <th scope="row">Phone <img class="{$is_delivery_tel_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_phone}
+                    </td>
+                </tr>
+                <tr class="{$use_delivery_cell_display|display}">
+                    <th scope="row">Mobile <img class="{$is_delivery_cell_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_mobile}
+                    </td>
+                </tr>
+                <tr class="{$use_receiver_id_card_key_display|display}">
+                    <th scope="row">Customs clearance information <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_receiver_id_card_type}
+                        <span class="gBlank10">{$form.f_receiver_id_card_key}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Delivery<br>instructions <img class="{$is_delivery_message_required_display|display}" src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required" /></th>
+                    <td>
+                        {$form.f_message}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ec-base-button">
+        <button id="{$receiver_update_submit_id}" type="button" class="btnStrong">Save</button>
+        <a href="#none" id="{$receiver_update_popup_close_id}" class="btnNormal">Close</a>
+    </div>
+</div>

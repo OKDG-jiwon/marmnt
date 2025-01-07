@@ -1,0 +1,199 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Orders</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Orders</h2>
+</div>
+
+<div module="Myshop_OrderHistoryTab" class="ec-base-tab">
+    <ul class="menu">
+        <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">Order History ({$total_orders})</a></li>
+        <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">Cancellations/Returns/Exchanges ({$total_orders_cs})</a></li>
+        <li class="{$tab_class_past} {$is_past_list_display|display}"><a href="/myshop/order/list_past.html{$param_past}">Archived Orders ({$total_orders_past})</a></li>
+        <li class="{$tab_class_old} {$old_list_display|display}"><a href="/myshop/order/list_old.html{$param_old}">Transferred Orders ({$total_orders_old})</a></li>
+    </ul>
+</div>
+
+<div module="Myshop_OrderHistoryHead">
+    <!--@css(/css/module/myshop/orderHistoryHead.css)-->
+    <fieldset class="ec-base-box">
+        <legend>Time Period</legend>
+        <div class="stateSelect {$status_bar_display|display}">
+            {$form.order_status}
+        </div>
+		<span class="period">
+            <a href="#none" class="btnNormal" days="00"><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date1.gif" offImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date1.gif' onImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date1_on.gif' alt="Today" /></a>
+            <a href="#none" class="btnNormal" days="07"><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date2.gif" offImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date2.gif' onImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date2_on.gif' alt="1 Week" /></a>
+            <a href="#none" class="btnNormal" days="30"><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date3.gif" offImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date3.gif' onImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date3_on.gif' alt="1 Month" /></a>
+            <a href="#none" class="btnNormal" days="90"><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date4.gif" offImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date4.gif' onImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date4_on.gif' alt="3 Months" /></a>
+            <a href="#none" class="btnNormal" days="180"><img src="//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date5.gif" offImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date5.gif' onImage='//img.echosting.cafe24.com/skin/base_en_US/myshop/btn_date5_on.gif' alt="6 Months" /></a>
+        </span>
+        {$form.start_date} ~ {$form.end_date}
+        {$form.submit_date}
+    </fieldset>
+    <ul>
+        <li class="{$is_past_list_none_display|display}">Your order history for the last three months is listed by default. You can look up your order history by selecting the time period.</li>
+        <li class="{$is_past_list_display|display}">By default, results are shown for the past three months. You can also view the order history of orders that have been fulfilled over the past 36 months by adjusting the date range.</li>
+        <li class="{$is_past_list_display|display}">You can check order history of orders that have been fulfilled over 36 months ago in <a href="javascript:OrderHistory.searchPast(false)">[Archived Orders]</a> tab.</li>
+        <li>Click on the order number to view order details.</li>
+        <li class="{$cs_request_guide_display|display}">Cancel/Exchange/Return request can be accepted within {$cs_request_period_day} days {$cs_request_period_day_condition}.</li>
+    </ul>
+</div>
+
+<div module="Myshop_OrderHistoryListitem" class="ec-base-table typeList">
+    <!--@css(/css/module/myshop/orderHistoryListItem.css)-->
+    <!--
+        $login_url = /member/login.html
+    -->
+
+    <div class="title">
+        <h3>{$list_title}</h3>
+    </div>
+
+    <table border="1" summary="">
+        <caption>{$list_title}</caption>
+        <colgroup>
+            <col style="width:165px;" />
+            <col style="width:93px;" />
+            <col style="width:auto;" />
+            <col style="width:41px;" />
+            <col style="width:91px;" />
+            <col style="width:140px;" />
+            <col style="width:111px;" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Date of Order<br />[Order No.]</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product Details</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Status</th>
+                <th scope="col">Cancel/<br />Exchange/Return</th>
+            </tr>
+        </thead>
+        <tbody class="center {$list_display|display}">
+            <tr>
+                <div>
+                    <td {$rowspan} class="number {$display_column|display}">
+                        <span class="rentBadge {$rental_display|display}">Rental</span>
+                        {$order_date}
+                        <p><a href="detail.html{$param_detail}" class="line">[{$order_id}]</a></p>
+                        <a href="#none" class="btnNormal {$direct_cancel_display|display}" onclick="{$action_direct_cancel}">Cancel Order</a>
+                        <a href="cancel.html{$param_apply}" class="btnNormal {$apply_cancel_display|display}">Cancel Request</a>
+                        <a href="exchange.html{$param_apply}" class="btnNormal {$apply_exchange_display|display}">Exchange Request</a>
+                        <a href="return.html{$param_apply}" class="btnNormal {$apply_return_display|display}">Return Request</a>
+                    </td>
+                    <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+                    <td class="product left top">
+                        <strong class="name">{$product_name_link}</strong>
+                        <div class="option {$option_display|display}">{$option_str}</div>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                        </ul>
+                    </td>
+                    <td>{$quantity}</td>
+                    <td class="right">
+                        <div class="{$product_price_display|display}"><strong>{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</strong></div>
+                        <div class="{$rental_display|display}"><strong>{$product_price_front_head}{$rental_amount}{$product_price_front_tail}</strong></div>
+                        <div class="{$rental_display|display}">(Monthly rental fee)</div>
+                        <div class="{$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</div>
+                    </td>
+                    <td class="state">
+                        <p class="txtEm">{$status}</p>
+                        <p class="{$multi_invoice_display|display}"><a href="#none" class="line" onclick="{$multi_invoice_layer}">Total: {$multi_invoice_count}</a></p>
+                        <p class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></p>
+                        <p class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></p>
+                        <a href="/board/product/write.html{$param_postscript}" class="btnSubmit {$postscript_display|display}">Review</a>
+                        <a href="#none" class="btnNormal {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Cancel Withdraw</a>
+                        <a href="#none" class="btnNormal {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Exchange Withdraw</a>
+                        <a href="#none" class="btnNormal {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Return Withdraw</a>
+                        <a href="#none" class="btnNormal {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                    </td>
+                    <td>
+                        <p class="{$detail_info_display|display}"><a href="#none" class="btnNormal" onclick="{$detail_info}">Details</a></p>
+                        <p class="{$hyphen_display|display}">-</p>
+                    </td>
+                </div>
+                <div>
+                    <tr class="payDetail {$total_display|display}">
+                        <td colspan="7" class="right">
+                            Product subtotal <span>{$total_product_price}</span> + Shipping fee <span>{$total_ship_fee}</span><span class="{$total_addsale_summary_display|display}"> - Discount {$total_addsale_price} </span><span class="{$total_addpay_summary_display|display}"> - Total Amount of Additional Payment {$total_addpay_price} </span><span class="{$total_tax_amount_display|display}"> + Taxes {$total_tax_amount} </span> = <strong>Order total</strong>: <strong class="txtEm">{$total_payment_price_front_head}{$total_payment_price_front}{$total_payment_price_front_tail} </strong><span>{$total_payment_price_back_head}{$total_payment_price_back}{$total_payment_price_back_tail}</span>
+                        </td>
+                    </tr>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td {$rowspan} class="number {$display_column|display}">
+                        <span class="rentBadge {$rental_display|display}">Rental</span>
+                        {$order_date}
+                        <p><a href="detail.html{$param_detail}" class="line">[{$order_id}]</a></p>
+                        <a href="#none" class="btnNormal {$direct_cancel_display|display}" onclick="{$action_direct_cancel}">Cancel Order</a>
+                        <a href="cancel.html{$param_apply}" class="btnNormal {$apply_cancel_display|display}">Cancel Request</a>
+                        <a href="exchange.html{$param_apply}" class="btnNormal {$apply_exchange_display|display}">Exchange Request</a>
+                        <a href="return.html{$param_apply}" class="btnNormal {$apply_return_display|display}">Return Request</a>
+                    </td>
+                    <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+                    <td class="product left top">
+                        <strong class="name">{$product_name_link}</strong>
+                        <div class="option {$option_display|display}">{$option_str}</div>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                            <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                        </ul>
+                    </td>
+                    <td>{$quantity}</td>
+                    <td class="right">
+                        <div class="{$product_price_display|display}"><strong>{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</strong></div>
+                        <div class="{$rental_display|display}"><strong>{$product_price_front_head}{$rental_amount}{$product_price_front_tail}</strong></div>
+                        <div class="{$rental_display|display}">(Monthly rental fee)</div>
+                        <div class="{$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</div>
+                    </td>
+                    <td class="state">
+                        <p class="txtEm">{$status}</p>
+                        <p class="{$multi_invoice_display|display}"><a href="#none" class="line" onclick="{$multi_invoice_layer}">Total: {$multi_invoice_count}</a></p>
+                        <p class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></p>
+                        <p class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></p>
+                        <a href="/board/product/write.html{$param_postscript}" class="btnSubmit {$postscript_display|display}">Review</a>
+                        <a href="#none" class="btnNormal {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Cancel Withdraw</a>
+                        <a href="#none" class="btnNormal {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Exchange Withdraw</a>
+                        <a href="#none" class="btnNormal {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Return Withdraw</a>
+                        <a href="#none" class="btnNormal {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                    </td>
+                    <td>
+                        <p class="{$detail_info_display|display}"><a href="#none" class="btnNormal" onclick="{$detail_info}">Details</a></p>
+                        <p class="{$hyphen_display|display}">-</p>
+                    </td>
+                </div>
+                <div>
+                    <tr class="payDetail {$total_display|display}">
+                        <td colspan="7" class="right">
+                            Product subtotal <span>{$total_product_price}</span> + Shipping fee <span>{$total_ship_fee}</span><span class="{$total_addsale_summary_display|display}"> - Discount {$total_addsale_price} </span><span class="{$total_addpay_summary_display|display}"> - Total Amount of Additional Payment {$total_addpay_price} </span><span class="{$total_tax_amount_display|display}"> + Taxes {$total_tax_amount} </span> = <strong>Order total</strong>: <strong class="txtEm">{$total_payment_price_front_head}{$total_payment_price_front}{$total_payment_price_front_tail} </strong><span>{$total_payment_price_back_head}{$total_payment_price_back}{$total_payment_price_back_tail}</span>
+                        </td>
+                    </tr>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+    <p class="message {$empty_display|display}">You have no order history.</p>
+</div>
+
+<div module="Myshop_OrderHistoryPaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_first.gif" alt="First" /></a>
+    <a href="{$param_prev}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+    <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_last.gif" alt="Last" /></a>
+</div>

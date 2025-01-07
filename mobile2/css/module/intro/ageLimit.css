@@ -1,0 +1,5 @@
+body { height:100%; }
+.xans-intro-agelimit { height:100%; margin:0 auto; padding:75px 10px; text-align:center; color:#444; box-sizing:border-box; background-color:#f6f6f6; }
+.xans-intro-agelimit .ageIcon { width:170px; height:170px; margin:0 auto; border:10px solid #e9454e; border-radius:50%; box-sizing:border-box; font-size:67px; font-weight:900; font-family:Arial, sans-serif; line-height:150px; text-align:center; background-color:#fff; }
+.xans-intro-agelimit .ageDetail .info { margin:30px 0; font-size:20px; line-height:28px; }
+.xans-intro-agelimit .ageDetail .ec-base-button [class*="btn"] { height:60px; margin:0 0 20px; font-size:18px; line-height:60px; }

@@ -1,0 +1,6 @@
+#ec-shop_orderConfirmLayer { display:none; }
+#ec-shop_orderConfirmLayer .orderConfirmLayer .wrap { padding:7px 7px 70px; }
+#ec-shop_orderConfirmLayer .orderConfirmLayer .ec-base-fold.theme2 > .contents .ec-base-table { border:1px solid #d5d5d5; border-width:0 1px 1px; }
+#ec-shop_orderConfirmLayer .orderConfirmLayer .ec-base-fold.theme2 > .contents .ec-base-table td { padding-right:34px; }
+#ec-shop_orderConfirmLayer .orderConfirmLayer .orderArea .ec-base-prdInfo + .ec-base-prdInfo { border-bottom:0; }
+#ec-shop_orderConfirmLayer .orderConfirmLayer .recipient { border-bottom:1px solid #d5d5d5; }

@@ -1,0 +1,16 @@
+<!--@css(/layout/basic/css/ec-base-layer.css)-->
+<style type="text/css">
+	.xans-myshop-layerwish.ec-base-layer.typeModal { width:306px; }
+	.xans-myshop-layerwish.ec-base-layer.typeModal .wrap { padding:79px 14px 14px; text-align:center; line-height:1.5em; background:#fff url("//img.echosting.cafe24.com/skin/mobile_en_US/product/bg_addwishlist.png") center 28px no-repeat; background-size:37px 37px; }
+</style>
+<div module="myshop_layerWish" class="ec-base-layer typeModal">
+    <h1>Add to Wish List</h1>
+    <div class="wrap">
+        <p>Selected item is added to your Wish List <br>Do you want to view your Wish List now?</p>
+    </div>
+    <div class="ec-base-button gColumn">
+        <a href="/myshop/wish_list.html" class="btnSubmit">View Wish List</a>
+        <button type="button" class="btnEm" onclick="$('.xans-myshop-layerwish').hide();">Continue</button>
+    </div>
+    <button type="button" class="btnClose" onclick="$('.xans-myshop-layerwish').hide();">Close</button>
+</div>

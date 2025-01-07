@@ -1,0 +1,427 @@
+<div id="{$order_confirm_layer_id}">
+    <!--@css(/css/module/order/confirm_layer.css)-->
+    <div class="orderConfirmLayer ec-base-layer">
+        <h1>Confirm Order Details</h1>
+        <div class="wrap">
+            <p class="ec-base-help">Please review the details of your order and click "PLACE ORDER".</p>
+            <div class="confirm">
+
+                <div class="ec-base-fold theme1 selected eToggle">
+                    <div class="title">
+                        <h2>Merchandise</h2>
+                        <p>(Total {$item_count} item(s) / {$price_unit_head}{$total_product_base_price}{$price_unit_tail})</p>
+                    </div>
+                    <div class="contents">
+
+                        <div class="orderArea {$oversea_display|display}">
+                            <h3>Order List</h3>
+                            <div class="orderSheet">
+                                <div module="Order_oversealist">
+
+                                    <div class="ec-base-prdInfo">
+                                        <div class="prdBox">
+                                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="71" height="71" /></a></div>
+                                            <div class="description">
+                                                <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                                <ul class="info">
+                                                    <li class="{$expiration_date_display|display}">Expiration Date : {$expiration_date}</li>
+                                                    <li class="price">
+                                                        <span id="{$confirm_product_price_div_id}" class="{$discount}" title="Price">
+                                                            {$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}
+                                                            <span class="refer {$product_total_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span>
+                                                        </span>
+                                                        <span id="{$confirm_product_sale_price_div_id}" class="{$product_sale_price_display|display}" title="Discounted Price">{$product_sale_price_front_head}<strong id="{$confirm_product_sale_price_front_id}">{$product_sale_price_front}</strong>{$product_sale_price_front_tail}<span class="refer {$product_sale_price_ref_display|display}">{$product_sale_price_back_head}{$product_sale_price_back}{$product_sale_price_back_tail}</span></span>
+                                                        <strong title="Quantity" class="quantity">{$product_quantity_text} item(s)</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p class="option {$option_str_display|display}">{$option_str}</p>
+                                        <ul class="option" module="Order_optionSet">
+                                            <li><div class="name">{$product_name} - {$option_str} ({$qty} item(s))</div></li>
+                                            <li><div class="name">{$product_name} - {$option_str} ({$qty} item(s))</div></li>
+                                        </ul>
+                                        <div class="prdFoot" title="Subtotal">
+                                            <div class="gRight">
+                                                Subtotal : {$product_total_price_front_head}<strong id="{$confirm_product_total_price_front_id}">{$product_total_price_front}</strong>{$product_total_price_front_tail}
+                                                <span class="refer {$product_total_ref_display|display}">{$product_total_price_back_head}{$product_total_price_back}{$product_total_price_back_tail}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="ec-base-prdInfo">
+                                        <div class="prdBox">
+                                            <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" alt="" width="71" height="71" /></a></div>
+                                            <div class="description">
+                                                <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                                <ul class="info">
+                                                    <li class="{$expiration_date_display|display}">Expiration Date : {$expiration_date}</li>
+                                                    <li class="price">
+                                                        <span id="{$confirm_product_price_div_id}" class="{$discount}" title="Price">
+                                                            {$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}
+                                                            <span class="refer {$product_total_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span>
+                                                        </span>
+                                                        <span id="{$confirm_product_sale_price_div_id}" class="{$product_sale_price_display|display}" title="Discounted Price">{$product_sale_price_front_head}<strong id="{$confirm_product_sale_price_front_id}">{$product_sale_price_front}</strong>{$product_sale_price_front_tail}<span class="refer {$product_sale_price_ref_display|display}">{$product_sale_price_back_head}{$product_sale_price_back}{$product_sale_price_back_tail}</span></span>
+                                                        <strong title="Quantity" class="quantity">{$product_quantity_text} item(s)</strong>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p class="option {$option_str_display|display}">{$option_str}</p>
+                                        <ul class="option" module="Order_optionSet">
+                                            <li><div class="name">{$product_name} - {$option_str} ({$qty} item(s))</div></li>
+                                            <li><div class="name">{$product_name} - {$option_str} ({$qty} item(s))</div></li>
+                                        </ul>
+                                        <div class="prdFoot" title="Subtotal">
+                                            <div class="gRight">
+                                                Subtotal : {$product_total_price_front_head}<strong id="{$confirm_product_total_price_front_id}">{$product_total_price_front}</strong>{$product_total_price_front_tail}
+                                                <span class="refer {$product_total_ref_display|display}">{$product_total_price_back_head}{$product_total_price_back}{$product_total_price_back_tail}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ec-base-fold theme1 selected eToggle">
+                    <div class="title">
+                        <h2>Billing/Shipping Information</h2>
+                    </div>
+                    <div class="contents">
+                        <div class="recipient">
+                            <h3>Shipping Information</h3>
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Enter Shipping Address Information</caption>
+                                    <colgroup>
+                                        <col style="width:105px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody class="{$address_form} {$address_oversea_display|display}">
+                                        <tr>
+                                            <th scope="row">Name</th>
+                                            <td><span class="{$confirm_rname_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$english_name_display|display}">
+                                            <th scope="row">English Name</th>
+                                            <td><span class="{$confirm_rname_english_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$pron_name_display|display}">
+                                            <th scope="row">Phonetics</th>
+                                            <td><span class="{$confirm_rpron_name_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Country</th>
+                                            <td><span class="{$confirm_rcountry_css}"></span></td>
+                                        </tr>
+                                        <tr id="{$confirm_rzip_area}">
+                                            <th scope="row">Zip/Postal Code</th>
+                                            <td><span class="{$confirm_rzip_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Address Line 1</th>
+                                            <td><span class="{$confirm_raddr1_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Address Line 2</th>
+                                            <td><span class="{$confirm_raddr2_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">City</th>
+                                            <td><span class="{$confirm_rcity_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">State/Province</th>
+                                            <td><span class="{$confirm_rstate_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                           <th scope="row">Phone</th>
+                                           <td><span class="{$confirm_rphone_css}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Mobile</th>
+                                            <td><span class="{$confirm_rcell_css}"></span></td>
+                                        </tr>
+                                        <tr id="{$confirm_oemail_area}">
+                                            <th scope="row">Email</th>
+                                            <td><span class="{$confirm_oemail_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$use_delivery_message_display|display}">
+                                            <th scope="row">Shipping Comment</th>
+                                            <td><span class="{$confirm_delivery_msg_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$hope_shipping_display|display}">
+                                            <th scope="row">Desired Shipping Date</th>
+                                            <td><span class="{$confirm_hope_date_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$hope_shipping_time_display|display}">
+                                            <th scope="row">Desired Delivery Time</th>
+                                            <td><span class="{$confirm_hope_time_css}"></span></td>
+                                        </tr>
+                                        <tr class="{$shipcompany_display|display} {$confirm_shipcompany_area}">
+                                            <th scope="row">Select shipping company(Shipping Method)</th>
+                                            <td><span class="{$confirm_shipcompany_css}"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="recipient {$ordadd.display|display}">
+                            <h3>Additional Information</h3>
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Additional Information</caption>
+                                    <colgroup>
+                                        <col style="width:95px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody id="{$confirm_ord_add_id}"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div id="{$confirm_question_area}" class="recipient {$question_display|display}">
+                            <h3>Other Inquiries</h3>
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Other Inquiries</caption>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Other<br>Inquiries</th>
+                                            <td id="{$confirm_question_id}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="priceArea">
+                    <div class="total">Amount Due<span class="paymentPrice">{$price_unit_head}<strong id="{$confirm_total_order_price_id}"></strong>{$price_unit_tail}</span><span id="{$confirm_total_order_price_ref_id}" class="{$total_order_price_ref_display|display}"></span></div>
+                    <div class="ec-base-fold theme2 eToggle">
+                        <div class="title">
+                            <h3>Order Total</h3>
+                            <p class="{$total_sale_css}">
+                                {$total_product_ship_price_front_head}<span id="{$confirm_total_price_id}"></span>{$total_product_ship_price_front_tail}
+                                <span id="{$total_product_ship_price_back_id}" class="{$total_product_ship_price_ref_display|display}">{$total_product_ship_price_back_head}
+                                <span id="{$confirm_total_price_ref_id}"></span>{$total_product_ship_price_back_tail}</span>
+                            </p>
+                        </div>
+                        <div class="contents" id="order_layer_detail">
+                            <div class="ec-base-table gCellNarrow">
+                                <table border="1">
+                                    <caption>Order Details</caption>
+                                    <colgroup>
+                                        <col style="width:150px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Merchandise</th>
+                                            <td>{$price_unit_head}{$total_product_base_price}{$price_unit_tail}</td>
+                                        </tr>
+                                        <tr class="{$total_vat_price_display|display}">
+                                            <th scope="row">VAT</th>
+                                            <td>{$price_unit_head}{$total_vat_price}{$price_unit_tail}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Shipping</th>
+                                            <td id="{$confirm_total_ship_price_id}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Shipping Surcharge</th>
+                                            <td id="{$confirm_total_local_ship_price_id}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="{$confirm_addsale_summary_area}" class="ec-base-fold theme2 eToggle {$total_addpay_summary_display|display}">
+                        <div class="title">
+                            <h3>Additional Discounts<br><span class="{$total_only_mobile_sale_display|display}">(Mobile discount {$price_unit_head}{$total_only_mobile_sale_price}{$price_unit_tail})</span><span id="mTotalOnlyMobileSaleTmp" class="displaynone">(Mobile discount [TOTAL_ONLY_MOBILE_SALE])</span></h3>
+                            <p>{$price_unit_head}<span id="{$confirm_total_addsale_price_id}"></span>{$price_unit_tail}</p>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table gCellNarrow">
+                                <table border="1">
+                                    <caption>Discount Detials</caption>
+                                    <colgroup>
+                                        <col style="width:190px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody id="{$confirm_total_benefit_list_id}">
+                                        <tr id="{$confirm_coupon_product_discount_area}">
+                                            <th>Product Discount Coupon</th>
+                                            <td id="{$confirm_coupon_product_discount_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_coupon_order_discount_area}">
+                                            <th>Purchase Discount Coupon</th>
+                                            <td id="{$confirm_coupon_order_discount_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_coupon_delivery_discount_area}">
+                                            <th>Shipping Discount Coupon</th>
+                                            <td id="{$confirm_coupon_delivery_discount_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_periodsale_area}">
+                                            <th>Limited Time Discount</th>
+                                            <td id="{$confirm_total_periodsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_membersale_area}">
+                                            <th>Membership Discount</th>
+                                            <td id="{$confirm_total_membersale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_rebuysale_area}">
+                                            <th>{$rebuysale_head}Repurchase Discount</th>
+                                            <td id="{$confirm_total_rebuysale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_bulksale_area}">
+                                            <th>Bulk Order Discount</th>
+                                            <td id="{$confirm_total_bulksale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_pbpsale_area}">
+                                            <th>About PBP Discount</th>
+                                            <td id="{$confirm_total_pbpsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_newproductsale_area}">
+                                            <th>New Product Discount</th>
+                                            <td id="{$confirm_total_newproductsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_paymethodsale_area}">
+                                            <th>Payment Method Discount</th>
+                                            <td id="{$total_paymethodsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_setproductsale_area}">
+                                            <th>Discounted amount for Set Items</th>
+                                            <td id="{$confirm_total_setproductsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_shipfeesale_area}">
+                                            <th>Shipping Discount</th>
+                                            <td id="{$confirm_total_shipfeesale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_membergroupsale_area}">
+                                            <th>Membership Level Discount</th>
+                                            <td id="{$confirm_total_membergroupsale_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_total_discountcode_price_area}">
+                                            <th>Promo code</th>
+                                            <td id="{$confirm_total_discountcode_price_id}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="{$confirm_total_addpay_summary_area}" class="ec-base-fold theme2 eToggle {$total_addpay_summary_display|display}">
+                        <div class="title">
+                            <h3>Alternative Payment</h3>
+                            <p>{$price_unit_head}<span id="{$confirm_used_total_addpay_id}"></span>{$price_unit_tail}</p>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table gCellNarrow">
+                                <table border="1">
+                                    <caption>Alternative Payment</caption>
+                                    <colgroup>
+                                        <col style="width:190px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr id="{$confirm_used_mileage_area}">
+                                            <th scope="row">{$mileage_name}</th>
+                                            <td id="{$confirm_used_mileage_id}"></td>
+                                        </tr>
+                                        <tr id="{$confirm_used_deposit_area}">
+                                            <th scope="row">{$deposit_name}</th>
+                                            <td id="{$confirm_used_deposit_id}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-fold theme2 eToggle" id="{$confirm_sum_mileage_area}">
+                        <div class="title">
+                            <h3>Reward Points to be Earned</h3>
+                            <p><span id="{$confirm_sum_mileage_id}"></span></p>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table gCellNarrow">
+                                <table border="1">
+                                    <caption>Discount Details</caption>
+                                    <colgroup>
+                                        <col style="width:190px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>Product {$mileage_name}</th>
+                                            <td id="{$confirm_product_mileage_id}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Membership {$mileage_name}</th>
+                                            <td id="{$confirm_member_mileage_id}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Coupon {$mileage_name}</th>
+                                            <td id="{$confirm_coupon_mileage_id}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="ec-base-fold theme1 selected eToggle">
+                    <div class="title">
+                        <h2>Payment Method</h2>
+                    </div>
+                    <div class="contents">
+                        <div class="ec-base-table">
+                            <table border="1">
+                                <caption>Payment Method</caption>
+                                <colgroup>
+                                    <col style="width:105px;">
+                                    <col style="width:auto;">
+                                </colgroup>
+                                <tbody id="{$confirm_paymethod_id}"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="ec-base-fold theme1 selected eToggle" id="{$confirm_gift_list_area_id}">
+                    <div class="title">
+                        <h2>Free Gift</h2>
+                    </div>
+                    <div class="contents">
+                        <div class="orderArea" id="{$confirm_gift_list_id}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ec-base-button gFixed">
+            <div class="ec-base-button gColumn">
+                <button type="button" class="btnSubmit" id="{$btn_layer_payment_id}">PLACE ORDER</button>
+                <button type="button" class="btnEm" onclick="{$order_confirm_layer_off}">CLOSE</button>
+            </div>
+        </div>
+        <button type="button" class="btnClose" onclick="{$order_confirm_layer_off}">CLOSE</button>
+    </div>
+</div>

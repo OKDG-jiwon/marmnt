@@ -1,0 +1,37 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Forgot ID</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="member_findid">
+    <!--@css(/css/module/member/findid.css)-->
+    <!--
+        $returnURL = /member/id/find_id_result.html
+     -->
+    <div class="ec-base-table typeWrite">
+        <p class="check displaynone">{$form.check_method}</p>
+        <table border="1">
+            <caption>Forgot ID</caption>
+            <colgroup>
+                <col style="width:100px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tbody>
+                <tr id="name_view" class="name">
+                    <th scope="row" id="name_lable">Name</th>
+                    <td>{$form.name}</td>
+                </tr>
+                <tr id="email_view" class="email">
+                    <th scope="row">Email Address</th>
+                    <td>{$form.email}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ec-base-button gFull">
+        <a href="#none" class="btnSubmit" onclick="{$action_func_find_id}">Submit</a>
+    </div>
+</div>

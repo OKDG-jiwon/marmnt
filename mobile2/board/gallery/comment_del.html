@@ -1,0 +1,24 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_CommentDeletePackage_8">
+    <!--@css(/css/module/board/commentDeletePackage.css)-->
+    <div id="titleArea" module="board_title_8">
+        <h2>{$board_name}</h2>
+        <span module="Layout_MobileAction">
+            <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+        </span>
+    </div>
+
+    <div module="Board_CommentDel_8">
+        <h3>Remove Comment</h3>
+        <div class="comment">
+            <fieldset>
+                <legend>Remove Comment</legend>
+                <p class="info">Please enter your password<br>to remove comment.</p>
+                <p class="password">
+                    <label for="comment_password">Password</label> {$form.comment_password}
+                    <button type="submit" class="btnStrong">OK</button>
+                </p>
+            </fieldset>
+        </div>
+    </div>
+</div>

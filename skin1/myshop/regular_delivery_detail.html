@@ -1,0 +1,352 @@
+<!--@layout(/layout/basic/layout.html)-->
+
+<!--@css(/css/module/myshop/regularDeliveryDetail.css)-->
+<div module="myshop_OrderRegularManageDetailRegister">
+    <div class="path">
+        <span>Current page</span>
+        <ol><li><a href="/">Home</a></li>
+            <li><a href="/myshop/index.html">My Account</a></li>
+            <li title="Current page"><strong>{$invoice_type_text} details</strong></li>
+        </ol></div>
+
+    <div class="titleArea">
+        <h2>{$invoice_type_text} details</h2>
+    </div>
+
+    <h3 class="title">Subscriptions</h3>
+    <div class="ec-base-table">
+        <table border="1" summary="">
+            <caption>Subscriptions</caption>
+            <colgroup>
+                <col style="width:170px" />
+                <col style="width:auto" />
+            </colgroup>
+            <tbody>
+            <tr>
+                <th scope="row">Subscription number</th>
+                <td>{$invoice_no}</td>
+            </tr>
+            <tr>
+                <th scope="row">Subscription date</th>
+                <td>{$ins_timestamp}</td>
+            </tr>
+            <tr>
+                <th scope="row">Subscription starts on</th>
+                <td>{$delivery_timestamp}</td>
+            </tr>
+            <tr class="{$payInfo_display|display}">
+                <th scope="row">Payment method</th>
+                <td class="status">
+                    <div class="payMethod">{$subscriptionPaymethod}</div>
+                    <span id="{$registedCardNumberId}"></span> <span class="cardName" id="{$registedCardNameId}"></span>
+                    <a href="#" id="{$registModifyCardId}" class="btnNormal modify {$modifyCard_display|display}">Modify</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div module="myshop_OrderRegularManageDetailList">
+    <h3 class="title">{$invoice_type_text} details</h3>
+    <div class="ec-base-table">
+        <table border="1" summary="">
+            <caption>{$list_title}</caption>
+            <colgroup>
+                <col style="width:120px;" />
+                <col style="width:auto;" />
+                <col style="width:120px" />
+                <col style="width:61px;" />
+                <col style="width:90px;" />
+                <col style="width:140px;" />
+                <col style="width:140px;" />
+                <col style="width:120px;" />
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product details</th>
+                <th scope="col">{$sale_price_text}</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Shipped date</th>
+                <th scope="col">Frequency</th>
+                <th scope="col">Number of deliveries</th>
+                <th scope="col">Select</th>
+            </tr>
+            </thead>
+            <tbody class="center {$list_display|display}">
+            <tr>
+                {$form.invoice_no}
+                {$form.has_temp_ord}
+                {$form.return_url}
+                <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+                <td class="product left">
+                    <strong class="name">{$product_name_link}</strong>
+                    <ul class="option">
+                        <li>{$option_str}</li>
+                    </ul>
+                    <p class="gBlank5 {$card_installment_display|display}">Interest-free installments</p>
+                </td>
+                <td>
+                    <p id="{$productpriceId}"><span class="txtDel">{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</span></p>
+                    <p class="{$product_sale_info_display|display}"><strong>{$product_sale_price_front_head}{$product_sale_price_front}{$product_sale_price_front_tail}</strong></p>
+                    <span class="badge {$product_sale_info_display|display}">{$product_sale_info}<i class="icoDown">Discount</i></span>
+                </td>
+                <td>
+                    <span class="ec-base-qty">
+                        {$form.product_cnt}
+                        <a href="javascript:;" class="up" onclick="{$add_shortcut}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" /></a>
+                        <a href="javascript:;"  class="down" onclick="{$out_shortcut}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" /></a>
+                    </span>
+                </td>
+                <td>
+                    <div class="datepicker">
+                        {$form.expected_delivery_date}
+                        <p class="rotation">[{$expected_pay_seq}회차]<br><span class="txtLess">{$expected_pay_date_info}</span></p>
+                    </div>
+                </td>
+                <td>
+                    {$form.subscription_cycle}
+                </td>
+                <td>
+                    {$form.max_expected_pay_seq}
+                </td>
+                <td>
+                    <a href="#none" class="btnNormal {$pauseScriptionItemClass}" data-pause_action_json="{$pause_action_json}" data-has_temporder="{$temp_order}">{$pause_button_text}</a>
+                    <a href="#none" class="btnNormal {$cancelScriptionItemClass}" data-cancel_action_json="{$cancel_action_json}" data-has_temporder="{$temp_order}">{$cancel_button_text}</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="thumb"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></td>
+                <td class="product left">
+                    <strong class="name">{$product_name_link}</strong>
+                    <ul class="option">
+                        <li>{$option_str}</li>
+                    </ul>
+                    <p class="gBlank5 {$card_installment_display|display}">Interest-free installments</p>
+                </td>
+                <td>
+                    <p id="{$productpriceId}"><span class="txtDel">{$product_price_front_head}{$product_price_front}{$product_price_front_tail}</span></p>
+                    <p class="{$product_sale_info_display|display}"><strong>{$product_sale_price_front_head}{$product_sale_price_front}{$product_sale_price_front_tail}</strong></p>
+                    <span class="badge {$product_sale_info_display|display}">{$product_sale_info}<i class="icoDown">Discount</i></span>
+                </td>
+                <td>
+                    <span class="ec-base-qty">
+                        {$form.product_cnt}
+                        <a href="javascript:;" class="up" onclick="{$add_shortcut}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" /></a>
+                        <a href="javascript:;"  class="down" onclick="{$out_shortcut}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" /></a>
+                    </span>
+                </td>
+                <td>
+                    <div class="datepicker">
+                        {$form.expected_delivery_date}
+                        <p class="rotation">[{$expected_pay_seq}회차]<br><span class="txtLess">{$expected_pay_date_info}</span></p>
+                    </div>
+                </td>
+                <td>
+                    {$form.subscription_cycle}
+                </td>
+                <td>
+                    {$form.max_expected_pay_seq}
+                </td>
+                <td>
+                    <a href="#none" class="btnNormal {$pauseScriptionItemClass}" data-pause_action_json="{$pause_action_json}" data-has_temporder="{$temp_order}">{$pause_button_text}</a>
+                    <a href="#none" class="btnNormal {$cancelScriptionItemClass}" data-cancel_action_json="{$cancel_action_json}" data-has_temporder="{$temp_order}">{$cancel_button_text}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="message {$empty_display|display}">{$invoice_type_text} No data.</p>
+
+        <ul class="info">
+            <li>You will receive your payment details for each cycle via email or text message, two days before the subscription start date (one day before the billing date), <span class="txtEm">Discounts and shipping fees available when the payment notice is sent will automatically be applied to the price above.</span>
+                (If your subscription start date is set for the day following your initial subscription order, you will receive your payment details on the day you placed your order and you will also be charged on the same day.)</li>
+            <li>If you purchased multiple subscription products in one go (same subscription number) and the products have different delivery frequencies, those that have the same subscription start date will be sent out together.</li>
+            <li><span class="txtWarn">If you modify a scheduled payment (change the subscription frequency/subscription start date or unsubscribe from certain products), you may not get the same discounts or shipping fees.</span></li>
+            <li>Any changes to your subscription frequency will be applied to the next billing cycle's shipment (payment).</li>
+        </ul>
+    </div>
+
+
+    <div module="myshop_OrderRegularManageDetailReceiver">
+        <h3 class="title">Recipient information</h3>
+        <div class="ec-base-button">
+        <span class="gRight">
+        </span>
+        </div>
+
+        <!-- 기본정보 -->
+        <div class="ec-base-table typeList ">
+            <br>
+            <caption> &#183; General information</caption>
+            <table border="1" summary="">
+
+                <colgroup>
+                    <col style="width: 714px" />
+                    <col style="width: 180px" />
+                    <col style="width: auto" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col" class="">Recipient information</th>
+                    <th scope="col" class="">Relevant cycle</th>
+                    <th scope="col" class="">Modify</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <p>{$receiver_name}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(English): {$receiver_name_en}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(Pronunciation): {$receiver_name_phonetic}</p>
+                        <p class="{$oversea_delv_display|display}">Country: {$country_name}</p>
+                        <p class="{$display_addr|display}">Postal code: {$receiver_zipcode}</p>
+                        <p class="{$display_addr|display}">{$receiver_address}</p>
+                        <p>{$receiver_phone}/{$receiver_cell}</p>
+                        <p class="{$display_store_pickup_info|display}"><strong>{$store_pickup.receive_place_name}</strong></p>
+                        <p class="{$display_store_pickup_info|display}">- Address : {$store_pickup.receiver_address}</p>
+                        <p class="{$display_store_pickup_info|display}">- Phone : {$store_pickup.main_phone}</p>
+                        <p class="{$display_store_pickup_info|display}">- Business hours : {$store_pickup.office_hour}</p>
+                        <p class="{$display_store_pickup_info|display}">- Available for reception on : {$store_pickup.receive_period}</p>
+                        <p class="{$display_store_pickup_info|display}">- Notes on shipping address : {$store_pickup.receive_info}</p>
+                        <p class="{$oversea_delv_display|display}">City: {$receiver_city}</p>
+                        <p class="{$oversea_delv_display|display}">State/Region: {$receiver_state}</p>
+                        <br>
+                        <p>Delivery instructions: {$delivery_msg}</p>
+                        <p class="{$hope_shipping_time_display|display}">Preferred delivery time: {$hope_shipping_time}</p>
+                        <p class="{$hope_shipping_company_name_display|display}">Preferred shipping carrier/method: {$hope_shipping_company_name}</p>
+                    </td>
+                    <td class="ec-base-table message">
+                        <p class="rotation"><span class="txtLess"><span class="{$display_expected_delivery_datetime|display}">From the shipment on</span> {$expected_delivery_datetime}</span></p>
+                    </td>
+                    <td>
+                        <div class="ec-base-button">
+                            <span class="gCenter">
+                                <span class="gCenter {$receiver_update_button_display|display}">
+                                    <a id="{$receiverUpdateId}" href="#" class="btnNormal" title="Open in new window"><span>Modify</span></a> <!-- 기본정보 변경 -->
+                                </span>
+                                <span class="gCenter {$not_receiver_update_button_display|display}">
+                                     <a href="#" class="btnNormal" title="Open in new window" onclick="{$action_receiver_update_button}"><span class="txtWarn">Cannot modify</span></a>
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- 배송 예정 정보 (배송전 주문 있음)-->
+        <div class="ec-base-table gBorder">
+            <br>
+            <caption> &#183; Scheduled delivery</caption>
+            <table border="1" summary="">
+
+                <colgroup>
+                    <col style="width: 214px" />
+                    <col style="width: 500px" />
+                    <col style="width: 180px" />
+                    <col style="width: auto" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col" class="">Product</th>
+                    <th scope="col" class="">Recipient information</th>
+                    <th scope="col" class="">Relevant cycle(Shipped date)</th>
+                    <th scope="col" class="">Modify</th>
+                </tr>
+                </thead>
+                <tbody module="myshop_SubscriptionShippingList">
+                <tr>
+                    <td>{$product_name}</td>
+                    <td>
+                        <p>{$receiver_name}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(English): {$receiver_name_en}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(Pronunciation): {$receiver_name_phonetic}</p>
+                        <p class="{$oversea_delv_display|display}">Country: {$country_name}</p>
+                        <p class="{$display_addr|display}">Postal code : {$receiver_zipcode}</p>
+                        <p class="{$display_addr|display}">{$receiver_full}</p>
+                        <p>{$receiver_phone}/{$receiver_cell}</p>
+                        <p class="{$display_store_pickup_info|display}"><strong>{$store_pickup.receive_place_name}</strong></p>
+                        <p class="{$display_store_pickup_info|display}">- Address : {$store_pickup.receiver_address}</p>
+                        <p class="{$display_store_pickup_info|display}">- Phone : {$store_pickup.main_phone}</p>
+                        <p class="{$display_store_pickup_info|display}">- Business hours : {$store_pickup.office_hour}</p>
+                        <p class="{$display_store_pickup_info|display}">- Available for reception on : {$store_pickup.receive_period}</p>
+                        <p class="{$display_store_pickup_info|display}">- Notes on shipping address : {$store_pickup.receive_info}</p>
+                        <p class="{$oversea_delv_display|display}">City: {$receiver_city}</p>
+                        <p class="{$oversea_delv_display|display}">State/Region: {$receiver_state}</p>
+                        <br>
+                        <p>Delivery instructions: {$delivery_msg}</p>
+                        <p class="{$hope_shipping_time_display|display}">Preferred delivery time: {$hope_shipping_time}</p>
+                        <p class="{$hope_shipping_company_name_display|display}">Preferred shipping carrier/method: {$hope_shipping_company_name}</p>
+                    </td>
+                    <td class="ec-base-table message">
+                        <p class="rotation">[Delivery no. {$subscription_pay_seq}]<br><span class="txtLess"> {$expected_delivery_datetime} <span class="{$display_expected_delivery_datetime|display}"has begun</span></span></p>
+                    </td>
+                    <td>
+                        <div class="ec-base-button ">
+                            <span class="gCenter {$receiver_update_button_display|display}">
+                                 <a href="#" class="btnNormal" title="Open in new window" onclick="{$action_receiver_update_button}"><span>Modify</span></a>
+                            </span>
+                            <span class="gCenter {$not_receiver_update_button_display|display}">
+                                 <a href="#" class="btnNormal" title="Open in new window" onclick="{$action_receiver_update_button}"><span class="txtWarn">Cannot modify</span></a>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{$product_name}</td>
+                    <td>
+                        <p>{$receiver_name}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(English): {$receiver_name_en}</p>
+                        <p class="{$oversea_delv_display|display}">Recipient(Pronunciation): {$receiver_name_phonetic}</p>
+                        <p class="{$oversea_delv_display|display}">Country: {$country_name}</p>
+                        <p class="{$display_addr|display}">Postal code: {$receiver_zipcode}</p>
+                        <p class="{$display_addr|display}">{$receiver_full}</p>
+                        <p>{$receiver_phone}/{$receiver_cell}</p>
+                        <p class="{$display_store_pickup_info|display}"><strong>{$store_pickup.receive_place_name}</strong></p>
+                        <p class="{$display_store_pickup_info|display}">- Address : {$store_pickup.receiver_address}</p>
+                        <p class="{$display_store_pickup_info|display}">- Phone : {$store_pickup.main_phone}</p>
+                        <p class="{$display_store_pickup_info|display}">- Business hours : {$store_pickup.office_hour}</p>
+                        <p class="{$display_store_pickup_info|display}">- Available for reception on : {$store_pickup.receive_period}</p>
+                        <p class="{$display_store_pickup_info|display}">- Notes on shipping address : {$store_pickup.receive_info}</p>
+                        <p class="{$oversea_delv_display|display}">City: {$receiver_city}</p>
+                        <p class="{$oversea_delv_display|display}">State/Region: {$receiver_state}</p>
+                        <br>
+                        <p>Delivery instructions: {$delivery_msg}</p>
+                        <p class="{$hope_shipping_time_display|display}">Preferred delivery time: {$hope_shipping_time}</p>
+                        <p class="{$hope_shipping_company_name_display|display}">Preferred shipping carrier/method: {$hope_shipping_company_name}</p>
+                    </td>
+                    <td class="ec-base-table message">
+                        <p class="rotation">[Delivery no. {$subscription_pay_seq}]<br><span class="txtLess"> {$expected_delivery_datetime} <span class="{$display_expected_delivery_datetime|display}">has begun</span></span></p>
+                    </td>
+                    <td>
+                        <div class="ec-base-button ">
+                            <span class="gCenter {$receiver_update_button_display|display}">
+                                 <a href="#" class="btnNormal" title="Open in new window" onclick="{$action_receiver_update_button}"><span>Modify</span></a>
+                            </span>
+                            <span class="gCenter {$not_receiver_update_button_display|display}">
+                                 <a href="#" class="btnNormal" title="Open in new window" onclick="{$action_receiver_update_button}"><span class="txtWarn">Cannot modify</span></a>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody class="{$subscription_shipping_list_empty_display|display}">
+                <tr>
+                    <td colspan="4">
+                        Details on scheduled deliveries are available two days before your next subscription start date.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="ec-base-button justify">
+        <a href="regular_delivery.html" class="btnNormalFix sizeM">List</a>
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_check}">Save</a>
+    </div>
+</div>

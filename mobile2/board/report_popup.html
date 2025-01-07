@@ -1,0 +1,30 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div class="boardReport displaynone ec-base-layer typeModal">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/board/report.css)-->
+    <div class="header">
+        <h3>Report post</h3>
+    </div>
+    <div class="content">
+        <h4>Report reason</h4>
+        <div class="box">
+            <div class="selectBox">
+                <ul>
+                    <li><label class="label"><input type="radio" name="report_reason" value="1" class="radio" checked>Irrelevant content</label></li>
+                    <li><label class="label"><input type="radio" name="report_reason" value="2" class="radio">Abusive or defamatory content</label></li>
+                    <li><label class="label"><input type="radio" name="report_reason" value="3" class="radio">Personal information extrusion</label></li>
+                    <li><label class="label"><input type="radio" name="report_reason" value="4" class="radio">Advertising or promotional content</label></li>
+                    <li><label class="label"><input type="radio" name="report_reason" value="5" class="radio">Other</label></li>
+                </ul>
+            </div>
+        </div>
+        <p class="summary">Your report will thoroughly be reviewed by our team and we will then proceed according to our store policies.</p>
+    </div>
+
+
+    <div class="ec-base-button report-button">
+        <a href="#none" class="btnStrong ecReportAction" onclick="{$action_report}">Report</a>
+        <a href="#none" class="btnNormal ecReportCloseLayer" onclick="{$board_report_displaynone}">Cancel</a>
+    </div>
+    <a href="#none" class="btnClose ecReportCloseLayer" onclick="{$board_report_displaynone}">Close</a>
+</div>

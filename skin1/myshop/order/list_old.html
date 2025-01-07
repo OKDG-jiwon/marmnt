@@ -1,0 +1,83 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Orders</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>My orders</h2>
+</div>
+
+<div module="Myshop_OrderHistoryTab" class="ec-base-tab">
+    <ul class="menu">
+        <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">Order History ({$total_orders})</a></li>
+        <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">Cancellations/Returns/Exchanges ({$total_orders_cs})</a></li>
+        <li class="{$tab_class_past} {$is_past_list_display|display}"><a href="/myshop/order/list_past.html{$param_past}">Archived Orders ({$total_orders_past})</a></li>
+        <li class="{$tab_class_old} {$old_list_display|display}"><a href="/myshop/order/list_old.html{$param_old}">Transferred Orders ({$total_orders_old})</a></li>
+    </ul>
+</div>
+
+<div module="Myshop_OrderOldHistoryList" class="ec-base-table typeList">
+    <!--@css(/css/module/myshop/orderOldHistoryList.css)-->
+    <!--
+        $login_url = /member/login.html
+    -->
+
+    <div class="title">
+        <h3>Ordered items</h3>
+    </div>
+
+    <table border="1" summary="">
+        <caption>Ordered items</caption>
+        <colgroup>
+            <col style="width:165px;" />
+            <col style="width:auto;" />
+            <col style="width:130px;" />
+            <col style="width:140px;" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Ordered on<br />[Order number]</th>
+                <th scope="col">Product name</th>
+                <th scope="col">Product subtotal</th>
+                <th scope="col">Order status</th>
+            </tr>
+        </thead>
+        <tbody class="center {$list_display|display}">
+            <tr>
+                <td>
+                    {$order_date}
+                    <p><a href="detail_old.html{$param_detail}" class="line">[{$order_id}]</a></p>
+                </td>
+                <td class="left top"><strong>{$product_name}</strong> <span>(Total items: {$product_count})</span></td>
+                <td class="right"><strong>{$product_price}</strong></td>
+                <td><p class="txtEm">{$cur_state}</p></td>
+            </tr>
+            <tr>
+                <td>
+                    {$order_date}
+                    <p><a href="detail_old.html{$param_detail}" class="line">[{$order_id}]</a></p>
+                </td>
+                <td class="left top"><strong>{$product_name}</strong> <span>(Total items: {$product_count})</span></td>
+                <td class="right"><strong>{$product_price}</strong></td>
+                <td><p class="txtEm">{$cur_state}</p></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="message {$empty_display|display}">You currently have no orders.</p>
+</div>
+
+<div module="Myshop_OrderHistoryPaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_first.gif" alt="First page" /></a>
+    <a href="{$param_prev}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Previous page" /></a>
+    <ol>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+        <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next page" /></a>
+    <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_last.gif" alt="Last page" /></a>
+</div>

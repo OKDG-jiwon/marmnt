@@ -1,0 +1,87 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>My Postings</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>My Postings</h2>
+</div>
+
+<div module="myshop_BoardPackage">
+    <!--@css(/css/module/myshop/boardPackage.css)-->
+    <div module="myshop_boardListHead">
+        <p>Sort by {$board_sort}</p>
+    </div>
+
+    <div class="ec-base-table typeList gBorder gBlank10" module="myshop_boardList">
+        <!--
+            $count = 10
+            $relation_post = yes
+        -->
+        <table border="1" summary="">
+        <caption>Manage Postings</caption>
+        <colgroup module="board_listheader_1002">
+            <col style="width:70px;" />
+            <col style="width:135px;" />
+            <col style="width:auto;" />
+            <col style="width:84px;" />
+            <col style="width:80px;" />
+            <col style="width:55px;" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Category</th>
+                <th scope="col">Title</th>
+                <th scope="col">Posted by</th>
+                <th scope="col">Date</th>
+                <th scope="col">View</th>
+            </tr>
+        </thead>
+        <tbody class="{$list_display|display} center">
+            <tr>
+                <td>{$no}</td>
+                <td><a href="{$link_board_list}" class="txtEm">{$board_category}</a></td>
+                <td class="left subject">{$icon_re}{$icon_lock} <a href="{$board_read_url}">{$subject}</a> {$icon_new}{$icon_file}{$comment_count}</td>
+                <td>{$writer}</td>
+                <td><span class="txtNum">{$write_date}</span></td>
+                <td><span class="txtNum">{$hit_count}</span></td>
+            </tr>
+            <tr>
+                <td>{$no}</td>
+                <td><a href="{$link_board_list}" class="txtEm">{$board_category}</a></td>
+                <td class="left subject">{$icon_re}{$icon_lock} <a href="{$board_read_url}">{$subject}</a> {$icon_new}{$icon_file}{$comment_count}</td>
+                <td>{$writer}</td>
+                <td><span class="txtNum">{$write_date}</span></td>
+                <td><span class="txtNum">{$hit_count}</span></td>
+            </tr>
+        </tbody>
+        </table>
+        <p class="message {$nodata_display|display}">There are no posts to show.</p>
+    </div>
+</div>
+
+<div module="myshop_boardlistPaging" class="ec-base-paginate">
+    <!--
+        $relation_post = yes
+    -->
+    <a href="{$param_prev}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_prev.gif" alt="Prev" /></a>
+    <ol>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+    </ol>
+    <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_page_next.gif" alt="Next" /></a>
+</div>
+
+<div module="myshop_boardlistSearch">
+    <!--@css(/css/module/myshop/boardlistSearch.css)-->
+    <fieldset class="boardSearch">
+        <legend>Search Posting</legend>
+        <p>{$form.search_key} {$form.search} <a href="#none" class="btnEmFix" onclick="{$action_search}">Search</a></p>
+    </fieldset>
+</div>

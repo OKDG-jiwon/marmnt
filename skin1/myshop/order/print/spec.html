@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Transaction Receipt</title>
+    <script type="text/javascript">
+    window.resizeTo(840,800)
+    </script>
+</head>
+
+<body><!-- popup size : 680px * auto -->
+<div module="MyShop_OrderPrintSpecList">
+    <div class="section">
+        <div class="orderPrintSpec">
+            <div class="grid" style="{$sign_image}">
+                <!--@css(/css/module/myshop/orderPrintSpec.css)-->
+                <h1>Transaction Receipt</h1>
+
+                <table class="issue" border="1" summary="">
+                    <caption>Issuance Info</caption>
+                    <tr>
+                        <th>Issue No.</th>
+                        <td>{$order_id}</td>
+                    </tr>
+                    <tr>
+                        <th>Issue Date</th>
+                        <td>{$publish_date}</td>
+                    </tr>
+                    <tr>
+                        <th>Customer</th>
+                        <td>{$customer}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"></th>
+                    </tr>
+                </table>
+
+                <table class="provider" border="1" summary="">
+                    <caption>Supplier</caption>
+                    <colgroup>
+                        <col width="4%" />
+                        <col width="23%" />
+                        <col width="25%" />
+                        <col width="23%" />
+                        <col width="25%" />
+                    </colgroup>
+                    <tr class="first">
+                        <th rowspan="4" class="outer">Supplier</th>
+                        <th scope="row">Registration No.</th>
+                        <td colspan="3">{$company_regno}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Company Name <br />(Corporate Name)</th>
+                        <td>{$company_name}</td>
+                        <th scope="row">Name <br />(Representative)</th>
+                        <td>{$president_name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Business Address</th>
+                        <td colspan="3">{$mall_addr1} {$mall_addr2}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Business Conditions</th>
+                        <td>{$company_condition}</td>
+                        <th scope="row">Business Field</th>
+                        <td>{$company_line}</td>
+                    </tr>
+                </table>
+
+                <p class="title">This transaction has been made<br /> as stated below. </p>
+
+                <table class="content" border="1" summary="">
+                    <caption>Transaction Details</caption>
+                    <colgroup>
+                        <col width="5%" />
+                        <col width="auto" />
+                        <col width="10%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th colspan="3">Total Amount</th>
+                        <td colspan="4">{$total_price}</td>
+                    </tr>
+                    </tfoot>
+                    <tbody module="MyShop_productList">
+                    <tr>
+                        <td>{$number}</td>
+                        <td class="product">{$product_name}</td>
+                        <td>{$quantity}</td>
+                        <td class="price">{$product_price}</td>
+                        <td class="price">{$sub_total}</td>
+                        <td>{$product_vat_rate}</td>
+                    </tr>
+                    <tr>
+                        <td>{$number}</td>
+                        <td class="product">{$product_name}</td>
+                        <td>{$quantity}</td>
+                        <td class="price">{$product_price}</td>
+                        <td class="price">{$sub_total}</td>
+                        <td>{$product_vat_rate}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="info {$show_info_text_display|display}">This transaction receipt can be used as a receipt.</p>
+        </div>
+        <div class="{$default_guide_display|display}">
+            <div module="MyShop_OrderPrintGuide">
+                <span class="title">* Standard of Computation</span>
+                <ul>
+                    <li class={$default_vat_display|display}>- Tax Amount = (Unit Price*Quantity) * {$fraction_vat_rate} ({$vat_rate}% tax rate based, round off to a whole number)</li>
+                    <li class={$text_vat_display|display}>- Tax amount = (Unit price * Quantity) * Tax rate/(1+Tax rate)</li>
+                    <li>- Supply Value = (Unit Price*Quantity) - Tax Amount</li>
+                    <li>- Total Amount = Total Supply Value of Product(s) + Total Tax Amount of Product(s)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="{$ruleset_guide_display|display} xans-element- xans-myshop xans-myshop-orderprintguide">
+            <span class="title">* Standard of Computation</span>
+            <ul module="MyShop_rulesetGuide">
+                <li>{$text}</li>
+                <li>{$text}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="orderPrintSpec">
+            <div class="grid" style="{$sign_image}">
+                <!--@css(/css/module/myshop/orderPrintSpec.css)-->
+                <h1>Transaction Receipt</h1>
+
+                <table class="issue" border="1" summary="">
+                    <caption>Issuance Info</caption>
+                    <tr>
+                        <th>Issue No.</th>
+                        <td>{$order_id}</td>
+                    </tr>
+                    <tr>
+                        <th>Issue Date</th>
+                        <td>{$publish_date}</td>
+                    </tr>
+                    <tr>
+                        <th>Customer</th>
+                        <td>{$customer}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2"></th>
+                    </tr>
+                </table>
+
+                <table class="provider" border="1" summary="">
+                    <caption>Supplier</caption>
+                    <colgroup>
+                        <col width="4%" />
+                        <col width="23%" />
+                        <col width="25%" />
+                        <col width="23%" />
+                        <col width="25%" />
+                    </colgroup>
+                    <tr class="first">
+                        <th rowspan="4" class="outer">Supplier</th>
+                        <th scope="row">Registration No.</th>
+                        <td colspan="3">{$company_regno}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Company Name <br />(Corporate Name)</th>
+                        <td>{$company_name}</td>
+                        <th scope="row">Name <br />(Representative)</th>
+                        <td>{$president_name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Business Address</th>
+                        <td colspan="3">{$mall_addr1} {$mall_addr2}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Business Conditions</th>
+                        <td>{$company_condition}</td>
+                        <th scope="row">Business Field</th>
+                        <td>{$company_line}</td>
+                    </tr>
+                </table>
+
+                <p class="title">This transaction has been made<br /> as stated below. </p>
+
+                <table class="content" border="1" summary="">
+                    <caption>Transaction Details</caption>
+                    <colgroup>
+                        <col width="5%" />
+                        <col width="auto" />
+                        <col width="10%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                        <col width="15%" />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th colspan="3">Total Amount</th>
+                        <td colspan="4">{$total_price}</td>
+                    </tr>
+                    </tfoot>
+                    <tbody module="MyShop_productList">
+                    <tr>
+                        <td>{$number}</td>
+                        <td class="product">{$product_name}</td>
+                        <td>{$quantity}</td>
+                        <td class="price">{$product_price}</td>
+                        <td class="price">{$sub_total}</td>
+                        <td>{$product_vat_rate}</td>
+                    </tr>
+                    <tr>
+                        <td>{$number}</td>
+                        <td class="product">{$product_name}</td>
+                        <td>{$quantity}</td>
+                        <td class="price">{$product_price}</td>
+                        <td class="price">{$sub_total}</td>
+                        <td>{$product_vat_rate}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="info {$show_info_text_display|display}">This transaction receipt can be used as a receipt.</p>
+        </div>
+        <div class="{$default_guide_display|display}">
+            <div module="MyShop_OrderPrintGuide">
+                <span class="title">* Standard of Computation</span>
+                <ul>
+                    <li class={$default_vat_display|display}>- Tax Amount = (Unit Price*Quantity) * {$fraction_vat_rate} ({$vat_rate}% tax rate based, round off to a whole number)</li>
+                    <li class={$text_vat_display|display}>- Tax amount = (Unit price * Quantity) * Tax rate/(1+Tax rate)</li>
+                    <li>- Supply Value = (Unit Price*Quantity) - Tax Amount</li>
+                    <li>- Total Amount = Total Supply Value of Product(s) + Total Tax Amount of Product(s)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="{$ruleset_guide_display|display} xans-element- xans-myshop xans-myshop-orderprintguide">
+            <span class="title">* Standard of Computation</span>
+            <ul module="MyShop_rulesetGuide">
+                <li>{$text}</li>
+                <li>{$text}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

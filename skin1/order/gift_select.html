@@ -1,0 +1,125 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div module="gift_select" class="ec-base-layer">
+    <!--@css(/css/module/order/gift_select.css)-->
+    <div class="header">
+        <h1>Pick a gift</h1>
+    </div>
+    <div class="content">
+        <p class="info">Please choose a free gift of your choice from the list of items based on the purchase amount of your order. Free gift(s) exceeding your order amount cannot be selected.</p>
+        <div module="gift_point" class="ec-base-box gBlank5">
+            <dl class="ec-base-desc typeDot gSmall">
+                <dt>Total points available</dt>
+                <dd>: <strong class="txtEm">{$total_point} points</strong></dd>
+                <dt>Points to use</dt>
+                <dd> : <strong>{$use_point} points</strong> <span class="txt11 {$display_selected_count|display}">(Number of selected gifts : <span id="{$selected_count_id}">0</span>)</span></dd>
+                <dt>Remaining points</dt>
+                <dd>: <strong>{$able_point} points</strong></dd>
+            </dl>
+        </div>
+
+        <div class="ec-base-table typeList gBlank20">
+            <table border="1" summary="">
+                <caption>Gift List</caption>
+                <colgroup>
+                    <col style="width:27px;" />
+                    <col style="width:90px;" />
+                    <col style="width:auto;" />
+                    <col style="width:120px;" class="{$display_point|display}" />
+                    <col style="width:80px;" class="{$display_choice_multi_btn|display}" />
+                    <col style="width:145px;" class="{$display_single_title|display}" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="3">Free Gift</th>
+                        <th scope="col" class="{$display_point|display}">Gift Points</th>
+                        <th scope="col" class="{$display_choice_multi_btn|display}">Quantity</th>
+                        <th scope="col" class="{$display_single_title|display}">Select</th>
+                    </tr>
+                </thead>
+                <tbody class="center">
+                    <tr>
+                        <td>{$product_choice}</td>
+                        <td class="thumb"><img src="{$gift_image}" alt="" /></td>
+                        <td class="left">
+                            <p>{$product_name} {$soldout_icon}</p>
+                            <ul>
+                                <li>{$option1}</li>
+                                <li>{$option2}</li>
+                                <li>{$option3}</li>
+                                <li>{$option4}</li>
+                                <li>{$option5}</li>
+                            </ul>
+                        </td>
+                        <td class="right {$display_td_point|display}"><strong class="txtEm">{$gift_price} points</strong></td>
+                        <td class="{$display_amount|display}">
+                            <span class="ec-base-qty">{$product_amount}<a href="#none" onclick="{$action_change_amount_up}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="Increase" class="up" /></a><a href="#none" onclick="{$action_change_amount_down}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="Decrease" class="down" /></a></span>
+                        </td>
+                        <td class="{$display_choice_single_btn|display}">
+                            <a href="#none" onclick="{$action_choice_single}" class="btnNormal {$display_choice_btn|display}">Select</a>
+                            <span class="txtWarn {$display_soldout_msg|display}">Out of stock</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{$product_choice}</td>
+                        <td class="thumb"><img src="{$gift_image}" alt="" /></td>
+                        <td class="left">
+                            <p>{$product_name} {$soldout_icon}</p>
+                            <ul>
+                                <li>{$option1}</li>
+                                <li>{$option2}</li>
+                                <li>{$option3}</li>
+                                <li>{$option4}</li>
+                                <li>{$option5}</li>
+                            </ul>
+                        </td>
+                        <td class="right {$display_td_point|display}"><strong class="txtEm">{$gift_price} points</strong></td>
+                        <td class="{$display_amount|display}">
+                            <span class="ec-base-qty">{$product_amount}<a href="#none" onclick="{$action_change_amount_up}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="Increase" class="up" /></a><a href="#none" onclick="{$action_change_amount_down}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="Decrease" class="down" /></a></span>
+                        </td>
+                        <td class="{$display_choice_single_btn|display}">
+                            <a href="#none" onclick="{$action_choice_single}" class="btnNormal {$display_choice_btn|display}">Select</a>
+                            <span class="txtWarn {$display_soldout_msg|display}">Out of stock</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{$product_choice}</td>
+                        <td class="thumb"><img src="{$gift_image}" alt="" /></td>
+                        <td class="left">
+                            <p>{$product_name} {$soldout_icon}</p>
+                            <ul>
+                                <li>{$option1}</li>
+                                <li>{$option2}</li>
+                                <li>{$option3}</li>
+                                <li>{$option4}</li>
+                                <li>{$option5}</li>
+                            </ul>
+                        </td>
+                        <td class="right {$display_td_point|display}"><strong class="txtEm">{$gift_price} points</strong></td>
+                        <td class="{$display_amount|display}">
+                            <span class="ec-base-qty">{$product_amount}<a href="#none" onclick="{$action_change_amount_up}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="Increase" class="up" /></a><a href="#none" onclick="{$action_change_amount_down}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="Decrease" class="down" /></a></span>
+                        </td>
+                        <td class="{$display_choice_single_btn|display}">
+                            <a href="#none" onclick="{$action_choice_single}" class="btnNormal {$display_choice_btn|display}">Select</a>
+                            <span class="txtWarn {$display_soldout_msg|display}">Out of stock</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="help {$display_order_result_only|display}">
+            Make sure to select a free gift before moving onto the next step.<br />
+            Please note that you won't be able to make any changes to your choice once you have moved onto the next step.
+        </p>
+
+        <p class="help {$display_order_detail|display}">
+            You can change your choice of free gift until your order is shipped.<br />
+            Please note that you won't be able to make any changes to your choice once your order is shipped.
+        </p>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnSubmitFix sizeS {$display_choice_multi_btn|display}" onclick="{$action_gift_select}">Select</a>
+        <a href="#none" class="btnNormalFix sizeS" onclick="{$action_gift_cancel}">Cancel</a>
+    </div>
+    <a href="#none" class="close" onclick="{$action_gift_close}"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="Close" /></a>
+</div>

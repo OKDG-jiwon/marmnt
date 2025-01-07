@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+    <title>Order and Pay</title>
+
+    <!--@css(/css/module/order/ec_orderform/form_onetouch.css)-->
+    <!-- If you want to create your own style, create a new CSS style sheet. Try coding #userStyle #mCafe24Order { } . -->
+
+    <!--@js(/layout/basic/js/common.js)-->
+    <!--@js(/js/module/order/ec_orderform/orders.js)-->
+</head>
+<body id="userStyle">
+
+<!--@import(/order/ec_orderform/header.html)-->
+
+<div id="mCafe24Order" class="typeHeader" module="Order_FormGlobal" unroll="1">
+    <!-- Do not delete this code
+        $move_order_after=/order/order_result.html
+        $move_basket=/order/basket.html
+        $paymethod_selector = textButton
+        $product_weight_display=F
+    -->
+    <!--@import(/order/ec_orderform/product_detail.html)-->
+
+    <!--@import(/order/ec_orderform/billingNshipping.html)-->
+
+    <!--@import(/order/ec_orderform/additionalInput.html)-->
+
+    <!--@import(/order/ec_orderform/orderProduct.html)-->
+
+
+    <div id="{$gift_orderform_id}">
+        <!--@import(/order/ec_orderform/gift.html)-->
+    </div>
+
+    <!--@import(/order/ec_orderform/discount.html)-->
+
+    <!--@import(/order/ec_orderform/payment.html)-->
+
+    <!--@import(/order/ec_orderform/paymethod.html)-->
+
+    <!--@import(/order/ec_orderform/benefit.html)-->
+
+    <!--@import(/order/ec_orderform/agreement.html)-->
+
+    <div class="ec-base-button gFull" id="orderFixItem">
+        <button type="button" class="btnSubmit" id="{$btn_payment_id}">
+            {$total_order_price_front_head}<span id="{$total_order_price_front_id}">{$total_order_price_front}</span>{$total_order_price_front_tail} PLACE ORDER
+        </button>
+    </div>
+
+    <!--@import(/order/ec_orderform/confirm.html)-->
+
+    <iframe id="{$payment_proc_id}" name="h_payment" width="0" height="0" frameborder="0" src=""></iframe>
+    <label id="labelSPrdName"><input type="hidden" id="sPrdName" name="sPrdName" value="{$sPrdName}"></label>
+</div>
+<div id="progressPaybar" style="display:none;">
+    <div id="progressPaybarBackground" class="layerProgress"></div>
+    <div id="progressPaybarView">
+        <p class="graph">Payment in Process</p>
+        <p class="txt">
+            This window will automatically close<br>
+            when payment is processed.<br>
+            Do not close this window until <br>
+            processing completes.
+        </p>
+    </div>
+</div>
+</body>
+</html>

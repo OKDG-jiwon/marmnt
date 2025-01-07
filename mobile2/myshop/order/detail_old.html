@@ -1,0 +1,499 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>My orders</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_ko_KR/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+<div module="MyShop_OrderHistoryDetail" unroll="1">
+    <!--@css(/css/module/myshop/orderHistoryDetail.css)-->
+    <!--
+        $select_gift_url = /order/gift_select.html
+     -->
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Order details</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table">
+                <table border="1">
+                    <caption>Order details</caption>
+                    <colgroup>
+                        <col style="width:115px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Order number</th>
+                        <td>{$order.order_id}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ordered on</th>
+                        <td>{$order.date}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ordered by</th>
+                        <td>{$order.name}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Order status</th>
+                        <td>{$order.state}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Products</h2>
+        </div>
+        <div class="contents">
+            <div class="{$basic_display|display}">
+                <div module="Myshop_OrderHistoryDetailBasic">
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str}{$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-fold theme3 eToggle">
+                    <div class="title">
+                        <h3>[Standard shipping]</h3>
+                    </div>
+                    <div class="contents">
+                        Product subtotal {$basic.product_price}
+                        + Shipping fee {$basic.ship_fee}<br>
+                        + Regional surcharge {$basic.special_ship_fee} =<br>
+                        Total : {$basic.total_price}
+                    </div>
+                </div>
+            </div>
+
+            <div class="{$individual_display|display}">
+                <div module="Myshop_OrderHistoryDetailIndividual">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-fold theme3 eToggle">
+                    <div class="title">
+                        <h3>[Individual shipping]</h3>
+                    </div>
+                    <div class="contents">
+                        Product subtotal {$individual.product_price}
+                        + Shipping fee {$individual.ship_fee}
+                        + Regional surcharge{$individual.special_ship_fee}=<br>
+                        Total : {$individual.total_price}
+                    </div>
+                </div>
+            </div>
+
+            <div class="{$oversea_display|display}">
+                <div module="Myshop_OrderHistoryDetailOversea">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <p class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></p>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <p class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></p>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-base-fold theme3 eToggle">
+                    <div class="title">
+                        <h3>[International shipping]</h3>
+                    </div>
+                    <div class="contents">
+                        Product subtotal {$oversea.product_price}
+                        + Shipping fee {$oversea.ship_fee} + Regional surcharge {$oversea.special_ship_fee} =<br>
+                        Total : {$oversea.total_price}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="{$gift_display|display}">
+                <div module="Myshop_OrderHistoryDetailGift">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$name}</strong>
+                                <ul class="info">
+                                    <li>Shipping : {$type}</li>
+                                    <li class="price">
+                                        <strong>{$price}</strong>
+                                        <strong title="Quantity" class="quantity">Total: {$quantity}</strong>item(s)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option">{$opt_str} {$option_add} <span class="{$opt_price_display|display}">(+{$opt_price}{$price_unit_tail})</span></p>
+                        <div class="prdFoot" title="Order status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$review_button_display|display}">Review</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-fold theme3 eToggle">
+                        <div class="title">
+                            <h3>[Gift]</h3>
+                        </div>
+                        <div class="contents">
+                            Product subtotal <strong>0</strong>
+                            + Shipping fee <strong>0</strong>
+                            + Regional surcharge <strong>0</strong> =<br>
+                            Total : {$price_unit_head}<strong class="total">0</strong>{$price_unit_tail}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Payment details</h2>
+        </div>
+        <div class="contents">
+            <div class="boardTotal boardView ">
+                <table border="1">
+                    <caption>Payment details</caption>
+                    <colgroup>
+                        <col style="width:115px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr class="{$payment.paymethod_display|display}">
+                        <th scope="row">Payment method</th>
+                        <td>
+                            <strong>{$payment.paymethod}</strong>
+                            <p>{$payment.paymethod_detail}</p>
+                        </td>
+                    </tr>
+                    <tr class="totalPay">
+                        <th scope="row"><strong>Order total</strong></th>
+                        <td>
+                            <strong>{$total.price_unit_head}{$payment.price}{$total.price_unit_tail}</strong>
+                        </td>
+                    </tr>
+                    <tr class="totalBasicPrice">
+                        <th scope="row">Subtotal</th>
+                        <td><strong>{$total.price_unit_head}{$total.total_order_price}{$total.price_unit_tail}</strong></td>
+                    </tr>
+                    <tr class="totalBasicPrice {$total.total_addsale_summary_display|display}">
+                        <th scope="row">Discount</th>
+                        <td><strong>{$total.price_unit_head}{$total.total_addsale_price}{$total.price_unit_tail}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ec-base-fold theme2 eToggle {$total.total_addpay_summary_display|display}">
+                <div class="title">
+                    <h3>Additional payment</h3>
+                    <p><strong>{$total.price_unit_head}{$total.total_addpay_price}{$total.price_unit_tail}</strong>
+                    </p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>Additional payment</caption>
+                            <colgroup>
+                                <col style="width:115px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                            <tr class="{$total.mileage_display|display} ">
+                                <th scope="row">Points</th>
+                                <td>{$total.price_unit_head}{$total.mileage_used}{$total.price_unit_tail}</td>
+                            </tr>
+                            <tr class="{$total.deposit_display|display}">
+                                <th scope="row">Credits</th>
+                                <td>{$total.price_unit_head}{$total.deposit_used}{$total.price_unit_tail}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="orderArea ec-base-fold theme1 selected eToggle orderCs" module="Myshop_OrderHistoryDetailRefund">
+        <div class="title">
+            <h2>Refund details</h2>
+        </div>
+        <div class="contents">
+            <div class="prdList">
+                <div class="refund ec-base-table">
+                    <table border="1">
+                        <caption>Refund details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">{$payment_type}Amount</th>
+                            <td>{$payment_amount}<span class="{$display_detail|display}"> = {$product_amount} {$additional_amount}</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Paid by</th>
+                            <td>{$depositor}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$payment_type}Method</th>
+                            <td>{$payment_info_type} {$payment_info_data}</td>
+                        </tr>
+                        <tr class="{$display_reason|display}">
+                            <th scope="row">Reason for refund</th>
+                            <td>{$reason}</td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <th scope="row">{$payment_type}Amount</th>
+                            <td>{$payment_amount}<span class="{$display_detail|display}"> = {$product_amount} {$additional_amount}</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Paid by</th>
+                            <td>{$depositor}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$payment_type}Method</th>
+                            <td>{$payment_info_type} {$payment_info_data}</td>
+                        </tr>
+                        <tr class="{$display_reason|display}">
+                            <th scope="row">Reason for refund</th>
+                            <td>{$reason}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Shipping information</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table">
+                <table border="1">
+                    <caption>Shipping information</caption>
+                    <colgroup>
+                        <col style="width:100px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Recipient</th>
+                        <td>{$delivery.name}</td>
+                    </tr>
+                    <tr class="{$delivery.raddr_display|display}">
+                        <th scope="row">Address</th>
+                        <td>{$delivery.addr}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone</th>
+                        <td>{$delivery.phone}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Delivery instructions</th>
+                        <td>{$delivery.message}</td>
+                    </tr>
+                    <tr class="{$hope_shipping_date_display|display}">
+                        <th scope="row">Preferred delivery date</th>
+                        <td>{$delivery.hope_shipping_date}</td>
+                    </tr>
+                    <tr class="{$hope_shipping_time_display|display}">
+                        <th scope="row">Preferred delivery time</th>
+                        <td>{$delivery.hope_shipping_time}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="{$customer_msg_display|display} ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Customer notice</h2>
+        </div>
+        <div class="contents customer">
+            <p>{$customer_msg}</p>
+        </div>
+    </div>
+
+    <div class="ec-base-button">
+        <span class="gLeft"><a href="#none" onclick="{$action_issue_cash}" class="btnNormal {$issue_cash_display|display}">Request cash receipt</a></span>
+        <a href="#none" onclick="{$action_issue_tax}" class="btnNormal {$issue_tax_display|display}">Request tax invoice</a>
+        <a href="#none" onclick="{$action_select_gift}" class="btnNormal {$select_gift_display|display}">Select a gift</a>
+    </div>
+
+    <div class="ec-base-button gFull">
+        <a href="/myshop/order/list_old.html{$param_list}" class="btnSubmit">Go to My orders</a>
+    </div>
+</div>

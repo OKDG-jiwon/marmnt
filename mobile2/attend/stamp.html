@@ -1,0 +1,97 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Check-in</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back" /></a>
+    </span>
+</div>
+
+<div module="Attend_calendarPackage">
+    <!--@css(/css/module/attend/calendarPackage.css)-->
+    <div module="attend_calendarhead">
+        <!--
+            $login_page = /member/login.html
+        -->
+        <p class="prev"><a href="{$prev_month}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/attend/btn_calendar_prev.png" alt="Previous" /></a></p>
+        <p class="date">
+            <span>{$year}</span>
+            <span class="month">.{$month}</span>
+        </p>
+        <p class="next"><a href="{$next_month}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/attend/btn_calendar_next.png" alt="Next" /></a></p>
+    </div>
+
+    <div module="attend_calendar">
+        <table border="1">
+            <!--
+                $login_page = /member/login.html
+            -->
+            <caption>Calendar for Check-in</caption>
+            <colgroup>
+                <col style="width:13.5%;">
+                <col style="width:13.4%;">
+                <col style="width:13.4%;">
+                <col style="width:13.4%;">
+                <col style="width:13.4%;">
+                <col style="width:13.4%;">
+                <col style="width:13.5%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">SUN</th>
+                    <th scope="col">MON</th>
+                    <th scope="col">TUE</th>
+                    <th scope="col">WED</th>
+                    <th scope="col">THU</th>
+                    <th scope="col">FRI</th>
+                    <th scope="col">SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sun"><div>{$sun}</div></td>
+                    <td><div>{$mon}</div></td>
+                    <td><div>{$the}</div></td>
+                    <td><div>{$wed}</div></td>
+                    <td><div>{$thu}</div></td>
+                    <td><div>{$fri}</div></td>
+                    <td class="sat"><div>{$sat}</div></td>
+                </tr>
+                <tr>
+                    <td class="sun"><div>{$sun}</div></td>
+                    <td><div>{$mon}</div></td>
+                    <td><div>{$the}</div></td>
+                    <td><div>{$wed}</div></td>
+                    <td><div>{$thu}</div></td>
+                    <td><div>{$fri}</div></td>
+                    <td class="sat"><div>{$sat}</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ec-base-box center gBlank20" module="attend_message">
+        <p>{$attend_message}</p>
+    </div>
+
+    <div module="attend_button">
+        <!--
+            $login_page = /member/login.html
+        -->
+        <p class="ec-base-button gFull">
+            <a href="#none" onclick="{$action_attend}" class="btnSubmit">Check-in</a>
+        </p>
+
+        <div class="security {$attendSecurityLayer}">
+            <h2>Enter an anti-spam security text</h2>
+            <fieldset>
+                <legend>Enter an anti-spam security text</legend>
+                <div class="capcha {$secure_display|display}">
+                    <img src="{$secure_img}" alt="Security Text" /> {$form.secure_text}
+                    <a href="#none" class="btnStrong" onclick="{$action_capcha_do}">Confirm</a>
+                    <p class="ec-base-help">Please enter security text without spaces. (Case sensitive)</p>
+                </div>
+                <a href="#none" class="btnClose" onclick="$('.security').hide();">Close</a>
+            </fieldset>
+        </div>
+    </div>
+</div>

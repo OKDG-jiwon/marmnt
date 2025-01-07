@@ -1,0 +1,43 @@
+
+<div module="product_stocklayer" class="ec-base-layer typeModal">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/layout/basic/css/ec-base-table.css)-->
+    <!--@css(/css/module/product/stocklayer.css)-->
+    <div id="{$stockLayerID}" class="layer {$stockLayerClass}">
+        <h1>Inventory amount</h1>
+        <div class="wrap">
+            <p class="desc">
+                Current inventory status for product<br>
+                However, current inventory status of product may differ because it is being sold.
+            </p>
+            <div class="ec-base-table typeList">
+                <table border="1">
+                    <caption>Inventory amount</caption>
+                    <colgroup>
+                        <col style="width:60%;">
+                        <col style="width:40%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">Option</th>
+                            <th scope="col">Inventory amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{$option_value}</td>
+                            <td class="center">{$stock_value}</td>
+                        </tr>
+                        <tr>
+                            <td>{$option_value}</td>
+                            <td class="center">{$stock_value}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ec-base-button gFull">
+            <a href="#none" class="btnEm" onClick="{$stockLayerCloseAction}">Close</a>
+        </div>
+    </div>
+<div>

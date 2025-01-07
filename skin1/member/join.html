@@ -1,0 +1,318 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Sign Up</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Create an Account</h2>
+</div>
+
+<div module="member_join">
+    <!--@css(/css/module/member/join.css)-->
+    <!--@js(/js/module/member/join.js)-->
+    <!--
+        $returnUrl = /member/join_result.html
+        $personalName = name
+        $companyName = Corporate name
+        $companySsn = Corporate number
+        $foreignerSsn1 = Foreigner registration number
+        $foreignerSsn2 = Passport number
+        $foreignerSsn3 = International driver's license number
+        $isRuleBasedAddrForm = T
+     -->
+    <h3>Personal Information</h3>
+    <p class="required"><img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required Field" /> Required Fields</p>
+    <div class="ec-base-table typeWrite">
+        <table border="1" summary="">
+        <caption>Personal Information</caption>
+        <colgroup>
+            <col style="width:150px;" />
+            <col style="width:auto;" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <th scope="row">Email <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required Field" /></th>
+                <td>{$form.email} <span id="{$emailMsg_id}"></span></td>
+            </tr>
+            <tr>
+                <th scope="row">Password <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required Field" /></th>
+                <td>
+                    <div class="eTooltip">
+                        {$form.passwd}
+                        <div class="ec-base-tooltip typeUpper">
+                            <div class="content">
+                                <strong class="txtWarn">※ {$passwd_terms}</strong>
+                                <ul class="ec-base-help typeDash gBlank10 txtWarn">
+                                    {$passwd_chk_info}
+                                </ul>
+                            </div>
+                            <a href="#none" class="btnClose"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close_tip.gif" alt="Close" /></a>
+                            <span class="edge"></span>
+                        </div>
+                    </div>
+                    {$passwd_type_desc}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Confirm Password <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required Field" /></th>
+                <td>{$form.user_passwd_confirm} <span id="{$pwConfirmMsg_id}"></span></td>
+            </tr>
+            <tr class="{$display_use_id|display}">
+                <th scope="row">ID <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" alt="Required Field" /></th>
+                <td>{$form.member_id} <span id="{$idMsg_id}"></span></td>
+            </tr>
+            <tr class="{$display_name|display}">
+                <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_name|display}" alt="Required Field" /></th>
+                <td>{$form.name} {$form.last_name}</td>
+            </tr>
+            <tr class="{$display_eng_name|display}">
+                <th scope="row">English Name <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_name_en|display}" alt="Required Field" /></th>
+                <td>{$form.name_en} {$form.last_name_en}</td>
+            </tr>
+            <tr class="{$display_pron_name|display}">
+                <th scope="row">Phonetics <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_name_phonetic|display}" alt="Required Field" /></th>
+                <td>{$form.name_phonetic} {$form.last_name_phonetic}</td>
+            </tr>
+            <tr class="{$display_addr|display}">
+                <th scope="row">Address <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_address|display}" alt="Required Field" /></th>
+                <td>{$form.address}</td>
+            </tr>
+            <tr class="{$display_phone|display}">
+                <th scope="row">Telephone <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_phone|display}" alt="Required Field" /></th>
+                <td>{$form.nation_phone} {$form.phone}</td>
+            </tr>
+            <tr class="{$display_mobile|display}">
+                <th scope="row">Mobile Phone <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_cell|display}" alt="Required Field" /></th>
+                <td>{$form.mobile}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <h3 class="{$display_add_title|display}">Additional Information</h3>
+    <div class="ec-base-table typeWrite {$display_add_title|display}">
+        <table border="1" summary="">
+        <caption>Additional Information</caption>
+        <colgroup>
+            <col style="width:150px;" />
+            <col style="width:auto;" />
+        </colgroup>
+        <tbody>
+            <tr class="{$display_nick|display}">
+                <th scope="row">Nickname <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_nick_name_flag|display}" alt="Required Field" /></th>
+                <td>{$form.nick_name} <p id="nickMsg"></p></td>
+            </tr>
+            <tr class="{$display_is_sex|display}">
+                <th scope="row">Gender <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_sex|display}" alt="Required Field" /></th>
+                <td>{$form.is_sex}</td>
+            </tr>
+            <tr class="{$display_birthday|display}">
+                <th scope="row">Date of Birth <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_is_birthday|display}" alt="Required Field" /></th>
+                <td>{$form.birth_month} / {$form.birth_day} / {$form.birth_year}<span class="gIndent20 {$display_calendar_type|display}">{$form.is_solar_calendar}</span></td>
+            </tr>
+            <tr class="{$display_marry|display}">
+                <th scope="row">Anniversary <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_is_wedding_anniversary|display}" alt="Required Field" /></th>
+                <td>{$form.marry_month} / {$form.marry_day} / {$form.marry_year}</td>
+            </tr>
+            <tr class="{$display_add1|display}">
+                <th scope="row">{$title_add1} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add1|display}" alt="Required Field" /></th>
+                <td>{$form.add1}</td>
+            </tr>
+            <tr class="{$display_add2|display}">
+                <th scope="row">{$title_add2} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add2|display}" alt="Required Field" /></th>
+                <td>{$form.add2}</td>
+            </tr>
+            <tr class="{$display_add3|display}">
+                <th scope="row">{$title_add3} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add3|display}" alt="Required Field" /></th>
+                <td>{$form.add3}</td>
+            </tr>
+            <tr class="{$display_add4|display}">
+                <th scope="row">{$title_add4} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add4|display}" alt="Required Field" /></th>
+                <td>{$form.add4}</td>
+            </tr>
+            <tr class="{$display_add5|display}">
+                <th scope="row">{$title_add5} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add5|display}" alt="Required Field" /></th>
+                <td>{$form.add5}</td>
+            </tr>
+            <tr class="{$display_add6|display}">
+                <th scope="row">{$title_add6} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add6|display}" alt="Required Field" /></th>
+                <td>{$form.add6}</td>
+            </tr>
+            <tr class="{$display_add7|display}">
+                <th scope="row">{$title_add7} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add7|display}" alt="Required Field" /></th>
+                <td>{$form.add7}</td>
+            </tr>
+            <tr class="{$display_add8|display}">
+                <th scope="row">{$title_add8} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add8|display}" alt="Required Field" /></th>
+                <td>{$form.add8}</td>
+            </tr>
+            <tr class="{$display_add9|display}">
+                <th scope="row">{$title_add9} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add9|display}" alt="Required Field" /></th>
+                <td>{$form.add9}</td>
+            </tr>
+            <tr class="{$display_add10|display}">
+                <th scope="row">{$title_add10} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add10|display}" alt="Required Field" /></th>
+                <td>{$form.add10}</td>
+            </tr>
+            <tr class="{$display_add11|display}">
+                <th scope="row">{$title_add11} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add11|display}" alt="Required Field" /></th>
+                <td>{$form.add11}</td>
+            </tr>
+            <tr class="{$display_add12|display}">
+                <th scope="row">{$title_add12} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add12|display}" alt="Required Field" /></th>
+                <td>{$form.add12}</td>
+            </tr>
+            <tr class="{$display_add13|display}">
+                <th scope="row">{$title_add13} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add13|display}" alt="Required Field" /></th>
+                <td>{$form.add13}</td>
+            </tr>
+            <tr class="{$display_add14|display}">
+                <th scope="row">{$title_add14} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add14|display}" alt="Required Field" /></th>
+                <td>{$form.add14}</td>
+            </tr>
+            <tr class="{$display_add15|display}">
+                <th scope="row">{$title_add15} <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_add15|display}" alt="Required Field" /></th>
+                <td>{$form.add15}</td>
+            </tr>
+            <tr class="{$display_reco_id|display}">
+                <th scope="row">Referrer <img src="//img.echosting.cafe24.com/skin/base/common/ico_required_blue.gif" class="{$display_required_reco_id|display}" alt="Required Field" /></th>
+                <td>{$form.reco_id}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <h3>Agree all</h3>
+    <div class="ec-base-box typeThinBg gStrong">
+        <p>{$sAgreeAllChecked}<label for="sAgreeAllChecked"><strong>{$sAgreeAllMsgTitle}</strong></label><p class="desc">{$sAgreeAllMsgSubTitle}</p></p>
+    </div>
+
+    <div class="ec-base-box typeThinBg agreeArea">
+        <h3>{$form.agree_service_check}<label class="check" for="agree_service_check0">Terms and Conditions (Required)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+         <div class="content">
+             {$service_desc}
+         </div>
+     </div>
+
+     <div class="ec-base-box typeThinBg agreeArea {$display_privacy_agreement|display}">
+        <h3>{$form.agree_privacy_check}<label class="check" for="agree_privacy_check0">Collection and Use of Personal Information (Required)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+         <div class="content">
+             {$privacy_desc}
+         </div>
+    </div>
+
+    <div class="ec-base-box typeThinBg agreeArea {$display_privacy_optional|display}">
+        <h3>{$form.agree_privacy_optional_check}<label class="check" for="agree_privacy_optional_check0">Collection and Use of Personal Information (Optional)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            {$privacy_optional_desc}
+        </div>
+    </div>
+
+    <div class="ec-base-box typeThinBg agreeArea {$display_information|display}">
+        <h3>{$form.agree_information_check}<label class="check" for="agree_information_check0">Sharing Information with Third Parties (Optional)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+         <div class="content">
+             {$information_desc}
+         </div>
+    </div>
+
+    <div class="ec-base-box typeThinBg agreeArea {$display_consignment|display}">
+        <h3>{$form.agree_consignment_check}<label class="check" for="agree_consignment_check0">Entrusting Personal Information (Optional)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+         <div class="content">
+             {$consignment_desc}
+         </div>
+     </div>
+
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_1|display}">
+        <h3>{$form.check_user_defined_1}<label class="check" for="{$name_user_defined_1}" class="check">{$title_user_defined_1}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_1}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_2|display}">
+        <h3>{$form.check_user_defined_2}<label class="check" for="{$name_user_defined_2}" class="check">{$title_user_defined_2}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_2}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_3|display}">
+        <h3>{$form.check_user_defined_3}<label class="check" for="{$name_user_defined_3}" class="check">{$title_user_defined_3}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_3}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_4|display}">
+        <h3>{$form.check_user_defined_4}<label class="check" for="{$name_user_defined_4}" class="check">{$title_user_defined_4}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_4}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_5|display}">
+        <h3>{$form.check_user_defined_5}<label class="check" for="{$name_user_defined_5}" class="check">{$title_user_defined_5}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_5}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_6|display}">
+        <h3>{$form.check_user_defined_6}<label class="check" for="{$name_user_defined_6}" class="check">{$title_user_defined_6}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_6}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_7|display}">
+        <h3>{$form.check_user_defined_7}<label class="check" for="{$name_user_defined_7}" class="check">{$title_user_defined_7}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_7}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_8|display}">
+        <h3>{$form.check_user_defined_8}<label class="check" for="{$name_user_defined_8}" class="check">{$title_user_defined_8}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_8}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_9|display}">
+        <h3>{$form.check_user_defined_9}<label class="check" for="{$name_user_defined_9}" class="check">{$title_user_defined_9}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_9}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_user_defined_10|display}">
+        <h3>{$form.check_user_defined_10}<label class="check" for="{$name_user_defined_10}" class="check">{$title_user_defined_10}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_user_defined_10}</div>
+        </div>
+    </div>
+    <div class="ec-base-box typeThinBg agreeArea {$display_marketing_consent|display}">
+        <h3>{$form.marketing_consent_check}<label for="marketing_consent_check0" class="check">{$title_marketing_consent}</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="content">
+            <div class="fr-view fr-view-privacy-optional">{$desc_marketing_consent}</div>
+        </div>
+    </div>
+    
+    <div class="ec-base-box typeThinBg agreeArea {$display_marketing|display}">
+        <h3>{$sMarketingAgreeAllChecked}<label for="sMarketingAgreeAllChecked" class="check">Agree to receive shopping information (Optional)</label><i aria-hidden="true" class="icon icoArrowBottom btnToggle"></i></h3>
+        <div class="check">
+            <span class="{$display_is_sms|display}">
+                {$form.is_sms}<label class="check" for="is_sms0">Do you agree to receive SMS?</label>
+            </span>
+            <span class="{$display_is_news_mail|display}">
+                {$form.is_news_mail}<label class="check" for="is_news_mail0">Do you agree to receive e-mails?</label>
+            </span>
+        </div>
+        <div class="content">
+            <p>You can receive discount coupons, benefits, events, new arrivals, and other valuable information from the shopping mall via Text or Email.</p>
+            <p>However, some information will be sent without your agreement such as order/payment status and policy related articles.</p>
+            <p>You can join the membership without agreeing to the optional categories, and update your status anytime at Edit Profile page once you join the membership.</p>
+        </div>
+     </div>
+
+    <div class="ec-base-button">
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_func_join}">Sign Up</a>
+    </div>
+
+    <!--@import(/member/join_confirm.html)-->
+</div>

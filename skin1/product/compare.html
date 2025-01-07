@@ -1,0 +1,142 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Compare Products</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Compare Products</h2>
+</div>
+
+<div module="Product_ListCompare" class="ec-base-table gBorder">
+    <!--@css(/css/module/product/compare.css)-->
+    <!--
+        $max_count = auto
+            ※ Option
+                - auto: Number of products searched
+                - number: This option can be used from 1 to 4.
+            ※ Repeat more than once to <td>
+    -->
+    <table border="1" summary="">
+    <tbody>
+
+        <tr module='Product_Productimagetiny'>
+            <th scope="row">Image</th>
+            <td class="center">
+                <span class="thumb"><a href="{$link_product_detail}"><img src="{$Productimagetiny}" alt="" /></a></span>
+                <input type="checkbox" class="{$product_select_class}" />
+            </td>
+            <td class="center">
+                <span class="thumb"><a href="{$link_product_detail}"><img src="{$Productimagetiny}" alt="" /></a></span>
+                <input type="checkbox" class="{$product_select_class}" />
+            </td>
+        </tr>
+        <tr module='Product_Productname'>
+            <th scope="row">Product</th>
+            <td>
+                <strong class="prdName">{$Productname}</strong>
+
+                <ul class="item" module='Product_CompareSetList' class="{$is_new_product|display}">
+                    <li>{$product_name}({$product_count})</li>
+                    <li>{$product_name}({$product_count})</li>
+                </ul>
+            </td>
+            <td>
+                <strong class="prdName">{$Productname}</strong>
+
+                <ul class="item" module='Product_CompareSetList' class="{$is_new_product|display}">
+                    <li>{$product_name}({$product_count})</li>
+                    <li>{$product_name}({$product_count})</li>
+                </ul>
+            </td>
+        </tr>
+        <tr module='Product_Productcustom'>
+            <th scope="row">Retail Price</th>
+            <td><em id="product_price_nf{$product_no}">{$Productcustom}</em></td>
+            <td><em id="product_price_nf{$product_no}">{$Productcustom}</em></td>
+        </tr>
+        <tr module='Product_Productprice'>
+            <th scope="row">Price</th>
+            <td><span class="txtEm"><strong id="product_price_nf{$product_no}">{$Productprice}</strong></span>{$product_tax_type_text}</td>
+            <td><span class="txtEm"><strong id="product_price_nf{$product_no}">{$Productprice}</strong></span>{$product_tax_type_text}</td>
+        </tr>
+
+        <tr module='Product_Productsaleprice'>
+            <th scope="row">Discounted Price</th>
+            <td><span class="txtEm"><strong id="product_price_nf{$product_no}">{$Productsaleprice}</strong></span></td>
+            <td><span class="txtEm"><strong id="product_price_nf{$product_no}">{$Productsaleprice}</strong></span></td>
+        </tr>
+        <tr module='Product_Quantity'>
+            <th scope="row">Quantity</th>
+            <td><span class="quantity">{$form.quantity}</span></td>
+            <td><span class="quantity">{$form.quantity}</span></td>
+        </tr>
+        <tr>
+            <th scope="row">Option</th>
+
+            <td module='Product_CompareOptionList'>
+                <ul>
+                    <li module="Product_CompareAddOption"><span class="optionName">{$add_option_name}</span> <span class="fWidthFull">{$form.add_option}</span></li>
+                </ul>
+                <ul>
+                    <li module="Product_CompareOption"><span class="optionName">{$option_name}</span> <span class="fWidthFull">{$form.option}</span></li>
+                </ul>
+            </td>
+        </tr>
+        <tr module='Product_Model'>
+            <th scope="row">Model</th>
+            <td>{$Model}</td>
+            <td>{$Model}</td>
+        </tr>
+        <tr module='Product_Madein'>
+            <th scope="row">Country of Origin</th>
+            <td>{$Madein}</td>
+            <td>{$Madein}</td>
+        </tr>
+        <tr module='Product_Manuname'>
+            <th scope="row">Manufacturer</th>
+            <td>{$Manuname}</td>
+            <td>{$Manuname}</td>
+        </tr>
+        <tr module='Product_Brand'>
+            <th scope="row">Brand</th>
+            <td>{$Brand}</td>
+            <td>{$Brand}</td>
+        </tr>
+        <tr module='Product_Allotperiod'>
+            <th scope="row">Interest Free</th>
+            <td>{$Allotperiod} {$Allotcard}</td>
+            <td>{$Allotperiod} {$Allotcard}</td>
+        </tr>
+        <tr>
+            <th scope="row">{$mileage_name}</th>
+            <td module='Product_Mileage'>{$Mileage}</td>
+        </tr>
+        <tr module='Product_Selfproductcode'>
+            <th scope="row">Seller Product Code</th>
+            <td>{$Selfproductcode}</td>
+            <td>{$Selfproductcode}</td>
+        </tr>
+        <tr module='Product_Description'>
+            <th scope="row">Product Summary</th>
+            <td>{$Description}</td>
+            <td>{$Description}</td>
+        </tr>
+    </tbody>
+    </table>
+    <p class="description {$description_display|display}">Checking out or adding set products directly from the Compare Products list cannot be done.</p>
+
+
+    <div class="ec-base-button">
+        <span class="gLeft">
+            <span class="{$basket_display|display}"><a href="#none" class="btnNormalFix sizeS {$basket_class}">Add to Cart</a></span>
+            <span class="{$wishlist_display|display}"><a href="#none" class="btnNormal sizeS {$wishlist_class}">Add to Wishlist</a></span>
+        </span>
+        <span class="gRight">
+            <span class="{$buy_display|display}"><a href="#none" class="btnSubmitFix sizeM {$buy_class}">Buy now</a></span>
+        </span>
+    </div>
+</div>

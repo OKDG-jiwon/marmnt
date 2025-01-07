@@ -1,0 +1,52 @@
+<!--@layout(/layout/basic/intro.html)-->
+<div id="titleArea">
+    <h2>Sign In</h2>
+</div>
+
+<div module="Intro_memberPackage">
+    <!--@css(/css/module/intro/memberPackage.css)-->
+    <!--@js(/js/module/intro/login.js)-->
+    <div module="member_login">
+        <!--
+            $forbidIpUrl = member/adminFail.html
+            $defaultReturnUrl = /index.html
+        -->
+        <div class="loginHeader">
+            <h3><span class="txtEm">For Members Only</span></h3>
+        </div>
+        <fieldset>
+            <div class="formBox">
+                <div class="form">
+                    {$form.member_id}
+                    {$form.member_passwd}
+                </div>
+                <div class="option">
+                    <span class="auto">{$form.use_login_keeping}</span>
+                    <span class="save">{$form.check_save_id}</span>
+                    <span class="ssl"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/member/ico_ssl.png" alt="Secure Login"><em>Secure Sign In</em></span>
+                    <span class="setIpSecurity">
+                        <span class="{$display_useloginkeeping_ip|display}">IP security</span>
+                        {$form.is_use_login_keeping_ip}
+                    </span>
+                </div>
+                <div class="ec-base-button gFull">
+                    <button type="button" class="btnSubmit" onclick="{$action_func_login}">Sign In</button>
+                </div>
+                <div class="loginUtil">
+                    <a href="/member/id/find_id.html" class="btnLogin">Forgot ID</a>
+                    <a href="/member/passwd/find_passwd_info.html" class="btnLogin">Forgot Password</a>
+                    <a href="/member/agreement.html" class="btnLogin">Sign Up</a>
+                </div>
+                <p class="ec-base-help">To order products, please Sign In. If you are not a member yet, please sign Up now!</p>
+                <div class="snsLogin">
+                    <a href="#none" class="btnNaver {$display_naver|display}" onclick="{$naver_func_login}"><span>Login with Naver</span></a>
+                    <a href="#none" class="btnFacebook {$display_facebook|display}" onclick="{$facebook_func_login}"><span>Login with Facebook</span></a>
+                    <a href="#none" class="btnGoogle {$display_google|display}" onclick="{$google_func_login}"><span>Login with Google</span></a>
+                    <a href="#none" class="btnKakao {$display_kakao|display}" onclick="{$kakao_func_login}"><span>Start with Kakao</span></a>
+                    <a href="#none" class="btnLine {$display_line|display}" onclick="{$line_func_login}"><span>Login with LINE</span></a>
+                    <a href="#none" class="btnApple {$display_apple|display}" onclick="{$apple_func_login}"><span>Login with Apple</span></a>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

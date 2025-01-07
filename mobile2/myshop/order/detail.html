@@ -1,0 +1,1669 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div id="titleArea">
+    <h2>Order Details</h2>
+    <span module="Layout_MobileAction">
+        <a href="#none" onclick="{$go_back}"><img src="//img.echosting.cafe24.com/skin/mobile_en_US/layout/btn_back.gif" width="33" alt="Back"></a>
+    </span>
+</div>
+
+<div module="MyShop_OrderHistoryDetail" unroll="1">
+    <!--@css(/css/module/myshop/orderHistoryDetail.css)-->
+    <!--
+        $select_gift_url = /order/gift_select.html
+     -->
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Order Details</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table">
+                <table border="1">
+                    <caption>Order Details</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Order No.</th>
+                            <td>{$order.order_id}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Order Date</th>
+                            <td>{$order.date}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bill to</th>
+                            <td>{$order.name}</td>
+                        </tr>
+                        <tr class="{$order_state_display|display}">
+                            <th scope="row">Order Status</th>
+                            <td>{$order.state} <a href="#none" onclick="{$action_select_gift}" class="btnNormal {$select_gift_display|display}">Select free gift</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Products</h2>
+            <span>(Total {$item_count} item(s) / {$total.price_unit_head}{$total.total_order_price}{$total.price_unit_tail})</span>
+        </div>
+        <div class="contents">
+            <div class="{$oversea_display|display}">
+                <div module="Myshop_OrderHistoryDetailOversea">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                <ul class="info">
+                                    <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                    <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                    <li class="price">
+                                        <div>Quantity : <strong title="Quantity">{$quantity}</strong> item(s)</div>
+                                        <div title="Product subtotal" class="{$product_price_display|display}">
+                                            Product subtotal : {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail}
+                                            <span class="refer {$product_purchase_price_ref_display|display}">({$product_purchase_price_back_head}{$product_purchase_price_back}{$product_purchase_price_back_tail})</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option {$option_display|display}">{$option_str}</p>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                        </ul>
+                        <div class="option {$service_period_display|display}">[Service period : {$service_period_start} ~ {$service_period_end}]</div>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                                <span class="ec-base-qty {$detail_info_display|display}"><strong class="cancel"><a href="order_detail_cs.html{$params}" target="_blank">[Details]</a></strong></span>
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$postscript_display|display}">Review</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Withdraw Cancellation</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Withdraw Exchange</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Withdraw Return</a>
+                                <a href="#none" class="btnNormal mini {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                <ul class="info">
+                                    <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                    <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                    <li class="price">
+                                        <div>Quantity : <strong title="Quantity">{$quantity}</strong> item(s)</div>
+                                        <div title="Product subtotal" class="{$product_price_display|display}">
+                                            Product subtotal : {$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail}
+                                            <span class="refer {$product_purchase_price_ref_display|display}">({$product_purchase_price_back_head}{$product_purchase_price_back}{$product_purchase_price_back_tail})</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option {$option_display|display}">{$option_str}</p>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                        </ul>
+                        <div class="option {$service_period_display|display}">[Service period : {$service_period_start} ~ {$service_period_end}]</div>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                                <span class="ec-base-qty {$detail_info_display|display}"><strong class="cancel"><a href="order_detail_cs.html{$params}" target="_blank">[Details]</a></strong></span>
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$postscript_display|display}">Review</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Withdraw Cancellation</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Withdraw Exchange</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Withdraw Return</a>
+                                <a href="#none" class="btnNormal mini {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="{$gift_display|display}">
+                <div module="Myshop_OrderHistoryDetailGift">
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$product_name}</strong>
+                                <ul class="info">
+                                    <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                    <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                    <li class="price">
+                                        <div>Quantity : <strong title="Quantity" class="quantity">{$quantity}</strong> item(s)</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option {$option_display|display}">{$option_str}</p>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                        </ul>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$postscript_display|display}">Review</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Withdraw Cancellation</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Withdraw Exchange</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Withdraw Return</a>
+                                <a href="#none" class="btnNormal mini {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ec-base-prdInfo">
+                        <div class="prdBox">
+                            <div class="thumbnail"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></div>
+                            <div class="description">
+                                <strong class="prdName" title="Product">{$product_name}</strong>
+                                <ul class="info">
+                                    <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                    <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                    <li class="price">
+                                        <div>Quantity : <strong title="Quantity" class="quantity">{$quantity}</strong> item(s)</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="option {$option_display|display}">{$option_str}</p>
+                        <ul class="option" module="Myshop_optionSet">
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                            <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                        </ul>
+                        <div class="prdFoot" title="Order Status">
+                            <div class="gLeft">
+                                {$status}
+                            </div>
+                            <div class="gRight">
+                                <a href="/board/product/write.html{$param_postscript}" class="btnNormal mini {$postscript_display|display}">Review</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_cancel_display|display}" onclick="{$action_withdraw_cancel}">Withdraw Cancellation</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_exchange_display|display}" onclick="{$action_withdraw_exchange}">Withdraw Exchange</a>
+                                <a href="#none" class="btnNormal mini {$withdraw_return_display|display}" onclick="{$action_withdraw_return}">Withdraw Return</a>
+                                <a href="#none" class="btnNormal mini {$purchase_confirmation_display|display}" onclick="{$action_purchase_confirmation}">Confirm purchase</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-base-button {$button_display|display}">
+                <span class="gLeft">
+                    <button type="submit" class="btnBasic {$cancel_display|display}">Cancel Order</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Initial payment information</h2>
+        </div>
+        <div class="contents">
+            <div class="boardTotal boardView">
+                <table border="1">
+                    <caption>Initial payment information</caption>
+                    <colgroup>
+                        <col style="width:105px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr class="{$payment.paymethod_display|display}">
+                            <th scope="row">Payment<br>Method</th>
+                            <td>
+                                <strong>{$payment.paymethod}</strong>
+                                <p>{$payment.paymethod_detail}</p>
+                                <div class="eguarantee {$payment.eguarantee_display|display}">
+                                    Online Purchase Protection
+                                    <p>{$payment.eguarantee_detail}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="totalPay {$order.product_price_display|display}">
+                            <th scope="row"><strong>Amount Paid</strong></th>
+                            <td>
+                                {$payment.price_front_head}<strong>{$payment.price_front}</strong>{$payment.price_front_tail}
+                                <span class="{$payment.price_ref_display|display}">{$payment.price_back_head}{$payment.price_back}{$payment.price_back_tail}</span>
+                                <div class="eximbayDCC {$dcc_info_display|display}">
+                                    (DCC <a href="#none" onclick="{$dcc_tooltip_layer_on}" class="btnTip">Help</a> : {$dcc_info})
+                                    <div class="ec-base-tooltip" id="{$dcc_tooltip_layer}">
+                                        <strong class="title">Eximbay DCC (Dynamic Currency Conversion)</strong>
+                                        <ul>
+                                            <li>- The payment for this order was made using the DCC (Dynamic Currency Conversion) service provided by Eximbay.<br />
+                                                <a href="https://www.eximbay.com/service/dcc_service.do?pageGroup=MS0000001&pageType=M&m_root_seq=1000&m_mnu_seq=5000" target="_blank">[About Eximbay DCC (Dynamic Currency Conversion) Service ▶]</a>
+                                            </li>
+                                            <li>- The payment total was determined based on the exchange rate set by EXIMBAY at the time of the transaction.</li>
+                                            <li>- Any partial cancellation will be processed based on the exchange rate used at the time of the transaction.</li>
+                                        </ul>
+                                        <a href="#none" onclick="{$dcc_tooltip_layer_off}" class="btnClose">Close</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ec-base-fold theme2 eToggle {$order.product_price_display|display}">
+                <div class="title">
+                    <h3>Order Total</h3>
+                    <p>{$total.total_order_price_front_head}<strong>{$total.first_order_price}</strong>{$total.total_order_price_front_tail}
+                        <span class="{$total.total_order_price_ref_display|display}">{$total.total_order_price_back_head}{$total.total_order_price_back}{$total.total_order_price_back_tail}</span>
+                    </p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>Order Total</caption>
+                            <colgroup>
+                                <col style="width:110px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                                <tr>
+                                    <th scope="row">Merchandise</th>
+                                    <td>{$total.price_unit_head}{$total.first_product_price_sum}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_vat_price_display|display}">
+                                    <th scope="row">VAT</th>
+                                    <td>{$total.price_unit_head}{$total.total_vat_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$delivery.shipping_fee_display|display}">
+                                    <th scope="row">Shipping</th>
+                                    <td>{$total.price_unit_head}{$total.first_ship_fee}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$delivery.shipping_info_display|display}">
+                                    <th scope="row">Shipping Surcharge </th>
+                                    <td>{$total.price_unit_head}{$total.total_local_ship_fee}{$total.price_unit_tail}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ec-base-fold theme2 eToggle {$order.product_price_display|display}">
+                <div class="title">
+                    <h3>Discounts</h3>
+                    <p>{$total.price_unit_head}<strong>{$total.total_addsale_price}</strong>{$total.price_unit_tail}</p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>Payment</caption>
+                            <colgroup>
+                                <col style="width:110px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                                <tr class="{$total.total_coupon_price_display|display}">
+                                    <th scope="row">Coupon Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_coupon_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.explode_set_product_discount_amount_display|display}">
+                                    <th scope="row">Set items for sale</th>
+                                    <td>{$total.price_unit_head}{$total.explode_set_product_discount_amount}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_mobilesale_price_display|display}">
+                                    <th scope="row">Mobile Purchase Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_mobilesale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_periodsale_price_display|display}">
+                                    <th scope="row">Limited Time Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_periodsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_membersale_price_display|display}">
+                                    <th scope="row">Membership Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_membersale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_rebuysale_price_display|display}">
+                                    <th scope="row">Repurchase Discount </th>
+                                    <td>{$total.price_unit_head}{$total.total_rebuysale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_cashsale_price_display|display}">
+                                    <th scope="row">Cash Purchase Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_cashsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_paymethodsale_price_display|display}">
+                                    <th scope="row">Payment Method Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_paymethodsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_bulksale_price_display|display}">
+                                    <th scope="row">Bulk Order Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_bulksale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_pbpsale_price_display|display}">
+                                    <th scope="row">About PBP Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_pbpsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_newproductsale_price_display|display}">
+                                    <th scope="row">New Product Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_newproductsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_setproductsale_price_display|display}">
+                                   <th scope="row">Discounted amount for Set Items</th>
+                                   <td>{$total.price_unit_head}{$total.total_setproductsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_membergroupsale_price_display|display}">
+                                    <th scope="row">Membership Level Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_membergroupsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_shipfeesale_price_display|display}">
+                                    <th scope="row">Shipping Discount</th>
+                                    <td>{$total.price_unit_head}{$total.total_shipfeesale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_externaladdsale_price_display|display}">
+                                    <th scope="row">Additional discount (Product)</th>
+                                    <td>{$total.price_unit_head}{$total.total_externaladdsale_price}{$total.price_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_discountcode_price_display|display}">
+                                    <th scope="row">Promo code</th>
+                                    <td>{$total.price_unit_head}{$total.total_discountcode_price}{$total.price_unit_tail}</td>
+                                </tr>
+                            </tbody>
+                            <tbody class="right {$total.total_appproductsale_price_display|display}">
+                            {$total.total_appproductsale_price_detail}
+                            </tbody>
+                            <tbody class="right {$total.total_appordersale_price_display|display}">
+                            {$total.total_appordersale_price_detail}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="{$order.rental_display|display}">
+                <div class="ec-base-fold theme2 rent">
+                    <div class="title">
+                        <h3>Monthly rental fee</h3>
+                        <p>{$total.total_order_price_front_head}<strong>{$order.rental_amount}</strong>{$total.total_order_price_front_tail}</p>
+                    </div>
+                </div>
+
+                <div class="ec-base-fold theme2 rent">
+                    <div class="title">
+                        <h3>Rental period</h3>
+                        <p><strong>{$order.rental_period}</strong> month(s)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ec-base-fold theme2 eToggle {$total.total_tax_display|display}">
+                <div class="title">
+                    <h3>{$total.total_tax_name}</h3>
+                    <p>{$total.price_unit_head}<strong>{$total.total_tax_amount}</strong>{$total.price_unit_tail}</p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>{$total.total_tax_name}</caption>
+                            <colgroup>
+                                <col style="width:115px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                            <tr>
+                                <th scope="row">{$total.total_tax_name}</th>
+                                <td>{$total.price_unit_head}{$total.total_tax_amount}{$total.price_unit_tail}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ec-base-fold theme2 eToggle {$total_save_mileage_display|display}">
+                <div class="title">
+                    <h3>Points Earned</h3>
+                    <p>{$total.mileage_unit_head}<strong>{$total.total_mileage}</strong>{$total.mileage_unit_tail}</p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>Points Earned</caption>
+                            <colgroup>
+                                <col style="width:110px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                                <tr class="{$total.total_product_mileage_price_display|display}">
+                                    <th scope="row">Per Product<br>{$mileage_name}</th>
+                                    <td>{$total.mileage_unit_head}{$total.total_product_mileage_price}{$total.mileage_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_member_mileage_price_display|display}">
+                                    <th scope="row">Membership<br>{$mileage_name}</th>
+                                    <td>{$total.mileage_unit_head}{$total.total_member_mileage_price}{$total.mileage_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.total_coupon_mileage_price_display|display}">
+                                    <th scope="row">Coupon<br>{$mileage_name}</th>
+                                    <td>{$total.mileage_unit_head}{$total.total_coupon_mileage_price}{$total.mileage_unit_tail}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ec-base-fold theme2 eToggle {$total.total_addpay_summary_display|display}">
+                <div class="title">
+                    <h3>Alternative Payment</h3>
+                    <p>{$total.price_unit_head}<strong>{$total.total_addpay_price}</strong>{$total.price_unit_tail}</p>
+                </div>
+                <div class="contents">
+                    <div class="ec-base-table boardList">
+                        <table border="1">
+                            <caption>Alternative Payment </caption>
+                            <colgroup>
+                                <col style="width:110px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody class="right">
+                                <tr class="{$total.mileage_display|display}">
+                                    <th scope="row">{$mileage_name}</th>
+                                    <td>{$total.mileage_unit_head}{$total.mileage_used}{$total.mileage_unit_tail}</td>
+                                </tr>
+                                <tr class="{$total.deposit_display|display}">
+                                    <th scope="row">{$deposit_name}</th>
+                                    <td>{$total.deposit_used}{$deposit_unit}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="{$final_payed_display|display} ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Final Billing Information</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table boardList">
+                <table border="1">
+                    <caption>Final Billing Information</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody class="right">
+                        <tr class="total first">
+                            <th scope="row"><strong>Amount Paid</strong></th>
+                            <td>
+                                {$total.price_unit_head}<strong>{$total.final_payed_order_price}</strong>{$total.price_unit_tail}
+                                <span class="{$total.final_payed_order_price_ref_display|display}">{$total.final_payed_order_price_ref}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody module="Myshop_OrderHistoryDetailPaymentFinal" class="right">
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>
+                                <strong>{$price_unit_head}{$price}{$price_unit_tail}</strong><br>{$detail}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>
+                                <strong>{$price_unit_head}{$price}{$price_unit_tail}</strong><br>{$detail}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ec-base-fold theme1 selected eToggle orderCs {$cs_info_display|display}">
+        <div class="title">
+            <h2>Cancel/Exchange/Return Info.</h2>
+        </div>
+        <div class="contents" module="Myshop_OrderHistoryDetailCsInfo">
+            <div class="prdList">
+                <div class="cancel">
+                    <div class="subTitle">
+                        <h3>{$cancel_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="before {$exchange_action_display|display}">
+                    <div class="subTitle">
+                        <h3>{$exchange_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$exchange_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_exchangeProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="refund ec-base-table">
+                    <table border="1">
+                        <caption>Refund Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date Requested</th>
+                                <td>{$request_date}</td>
+                            </tr>
+
+                            <tr module="Myshop_Csaddinfo">
+                                <th scope="row">{$cs_add_info_title}</th>
+                                <td>{$cs_add_info_value}</td>
+                            </tr>
+                            <tr class="{$cs_shipfee_display|display}">
+                                <th scope="row">{$cs_shipfee_label}</th>
+                                <td>{$cs_shipfee_paid_by} / {$cs_shipfee} / {$cs_shipfee_paymethod}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Estimate</th>
+                                <td>Total amount to be refunded will be available once seller accepts your requests. <span class="{$refund_exchange_comment_display|display}">Additional fees may occur depends on products to be exchanged.</span></td>
+                            </tr>
+                            <tr class="{$refund_account_display|display}">
+                                <th scope="row">Refund Account</th>
+                                <td>[{$bank_name}] {$bank_acc_no}<br> Account Holder : {$bank_acc_owner}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="prdList">
+                <div class="cancel">
+                    <div class="subTitle">
+                        <h3>{$cancel_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="before {$exchange_action_display|display}">
+                    <div class="subTitle">
+                        <h3>{$exchange_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$exchange_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_exchangeProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="refund ec-base-table">
+                    <table border="1">
+                        <caption>Refund Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date Requested</th>
+                                <td>{$request_date}</td>
+                            </tr>
+
+                            <tr module="Myshop_Csaddinfo">
+                                <th scope="row">{$cs_add_info_title}</th>
+                                <td>{$cs_add_info_value}</td>
+                            </tr>
+                            <tr class="{$cs_shipfee_display|display}">
+                                <th scope="row">{$cs_shipfee_label}</th>
+                                <td>{$cs_shipfee_paid_by} / {$cs_shipfee} / {$cs_shipfee_paymethod}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Estimate</th>
+                                <td>Total amount to be refunded will be available once seller accepts your requests. <span class="{$refund_exchange_comment_display|display}">Additional fees may occur depends on products to be exchanged.</span></td>
+                            </tr>
+                            <tr class="{$refund_account_display|display}">
+                                <th scope="row">Refund Account</th>
+                                <td>[{$bank_name}] {$bank_acc_no}<br> Account Holder : {$bank_acc_owner}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ec-base-fold theme1 selected eToggle" module="Myshop_OrderHistoryDetailPaymentAdd">
+        <div class="title">
+            <h2>Additional Payment</h2>
+        </div>
+        <div class="contents">
+
+            <div class="prdList">
+                <div class="cancel">
+                    <div class="subTitle">
+                        <h3>{$sType}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$sType}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr class="ec-payment-add-header">
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1">
+                            <caption>{$sType}</caption>
+                            <colgroup>
+                                <col style="width:100px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Amount Paid</th>
+                                    <td class="total"><strong>{$total_payment_price_front_head}{$total_payment_price_front}{$total_payment_price_front_tail} <span class="{$total_payment_price_ref_display|display}">{$total_payment_price_back_head}{$total_payment_price_back}{$total_payment_price_back_tail}</span></strong></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{$tax_name}</th>
+                                    <td class="total"><strong>{$tax_amount_front_head}{$tax_amount_front}{$tax_amount_front_tail}</strong></td>
+                                </tr>
+                                <tr class="{$payer_name_area_display|display}">
+                                    <th scope="row">Bill to</th>
+                                    <td>{$payer_name} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Payment Method</th>
+                                    <td>
+                                        {$paymethod} {$paymethod_detail}<span class="{$paid_display|display}">(Payment complete)</span><span class="{$unpaid_display|display}">(<span class="txtWarn">Payment canceled</span>)</span>
+                                        <ul class="{$payment_date_area_display|display}">
+                                            <li class="{$pay_date_display|display}">Payment date : {$pay_date}</li>
+                                            <li class="{$canel_date_display|display}">Cancellation date : <span class="txtWarn">{$canel_date}</span></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prdList">
+                <div class="cancel">
+                    <div class="subTitle">
+                        <h3>{$sType}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$sType}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr class="ec-payment-add-header">
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1">
+                            <caption>{$sType}</caption>
+                            <colgroup>
+                                <col style="width:100px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Amount Paid</th>
+                                    <td class="total"><strong>{$total_payment_price_front_head}{$total_payment_price_front}{$total_payment_price_front_tail} <span class="{$total_payment_price_ref_display|display}">{$total_payment_price_back_head}{$total_payment_price_back}{$total_payment_price_back_tail}</span></strong></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{$tax_name}</th>
+                                    <td class="total"><strong>{$tax_amount_front_head}{$tax_amount_front}{$tax_amount_front_tail}</strong></td>
+                                </tr>
+                                <tr class="{$payer_name_area_display|display}">
+                                    <th scope="row">Bill to</th>
+                                    <td>{$payer_name} </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Payment Method</th>
+                                    <td>
+                                        {$paymethod} {$paymethod_detail}<span class="{$paid_display|display}">(Payment complete)</span><span class="{$unpaid_display|display}">(<span class="txtWarn">Payment canceled</span>)</span>
+                                        <ul class="{$payment_date_area_display|display}">
+                                            <li class="{$pay_date_display|display}">Payment date : {$pay_date}</li>
+                                            <li class="{$canel_date_display|display}">Cancellation date : <span class="txtWarn">{$canel_date}</span></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Shipping Information</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table {$delivery_info_display|display}">
+                <table border="1">
+                    <caption>Shipping Information</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr class="{$delivery.receive_info_display|display}">
+                            <th scope="row">Pickup Store</th>
+                            <td>{$delivery.store_name} <br />{$delivery.store_receive_addr}<br />
+                                <button type="button"  onclick="{$delivery.action_open_store}" class="btnNormal">Store Details</button>
+                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name</th>
+                            <td>{$delivery.name} <a href="#none" onclick="{$delivery.action_receiver_update_button}" class="btnDelivery btnNormal {$delivery.receiver_update_button_display|display}">Change shipping address</a></td>
+                        </tr>
+                        <tr class="{$delivery.english_name_display|display}">
+                            <th scope="row">English Name</th>
+                            <td>{$delivery.english_name}</td>
+                        </tr>
+                        <tr class="{$delivery.pron_name_display|display}">
+                            <th scope="row">Phonetics</th>
+                            <td>{$delivery.pron_name}</td>
+                        </tr>
+                        <tr class="{$delivery.country_name_display|display}">
+                            <th scope="row">Country</th>
+                            <td>{$delivery.country_name}</td>
+                        </tr>
+                        <tr class="{$delivery.raddr_display|display}">
+                            <th scope="row">Address Line</th>
+                            <td>{$delivery.raddr}</td>
+                        </tr>
+                        <tr class="{$delivery.si_gun_do_display|display}">
+                            <th scope="row">City</th>
+                            <td>{$delivery.si_gun_do}</td>
+                        </tr>
+                        <tr class="{$delivery.ju_do_display|display}">
+                            <th scope="row">State/Province</th>
+                            <td>{$delivery.ju_do}</td>
+                        </tr>
+                        <tr class="{$delivery.rzipcode_display|display}">
+                            <th scope="row">Zip/Postal Code</th>
+                            <td>{$delivery.rzipcode}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Phone</th>
+                            <td>{$delivery.rphone_1}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mobile</th>
+                            <td>{$delivery.rphone_2}</td>
+                        </tr>
+                        <tr class="{$delivery.email_display|display}">
+                            <th scope="row">E-mail</th>
+                            <td>{$delivery.o_email}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Shipping Comment</th>
+                            <td>{$delivery.message}</td>
+                        </tr>
+                        <tr class="{$hope_shipping_date_display|display}">
+                            <th scope="row">Desired Shipping Date</th>
+                            <td>{$delivery.hope_shipping_date}</td>
+                        </tr>
+                        <tr class="{$hope_shipping_time_display|display}">
+                            <th scope="row">Desired Delivery Time</th>
+                            <td>{$delivery.hope_shipping_time}</td>
+                        </tr>
+                        <tr class="{$delivery.sc_display|display}">
+                            <th scope="row">Shipping Company</th>
+                            <td>{$delivery.sc_name}</td>
+                        </tr>
+                        <tr class="{$delivery.store_receive_period_display|display}">
+                            <th scope="row">Availability</th>
+                            <td>{$delivery.store_receive_period}</td>
+                        </tr>
+                        <tr class="{$delivery.shipping_manager_display|display}">
+                            <th scope="row">Shipping Method</th>
+                            <td>{$delivery.shipping_name}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="{$delivery_info_list_display|display}">
+                <div module="Myshop_DeliveryListMobile">
+
+                    <div class="ec-base-fold theme2 selected eToggle">
+                        <div class="title">
+                            <h3>Shipping address {$no}</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Shipping Information</caption>
+                                    <colgroup>
+                                        <col style="width:100px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>{$name}</strong>
+                                            <div><span class="{$rzipcode_display|display}">[{$rzipcode}]</span> <span class="{$raddr_display|display}">{$raddr}</span></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$receive_info_display|display}">
+                                        <th scope="row">Pickup Store</th>
+                                        <td>{$store_name} <br />{$store_receive_addr}<br />
+                                            <button type="button"  onclick="{$action_open_store}" class="btnNormal">Store Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$english_name_display|display}">
+                                        <th scope="row">English Name</th>
+                                        <td>{$english_name}</td>
+                                    </tr>
+                                    <tr class="{$pron_name_display|display}">
+                                        <th scope="row">Phonetics</th>
+                                        <td>{$pron_name}</td>
+                                    </tr>
+                                    <tr class="{$country_name_display|display}">
+                                        <th scope="row">Country</th>
+                                        <td>{$country_name}</td>
+                                    </tr>
+                                    <tr class="{$si_gun_do_display|display}">
+                                        <th scope="row">City</th>
+                                        <td>{$si_gun_do}</td>
+                                    </tr>
+                                    <tr class="{$ju_do_display|display}">
+                                        <th scope="row">State/Province</th>
+                                        <td>{$ju_do}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone</th>
+                                        <td>{$rphone_1}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mobile</th>
+                                        <td>{$rphone_2}</td>
+                                    </tr>
+                                    <tr class="{$email_display|display}">
+                                        <th scope="row">E-mail</th>
+                                        <td>{$o_email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Shipping Comment</th>
+                                        <td>{$message}</td>
+                                    </tr>
+                                    <tr class="{$hope_shipping_date_display|display}">
+                                        <th scope="row">Desired Shipping Date</th>
+                                        <td>{$hope_shipping_date}</td>
+                                    </tr>
+                                    <tr class="{$hope_shipping_time_display|display}">
+                                        <th scope="row">Desired Delivery Time</th>
+                                        <td>{$hope_shipping_time}</td>
+                                    </tr>
+                                    <tr class="{$sc_display|display}">
+                                        <th scope="row">Shipping Company</th>
+                                        <td>{$sc_name}</td>
+                                    </tr>
+                                    <tr class="{$store_receive_period_display|display}">
+                                        <th scope="row">Availability</th>
+                                        <td>{$store_receive_period}</td>
+                                    </tr>
+                                    <tr class="{$shipping_manager_display|display}">
+                                        <th scope="row">Shipping Method</th>
+                                        <td>{$shipping_name}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div module="Myshop_DeliveryProductList">
+                                <div class="ec-base-prdInfo">
+                                    <div class="prdBox">
+                                        <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                                        <div class="description">
+                                            <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                                <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                                <li class="price">
+                                                    <span class="{$discount}" title="Price">
+                                                        {$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}
+                                                        <span class="refer {$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span>
+                                                    </span>
+                                                    <span class="{$product_sale_price_display|display}" title="Discount Price">
+                                                         {$product_sale_price_front_head}<strong>{$product_sale_price_front}</strong>{$product_sale_price_front_tail}
+                                                        <span class="refer {$product_sale_price_ref_display|display}">{$product_sale_price_back_head}{$product_sale_price_back}{$product_sale_price_back_tail}</span>
+                                                    </span>
+                                                    <strong title="Quantity" class="quantity">{$quantity} item(s)</strong>
+                                                </li>
+                                                <li title="Order Status">
+                                                    <div class="gLeft">
+                                                        {$status}
+                                                        <span class="ec-base-qty {$detail_info_display|display}"><strong class="cancel"><a href="order_detail_cs.html{$params}" target="_blank">[Details]</a></strong></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="option {$option_display|display}">{$option_str}</p>
+                                    <ul class="option" module="Myshop_optionSet">
+                                        <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                                        <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="deliveryFoot {$receiver_update_button_display|display}">
+                                <div class="gRight">
+                                    <a href="#none" onclick="{$action_receiver_update_button}" class="btnDelivery btnNormal ">Change shipping address</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-fold theme2 eToggle">
+                        <div class="title">
+                            <h3>Shipping address {$no}</h3>
+                        </div>
+                        <div class="contents">
+                            <div class="ec-base-table">
+                                <table border="1">
+                                    <caption>Shipping Information</caption>
+                                    <colgroup>
+                                        <col style="width:100px;">
+                                        <col style="width:auto;">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong>{$name}</strong>
+                                            <div><span class="{$rzipcode_display|display}">[{$rzipcode}]</span> <span class="{$raddr_display|display}">{$raddr}</span></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$receive_info_display|display}">
+                                        <th scope="row">Pickup Store</th>
+                                        <td>{$store_name} <br />{$store_receive_addr}<br />
+                                            <button type="button"  onclick="{$action_open_store}" class="btnNormal">Store Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="{$english_name_display|display}">
+                                        <th scope="row">English Name</th>
+                                        <td>{$english_name}</td>
+                                    </tr>
+                                    <tr class="{$pron_name_display|display}">
+                                        <th scope="row">Phonetics</th>
+                                        <td>{$pron_name}</td>
+                                    </tr>
+                                    <tr class="{$country_name_display|display}">
+                                        <th scope="row">Country</th>
+                                        <td>{$country_name}</td>
+                                    </tr>
+                                    <tr class="{$si_gun_do_display|display}">
+                                        <th scope="row">City</th>
+                                        <td>{$si_gun_do}</td>
+                                    </tr>
+                                    <tr class="{$ju_do_display|display}">
+                                        <th scope="row">State/Province</th>
+                                        <td>{$ju_do}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone</th>
+                                        <td>{$rphone_1}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mobile</th>
+                                        <td>{$rphone_2}</td>
+                                    </tr>
+                                    <tr class="{$email_display|display}">
+                                        <th scope="row">E-mail</th>
+                                        <td>{$o_email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Shipping Comment</th>
+                                        <td>{$message}</td>
+                                    </tr>
+                                    <tr class="{$hope_shipping_date_display|display}">
+                                        <th scope="row">Desired Shipping Date</th>
+                                        <td>{$hope_shipping_date}</td>
+                                    </tr>
+                                    <tr class="{$hope_shipping_time_display|display}">
+                                        <th scope="row">Desired Delivery Time</th>
+                                        <td>{$hope_shipping_time}</td>
+                                    </tr>
+                                    <tr class="{$sc_display|display}">
+                                        <th scope="row">Shipping Company</th>
+                                        <td>{$sc_name}</td>
+                                    </tr>
+                                    <tr class="{$store_receive_period_display|display}">
+                                        <th scope="row">Availability</th>
+                                        <td>{$store_receive_period}</td>
+                                    </tr>
+                                    <tr class="{$shipping_manager_display|display}">
+                                        <th scope="row">Shipping Method</th>
+                                        <td>{$shipping_name}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div module="Myshop_DeliveryProductList">
+                                <div class="ec-base-prdInfo">
+                                    <div class="prdBox">
+                                        <div class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$thumbnail}" alt="{$product_name_alt}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="71" height="71" /></a></div>
+                                        <div class="description">
+                                            <strong class="prdName" title="Product">{$product_name_link}</strong>
+                                            <ul class="info">
+                                                <li class="{$shipping_company_display|display}"><a href="{$shipping_company_link}" target="{$shipping_company_target}">{$shipping_company}</a></li>
+                                                <li class="{$invoice_no_display|display}"><a href="#none" class="line" onclick="{$shipping_trace_popup}">[{$invoice_no}]</a></li>
+                                                <li class="price">
+                                                    <span class="{$discount}" title="Price">
+                                                        {$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}
+                                                        <span class="refer {$product_price_ref_display|display}">{$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span>
+                                                    </span>
+                                                    <span class="{$product_sale_price_display|display}" title="Discount Price">
+                                                         {$product_sale_price_front_head}<strong>{$product_sale_price_front}</strong>{$product_sale_price_front_tail}
+                                                        <span class="refer {$product_sale_price_ref_display|display}">{$product_sale_price_back_head}{$product_sale_price_back}{$product_sale_price_back_tail}</span>
+                                                    </span>
+                                                    <strong title="Quantity" class="quantity">{$quantity} item(s)</strong>
+                                                </li>
+                                                <li title="Order Status">
+                                                    <div class="gLeft">
+                                                        {$status}
+                                                        <span class="ec-base-qty {$detail_info_display|display}"><strong class="cancel"><a href="order_detail_cs.html{$params}" target="_blank">[Details]</a></strong></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="option {$option_display|display}">{$option_str}</p>
+                                    <ul class="option" module="Myshop_optionSet">
+                                        <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                                        <li><div class="name"><strong class="optionDesc">{$product_name}</strong>{$option_str} ({$qty} item(s))</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="deliveryFoot {$receiver_update_button_display|display}">
+                                <div class="gRight">
+                                    <a href="#none" onclick="{$action_receiver_update_button}" class="btnDelivery btnNormal ">Change shipping address</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="{$ordadd.display|display} ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Additional Information</h2>
+        </div>
+        <div class="contents">
+            <div class="ec-base-table">
+                <table border="1">
+                    <caption>Additional Information</caption>
+                    <colgroup>
+                        <col style="width:110px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody module="Myshop_ordadd">
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>{$content}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$title}</th>
+                            <td>{$content}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="orderArea ec-base-fold theme1 selected eToggle orderCs" module="Myshop_OrderHistoryDetailRefundNew">
+        <div class="title">
+            <h2>Refund Details</h2>
+        </div>
+        <div class="contents">
+            <div class="prdList">
+                <div class="before {$add_payment_product_display|display}">
+                    <div class="subTitle">
+                        <h3>{$cancel_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="after {$exchange_action_display|display}">
+                    <div class="subTitle">
+                        <h3>{$exchange_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_exchangeProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="refund ec-base-table">
+                    <table border="1">
+                        <caption>Refund Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{$display_date_title} <br> (Status)</th>
+                                <td>{$display_date} <strong>({$status})</strong></td>
+                            </tr>
+                            <tr class="{$cancel_form_display|display}">
+                                <th scope="row">{$refund_amount_title}</th>
+                                <td class="total">Mechandise {$product_amount_org} {$additional_amount} = Total : <strong>{$payment_amount_front_head}{$payment_amount_front}{$payment_amount_front_tail}<span class="{$payment_amount_ref_display|display}">{$payment_amount_back_head}{$payment_amount_back}{$payment_amount_back_tail}</span></strong></td>
+                            </tr>
+                            <tr class="{$add_payment_amount_display|display}">
+                                <th scope="row">{$refund_amount_title}</th>
+                                <td class="total">Additional shipping charges paid :<strong>{$payment_amount_front_head}{$payment_amount_front}{$payment_amount_front_tail}<span class="{$payment_amount_ref_display|display}">{$payment_amount_back_head}{$payment_amount_back}{$payment_amount_back_tail}</span></strong></td>
+                            </tr>
+                            <tr class="{$hold_show_ord_detail|display}">
+                                <th scope="row">Pending reason</th>
+                                <td>{$hold_reason_customer_display|nl2br}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Method</th>
+                                <td>{$refund_paymethod}</td>
+                            </tr>
+                            <tr class="{$bank_display|display}">
+                                <th scope="row">Refund Account</th>
+                                <td>
+                                    [{$bank_name}] {$bank_acc_no} Account Holder : {$bank_acc_owner}
+                                    <a href="#none" onclick="{$action_bank_acc_change}" class="btnBasic {$bank_acc_change_display|display}">Change Accounts</a>
+                                </td>
+                            </tr>
+                            <tr class="{$additional_display|display} additional">
+                                <th scope="row">Discounts/Alternative Payment<br />Restoration History</th>
+                                <td>
+                                    <ul class="coupon">
+                                        <li class="{$coupon_display|display}">Coupon Restoration : {$total.price_unit_head}<strong>{$coupon_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$addsale_display|display}">Discount Restoration : {$total.price_unit_head}<strong>{$addsale_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$mileage_display|display}">Reward Points Restoration : {$total.price_unit_head}<strong>{$mileage_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$deposit_display|display}">Store Credit Restoration : {$total.price_unit_head}<strong>{$deposit_price}</strong>{$total.price_unit_tail}</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="prdList">
+                <div class="before {$add_payment_product_display|display}">
+                    <div class="subTitle">
+                        <h3>{$cancel_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_cancelProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="after {$exchange_action_display|display}">
+                    <div class="subTitle">
+                        <h3>{$exchange_action_type}</h3>
+                    </div>
+                    <div class="ec-base-table">
+                        <table border="1" class="csProduct">
+                            <caption>{$cancel_action_type}</caption>
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Details</th>
+                                    <th scope="col">Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody module="Myshop_exchangeProduct">
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong class="name">{$product_name}</strong> <span class="option">{$option_str}</span>
+                                        <div class="{$set_option_display|display}">
+                                            <ul class="option" module="Myshop_optionSet">
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                                <li><strong>{$product_name}</strong><br> {$option_str}</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="quantity center">{$quantity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="refund ec-base-table">
+                    <table border="1">
+                        <caption>Refund Details</caption>
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{$display_date_title} <br> (Status)</th>
+                                <td>{$display_date} <strong>({$status})</strong></td>
+                            </tr>
+                            <tr class="{$cancel_form_display|display}">
+                                <th scope="row">{$refund_amount_title}</th>
+                                <td class="total">Mechandise {$product_amount_org} {$additional_amount} = Total : <strong>{$payment_amount_front_head}{$payment_amount_front}{$payment_amount_front_tail}<span class="{$payment_amount_ref_display|display}">{$payment_amount_back_head}{$payment_amount_back}{$payment_amount_back_tail}</span></strong></td>
+                            </tr>
+                            <tr class="{$add_payment_amount_display|display}">
+                                <th scope="row">{$refund_amount_title}</th>
+                                <td colspan="3" class="total">Additional shipping charges paid :<strong>{$payment_amount_front_head}{$payment_amount_front}{$payment_amount_front_tail}<span class="{$payment_amount_ref_display|display}">{$payment_amount_back_head}{$payment_amount_back}{$payment_amount_back_tail}</span></strong></td>
+                            </tr>
+                            <tr class="{$hold_show_ord_detail|display}">
+                                <th scope="row">Pending reason</th>
+                                <td>{$hold_reason_customer_display|nl2br}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Method</th>
+                                <td>{$refund_paymethod}</td>
+                            </tr>
+                            <tr class="{$bank_display|display}">
+                                <th scope="row">Refund Account</th>
+                                <td>
+                                    [{$bank_name}] {$bank_acc_no} Account Holder : {$bank_acc_owner}
+                                    <a href="#none" onclick="{$action_bank_acc_change}" class="btnBasic {$bank_acc_change_display|display}">Change Accounts</a>
+                                </td>
+                            </tr>
+                            <tr class="{$additional_display|display} additional">
+                                <th scope="row">Discounts/Alternative Payment<br />Restoration History</th>
+                                <td>
+                                    <ul class="coupon">
+                                        <li class="{$coupon_display|display}">Coupon Restoration : {$total.price_unit_head}<strong>{$coupon_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$addsale_display|display}">Discount Restoration : {$total.price_unit_head}<strong>{$addsale_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$mileage_display|display}">Reward Points Restoration : {$total.price_unit_head}<strong>{$mileage_price}</strong>{$total.price_unit_tail}</li>
+                                        <li class="{$deposit_display|display}">Store Credit Restoration : {$total.price_unit_head}<strong>{$deposit_price}</strong>{$total.price_unit_tail}</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="{$customer_msg_display|display} ec-base-fold theme1 selected eToggle">
+        <div class="title">
+            <h2>Notice</h2>
+        </div>
+        <div class="contents customer">
+            <p>{$customer_msg}</p>
+        </div>
+    </div>
+
+    <div class="ec-base-button gFull">
+        <a href="/myshop/order/list.html{$param_list}" class="btnSubmit">BACK</a>
+    </div>
+</div>

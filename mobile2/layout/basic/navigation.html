@@ -1,0 +1,14 @@
+<nav module="Layout_MobileNavigation">
+    <!--@css(/css/module/layout/mobileNavigation.css)-->
+    <!--
+        $eventmenu = yes
+    -->
+    <ul class="{$navigation_grid}">
+        <li module="Layout_statelogoff"><a href="/member/login.html">Sign In</a></li>
+        <li module="Layout_statelogon"><a href="{$action_logout}">Sign Out</a></li>
+        <li><a href="/myshop/order/list.html">Orders</a></li>
+        <li><a href="/myshop/index.html">My Acct</a></li>
+        <li class="{$board_display|display}"><a href="/board/index.html">Forum</a></li>
+        <li class="{$event_menu_display|display}"><a href="/board/free/list.html?board_no=2">Events</a></li>
+    </ul>
+</nav>

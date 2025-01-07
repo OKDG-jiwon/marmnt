@@ -1,0 +1,35 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot Password</h2>
+</div>
+
+<div module="member_findpasswdresult" class="ec-base-box typeThin">
+    <!--@css(/css/module/member/find_passwd_result.css)-->
+    <div class="findPw">
+        <h3 class="boxTitle">Forgot Password</h3>
+        <div class="desc">
+            <p class="{$display_email_method|display}">Your temporary password is sent to your e-mail.</p>
+        </div>
+        <div class="ec-base-box typeMember gMessage">
+            <strong class="message">Thank you for shopping with us.</strong>
+            <div class="information">
+                <p class="thumbnail"><img src="//img.echosting.cafe24.com/skin/base/member/img_member_default.gif" alt="" /></p>
+                <p class="description">
+                    <span class="{$display_id_method|display}">Dear <strong class="txtEm">{$id}</strong>,<br /></span>
+                     temporary password is sent to <strong class="txtEm"><span class="{$display_email_method|display}">{$email}</span><span class="{$display_mobile_method|display}">{$mobile}</span></strong>
+                </p>
+            </div>
+        </div>
+        <div class="ec-base-button gBlank20">
+            <a href="/member/login.html" class="btnSubmitFix sizeM">Sign In</a>
+        </div>
+    </div>
+</div>

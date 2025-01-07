@@ -1,0 +1,112 @@
+<!--@layout(/layout/basic/popup.html)-->
+<div class="ec-base-layer" module="Myshop_OrderSearchproductForm">
+    <!--@css(/css/module/myshop/searchProduct.css)-->
+    <div class="header">
+        <h1>Product Search</h1>
+    </div>
+    <div class="content">
+        <div>
+            <div class="ec-base-table typeWrite">
+                <table border="1" summary="">
+                    <caption>Product Search</caption>
+                    <colgroup>
+                        <col style="width:100px;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Category</th>
+                            <td>{$form.category_no}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$form.search_type}</th>
+                            <td>{$form.keyword}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btnSearch"><a href="#none" class="btnSubmitFix sizeS" onClick="{$search_product}">Search</a></div>
+            <div class="listCtrl {$ctrl_display|display}">
+                <p class="result">Total <strong>{$total_count}</strong>개</p>
+                <span class="select">
+                    {$form.limit}
+                </span>
+            </div>
+
+                <div module="Myshop_OrderSearchproductList">
+                <div class="ec-base-table typeList" id="{$order_search_product_list_id}">
+                    <table border="1" summary="">
+                        <caption>Search Results</caption>
+                        <colgroup>
+                            <col style="width:auto;" />
+                            <col style="width:130px;" />
+                            <col style="width:100px;" />
+                            <col style="width:100px;" />
+                        </colgroup>
+                        <tbody class="head center">
+                            <tr>
+                                <td>Product Name</td>
+                                <td>Price</td>
+                                <td>Product Code</td>
+                                <td>Select</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="scroll">
+                        <table border="1" summary="">
+                            <caption>Search Results</caption>
+                            <colgroup>
+                                <col style="width:auto;" />
+                                <col style="width:130px;" />
+                                <col style="width:100px;" />
+                                <col style="width:83px;" />
+                            </colgroup>
+                            <tbody class="center {$search_display|display}">
+                                <tr>
+                                    <td class="product left">
+                                        <span class="thumbnail"><img src="{$image_tiny}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></span>
+                                        <p>{$product_name}</p>
+                                    </td>
+                                    <td class="price">{$product_price}</td>
+                                    <td class="code">{$product_code}</td>
+                                    <td class="select"><a href="#none" class="btnNormal" onClick="{$selected_item_js}">Select</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="product left">
+                                        <span class="thumbnail"><img src="{$image_tiny}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></span>
+                                        <p>{$product_name}</p>
+                                    </td>
+                                    <td class="price">{$product_price}</td>
+                                    <td class="code">{$product_code}</td>
+                                    <td class="select"><a href="#none" class="btnNormal" onClick="{$selected_item_js}">Select</a></td>
+                                </tr>
+                            </tbody>
+                            <tbody class="message {$search_fail_display|display}">
+                                <tr>
+                                    <td colspan="4">No results were found.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+                <div module="Myshop_OrderSearchproductPaging" class="ec-base-paginate">
+                <a href="{$param_first}" class="first"><img src="//img.echosting.cafe24.com/skin/base_en_US/common/btn_page_first.gif" alt="First" /></a>
+                <a href="{$param_before}"><img src="//img.echosting.cafe24.com/skin/base_en_US/common/btn_page_prev.gif" alt="Previous Page" /></a>
+                <ol>
+                    <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                    <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                    <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                    <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                    <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                </ol>
+                <a href="{$param_next}"><img src="//img.echosting.cafe24.com/skin/base_en_US/common/btn_page_next.gif" alt="Next" /></a>
+                <a href="{$param_last}" class="last"><img src="//img.echosting.cafe24.com/skin/base_en_US/common/btn_page_last.gif" alt="Last" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="ec-base-button">
+        <a href="#none" class="btnNormalFix sizeS" onClick="{$closeSearchPopup}">Close</a>
+    </div>
+</div>

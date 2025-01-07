@@ -1,0 +1,32 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot ID</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot ID</h2>
+    <p>Please provide your name and email address to find your ID.</p>
+</div>
+
+<div module="member_findid" class="ec-base-box typeThin">
+    <!--@css(/css/module/member/find_id.css)-->
+    <!--
+        $returnURL = /member/id/find_id_result.html
+     -->
+    <div class="findId">
+        <h3 class="boxTitle">Forgot ID</h3>
+        <fieldset>
+            <legend>Forgot ID</legend>
+            <p class="check displaynone">{$form.check_method}</p>
+            <p id="name_view" class="name"><strong id="name_lable">Name</strong> {$form.name}</p>
+            <p id="email_view" class="email" style="display:none;"><strong>Enter Email Address</strong> {$form.email}</p>
+            <div class="ec-base-button gColumn">
+                <a href="#none" class="btnSubmit sizeM" onclick="{$action_func_find_id}">Submit</a>
+            </div>
+        </fieldset>
+    </div>
+</div>
