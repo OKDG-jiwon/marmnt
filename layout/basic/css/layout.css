@@ -139,6 +139,7 @@ a:hover {
 }
 
 .main_top_banner.ez-align-left .top_banner_box_inner .top_banner_text {
+	display: none;
 	text-align: left;
 }
 
@@ -1379,7 +1380,7 @@ a:hover {
 	}
 
 	.main_top_banner.close_none {
-		height: 50px;
+		display: none !important;
 	}
 
 	.main_top_banner .top_banner_box_inner {
@@ -1953,8 +1954,8 @@ a:hover {
 .cart-sidebar {
 	position: fixed;
 	top: 0;
-	right: -400px;
-	width: 400px;
+	right: -70vw;
+	width: 70vw;
 	height: 100%;
 	background: #fff;
 	z-index: 1000;
@@ -2031,8 +2032,8 @@ a:hover {
 /* 모바일 반응형 스타일 */
 @media (max-width: 768px) {
 	.cart-sidebar {
-		width: 100%;
-		right: -100%;
+		width: 90vw;
+		right: -90vw;
 	}
 }
 

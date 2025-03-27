@@ -82,6 +82,337 @@
         };
         
         $(document).ready(function() {
+            // 사이드바 확인 및 생성
+            var $sidebar = $('.cart-sidebar');
+            
+            if ($sidebar.length === 0) {
+                // 사이드바가 없는 경우 새로 생성
+                $('body').append(`
+                    <div class="cart-sidebar-overlay"></div>
+                    <div class="cart-sidebar">
+                        <div class="cart-sidebar-header">
+                            <h3>장바구니</h3>
+                            <div class="cart-header-buttons">
+                                <a href="/order/basket.html" class="cart-goto-page">장바구니 바로가기</a>
+                                <button class="cart-sidebar-close" aria-label="장바구니 닫기"></button>
+                            </div>
+                        </div>
+                        <div class="cart-iframe-container">
+                            <iframe src="" class="cart-iframe" id="cartIframe"></iframe>
+                        </div>
+                    </div>
+                `);
+            } else {
+                // 사이드바가 존재하는 경우 헤더만 추가
+                if ($sidebar.find('.cart-sidebar-header').length === 0) {
+                    $sidebar.prepend(`
+                        <div class="cart-sidebar-header">
+                            <h3>장바구니</h3>
+                            <div class="cart-header-buttons">
+                                <a href="/order/basket.html" class="cart-goto-page">장바구니 바로가기</a>
+                                <button class="cart-sidebar-close" aria-label="장바구니 닫기"></button>
+                            </div>
+                        </div>
+                    `);
+                    
+                    // iframe이 컨테이너 안에 없으면 컨테이너로 감싸기
+                    if ($sidebar.find('.cart-iframe-container').length === 0) {
+                        var $iframe = $sidebar.find('iframe');
+                        if ($iframe.length > 0) {
+                            $iframe.wrap('<div class="cart-iframe-container"></div>');
+                        } else {
+                            $sidebar.append('<div class="cart-iframe-container"><iframe src="" class="cart-iframe" id="cartIframe"></iframe></div>');
+                        }
+                    }
+                } else {
+                    // 헤더는 있지만 장바구니 바로가기 버튼이 없는 경우
+                    if ($sidebar.find('.cart-goto-page').length === 0) {
+                        $sidebar.find('.cart-header-buttons').prepend('<a href="/order/basket.html" class="cart-goto-page">장바구니 바로가기</a>');
+                    }
+                }
+            }
+            
+            // 스타일 추가 (항상 실행)
+            if (!$('#cartSidebarStyle').length) {
+                $('head').append(`
+                    <style id="cartSidebarStyle">
+                        .cart-sidebar * {
+                            box-sizing: border-box;
+                        }
+                        
+                        .cart-sidebar-overlay {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            z-index: 9998;
+                            display: none;
+                        }
+                        
+                        .cart-sidebar {
+                            position: fixed;
+                            top: 0;
+                            right: -70vw;
+                            width: 70vw;
+                            height: 100%;
+                            background-color: #fff;
+                            z-index: 9999;
+                            transition: right 0.3s ease;
+                            display: flex;
+                            flex-direction: column;
+                            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+                            overflow: hidden;
+                        }
+                        
+                        @media screen and (max-width: 768px) {
+                            .cart-sidebar {
+                                width: 85vw;
+                                right: -85vw;
+                            }
+                        }
+                        
+                        .cart-sidebar-header {
+                            display: flex !important;
+                            justify-content: space-between !important;
+                            align-items: center !important;
+                            padding: 15px !important;
+                            background-color: #fff !important;
+                            border-bottom: 1px solid #eee !important;
+                            position: absolute !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            z-index: 10000 !important;
+                            height: 50px !important;
+                            box-sizing: border-box !important;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+                            width: 100% !important;
+                        }
+                        
+                        .cart-sidebar-header h3 {
+                            font-size: 18px !important;
+                            font-weight: 500 !important;
+                            margin: 0 !important;
+                            color: #000 !important;
+                        }
+                        
+                        .cart-header-buttons {
+                            display: flex !important;
+                            align-items: center !important;
+                            position: relative !important;
+                            z-index: 10000 !important;
+                        }
+                        
+                        .cart-goto-page {
+                            display: inline-block !important;
+                            padding: 6px 12px !important;
+                            background-color: #000 !important;
+                            color: #fff !important;
+                            font-size: 14px !important;
+                            text-decoration: none !important;
+                            border-radius: 3px !important;
+                            margin-right: 15px !important;
+                            font-weight: 500 !important;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+                            position: relative !important;
+                            z-index: 10000 !important;
+                            border: none !important;
+                            pointer-events: auto !important;
+                            cursor: pointer !important;
+                        }
+                        
+                        .cart-goto-page:hover {
+                            background-color: #333 !important;
+                        }
+                        
+                        .cart-sidebar-close {
+                            position: relative !important;
+                            width: 24px !important;
+                            height: 24px !important;
+                            background: transparent !important;
+                            border: none !important;
+                            cursor: pointer !important;
+                            z-index: 10000 !important;
+                            min-width: auto !important;
+                            padding: 0 !important;
+                        }
+                        
+                        .cart-sidebar-close::before, 
+                        .cart-sidebar-close::after {
+                            content: '' !important;
+                            position: absolute !important;
+                            width: 18px !important;
+                            height: 2px !important;
+                            background-color: #333 !important;
+                            top: 50% !important;
+                            left: 50% !important;
+                        }
+                        
+                        .cart-sidebar-close::before {
+                            transform: translate(-50%, -50%) rotate(45deg) !important;
+                        }
+                        
+                        .cart-sidebar-close::after {
+                            transform: translate(-50%, -50%) rotate(-45deg) !important;
+                        }
+                        
+                        .cart-iframe-container {
+                            flex: 1 !important;
+                            width: 100% !important;
+                            height: calc(100% - 50px) !important;
+                            overflow: hidden !important;
+                            position: relative !important;
+                            margin-top: 50px !important;
+                        }
+                        
+                        .cart-iframe {
+                            width: 100% !important;
+                            height: 100% !important;
+                            border: none !important;
+                            margin-top: 0 !important;
+                            position: absolute !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                        }
+                    </style>
+                `);
+            }
+            
+            // 사이드 장바구니 오픈 함수 정의
+            window.openCartSidebar = function() {
+                var $sidebar = $('.cart-sidebar');
+                var $overlay = $('.cart-sidebar-overlay');
+                var $iframe = $('#cartIframe');
+                var $header = $('.cart-sidebar-header');
+                
+                // 사이드바 열기
+                $sidebar.css('right', '0');
+                $overlay.fadeIn(300);
+                $('body').css('overflow', 'hidden');
+                
+                // 헤더가 확실히 보이도록 스타일 강제 적용
+                $header.css({
+                    'display': 'flex',
+                    'visibility': 'visible',
+                    'opacity': '1',
+                    'z-index': '10000'
+                });
+                
+                // 장바구니 바로가기 버튼 확인
+                var $gotoBtn = $('.cart-goto-page');
+                $gotoBtn.css({
+                    'display': 'inline-block',
+                    'visibility': 'visible',
+                    'opacity': '1',
+                    'z-index': '10000'
+                });
+                
+                // iframe 소스 설정 (헤더보다 나중에 로드하여 헤더를 가리지 않도록 함)
+                setTimeout(function() {
+                    if ($iframe.attr('src') === '') {
+                        $iframe.attr('src', '/order/basket.html');
+                    } else {
+                        // iframe 이미 로드된 경우 새로고침
+                        $iframe[0].contentWindow.location.reload();
+                    }
+                    
+                    // iframe 로드 완료 후 스타일 적용
+                    $iframe.on('load', function() {
+                        try {
+                            // iframe 내부 문서의 스타일을 조작 (외부 요소에 영향을 주지 않도록 주의)
+                            var iframeDoc = $iframe.contents();
+                            var iframeHead = iframeDoc.find('head');
+                            var iframeCSS = `
+                                <style>
+                                    body { 
+                                        padding-top: 0 !important; 
+                                        margin-top: 0 !important;
+                                        overflow-x: hidden !important;
+                                    }
+                                    .xans-order-basketpackage { 
+                                        margin-top: 0 !important; 
+                                    }
+                                    
+                                    /* iframe 내부 요소만 영향받도록 명확하게 지정 */
+                                    body #header, 
+                                    body .path, 
+                                    body .titleArea, 
+                                    body .xans-order-function, 
+                                    body .orderListArea .title, 
+                                    body .xans-myshop-orderhistorynologin, 
+                                    body #footer, 
+                                    body #sidebar, 
+                                    body #quick,
+                                    body .main_top_banner,
+                                    body #main_top_banner,
+                                    body .main-top-banner,
+                                    body #main-top-banner { 
+                                        display: none !important; 
+                                    }
+                                </style>
+                            `;
+                            iframeHead.append(iframeCSS);
+                            
+                            // 헤더가 다시 보이는지 확인
+                            setTimeout(function() {
+                                $header.css({
+                                    'display': 'flex',
+                                    'visibility': 'visible',
+                                    'opacity': '1',
+                                    'z-index': '10000'
+                                });
+                                $gotoBtn.css({
+                                    'display': 'inline-block',
+                                    'visibility': 'visible',
+                                    'opacity': '1',
+                                    'z-index': '10000'
+                                });
+                            }, 100);
+                        } catch(e) {
+                            console.log('iframe 스타일 적용 실패:', e);
+                        }
+                    });
+                }, 100);
+            };
+            
+            // 닫기 버튼 이벤트
+            $(document).on('click', '.cart-sidebar-close', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeCartSidebar();
+            });
+            
+            // 오버레이 클릭시 닫기
+            $(document).on('click', '.cart-sidebar-overlay', function(e) {
+                e.preventDefault();
+                closeCartSidebar();
+            });
+            
+            // 사이드바 닫기 함수
+            function closeCartSidebar() {
+                var $sidebar = $('.cart-sidebar');
+                var isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    $sidebar.css('right', '-85vw');
+                } else {
+                    $sidebar.css('right', '-70vw');
+                }
+                
+                $('.cart-sidebar-overlay').fadeOut(300);
+                $('body').css('overflow', '');
+                
+                // iframe 내용 초기화 방지
+                setTimeout(function() {
+                    var $iframe = $('#cartIframe');
+                    if ($iframe.length > 0) {
+                        // iframe 소스 유지하고 리로드는 하지 않음
+                    }
+                }, 350);
+            }
+            
             // Cafe24 기존 장바구니 기능 확장: 상품 추가 후 사이드바 열기
             // 카트 버튼의 기존 onclick 이벤트를 저장하고 새 이벤트 핸들러로 교체
             var $cartButtons = $('.actionCart, #actionCart');
@@ -101,43 +432,100 @@
                     $btn.on('click', function(e) {
                         e.preventDefault();
                         
-                        // 기존 Cafe24 장바구니 코드 실행
-                        try {
-                            // Cafe24 패턴: product_submit(1, '/exec/front/order/basket/') 형식으로 호출됨
-                            // action_basket 변수는 보통 "product_submit(1, '/exec/front/order/basket/')" 형태
-                            // 전역 product_submit 함수가 존재하는지 확인
-                            if (typeof product_submit === 'function') {
-                                // form을 직접 찾아서 product_submit 호출
-                                product_submit(1, '/exec/front/order/basket/');
-                                
-                                // 장바구니 추가 후 잠시 대기 후 사이드바 열기
-                                setTimeout(function() {
-                                    if (typeof window.openCartSidebar === 'function') {
-                                        window.openCartSidebar();
-                                    }
-                                }, 500);
-                                return false;
-                            } else {
-                                // product_submit이 없으면 기존 onclick 문자열 실행 시도
-                                var onclick = $btn.attr('data-original-onclick');
-                                if (onclick) {
-                                    // 안전하게 eval 대신 Function으로 실행
-                                    (new Function(onclick))();
-                                    
-                                    // 장바구니 추가 후 잠시 대기 후 사이드바 열기
-                                    setTimeout(function() {
-                                        if (typeof window.openCartSidebar === 'function') {
-                                            window.openCartSidebar();
+                        // AJAX로 장바구니에 상품 추가
+                        var product_form = document.getElementById('product_form');
+                        if (product_form) {
+                            var formData = new FormData(product_form);
+                            formData.append('command', 'add');
+                            
+                            $.ajax({
+                                url: '/exec/front/order/basket/',
+                                type: 'POST',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+                                    // 성공적으로 장바구니에 담긴 경우
+                                    window.openCartSidebar();
+                                },
+                                error: function() {
+                                    // 실패한 경우 기존 방식으로 시도
+                                    try {
+                                        if (typeof product_submit === 'function') {
+                                            product_submit(1, '/exec/front/order/basket/');
+                                            
+                                            setTimeout(function() {
+                                                window.openCartSidebar();
+                                            }, 300);
+                                        } else {
+                                            var onclick = $btn.attr('data-original-onclick');
+                                            if (onclick) {
+                                                (new Function('event', 'event.preventDefault(); ' + onclick))(e);
+                                                
+                                                setTimeout(function() {
+                                                    window.openCartSidebar();
+                                                }, 300);
+                                            }
                                         }
-                                    }, 500);
+                                    } catch (err) {
+                                        alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
+                                    }
                                 }
-                                return false;
+                            });
+                        } else {
+                            // 폼이 없는 경우 기존 방식 사용
+                            try {
+                                if (typeof product_submit === 'function') {
+                                    // product_submit 함수를 실행하되, 페이지 리디렉션을 방지
+                                    var originalSubmitAction = window.submitAction;
+                                    window.submitAction = function(sAction) {
+                                        // AJAX 요청으로 변경
+                                        $.ajax({
+                                            url: sAction,
+                                            type: 'POST',
+                                            data: $('#frm_product input[name!=basket_type], #frm_product select').serialize(),
+                                            success: function() {
+                                                window.openCartSidebar();
+                                            }
+                                        });
+                                        return false;
+                                    };
+                                    
+                                    product_submit(1, '/exec/front/order/basket/');
+                                    
+                                    // 원래 함수 복구
+                                    setTimeout(function() {
+                                        window.submitAction = originalSubmitAction;
+                                    }, 500);
+                                } else {
+                                    // 다른 방식으로 시도
+                                    var originalOnclick = $btn.attr('data-original-onclick');
+                                    if (originalOnclick) {
+                                        var match = originalOnclick.match(/product_submit\((\d+),\s*['"]([^'"]+)['"]\)/);
+                                        if (match) {
+                                            $.ajax({
+                                                url: match[2],
+                                                type: 'POST',
+                                                data: $('#frm_product input[name!=basket_type], #frm_product select').serialize(),
+                                                success: function() {
+                                                    window.openCartSidebar();
+                                                }
+                                            });
+                                        } else {
+                                            // 직접 실행
+                                            (new Function('event', 'event.preventDefault(); ' + originalOnclick))(e);
+                                            setTimeout(function() {
+                                                window.openCartSidebar();
+                                            }, 300);
+                                        }
+                                    }
+                                }
+                            } catch (err) {
+                                console.error('장바구니 추가 오류:', err);
+                                alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
                             }
-                        } catch (err) {
-                            // 오류 발생 시 기본 동작으로 폴백
-                            alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
-                            return false;
                         }
+                        return false;
                     });
                 }
             });
@@ -155,33 +543,86 @@
                     $btn.on('click', function(e) {
                         e.preventDefault();
                         
-                        try {
-                            if (typeof product_submit === 'function') {
-                                product_submit(1, '/exec/front/order/basket/');
-                                
-                                setTimeout(function() {
-                                    if (typeof window.openCartSidebar === 'function') {
-                                        window.openCartSidebar();
-                                    }
-                                }, 500);
-                                return false;
-                            } else {
-                                var onclick = $btn.attr('data-original-onclick');
-                                if (onclick) {
-                                    (new Function(onclick))();
-                                    
-                                    setTimeout(function() {
-                                        if (typeof window.openCartSidebar === 'function') {
-                                            window.openCartSidebar();
+                        // AJAX로 장바구니에 상품 추가
+                        var product_form = document.getElementById('product_form');
+                        if (product_form) {
+                            var formData = new FormData(product_form);
+                            formData.append('command', 'add');
+                            
+                            $.ajax({
+                                url: '/exec/front/order/basket/',
+                                type: 'POST',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+                                    // 성공적으로 장바구니에 담긴 경우
+                                    window.openCartSidebar();
+                                },
+                                error: function() {
+                                    // 실패한 경우 기존 방식으로 시도
+                                    try {
+                                        if (typeof product_submit === 'function') {
+                                            product_submit(1, '/exec/front/order/basket/');
+                                            
+                                            setTimeout(function() {
+                                                window.openCartSidebar();
+                                            }, 300);
+                                        } else {
+                                            var onclick = $btn.attr('data-original-onclick');
+                                            if (onclick) {
+                                                (new Function('event', 'event.preventDefault(); ' + onclick))(e);
+                                                
+                                                setTimeout(function() {
+                                                    window.openCartSidebar();
+                                                }, 300);
+                                            }
                                         }
-                                    }, 500);
+                                    } catch (err) {
+                                        alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
+                                    }
                                 }
-                                return false;
+                            });
+                        } else {
+                            // 기존 방식 사용
+                            try {
+                                if (typeof product_submit === 'function') {
+                                    // product_submit 함수를 실행하되, 페이지 리디렉션을 방지
+                                    var originalSubmitAction = window.submitAction;
+                                    window.submitAction = function(sAction) {
+                                        // AJAX 요청으로 변경
+                                        $.ajax({
+                                            url: sAction,
+                                            type: 'POST',
+                                            data: $('#frm_product input[name!=basket_type], #frm_product select').serialize(),
+                                            success: function() {
+                                                window.openCartSidebar();
+                                            }
+                                        });
+                                        return false;
+                                    };
+                                    
+                                    product_submit(1, '/exec/front/order/basket/');
+                                    
+                                    // 원래 함수 복구
+                                    setTimeout(function() {
+                                        window.submitAction = originalSubmitAction;
+                                    }, 500);
+                                } else {
+                                    var onclick = $btn.attr('data-original-onclick');
+                                    if (onclick) {
+                                        (new Function('event', 'event.preventDefault(); ' + onclick))(e);
+                                        
+                                        setTimeout(function() {
+                                            window.openCartSidebar();
+                                        }, 300);
+                                    }
+                                }
+                            } catch (err) {
+                                alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
                             }
-                        } catch (err) {
-                            alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
-                            return false;
                         }
+                        return false;
                     });
                 }
             });

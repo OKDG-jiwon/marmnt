@@ -226,17 +226,6 @@
 <!-- 사이드 장바구니 스크립트 -->
 <script>
 $(document).ready(function() {
-    // 사이드바 HTML 추가
-    if ($('.cart-sidebar').length === 0) {
-        $('body').append(`
-            <div class="cart-sidebar-overlay"></div>
-            <div class="cart-sidebar">
-                <button class="cart-sidebar-close" aria-label="장바구니 닫기"></button>
-                <iframe src="" class="cart-iframe" id="cartIframe"></iframe>
-            </div>
-        `);
-    }
-    
     // 사이드 장바구니 오픈 함수
     window.openCartSidebar = function() {
         var $sidebar = $('.cart-sidebar');
@@ -269,7 +258,7 @@ $(document).ready(function() {
     
     // 사이드바 닫기 함수
     function closeCartSidebar() {
-        $('.cart-sidebar').css('right', '-400px');
+        $('.cart-sidebar').css('right', '-70vw');
         $('.cart-sidebar-overlay').fadeOut(300);
         $('body').css('overflow', '');
     }
