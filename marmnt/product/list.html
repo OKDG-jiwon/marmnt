@@ -1,0 +1,164 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>현재 위치</span>
+    <ol module="product_listpackage">
+        <li><a href="/">홈</a></li>
+        <li module="product_headcategory">{$category_name}</li>
+    </ol>
+</div>
+
+<div module="product_headcategory">
+    <div class="titleArea">
+        <h2>{$category_name}</h2>
+    </div>
+</div>
+
+<!-- 상품 정렬 -->
+<div module="product_normalmenu" class="tab">
+    <ul>
+        <li class="{$sort_order_by}"><a href="{$param}" class="list">신상품</a></li>
+        <li class="{$sort_name_by}"><a href="{$param}">상품명</a></li>
+        <li class="{$sort_price_asc_by}"><a href="{$param}">낮은가격</a></li>
+        <li class="{$sort_price_desc_by}"><a href="{$param}">높은가격</a></li>
+        <li class="{$sort_hit_by}"><a href="{$param}">인기상품</a></li>
+    </ul>
+</div>
+
+<!-- 상품 리스트 -->
+<div module="product_listnormal" class="ec-base-product">
+    <div class="prdCount">
+        <strong>{$total_count}</strong>개의 상품이 있습니다.
+    </div>
+    <ul class="prdList">
+        <li id="anchorBoxId_{$product_no}">
+            <div class="thumbnail">
+                <div class="prdImg">
+                    <a href="/product/detail.html{$param}" class="{$link_class}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" loading="lazy" ez-prevent="img" /></a>
+                </div>
+                <ul class="icon__box">
+                    <li class="cart"><a href="#none" class="actionCart" onclick="{$action_basket}"><img src="//img.echosting.cafe24.com/skin/mobile/layout/btn_list_cart.png" alt="장바구니" loading="lazy" ez-prevent="img" /></a></li>
+                    <li class="wish"><img src="{$list_wish_icon}" alt="관심상품등록" icon_status="{$icon_status}" class="{$list_wish_icon_display|display}" loading="lazy" ez-prevent="img" /></li>
+                </ul>
+            </div>
+            <div class="description">
+                <div class="name"><a href="/product/detail.html{$param}" class="{$link_class}">{$product_name}</a></div>
+                <div class="price">{$price}</div>
+                <div class="spec">{$summary_desc}</div>
+                <div class="icon">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$hot_icon}</div>
+                <div class="discountPeriod {$period_display|display}"><span class="period">{$period}</span></div>
+            </div>
+        </li>
+        <li id="anchorBoxId_{$product_no}">
+            <div class="thumbnail">
+                <div class="prdImg">
+                    <a href="/product/detail.html{$param}" class="{$link_class}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" loading="lazy" ez-prevent="img" /></a>
+                </div>
+                <ul class="icon__box">
+                    <li class="cart"><a href="#none" class="actionCart" onclick="{$action_basket}"><img src="//img.echosting.cafe24.com/skin/mobile/layout/btn_list_cart.png" alt="장바구니" loading="lazy" ez-prevent="img" /></a></li>
+                    <li class="wish"><img src="{$list_wish_icon}" alt="관심상품등록" icon_status="{$icon_status}" class="{$list_wish_icon_display|display}" loading="lazy" ez-prevent="img" /></li>
+                </ul>
+            </div>
+            <div class="description">
+                <div class="name"><a href="/product/detail.html{$param}" class="{$link_class}">{$product_name}</a></div>
+                <div class="price">{$price}</div>
+                <div class="spec">{$summary_desc}</div>
+                <div class="icon">{$soldout_icon} {$stock_icon} {$recommend_icon} {$new_icon} {$product_icons} {$hot_icon}</div>
+                <div class="discountPeriod {$period_display|display}"><span class="period">{$period}</span></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- 페이지네이션 -->
+<div module="product_listpaging" class="ec-base-paginate">
+    <a href="{$param_first}" class="first">첫 페이지</a>
+    <a href="{$param_prev}">이전 페이지</a>
+    <ol>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+    </ol>
+    <a href="{$param_next}">다음 페이지</a>
+    <a href="{$param_last}" class="last">마지막 페이지</a>
+</div>
+
+<!-- 사이드 장바구니 스크립트 -->
+<script>
+$(document).ready(function() {
+    // 사이드 장바구니 오픈 함수
+    window.openCartSidebar = function() {
+        var $sidebar = $('.cart-sidebar');
+        var $overlay = $('.cart-sidebar-overlay');
+        var $iframe = $('#cartIframe');
+        
+        // iframe 소스 설정
+        if ($iframe.attr('src') === '') {
+            $iframe.attr('src', '/order/basket.html');
+        } else {
+            // iframe 이미 로드된 경우 새로고침
+            $iframe[0].contentWindow.location.reload();
+        }
+        
+        // 사이드바 열기
+        $sidebar.css('right', '0');
+        $overlay.fadeIn(300);
+        $('body').css('overflow', 'hidden');
+    };
+    
+    // 닫기 버튼 이벤트
+    $('.cart-sidebar-close').on('click', function() {
+        closeCartSidebar();
+    });
+    
+    // 오버레이 클릭시 닫기
+    $('.cart-sidebar-overlay').on('click', function() {
+        closeCartSidebar();
+    });
+    
+    // 사이드바 닫기 함수
+    function closeCartSidebar() {
+        $('.cart-sidebar').css('right', '-400px');
+        $('.cart-sidebar-overlay').fadeOut(300);
+        $('body').css('overflow', '');
+    }
+    
+    // 장바구니 버튼에 이벤트 연결
+    var $cartButtons = $('.actionCart');
+    
+    $cartButtons.each(function() {
+        var $btn = $(this);
+        var originalOnclick = $btn.attr('onclick');
+        
+        if (originalOnclick) {
+            // 기존 onclick 속성 저장
+            $btn.attr('data-original-onclick', originalOnclick);
+            
+            // onclick 속성 제거
+            $btn.removeAttr('onclick');
+            
+            // 새 클릭 이벤트 추가
+            $btn.on('click', function(e) {
+                e.preventDefault();
+                
+                try {
+                    // 기존 onclick 코드 실행
+                    var onclick = $btn.attr('data-original-onclick');
+                    if (onclick) {
+                        // 기존 action_basket 호출 실행
+                        eval(onclick);
+                        
+                        // 장바구니 추가 후 사이드바 열기
+                        setTimeout(function() {
+                            window.openCartSidebar();
+                        }, 500);
+                    }
+                    return false;
+                } catch (err) {
+                    console.error('장바구니 추가 오류:', err);
+                    alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
+                    return false;
+                }
+            });
+        }
+    });
+});
+</script>

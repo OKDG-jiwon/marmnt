@@ -1,0 +1,211 @@
+/* 부모 컨테이너 공통 스타일 */
+.navigation-menu {
+    padding-left: 2vw; /* 좌측 정렬 기준 */
+}
+
+/* 모달 내부 로고 스타일 */
+.modal-logo {
+    position: static; /* 모달 내부에서 위치 지정 */
+    margin-top: 3vh; /* 뷰포트 높이에 비례한 간격 */
+    margin-left: 0; /* 부모 컨테이너 기준으로 맞춤 */
+}
+
+.modal-logo img {
+    max-width: 15vw; /* 뷰포트 너비에 비례한 최대 너비 */
+    height: auto; /* 비율 유지하며 높이 자동 조정 */
+    display: block; /* 이미지 블록 정렬 */
+}
+
+.modal-logo-row {
+    display: flex; /* 로고와 아이콘을 가로로 정렬 */
+    justify-content: space-between; /* 로고와 아이콘 간격 */
+    align-items: flex-end; /* 하단 정렬 */
+    padding: 1vh 2vw; /* 뷰포트 크기에 비례한 좌우 여백 */
+}
+
+.modal-icons {
+    display: flex; /* 아이콘을 가로로 정렬 */
+    gap: 2vw; /* 아이콘 간 간격 */
+    align-items: flex-end; /* 하단 정렬 */
+}
+
+.icon-link {
+    display: inline-flex; /* 아이콘과 텍스트 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    text-decoration: none; /* 밑줄 제거 */
+    margin-bottom: 2vh; /* 불필요한 여백 제거 */
+    color: #ccc; /* 아이콘 색상 */
+    font-size: calc(3.5vw); /* 뷰포트 너비에 비례한 아이콘 크기 */
+}
+
+.material-icons {
+    font-size: inherit; /* 아이콘 크기를 부모의 폰트 크기에 맞춤 */
+    display: inline-block; /* 아이콘이 텍스트처럼 동작 */
+    vertical-align: bottom; /* 하단 정렬 */
+}
+
+/* 구분선 스타일 */
+hr {
+    height: 0.1vh; /* 선의 두께를 뷰포트 높이에 비례 */
+    background-color: #ccc; /* 선 색상 */
+    margin: 0px 0; /* 위아래 여백 */
+    width: 100%; /* 전체 너비 */
+    border: none; /* 기본 테두리 제거 */
+}
+
+/* 메인 카테고리 스타일 */
+.navigation-menu__category {
+    margin-top: 2vh; /* 로고와 메뉴 간 간격 확보 */
+    padding-left: 2vw; /* 로고와 동일한 정렬 기준 */
+    margin-bottom: 10vh; /* 로고와 메뉴 간 간격 확보 */
+}
+
+.navigation-menu__category > ul > li > a {
+    font-size: calc(4vw); /* 뷰포트 너비에 비례한 글자 크기 */
+    font-weight: bold; /* 글자 두께 조정 (선택 사항) */
+    color: #fff; /* 텍스트 색상 */
+    text-decoration: none; /* 기본 링크 스타일 제거 */
+    letter-spacing: 0.1vw; /* 글자 간격 */
+    margin-bottom: 2vh; /* 항목 간 간격 */
+    display: inline-block;
+    transition: color 0.3s ease; /* 호버 효과 */
+}
+
+/* 서브 카테고리 스타일 */
+.navigation-menu_sub_category {
+    margin-top: 2vh; /* 로고와 메뉴 간 간격 확보 */
+    padding-left: 2vw; /* 로고와 동일한 정렬 기준 */
+}
+
+.navigation-menu_sub_category li a {
+    font-size: calc(2vw); /* 서브 카테고리 글자 크기 */
+    margin-bottom: 2vh; /* 항목 간 간격 */
+    letter-spacing: 0.05vw; /* 글자 간격 */
+    color: #ccc; /* 텍스트 색상 */
+    text-decoration: none; /* 기본 링크 스타일 제거 */
+    display: inline-block;
+    transition: color 0.3s ease; /* 호버 효과 */
+}
+
+/* Dimmed Background */
+#layoutDimmed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+body.expand #layoutDimmed {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 애니메이션 정의 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-100%, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Modal */
+#aside {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1001;
+    width: 80%;
+    max-width: 100%; /* 뷰포트 너비에 비례한 최대 너비 */
+    max-height: 100%;
+    background-color: #151515;
+    border-radius: 1vw; /* 뷰포트에 비례한 둥근 모서리 */
+    padding: 2vh 1vw; /* 위, 오른쪽, 아래, 왼쪽 순서 */
+    visibility: hidden;
+    opacity: 1;
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* 애니메이션 적용 */
+body.expand #aside {
+    visibility: visible;
+    opacity: 1;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Close Button */
+#aside .btnClose {
+    position: fixed;
+    top: 1.5vh;
+    right: 1.5vw;
+    width: 5vw; /* 버튼 크기 조정 */
+    height: 5vw;
+    background: none; /* 배경 제거 */
+    color: #ccc; !important; /* 흰색으로 텍스트 및 아이콘 설정 */
+    font-size: calc(1.5vw); /* 버튼 텍스트 크기 */
+    cursor: pointer;
+    visibility: hidden; /* 버튼 표시 */
+    opacity: 1; /* 투명도 설정 */
+}
+
+
+@media (max-width: 768px) {
+    #aside {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        z-index: 9999;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* 스크롤 제거 */
+    }
+
+    .modal-logo-row {
+        padding: 1vh 2vw; /* 좁은 화면에 맞게 여백 조정 */
+    }
+
+    .navigation-menu__category {
+        padding-left: 5vw; /* 전체 화면에서 더 균형 있게 패딩 조정 */
+    }
+    
+    .navigation-menu_sub_category {
+        padding-left: 5vw; /* 전체 화면에서 더 균형 있게 패딩 조정 */
+    }
+    .modal-logo img {
+        max-width: 30vw; /* 작은 화면에서 로고 크기 축소 */
+    }
+
+    .icon-link {
+        font-size: calc(7vw); /* 아이콘 크기 확대 */
+    }
+
+    .navigation-menu__category > ul > li > a {
+        font-size: calc(6vw); /* 메뉴 글씨 크기 조정 */
+    }
+
+    .navigation-menu_sub_category li a {
+        font-size: calc(4vw); /* 서브 메뉴 글씨 크기 조정 */
+    }
+}

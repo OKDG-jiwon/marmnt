@@ -1,0 +1,128 @@
+/* 게시판 전체 공통 */
+.xans-board-title .title {
+    min-height: 30px;
+    margin: 10px 0 20px;
+    border-bottom: none; /* 불필요한 라인 제거 */
+    display: none;
+}
+.xans-board-title .title h2 {
+    display: none;
+    padding: 0 0 0 12px;
+    color: #fff;
+    font-size: 16px;
+    background: none;
+}
+.xans-board-title .title p {
+    display: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+.xans-board-title p.imgArea {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+/* board title 숨기기 */
+.xans-board-title.xans-board-8 {
+    display: none;
+}
+
+/* 리스트 정렬 */
+.xans-board-listpackage-8 .boardList {
+    padding: 0 0 60px;
+    margin: 0;
+    overflow: hidden;
+    border-bottom: none; /* 불필요한 라인 제거 */
+}
+.xans-board-listpackage-8 .boardSort {
+    display: none;
+    margin: 0;
+}
+
+/* 갤러리형 탭메뉴 */
+.xans-board-listheader-8 {
+    margin: 0 0 40px;
+}
+.xans-board-listheader-8 ul {
+    overflow: hidden;
+}
+.xans-board-listheader-8 ul li {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.xans-board-listheader-8 li a {
+    display: block;
+    font-size: 14px;
+    color: #6d6d6d;
+    border-bottom: none; /* 불필요한 라인 제거 */
+    padding: 20px 15px;
+}
+
+/* list 공통 */
+.xans-board-listpackage-8 {
+    margin: 0 0 20px;
+}
+.xans-board-listpackage-8 .summary .subject span.comment {
+    display: inline-block;
+    margin: 0 0 0 8px;
+    color: #ef441f;
+}
+
+/* 일반글 */
+.xans-board-listpackage-8 .xans-board-list-8 ul {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.xans-board-listpackage-8 .xans-board-list-8 li {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1.5;
+    width: 50%;
+    vertical-align: top;
+    margin: 0; /* 여백 제거 */
+    padding: 0 5px;
+    border-bottom: none; /* 불필요한 라인 제거 */
+}
+.xans-board-listpackage-8 .xans-board-list-8 li a .thumbnail {
+    display: block;
+}
+.xans-board-listpackage-8 .xans-board-list-8 li a .thumbnail img {
+    display: block;
+    width: 100%; /* 부모 요소와 크기 일치 */
+    margin: 0 auto;
+}
+.xans-board-listpackage-8 .xans-board-list-8 li a .summary {
+    display: block;
+    color: #6d6d6d;
+}
+.xans-board-listpackage-8 .xans-board-list-8 li a .summary .subject {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: normal;
+    color: #fff;
+}
+
+/* PC 전용 스타일 */
+@media all and (min-width: 1025px) {
+    .xans-board-listpackage-8 .boardList {
+        padding: 0 0 60px;
+        margin: 0;
+        border-bottom: none; /* 불필요한 라인 제거 */
+    }
+    .xans-board-listpackage-8 .xans-board-list-8 li {
+        width: 25%;
+        margin: 0; /* 여백 제거 */
+        padding: 0 10px;
+    }
+    .xans-board-listpackage-8 .xans-board-list-8 li a .summary .subject {
+        margin: 25px 0 8px;
+    }
+}
+
+
+.xans-board-list.xans-board-8{
+    display:none;
+}

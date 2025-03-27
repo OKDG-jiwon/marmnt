@@ -1,0 +1,59 @@
+<!--@js(/layout/basic/js/layout.js)-->
+<!--@js(/js/module/language.js)-->
+<!--@css(/layout/basic/css/slideMenu.css)-->
+<div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-1hupzhm-1"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></div>
+<div id="layoutDimmed" onclick="closeModal()" data-ez="module-1n0gljz-1"></div>
+<aside id="aside" class="modal-menu" data-ez="module-13ysuyr-1">
+    <button type="button" class="btnClose" onclick="closeModal()">
+        <i aria-hidden="true" class="icon icoClose"></i>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="navigation-menu" role="navigation">
+        <!-- Logo Row -->
+        <div class="modal-logo-row">
+            <!-- Logo -->
+            <div class="modal-logo">
+                <a href="/"><img src="/web/upload/category/logo/v2_4d70106f84b53178d8d1b70d18fb3e38_2yII3c5kco_top.jpg" alt="Shop Logo" loading="lazy" ez-prevent="img"></a>
+            </div>
+            <!-- Icons -->
+            <div class="modal-icons">
+                <button class="icon-link menu btnLanguageToggle" id="slideLanguage" type="button">
+                    <i class="material-icons">language</i> <!-- Language Icon -->
+                </button>
+                <a href="/myshop/index.html" class="icon-link">
+                    <i class="material-icons">account_circle</i> <!-- User Icon -->
+                </a>
+                <a href="/order/basket.html" class="icon-link">
+                    <i class="material-icons">shopping_bag</i> <!-- Shopping Cart Icon -->
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider Below Logo -->
+        <hr class="divider">
+
+        <!-- Category List -->
+        <div id="slideCateList" class="navigation-menu__category">
+            <ul id="slide_add_category">
+                <li><a href="/" class="view">HOME</a></li>
+                <li><a href="/category/(%EB%8C%80%EB%B6%84%EB%A5%98)-Outerwear/24/" class="view">HIGHS</a></li>
+                <li><a href="/shopinfo/company.html" class="view">ABOUT</a></li>
+                <li><a href="/board/Gallery/8/" class="view">LOOKS</a></li>
+            </ul>
+        </div>
+
+        <!-- Divider Above Sub Category -->
+        <hr class="divider">
+
+        <div id="slideCateList" class="navigation-menu_sub_category">
+            <ul id="slide_sub_category">
+                <li><a href="/myshop/index.html" class="view">ACCOUNT</a></li>
+                <li><a id="mailTrigger" href="mailto:aydenkim0612@gmail.com" title="Send us an email">SERVICES</a></li>
+                <li><a class="view" id="country">COUNTRY: Korea</a></li>
+                <li><a class="view" id="language">LANGUAGE: 한국어</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+<!--#ez="1/2"-->

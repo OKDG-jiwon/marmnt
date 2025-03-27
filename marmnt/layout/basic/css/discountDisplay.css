@@ -1,0 +1,90 @@
+/* 스타일을 추가하여 보기 좋게 꾸밀 수 있습니다 */
+#discount-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+#discount-progress {
+    text-align: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+    height: 40px;
+}
+
+.progress {
+    background-color: #76c7c0;
+    height: 100%;
+    position: relative;
+    transition: width 0.5s;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    align-items: center;
+}
+
+.discount-label {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.current-discount {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: #ff6b6b;
+    color: black;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transform: translateX(-50%);
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+.current-discount::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ff6b6b;
+}

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
+
+        <!-- 파비콘 설정 -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
+
+
+
+        <!-- PG크로스브라우징필수내용 -->
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <!-- // PG크로스브라우징필수내용 -->
+
+        <title></title>
+        <!--@css(/layout/basic/css/common.css)--><!-- 해당 CSS는 쇼핑몰 전체 페이지에 영향을 줍니다. 삭제와 수정에 주의해주세요. -->
+        <!--@css(/layout/basic/css/layout.css)-->
+        <!--@css(/layout/basic/css/ec-base-ui.css)-->
+        <!--@css(/layout/basic/css/ec-base-button.css)-->
+        <!--@css(/layout/basic/css/ec-base-tab.css)-->
+        <!--@css(/layout/basic/css/ec-base-table.css)-->
+        <!--@css(/layout/basic/css/ec-base-tooltip.css)-->
+        <!--@css(/layout/basic/css/ec-base-help.css)-->
+        <!--@css(/layout/basic/css/ec-base-fold.css)-->
+        <!--@css(/layout/basic/css/ec-base-box.css)-->
+        <!--@css(/layout/basic/css/ec-base-desc.css)-->
+        <!--@css(/layout/basic/css/ec-base-product.css)-->
+        <!--@css(/layout/basic/css/ec-base-prdInfo.css)-->
+        <!--@css(/layout/basic/css/ec-base-paginate.css)-->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
+        <!--@css(/layout/basic/css/swiper.min.css)-->
+        <!--@js(/layout/basic/js/swiper-bundle.min.js)-->
+        <!--@js(/js/module/product/sale_price.js)-->
+
+        <!--@js(/layout/basic/js/basic.js)-->
+        <!--@js(/layout/basic/js/layout.js)-->
+        <!--@js(/js/common.js)-->
+        <script>try{window.EZST={q:[],register:function(a,b){this.push([a,(b.init||b)(),arguments])}}}catch(e){}</script>
+        <!--ez-favicon[-->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <!--ez-favicon]-->
+
+        <!--@js(/ez/init.js)-->
+        <script type="text/ez-prop">
+        <ez-prop data-version="1.0.0">
+            <ez-var data-prop="theme" data-namespace="ez.layout.theme" data-type="array">
+                <ez-item data-id="theme01" data-name="MODERN" data-desc="(블랙+노토산스)" data-font="Noto Sans KR" data-background-color="#f5f5f5" override-value="html" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+                    모던하고 차분한 스타일
+                    <!-- HTML도 <b>이렇게</b> 가능합니다.<br>
+                    세부 옵션은 <a href="https://sample.cafe24.com/theme01" target="_blank">이곳을</a> 통해 확인 할 수 있습니다. -->
+            </ez-item>
+                <ez-item data-id="theme02" data-name="SOFT" data-desc="은은하고 부드러운 스타일	" data-font="Noto Sans KR" data-background-color="#d8d9ed" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"></ez-item>
+                <ez-item data-id="theme03" data-name="BREEZY" data-desc="밝고 경쾌한 스타일" data-font="Spoqa Han Sans Neo" data-background-color="#ffc1a8" data-font-css="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"></ez-item>
+                <ez-item data-id="theme04" data-name="FRESH" data-desc="시원하고 산뜻한 스타일" data-font="Nanum Gothic" data-background-color="#c3e7e7" data-font-css="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap"></ez-item>
+            </ez-var>
+            </ez-prop>
+        </script>
+    </head>
+    <body class="theme03" data-ez-theme="theme03">
+        <div id="background-overlay"></div>
+
+        <div id="skipNavigation">
+            <p><a href="#category">전체상품목록 바로가기</a></p>
+            <p><a href="#contents">본문 바로가기</a></p>
+        </div>
+        <div id="wrap">
+            <!--@import(/layout/basic/header.html)-->
+            <!--@import(/layout/basic/sidebar.html)-->
+            <div id="container" data-ez="layout-06i7law-1">
+                <div id="contents">
+                    <span module="Layout_MobileAction" class="RTMB">
+                        <a href="#none" onclick="{$go_back}"><!--@import(/svg/icon-go-back.html)-->뒤로가기</a>
+                    </span>
+                    <!--@contents-->
+                </div>
+            </div>
+            <!--@import(/layout/basic/footer.html)-->
+            <!--#ez="1/23"-->
+        </div><!-- //wrap -->
+
+        <div id="progressPaybar" style="display:none;">
+            <div id="progressPaybarBackground" class="layerProgress"></div>
+            <div id="progressPaybarView">
+                <div class="box">
+                    <h3>현재 결제가 진행중입니다.</h3>
+                    <p class="txt">
+                        본 결제 창은 결제완료 후 자동으로 닫히며,결제 진행 중에 본 결제 창을 닫으시면<br>
+                        주문이 되지 않으니 결제 완료 될 때 까지 닫지 마시기 바랍니다.
+                    </p>
+                    <div class="progressbar"><img src="//img.echosting.cafe24.com/skin/skin/common/img_loading.gif" alt="loading" loading="lazy"></div>
+                </div>
+            </div>
+        </div>
+
+        <div module="Layout_multishopShipping">
+            <!--@css(/layout/basic/css/ec-base-layer.css)-->
+            <!--@css(/css/module/layout/multishopShipping.css)-->
+            <!--@js(/js/module/layout/multishopShipping.js)-->
+            <div class="worldshipLayer ec-base-layer typeModal">
+                <div class="header">
+                    <h3>WORLD SHIPPING</h3>
+                </div>
+                <div class="content">
+                    <p class="desc">PLEASE SELECT THE DESTINATION COUNTRY AND LANGUAGE :</p>
+                    <select module="Layout_multishopShippingCountrylist">
+                        <option value="{$country_code}" {$country_default_selected}>SHIPPING TO : {$country_name}</option>
+                        <option value="{$country_code}" {$country_default_selected}>SHIPPING TO : {$country_name}</option>
+                    </select>
+                    <select module="Layout_multishopShippingLanguagelist">
+                        <option value="{$shop_domain}" {$shop_default_selected}>LANGUAGE : {$shop_language_name}</option>
+                        <option value="{$shop_domain}" {$shop_default_selected}>LANGUAGE : {$shop_language_name}</option>
+                    </select>
+                </div>
+                <div class="ec-base-button">
+                    <a href="#none" class="btnSubmitFix sizeM">GO</a>
+                </div>
+                <a href="#none" class="btnClose">닫기</a>
+            </div>
+        </div>
+
+        <div class="layer_shadow" id="layer_shadow"></div>
+        <div id="layoutDimmed" class="dimmed"></div>
+
+        <!--@css(/layout/basic/css/sub_style.css)-->
+        <!--@css(/layout/basic/css/sub_theme.css)-->
+        <!--@css(/layout/basic/css/add_theme01.css)-->
+        <!--@css(/layout/basic/css/add_theme02.css)-->
+        <!--@css(/layout/basic/css/add_theme03.css)-->
+        <!--@css(/layout/basic/css/add_layout.css)-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const languageToggles = document.querySelectorAll('.menu.btnLanguageToggle, .icon-link.menu.btnLanguageToggle');
+
+                function addEventListenersToToggles(toggles) {
+                    toggles.forEach(toggle => {
+                        toggle.addEventListener('click', function (event) {
+                            console.log("Language toggle button clicked", event.target);
+                            toggleLanguage(event);
+                        });
+
+                        toggle.addEventListener('touchstart', function (event) {
+                            console.log("Language toggle button touched", event.target);
+                            toggleLanguage(event);
+                        });
+                    });
+                }
+
+                const API_KEY = 'AIzaSyCmu-6nwIq81WOV5t4bL4SRMIBUkM3JGgQ'; // Google Translate API 키
+                const koreanRegex = /[\uac00-\ud7af]/; // 한글 탐지 정규식
+                const priceRegex = /\$([\d,\.]+)/; // 달러 금액 탐지 정규식
+                const koreanPriceRegex = /([\d,]+)\s*원$/; // 한화 금액 탐지 정규식
+                const excludeIDs = ['excludeID1', 'excludeID2'];
+
+                let isTranslating = false; // 중복 실행 방지 플래그
+
+                function updateLanguageDisplay() {
+                    const currentLanguage = document.documentElement.lang;
+
+                    const countryElement = document.getElementById('country');
+                    const languageElement = document.getElementById('language');
+
+                    if (currentLanguage === 'ko') {
+                        if (countryElement) countryElement.textContent = 'COUNTRY: Korea';
+                        if (languageElement) languageElement.textContent = 'LANGUAGE: 한국어';
+                    } else {
+                        if (countryElement) countryElement.textContent = 'COUNTRY: International';
+                        if (languageElement) languageElement.textContent = 'LANGUAGE: English';
+                    }
+                }
+
+                function initializeLanguage() {
+                    const savedLanguage = localStorage.getItem('selectedLanguage');
+                    if (savedLanguage) {
+                        document.documentElement.lang = savedLanguage; // 저장된 언어로 설정
+                    } else {
+                        document.documentElement.lang = 'ko'; // 기본값: 한국어
+                        localStorage.setItem('selectedLanguage', 'ko'); // 기본값 저장
+                    }
+                    updateLanguageDisplay();
+                    updateCurrency(document.documentElement.lang);
+                    translatePage(document.documentElement.lang); // 페이지 초기 번역 적용
+                }
+
+                function updateCurrency(targetLanguage) {
+                    const elementsToTranslate = document.querySelectorAll('*:not(script):not(style):not([data-ignore])');
+
+                    for (const element of elementsToTranslate) {
+                        if (excludeIDs.includes(element.id)) continue; // ID가 제외 목록에 있는 경우 무시
+
+                        const childNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+
+                        for (const node of childNodes) {
+                            const textContent = node.textContent.trim();
+
+                            if (targetLanguage === 'ko' && priceRegex.test(textContent)) {
+                                const match = textContent.match(priceRegex);
+                                if (match) {
+                                    const dollarValue = parseFloat(match[1].replace(/,/g, ''));
+                                    const koreanPrice = `${(dollarValue * 1300).toFixed(0)}원`;
+                                    node.textContent = node.parentNode.dataset.originalPrice || koreanPrice;
+                                    node.parentNode.dataset.originalPrice = koreanPrice;
+                                }
+                            }
+
+                            if (targetLanguage === 'en' && koreanPriceRegex.test(textContent)) {
+                                const match = textContent.match(koreanPriceRegex);
+                                if (match) {
+                                    const numericValue = parseFloat(match[1].replace(/,/g, ''));
+                                    const convertedPrice = `$${(numericValue / 1300).toFixed(2)}`;
+                                    node.parentNode.dataset.originalPrice = textContent;
+                                    node.textContent = convertedPrice;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                async function translatePage(targetLanguage) {
+                    if (isTranslating) return; // 중복 실행 방지
+                    isTranslating = true;
+
+                    const elementsToTranslate = document.querySelectorAll('*:not(script):not(style):not([data-ignore])');
+                    const translationPromises = [];
+
+                    for (const element of elementsToTranslate) {
+                        if (excludeIDs.includes(element.id)) continue; // ID가 제외 목록에 있는 경우 무시
+
+                        const childNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+
+                        for (const node of childNodes) {
+                            const text = node.textContent.trim();
+
+                            if (targetLanguage === 'en' && koreanRegex.test(text)) {
+                                const originalText = node.parentNode.dataset.original || text;
+
+                                if (!node.parentNode.dataset.original) {
+                                    node.parentNode.dataset.original = originalText;
+                                }
+
+                                const promise = translateText(originalText, targetLanguage)
+                                .then(translatedText => {
+                                    node.textContent = translatedText;
+                                })
+                                .catch(error => console.error('번역 오류:', error));
+
+                                translationPromises.push(promise);
+                            }
+
+                            if (targetLanguage === 'ko') {
+                                const originalText = node.parentNode.dataset.original;
+                                if (originalText) {
+                                    node.textContent = originalText;
+                                }
+                            }
+                        }
+                    }
+
+                    await Promise.all(translationPromises);
+                    console.log('번역 완료 및 업데이트 완료');
+                    isTranslating = false; // 번역 완료 후 플래그 해제
+                }
+
+                async function translateText(text, targetLanguage) {
+                    const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            q: text,
+                            target: targetLanguage,
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        console.error('Translation API Error:', await response.text());
+                        throw new Error('Translation API 요청 실패');
+                    }
+
+                    const result = await response.json();
+                    return result.data.translations[0].translatedText;
+                }
+
+                async function toggleLanguage(event) {
+                    event.stopPropagation();
+                    console.log("현재 언어:", document.documentElement.lang);
+
+                    if (isTranslating) return; // 중복 실행 방지
+
+                    const currentLanguage = document.documentElement.lang;
+
+                    if (currentLanguage === 'ko') {
+                        document.documentElement.lang = 'en';
+                        localStorage.setItem('selectedLanguage', 'en'); // 언어 설정 저장
+                        updateCurrency('en');
+                        await translatePage('en');
+                    } else {
+                        document.documentElement.lang = 'ko';
+                        localStorage.setItem('selectedLanguage', 'ko'); // 언어 설정 저장
+                        updateCurrency('ko');
+                        await translatePage('ko');
+                    }
+                    updateLanguageDisplay();
+                    console.log("언어 변경 완료. 현재 언어:", document.documentElement.lang);
+                }
+
+                initializeLanguage();
+                addEventListenersToToggles(languageToggles);
+
+                document.addEventListener('visibilitychange', function () {
+                    if (document.visibilityState === 'visible') {
+                        const savedLanguage = localStorage.getItem('selectedLanguage');
+                        if (savedLanguage && document.documentElement.lang !== savedLanguage) {
+                            document.documentElement.lang = savedLanguage;
+                            updateLanguageDisplay();
+                            updateCurrency(savedLanguage);
+                            translatePage(savedLanguage); // 저장된 언어로 번역
+                        }
+                    }
+                });
+
+                window.addEventListener('storage', (event) => {
+                    if (event.key === 'selectedLanguage') {
+                        console.log('selectedLanguage changed:', event.newValue);
+                    }
+                });
+            });
+    	</script>
+	</body>
+</html>

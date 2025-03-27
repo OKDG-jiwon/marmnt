@@ -1,0 +1,23 @@
+.image-gallery {
+    column-count: 3; /* 한 행에 3개의 이미지 */
+    column-gap: 10px; /* 열 간 간격 제거 */
+    padding: 0; /* 전체 갤러리 패딩 제거 */
+    margin: 10vh auto 0; /* 외부 여백 제거 */
+    background-color: transparent; /* 배경 투명 */
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 100%; /* 부모 요소에 맞게 채움 */
+    margin: 0 0 10px; /* 각 이미지 하단 간격 */
+}
+
+.gallery-item img {
+    width: 100%; /* 부모 요소의 너비에 맞춤 */
+    height: auto; /* 세로 비율 유지 */
+    display: block; /* 이미지 아래 공백 제거 */
+    object-fit: cover; /* 비율 유지하며 이미지 잘리지 않게 */
+    margin: 0; /* 여백 제거 */
+    border: none; /* 테두리 제거 */
+}
+
