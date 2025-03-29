@@ -1,6 +1,40 @@
 <!--@layout(/layout/basic/layout.html)-->
-<!--@css(/layout/basic/css/discount.css)-->
 <!--@css(/layout/basic/css/discountDisplay.css)-->
+<!--@css(/css/module/order/fix_header_basket.css)-->
+<script>
+    // 페이지 로드 시 fixedHeader 함수 무효화
+    window.addEventListener('DOMContentLoaded', function () {
+        // 원래의 fixedHeader 함수를 저장하고 무효화
+        if (typeof window.originalFixedHeader === 'undefined' && typeof window.fixedHeader === 'function') {
+            window.originalFixedHeader = window.fixedHeader;
+            window.fixedHeader = function () {
+                // 장바구니 페이지에서는 아무 동작도 하지 않음
+                return;
+            };
+        }
+
+        // jQuery를 사용하는 경우 스크롤 이벤트도 무효화
+        if (typeof jQuery !== 'undefined') {
+            // 원래의 스크롤 이벤트 핸들러 저장
+            var originalScrollHandler = jQuery.fn.scroll;
+
+            // 헤더 관련 클래스 제거 및 스타일 고정
+            var headerElement = document.getElementById('header');
+            if (headerElement) {
+                headerElement.classList.remove('fixed');
+                headerElement.style.position = 'relative';
+                headerElement.style.transform = 'none';
+                headerElement.style.top = '0';
+
+                // contents 요소의 margin-top 제거
+                var contentsElement = document.getElementById('contents');
+                if (contentsElement) {
+                    contentsElement.style.marginTop = '0';
+                }
+            }
+        }
+    });
+</script>
 <div data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain" data-ez="module-0dnre0i-1">
 </div>
 <div class="section path" data-ez="module-09amg8w-1" data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain">

@@ -27,6 +27,7 @@
     <!--@css(/layout/basic/css/ec-base-product.css)-->
   	<!--@css(/layout/basic/css/ec-base-prdInfo.css)-->
     <!--@css(/layout/basic/css/ec-base-paginate.css)-->
+	<!--@css(/layout/basic/css/cart-sidebar.css)--><!-- 장바구니 사이드바 스타일 -->
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +43,7 @@
     <!--@js(/layout/basic/js/basic.js)-->
     <!--@js(/layout/basic/js/layout.js)-->
     <!--@js(/js/common.js)-->
+	<!--@js(/layout/basic/js/cart-sidebar.js)--><!-- 장바구니 사이드바 스크립트 -->
     <script>try{window.EZST={q:[],register:function(a,b){this.push([a,(b.init||b)(),arguments])}}}catch(e){}</script>
     <!--ez-favicon[-->
     <!--ez-favicon]-->
@@ -51,8 +53,6 @@
 			<ez-var data-prop="theme" data-namespace="ez.layout.theme" data-type="array">
 				<ez-item data-id="theme01" data-name="MODERN" data-desc="(블랙+노토산스)" data-font="Noto Sans KR" data-background-color="#f5f5f5" override-value="html" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
 					모던하고 차분한 스타일
-					<!-- HTML도 <b>이렇게</b> 가능합니다.<br>
-					세부 옵션은 <a href="https://sample.cafe24.com/theme01" target="_blank">이곳을</a> 통해 확인 할 수 있습니다. -->
 				</ez-item>
 				<ez-item data-id="theme02" data-name="SOFT" data-desc="은은하고 부드러운 스타일	" data-font="Noto Sans KR" data-background-color="#d8d9ed" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"></ez-item>
 				<ez-item data-id="theme03" data-name="BREEZY" data-desc="밝고 경쾌한 스타일" data-font="Spoqa Han Sans Neo" data-background-color="#ffc1a8" data-font-css="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"></ez-item>
@@ -69,350 +69,42 @@
 		<p><a href="#category">전체상품목록 바로가기</a></p>
 		<p><a href="#contents">본문 바로가기</a></p>
 	</div>
-	
-	<!-- 장바구니 사이드바 스타일 -->
-    <style>
-        /* 카트 컨테이너와 오버레이 스타일 */
-        .cart-sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none;
-        }
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100%;
-            background: #fff;
-            z-index: 1000;
-            transition: right 0.3s ease;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        /* 카트 타이틀 영역 */
-        .cart-title {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 50px;
-            background: #fff;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
-            font-weight: bold;
-        }
-        /* 닫기 버튼 스타일 */
-        .cart-sidebar-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 32px;
-            height: 32px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 11;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.2s ease;
-        }
-        .cart-sidebar-close:hover {
-            background-color: #f5f5f5;
-        }
-        .cart-sidebar-close::before, .cart-sidebar-close::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 2px;
-            background-color: #333;
-        }
-        .cart-sidebar-close::before {
-            transform: rotate(45deg);
-        }
-        .cart-sidebar-close::after {
-            transform: rotate(-45deg);
-        }
-        /* iframe 스타일 */
-        .cart-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            margin-top: 0;
-            flex: 1;
-        }
-        
-        /* 모바일 반응형 스타일 */
-        @media (max-width: 768px) {
-            .cart-sidebar {
-                width: 100%;
-                right: -100%;
-            }
-        }
-        
-        /* 할인금액 관련 스타일 */
-        .totalSummary__item.discount {
-            background-color: #f8f8f8;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-        
-        .totalSummary__item.discount .contents {
-            padding: 5px 0;
-            font-size: 13px;
-        }
-        
-        .totalSummary__item.discount .item {
-            display: flex;
-            justify-content: space-between;
-            margin: 3px 0;
-        }
-        
-        .highlight-discount {
-            color: #ff6b6b;
-            animation: fadeIn 0.5s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+	<!--@import(/layout/basic/header.html)-->
 
     <!-- 장바구니 사이드바 HTML -->
     <div class="cart-sidebar-overlay"></div>
     <div class="cart-sidebar">
-        <button class="cart-sidebar-close" aria-label="장바구니 닫기"></button>
+		<div class="cart-sidebar-header">
+			<h3>장바구니</h3>
+			<div class="cart-header-buttons">
+				<a href="/order/basket.html"
+				   class="cart-goto-page">장바구니 바로가기</a>
+				<button class="cart-sidebar-close"
+						aria-label="장바구니 닫기"></button>
+			</div>
+		</div>
         <iframe src="" class="cart-iframe" id="cartIframe"></iframe>
+		<div class="floating-close-btn"
+			 onclick="closeSideCart()">
+			<span>닫기</span>
+		</div>
     </div>
-
-    <!-- 장바구니 사이드바 스크립트 -->
-    <script>
-        // Cafe24 기본 Basket 객체에 필요한 함수 추가
-        window.Basket = window.Basket || {};
-        
-        // isInProgressMigrationCartData 함수가 없어서 발생하는 오류 해결
-        if (typeof window.Basket.isInProgressMigrationCartData !== 'function') {
-            window.Basket.isInProgressMigrationCartData = function() {
-                return false;
-            };
-        }
-        
-        function openCartSidebar() {
-            var overlay = document.querySelector('.cart-sidebar-overlay');
-            var sidebar = document.querySelector('.cart-sidebar');
-            var iframe = document.getElementById('cartIframe');
-
-            // iframe에 basket.html 로드
-            iframe.src = '/order/basket.html';
-
-            // 카트 사이드바와 오버레이 표시
-            overlay.style.display = 'block';
-            sidebar.style.right = '0';
-
-            // iframe 로드 완료 후 스타일 조정
-            iframe.onload = function() {
-                try {
-                    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    
-                    // 헤더, 푸터 등 불필요한 요소 숨기기
-                    var styleElement = iframeDoc.createElement('style');
-                    styleElement.textContent = `
-                        #header, #footer, #skipNavigation, .titleArea, #container > .path, .xans-layout-statelogon, .xans-layout-multishopshipping, .xans-myshop-orderhistorytab { 
-                            display: none !important; 
-                        }
-                        body { 
-                            padding-top: 0 !important; 
-                            margin-top: 0 !important; 
-                        }
-                        .xans-order-basketpackage { 
-                            padding-top: 10px !important; 
-                        }
-                        #discount-info, .section.titleArea, .section.ec-base-step { 
-                            margin-top: 60px !important; 
-                        }
-                        
-                        /* 카트 내부 타이틀 스타일 */
-                        .cart-container::before {
-                            content: "장바구니";
-                            display: block;
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            padding: 15px 0;
-                            background: #fff;
-                            font-size: 16px;
-                            font-weight: bold;
-                            text-align: center;
-                            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-                            z-index: 100;
-                        }
-                        
-                        /* 주문 버튼 스타일 */
-                        .xans-order-totalorder {
-                            position: fixed;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            background: #fff;
-                            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-                            padding: 10px 0;
-                            z-index: 100;
-                        }
-                        
-                        /* 할인금액 관련 스타일 */
-                        .title.discount {
-                            display: block !important;
-                        }
-                        
-                        .title.discount p {
-                            margin: 0 !important;
-                            padding: 0 !important;
-                        }
-                        
-                        .title.discount p strong,
-                        .title.discount strong {
-                            font-weight: bold !important;
-                            color: #ff6b6b !important;
-                            font-size: 16px !important;
-                        }
-                        
-                        /* 할인금액 강조 표시 */
-                        .title.discount .data {
-                            color: #ff6b6b !important;
-                            font-weight: bold !important;
-                            font-size: 16px !important;
-                        }
-                        
-                        /* 할인금액 영역 스타일 강화 */
-                        .title.discount.totalSummary__item {
-                            background-color: #fff8f8 !important;
-                            border-radius: 4px !important;
-                            padding: 10px !important;
-                            margin: 10px 0 !important;
-                            border-left: 3px solid #ff6b6b !important;
-                        }
-                        
-                        /* 할인금액 내역 표시 스타일 강화 */
-                        #total-benefit-list {
-                            margin-top: 10px !important;
-                            padding-top: 5px !important;
-                            border-top: 1px dashed #eee !important;
-                        }
-                        
-                        #total-benefit-list .item {
-                            display: flex !important;
-                            justify-content: space-between !important;
-                            margin: 5px 0 !important;
-                            font-size: 12px !important;
-                        }
-                        
-                        #total-benefit-list .item .data {
-                            color: #ff6b6b !important;
-                            font-weight: bold !important;
-                        }
-                    `;
-                    iframeDoc.head.appendChild(styleElement);
-                    
-                    // 할인금액 처리를 위한 스크립트 추가
-                    var discountScript = iframeDoc.createElement('script');
-                    discountScript.textContent = `
-                        // 페이지 로드 후 할인금액 스타일 적용
-                        window.addEventListener('load', function() {
-                            // Cafe24 템플릿 변수 처리 기다림
-                            setTimeout(function() {
-                                // 할인금액 영역 찾기
-                                var discountArea = document.querySelector('.title.discount');
-                                if (!discountArea) return;
-                                
-                                // 할인금액 값 찾기 (p 태그 내 strong 또는 직접 strong)
-                                var discountElement = discountArea.querySelector('.data p strong, .data strong');
-                                if (!discountElement) return;
-                                
-                                // 할인금액이 있는 경우 (0이 아닌 경우)
-                                var discountValue = discountElement.textContent.trim();
-                                if (discountValue && discountValue !== '0') {
-                                    // 할인금액 영역 강조
-                                    discountArea.style.display = 'block';
-                                    discountArea.style.backgroundColor = '#fff8f8';
-                                    discountArea.style.borderRadius = '4px';
-                                    discountArea.style.padding = '10px';
-                                    discountArea.style.margin = '10px 0';
-                                    discountArea.style.borderLeft = '3px solid #ff6b6b';
-                                    
-                                    // 할인금액 텍스트 강조
-                                    discountElement.style.color = '#ff6b6b';
-                                    discountElement.style.fontWeight = 'bold';
-                                }
-                            }, 500);
-                        });
-                    `;
-                    iframeDoc.body.appendChild(discountScript);
-                } catch (e) {
-                    console.error('iframe 스타일 적용 중 오류:', e);
-                }
-            };
-
-            // 오버레이 클릭 시 사이드바 닫기
-            overlay.addEventListener('click', closeCartSidebar);
-        }
-
-        function closeCartSidebar() {
-            var overlay = document.querySelector('.cart-sidebar-overlay');
-            var sidebar = document.querySelector('.cart-sidebar');
-            
-            overlay.style.display = 'none';
-            sidebar.style.right = '-400px';
-            
-            // 모바일 환경에서는 다른 값 사용
-            if (window.innerWidth <= 768) {
-                sidebar.style.right = '-100%';
-            }
-        }
-
-        // 닫기 버튼에 이벤트 리스너 추가
-        document.querySelector('.cart-sidebar-close').addEventListener('click', closeCartSidebar);
-
-        // 카트 버튼에 이벤트 리스너 추가
-        document.addEventListener('DOMContentLoaded', function() {
-            var cartButtons = document.querySelectorAll('.xans-layout-orderbasketcount a, #header .cart a');
-            
-            cartButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openCartSidebar();
-                });
-            });
-        });
-    </script>
 	
 	<div id="wrap">
-<!--@import(/layout/basic/header.html)-->
-<!--@import(/layout/basic/sidebar.html)-->
-<div id="container" data-ez="layout-08jjr1x-1">
+		<!--@import(/layout/basic/sidebar.html)-->
+		<div id="container"
+			 data-ez="layout-08jjr1x-1">
 			<div id="contents">
-				<span module="Layout_MobileAction" class="RTMB">
-					<a href="#none" onclick="{$go_back}"><!--@import(/svg/icon-go-back.html)-->뒤로가기</a>
+				<span module="Layout_MobileAction"
+					  class="RTMB">
+					<a href="#none"
+					   onclick="{$go_back}"><!--@import(/svg/icon-go-back.html)-->뒤로가기</a>
 				</span>
 				<!--@contents-->
 			</div>
 		</div>
-<!--@import(/layout/basic/footer.html)-->
-<!--#ez="1/1"-->
-</div><!-- //wrap -->
+		<!--#ez="1/1"-->
+	</div>
 
 	<div id="progressPaybar" style="display:none;">
 		<div id="progressPaybarBackground" class="layerProgress"></div>
@@ -463,5 +155,6 @@
 	<!--@css(/layout/basic/css/add_theme02.css)-->
 	<!--@css(/layout/basic/css/add_theme03.css)-->
 	<!--@css(/layout/basic/css/add_layout.css)-->
+	<!--@import(/layout/basic/footer.html)-->
 </body>
 </html>

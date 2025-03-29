@@ -1,0 +1,109 @@
+/**
+ * 장바구니 페이지의 헤더 깜빡임 문제를 해결하는 CSS
+ */
+
+/* 헤더 요소 고정 및 깜빡임 방지 */
+#header {
+    position: relative !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    /* translateY(-60px) 무효화 */
+    -webkit-transform: translateY(0) !important;
+    -ms-transform: translateY(0) !important;
+    transform: translateY(0) !important;
+}
+
+#header.fixed {
+    position: relative !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    /* webkist가 아닌 webkit으로 수정 */
+    transition: none !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    /* translateY(-60px) 무효화 */
+    -webkit-transform: translateY(0) !important;
+    -ms-transform: translateY(0) !important;
+    transform: translateY(0) !important;
+}
+
+/* fixed 클래스가 추가되었을 때 contents 요소의 margin-top 제거 */
+#header.fixed+#container #contents {
+    margin-top: 0 !important;
+}
+
+/* 스크롤 처리 */
+html,
+body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+#wrap {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 550px !important;
+}
+
+#container,
+#contents {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+    margin-top: 0 !important;
+}
+
+.cart-container {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: hidden !important;
+    display: flex !important;
+}
+
+.cart-product {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    flex: 1 !important;
+}
+
+/* 최상단 배너 수정 */
+.main_top_banner {
+    position: static !important;
+    z-index: auto !important;
+}
+
+/* 장바구니 패키지 영역 */
+.xans-order-basketpackage {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+    position: relative !important;
+    padding-bottom: 50px !important;
+}
+
+/* 헤더 관련 추가 스타일 무효화 */
+body.is-scrolling #header,
+#header.transition {
+    transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transition: none !important;
+}
+
+@media all and (max-width:1024px) {
+    .cart-container {
+        display: block !important;
+    }
+}

@@ -7,7 +7,6 @@ window.addEventListener('load', function(){
     //toggleClass('.xans-layout-info.info__customer', '.xans-layout-info.info__customer .toggle', 'selected'); 사용안함 210805 서정환 수정
     //topBanner(); 사용안함 210804 서정환 수정
 	handleScroll();
-    initCartSidebar(); // 장바구니 사이드바 초기화
 });
 
 function handleScroll(){
@@ -418,6 +417,26 @@ jQuery(document).ready(function() {
 	/* 상단 카테고리 변경 감지 */
 	top_category(); // 상단카테고리
 	observeTopCategory(); // 상단카테고리 변경 감지
+
+	// 페이지 URL이 장바구니 페이지인지 확인
+	var isBasketPage = window.location.pathname.indexOf('/order/basket.html') !== -1;
+	var isHeaderScrollEnabled = !isBasketPage; // 장바구니 페이지가 아닐 때만 헤더 스크롤 활성화
+
+	// 헤더 상단 고정 - 서정환 
+	$(window).scroll(function() {
+		if (!isHeaderScrollEnabled) return; // 장바구니 페이지에서는 스크롤 이벤트 무시
+		
+		var header = $("#header");
+		var logo_add = $(".t_logo_add");
+		var floatPosition = header.offset().top;
+		var scrollTop = $(window).scrollTop();
+		if(scrollTop > floatPosition) {
+			header.addClass("fixed");
+			
+		} else {
+			header.removeClass("fixed");
+		}
+	});
 });
 
 /* 상단 카테고리 변경 감지 */
@@ -520,111 +539,4 @@ function ifmore(){
 			jQuery('.icon__box .wish', this).hide();
 		}
 	});
-}
-
-// 장바구니 사이드바 기능
-function initCartSidebar() {
-    // 전역 함수로 만들어 어디서든 호출 가능하도록 설정
-    window.openCartSidebar = function() {
-        var $sidebar = document.querySelector('.cart-sidebar');
-        var $overlay = document.querySelector('.cart-sidebar-overlay');
-        var $iframe = document.querySelector('#cartIframe');
-        
-        // iframe 소스 설정
-        if ($iframe.getAttribute('src') === '') {
-            $iframe.setAttribute('src', '/order/basket.html');
-        } else {
-            // iframe 이미 로드된 경우 새로고침
-            $iframe.contentWindow.location.reload();
-        }
-        
-        // 사이드바 열기
-        $sidebar.style.right = '0';
-        $overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    };
-    
-    // 사이드바 닫기 함수
-    window.closeCartSidebar = function() {
-        var $sidebar = document.querySelector('.cart-sidebar');
-        var $overlay = document.querySelector('.cart-sidebar-overlay');
-        
-        $sidebar.style.right = '-400px';
-        $overlay.style.display = 'none';
-        document.body.style.overflow = '';
-    };
-    
-    // 닫기 버튼 이벤트
-    var $closeBtn = document.querySelector('.cart-sidebar-close');
-    if ($closeBtn) {
-        $closeBtn.addEventListener('click', function() {
-            window.closeCartSidebar();
-        });
-    }
-    
-    // 오버레이 클릭시 닫기
-    var $overlay = document.querySelector('.cart-sidebar-overlay');
-    if ($overlay) {
-        $overlay.addEventListener('click', function() {
-            window.closeCartSidebar();
-        });
-    }
-    
-    // 장바구니 버튼에 이벤트 연결 (전역 처리)
-    document.addEventListener('click', function(e) {
-        var target = e.target;
-        
-        // 장바구니 버튼 찾기
-        while (target && !target.classList.contains('actionCart')) {
-            if (target.parentElement) {
-                target = target.parentElement;
-            } else {
-                break;
-            }
-        }
-        
-        // 장바구니 버튼인 경우
-        if (target && target.classList.contains('actionCart')) {
-            // 이미 처리된 버튼이면 건너뛰기
-            if (target.hasAttribute('data-cart-handled')) {
-                return;
-            }
-            
-            // 버튼 처리 표시
-            target.setAttribute('data-cart-handled', 'true');
-            
-            var originalOnclick = target.getAttribute('onclick');
-            if (originalOnclick) {
-                // 기존 onclick 속성 저장
-                target.setAttribute('data-original-onclick', originalOnclick);
-                
-                // onclick 속성 제거
-                target.removeAttribute('onclick');
-                
-                // 새 클릭 이벤트 추가
-                target.addEventListener('click', function(evt) {
-                    evt.preventDefault();
-                    
-                    try {
-                        // 기존 onclick 코드 실행
-                        var onclick = target.getAttribute('data-original-onclick');
-                        if (onclick) {
-                            // 기존 action_basket 호출 실행 (eval 대신 Function 사용)
-                            (new Function(onclick))();
-                            
-                            // 장바구니 추가 후 사이드바 열기
-                            setTimeout(function() {
-                                window.openCartSidebar();
-                            }, 500);
-                        }
-                        return false;
-                    } catch (err) {
-                        console.error('장바구니 추가 오류:', err);
-                        alert('장바구니에 상품을 담는 중 오류가 발생했습니다.');
-                        return false;
-                    }
-                });
-            }
-        }
-    });
 }

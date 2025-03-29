@@ -1,22 +1,10 @@
-<div class="main_top_banner ez-align-left" data-ez-module="top-banner" data-ez-align="left" data-ez-role="style.color" data-ez-display="visible" data-ez="contents-1bstsjk-1" style>
-
-<!-- 카테고리 및 아이콘 겹침 문제 해결 스타일 -->
-<style>
-.top_mypage {
-    position: relative;
-    z-index: 1000 !important;
-    pointer-events: auto !important;
-}
-.top_category {
-    position: relative;
-    z-index: 100;
-    pointer-events: none; /* 클릭이 필요한 메뉴 항목에만 pointer-events:auto 적용 */
-}
-.top_category > ul > li > a,
-.top_category ul li ul li a {
-    pointer-events: auto; /* 카테고리 링크는 클릭 가능하도록 */
-}
-</style>
+<div class="main_top_banner ez-align-left"
+	 data-ez-module="top-banner"
+	 data-ez-align="left"
+	 data-ez-role="style.color"
+	 data-ez-display="visible"
+	 data-ez="contents-1bstsjk-1"
+	 style="display: none;">
 
 	<div class="top_banner_box_inner">
 		<div class="top_banner_text"><!-- 최상단 배너 수정하는곳 -->
@@ -43,19 +31,67 @@
 		<div class="top_nav_box" id="top_nav_box">
 			<div class="top_logo" module="Layout_LogoTop"><a href="/"><img src="{$logo}" alt="{$mall_name}"></a></div><!-- //top_logo -->
 			<div class="top_nav"><a href="javascript:;" class="eNavFold"><i aria-hidden="true" class="icon icoNav"></i></a></div>
-
-			<div data-ez-module="menu-main/1" data-ez-mode="manual">
-        <div class="xans-element- xans-layout xans-layout-category top_category">
-<ul><li><a href="#">Shop All</a></li><li><a href="#">Outerwear</a><ul class="sub_cate01"><li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Jackets/29/">Jackets</a></li><li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Coats/30/">Coats</a></li><li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Blazers/31/">Blazers</a></li></ul></li><li><a href="/category/(%EB%8C%80%EB%B6%84%EB%A5%98)-Tops/25/">Tops</a><ul class="sub_cate01"><li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Tees/32/">Tees</a><ul class="sub_cate02"><li><a href="/category/(%EC%86%8C%EB%B6%84%EB%A5%98)-Short-Sleeve/36/">(소분류) Short Sleeve</a><ul class="sub_cate03"><li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Cropped/38/">(상세분류) Cropped</a></li><li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Graphic-Tees/39/">(상세분류) Graphic Tees</a></li></ul></li><li><a href="/category/(%EC%86%8C%EB%B6%84%EB%A5%98)-Long-Sleeve/37/">(소분류) Long Sleeve</a><ul class="sub_cate03"><li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Cropped/40/">(상세분류) Cropped</a></li><li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Graphic-Tees/41/">(상세분류) Graphic Tees</a></li></ul></li></ul></li><li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Shirts/33/">Shirts</a></li></ul></li><li><a href="/category/(%EB%8C%80%EB%B6%84%EB%A5%98)-Dresses/26/">Dresses</a></li></ul>
+			<div data-ez-module="menu-main/1"
+				 data-ez-mode="manual">
+				<div class="xans-element- xans-layout xans-layout-category top_category">
+					<ul>
+						<li><a href="#">Shop All</a></li>
+						<li><a href="#">Outerwear</a>
+							<ul class="sub_cate01">
+								<li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Jackets/29/">Jackets</a></li>
+								<li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Coats/30/">Coats</a></li>
+								<li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Blazers/31/">Blazers</a></li>
+							</ul>
+						</li>
+						<li><a href="/category/(%EB%8C%80%EB%B6%84%EB%A5%98)-Tops/25/">Tops</a>
+							<ul class="sub_cate01">
+								<li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Tees/32/">Tees</a>
+									<ul class="sub_cate02">
+										<li><a href="/category/(%EC%86%8C%EB%B6%84%EB%A5%98)-Short-Sleeve/36/">(소분류) Short
+												Sleeve</a>
+											<ul class="sub_cate03">
+												<li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Cropped/38/">(상세분류)
+														Cropped</a></li>
+												<li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Graphic-Tees/39/">(상세분류)
+														Graphic Tees</a></li>
+											</ul>
+										</li>
+										<li><a href="/category/(%EC%86%8C%EB%B6%84%EB%A5%98)-Long-Sleeve/37/">(소분류) Long Sleeve</a>
+											<ul class="sub_cate03">
+												<li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Cropped/40/">(상세분류)
+														Cropped</a></li>
+												<li><a href="/category/(%EC%83%81%EC%84%B8%EB%B6%84%EB%A5%98)-Graphic-Tees/41/">(상세분류)
+														Graphic Tees</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="/category/(%EC%A4%91%EB%B6%84%EB%A5%98)-Shirts/33/">Shirts</a></li>
+							</ul>
+						</li>
+						<li><a href="/category/(%EB%8C%80%EB%B6%84%EB%A5%98)-Dresses/26/">Dresses</a></li>
+					</ul>
 </div>
       </div><!-- //menu-main/1 -->
 
-			<div class="top_mypage">
-				<a href="javascript:;" class="eSearch"><!--@import(/svg/icon-search.html)--></a>
-				<a href="/myshop/index.html"><!--@import(/svg/icon-user.html)--></a>
-				<a href="javascript:void(0);" onclick="openCartSidebar()" module="Layout_orderBasketcount"><!--@import(/svg/icon-cart.html)--><span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
-			</div><!-- //top_mypage -->
+	<div class="top_mypage">
+		<a href="javascript:;"
+		   class="eSearch"><!--@import(/svg/icon-search.html)--></a>
+		<a href="/myshop/index.html"><!--@import(/svg/icon-user.html)--></a>
+		<a href="javascript:void(0);"
+		   class="cart-button"
+		   id="sideCartBtn"
+		   onclick="openCartSidebar(); return false;"
+		   module="Layout_orderBasketcount">
+			<!--@import(/svg/icon-cart.html)-->
+			<span class="count {$basket_count_display|display} {$basket_count_display_class}">
+				<span class="{$basket_count_class}">{$basket_count}</span>
+			</span>
+		</a>
+		<a href="/myshop/wish_list.html"
+		   class="wishlist"><!--@import(/svg/icon-heart.html)--></a>
 		</div><!-- //top_nav_box -->
 	</div><!-- //inner -->
 </header>
+
 <!--#ez="1/6"-->

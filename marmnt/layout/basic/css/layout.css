@@ -12,7 +12,7 @@ html {
 	width: 100%;
 	margin: 0 auto;
 	min-height: 550px;
-	overflow: hidden;
+	overflow: auto;
 }
 
 body {
@@ -33,6 +33,7 @@ body {
 	margin: 0 auto;
 	float: none;
 	padding: 0;
+	overflow: visible;
 }
 
 .cboth {
@@ -119,7 +120,6 @@ a:hover {
 	background-color: #F9F5EC;
 	overflow: hidden;
 	width: 100%;
-	display: none;
 	padding: 20px 0;
 }
 
@@ -139,6 +139,7 @@ a:hover {
 }
 
 .main_top_banner.ez-align-left .top_banner_box_inner .top_banner_text {
+	display: none;
 	text-align: left;
 }
 
@@ -205,8 +206,8 @@ a:hover {
 
 #header .inner {
 	max-width: 1760px;
-	width: 92%;
-	margin: 0 auto;
+	width: 100%;
+		margin: 0;
 	padding: 0;
 	display: flex;
 	align-items: center;
@@ -394,7 +395,7 @@ a:hover {
 
 /* 상단 메뉴 */
 #header .inner .top_nav_box {
-	width: 100%;
+	width: 92%;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -885,6 +886,8 @@ a:hover {
 	color: #1a1a1a;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
+		flex-wrap: wrap;
 }
 
 #footer .inner .pdr10 {
@@ -896,12 +899,15 @@ a:hover {
 	margin-bottom: 50px;
 	font-size: 40px;
 	display: flex;
+	justify-content: flex-start;
+		width: 100%;
 }
 
 #footer .inner .bt_logo a {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	margin-left: 0;
 }
 
 #footer .inner .bt_logo img {
@@ -911,15 +917,35 @@ a:hover {
 
 #footer .inner .bt_wrap {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
 	margin-bottom: 50px;
+	width: 100%;
+		gap: 30px;
+		flex-wrap: wrap;
 }
 
+#footer .inner .bt_wrap>* {
+	flex: 1;
+	max-width: 30%;
+}
+
+#footer .inner .bt_cscenter {
+	margin-left: 0;
+}
+
+#footer .inner .bt_info {
+	margin-right: 0;
+}
 /* 하단 메뉴 */
 #footer .inner .bt_util {
-	margin-bottom: -16px;
+	margin-bottom: 50px;
 	position: relative;
 	z-index: 2;
+	display: flex;
+		justify-content: flex-start;
+		width: 100%;
 }
 
 #footer .inner .bt_util ul {
@@ -952,10 +978,6 @@ a:hover {
 }
 
 /* 하단 전화번호 */
-#footer .inner .bt_cscenter {
-	margin-left: auto;
-}
-
 #footer .inner .bt_cscenter .title {
 	font-size: 14px;
 	font-weight: 700;
@@ -991,7 +1013,7 @@ a:hover {
 
 /* 하단 계좌번호 */
 #footer .inner .bt_bank {
-	margin-left: 90px;
+	margin: 0 auto;
 }
 
 #footer .inner .bt_bank .title {
@@ -1052,10 +1074,6 @@ a:hover {
 }
 
 /* 하단 쇼핑몰정보 */
-#footer .inner .bt_info {
-	margin-top: 50px;
-}
-
 #footer .inner .bt_info .title {
 	font-size: 14px;
 	font-weight: 700;
@@ -1095,7 +1113,9 @@ a:hover {
 	padding-top: 50px;
 	border-top: 1px solid #dadada;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+		width: 100%;
+		gap: 30px;
 }
 
 #footer .inner .bt_wrap2 .bt_copyright {
@@ -1379,7 +1399,7 @@ a:hover {
 	}
 
 	.main_top_banner.close_none {
-		height: 50px;
+		display: none !important;
 	}
 
 	.main_top_banner .top_banner_box_inner {
@@ -1906,13 +1926,13 @@ a:hover {
 #header .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count,
 #header .inner .top_nav_box .top_mypage a.cart-sidebar-opener .count {
 	position: absolute;
-	top: 25px;
-	right: -10px;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background-color: #000;
-	color: #fff;
+	top: 25px !important;
+		right: 40px !important;
+		width: 18px !important;
+		height: 18px !important;
+		border-radius: 50% !important;
+		background-color: #000 !important;
+		color: #fff !important;
 	text-align: center;
 	line-height: 1;
 	font-size: 12px;
@@ -1937,4 +1957,194 @@ a:hover {
 	width: 16px;
 	height: 16px;
 	font-size: 11px;
+}
+/* 장바구니 사이드바 스타일 */
+.cart-sidebar-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	display: none;
+}
+
+.cart-sidebar {
+	position: fixed;
+	top: 0;
+	right: -70vw;
+	width: 70vw;
+	height: 100vh;
+	background: #fff;
+	z-index: 1000;
+	transition: right 0.3s ease;
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* 카트 타이틀 영역 */
+.cart-title {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background: #fff;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/* 닫기 버튼 스타일 */
+.cart-sidebar-close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 32px;
+	height: 32px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	z-index: 11;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: background-color 0.2s ease;
+}
+
+.cart-sidebar-close:hover {
+	background-color: #f5f5f5;
+}
+
+.cart-sidebar-close::before,
+.cart-sidebar-close::after {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 2px;
+	background-color: #333;
+}
+
+.cart-sidebar-close::before {
+	transform: rotate(45deg);
+}
+
+.cart-sidebar-close::after {
+	transform: rotate(-45deg);
+}
+
+/* iframe 스타일 */
+.cart-iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 768px) {
+	.cart-sidebar {
+		width: 90vw;
+		right: -90vw;
+	}
+}
+
+/* 할인금액 관련 스타일 */
+.totalSummary__item.discount {
+	background-color: #f8f8f8;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 4px;
+}
+
+.totalSummary__item.discount .contents {
+	padding: 5px 0;
+	font-size: 13px;
+}
+
+.totalSummary__item.discount .item {
+	display: flex;
+	justify-content: space-between;
+	margin: 3px 0;
+}
+
+.highlight-discount {
+	color: #ff6b6b;
+	animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+/* 사이드 장바구니 내부 컨테이너 스타일 수정 */
+.cart-sidebar #container {
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 50px);
+	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.cart-sidebar #container #contents {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+}
+
+/* 사이드 장바구니 내부의 중복 장바구니 숨김 처리 */
+.cart-sidebar #container #contents .cart-sidebar,
+.cart-sidebar #container #contents .cart-sidebar-overlay,
+.cart-sidebar #container #contents .cart-sidebar-header,
+.cart-sidebar #container #contents .cart-iframe {
+	display: none !important;
+}
+
+/* iframe 스타일 수정 */
+.cart-iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* 사이드 장바구니 헤더 영역 수정 */
+.cart-sidebar-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 70vw;
+	height: 50px;
+	background: #fff;
+	z-index: 1001;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+	.cart-sidebar-header {
+		width: 90vw;
+	}
 }

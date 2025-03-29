@@ -45,8 +45,19 @@
 
 /********************* PC *********************/
 @media all and (min-width:1025px) {
-    .cart-container { display:flex; }
-    .cart-product { flex:1; }
+    .cart-container {
+            display: flex;
+            height: auto;
+            min-height: 100%;
+            overflow-y: auto;
+        }
+    
+        .cart-product {
+            flex: 1;
+            height: auto;
+            min-height: 100%;
+            overflow: hidden;
+        }
     .cart-total { position:relative; width:300px; margin:0 0 0 47px; }
     .cart-total .sticky { position:sticky; top:60px; }
 	.xans-order-basketpackage .xans-order-tabinfo { margin:40px 0 54px; }

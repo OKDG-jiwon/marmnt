@@ -1,0 +1,325 @@
+/* 장바구니 사이드바 스타일 */
+
+/* 카트 컨테이너와 오버레이 스타일 */
+.cart-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -70vw;
+    width: 70vw;
+    height: 100vh;
+    /* 명시적으로 뷰포트 높이 사용 */
+    background: #fff;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    /* hidden에서 auto로 변경 */
+}
+
+/* 장바구니 헤더 영역 스타일 */
+.cart-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    height: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-sidebar-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: #000;
+    flex: 1;
+}
+
+.cart-header-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1002;
+    height: 100%;
+}
+
+.cart-goto-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: none;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.cart-goto-page:hover {
+    background-color: #333;
+}
+
+/* 카트 타이틀 영역 */
+.cart-title {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 닫기 버튼 스타일 */
+.cart-sidebar-close {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 0 15px;
+    align-self: center;
+    vertical-align: middle;
+}
+
+.cart-sidebar-close::before,
+.cart-sidebar-close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    left: 50%;
+}
+
+.cart-sidebar-close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cart-sidebar-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* iframe 스타일 */
+.cart-iframe {
+    width: 100%;
+    height: calc(100vh - 50px);
+    /* 뷰포트 높이에서 헤더 높이 빼기 */
+    border: none;
+    margin-top: 50px;
+    flex: 1;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* iOS 스크롤 개선 */
+    display: block;
+    position: relative;
+}
+
+#cartIframe body,
+#cartIframe #wrap,
+#cartIframe #container,
+#cartIframe #contents {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+}
+
+#cartIframe #contents {
+    padding-top: 0 !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    position: relative !important;
+}
+
+#cartIframe body {
+    overflow-y: auto !important;
+    height: 100% !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 장바구니 패키지 영역 */
+#cartIframe .xans-order-basketpackage {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+    position: relative !important;
+    padding-bottom: 50px !important;
+}
+
+/* 카트 컨테이너 스타일 수정 */
+#cartIframe .cart-container {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+    display: block !important;
+    /* flex 대신 block 사용 */
+    flex-direction: column !important;
+}
+
+#cartIframe .cart-product {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+}
+
+#cartIframe .xans-order-basket,
+#cartIframe .xans-order-totalsummary,
+#cartIframe .xans-order-totalorder {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+#cartIframe .xans-order-totalorder {
+    margin-bottom: 50px !important;
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 90vw;
+        right: -90vw;
+    }
+
+    #cartIframe #contents {
+        min-height: 100% !important;
+        overflow-y: auto !important;
+    }
+
+    #cartIframe .xans-order-basketpackage {
+        padding-bottom: 50px !important;
+    }
+
+    #cartIframe .cart-container {
+        display: block !important;
+    }
+
+    #cartIframe .cart-product {
+        width: 100% !important;
+    }
+}
+
+/* 할인금액 관련 스타일 */
+.totalSummary__item.discount {
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.totalSummary__item.discount .contents {
+    padding: 5px 0;
+    font-size: 13px;
+}
+
+.totalSummary__item.discount .item {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 0;
+}
+
+.highlight-discount {
+    color: #ff6b6b;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 플로팅 닫기 버튼 */
+.floating-close-btn {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 120px;
+    background-color: #333;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1002;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.3s ease;
+}
+
+.floating-close-btn:hover {
+    background-color: #555;
+}
+
+.floating-close-btn span {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+#wrap {
+    overflow: auto;
+}
+
+#container,
+#contents {
+    overflow: visible;
+    height: auto;
+    min-height: 550px;
+}
+
+.cart-container,
+.cart-product {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+}

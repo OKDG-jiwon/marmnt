@@ -429,7 +429,9 @@
 .swiper-container.relation_slide .swiper-scrollbar .swiper-scrollbar-drag {background:#1a1a1a;cursor:pointer;border-radius:0;}
 .swiper-container.relation_slide ul {display:flex;padding:0;margin:0;height:auto;}
 .swiper-container.relation_slide ul .thumbnail {margin:0;}
-.swiper-container.relation_slide ul > li .prdList__item {margin:0;}
+.swiper-container.relation_slide ul>li .prdList__item {
+	margin: 10px;
+}
 .swiper-container.relation_slide ul > li .description .name a {font-size:16px;color:#3a3a3a;line-height:1.2;}
 .swiper-container.relation_slide ul > li .description .price {font-size:20px;margin-top:10px;color:#1a1a1a;font-weight:700;}
 
