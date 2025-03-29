@@ -206,8 +206,8 @@ a:hover {
 
 #header .inner {
 	max-width: 1760px;
-	width: 92%;
-	margin: 0 auto;
+	width: 100%;
+		margin: 0;
 	padding: 0;
 	display: flex;
 	align-items: center;
@@ -395,7 +395,7 @@ a:hover {
 
 /* 상단 메뉴 */
 #header .inner .top_nav_box {
-	width: 100%;
+	width: 92%;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -886,6 +886,7 @@ a:hover {
 	color: #1a1a1a;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
 }
 
 #footer .inner .pdr10 {
@@ -897,12 +898,15 @@ a:hover {
 	margin-bottom: 50px;
 	font-size: 40px;
 	display: flex;
+	justify-content: flex-start;
+		width: 100%;
 }
 
 #footer .inner .bt_logo a {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	margin-left: 0;
 }
 
 #footer .inner .bt_logo img {
@@ -912,15 +916,35 @@ a:hover {
 
 #footer .inner .bt_wrap {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
 	margin-bottom: 50px;
+	width: 100%;
+		gap: 30px;
+		clear: both;
 }
 
+#footer .inner .bt_wrap>* {
+	flex: 1;
+	max-width: 30%;
+}
+
+#footer .inner .bt_cscenter {
+	margin-left: 0;
+}
+
+#footer .inner .bt_info {
+	margin-right: 0;
+}
 /* 하단 메뉴 */
 #footer .inner .bt_util {
-	margin-bottom: -16px;
+	margin-bottom: 50px;
 	position: relative;
 	z-index: 2;
+	display: flex;
+		justify-content: flex-start;
+		width: 100%;
 }
 
 #footer .inner .bt_util ul {
@@ -953,10 +977,6 @@ a:hover {
 }
 
 /* 하단 전화번호 */
-#footer .inner .bt_cscenter {
-	margin-left: auto;
-}
-
 #footer .inner .bt_cscenter .title {
 	font-size: 14px;
 	font-weight: 700;
@@ -992,7 +1012,7 @@ a:hover {
 
 /* 하단 계좌번호 */
 #footer .inner .bt_bank {
-	margin-left: 90px;
+	margin: 0 auto;
 }
 
 #footer .inner .bt_bank .title {
@@ -1053,10 +1073,6 @@ a:hover {
 }
 
 /* 하단 쇼핑몰정보 */
-#footer .inner .bt_info {
-	margin-top: 50px;
-}
-
 #footer .inner .bt_info .title {
 	font-size: 14px;
 	font-weight: 700;
@@ -1096,7 +1112,9 @@ a:hover {
 	padding-top: 50px;
 	border-top: 1px solid #dadada;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+		width: 100%;
+		gap: 30px;
 }
 
 #footer .inner .bt_wrap2 .bt_copyright {
@@ -1907,13 +1925,13 @@ a:hover {
 #header .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count,
 #header .inner .top_nav_box .top_mypage a.cart-sidebar-opener .count {
 	position: absolute;
-	top: 25px;
-	right: -10px;
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	background-color: #000;
-	color: #fff;
+	top: 25px !important;
+		right: 40px !important;
+		width: 18px !important;
+		height: 18px !important;
+		border-radius: 50% !important;
+		background-color: #000 !important;
+		color: #fff !important;
 	text-align: center;
 	line-height: 1;
 	font-size: 12px;
