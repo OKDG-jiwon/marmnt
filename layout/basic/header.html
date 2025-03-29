@@ -16,6 +16,101 @@
 .top_category ul li ul li a {
     pointer-events: auto; /* 카테고리 링크는 클릭 가능하도록 */
 }
+
+/* 장바구니 카운트 스타일 */
+.top_mypage a[module="Layout_orderBasketcount"] {
+    position: relative;
+    display: inline-block;
+}
+
+.top_mypage a[module="Layout_orderBasketcount"] .count,
+.top_mypage a[module="Layout_orderBasketcount"] .count.EC-Layout_Basket-count-display,
+.xans-element-.xans-layout.xans-layout-orderbasketcount .count {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    background: #000;
+    color: #fff;
+    font-size: 11px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.top_mypage a[module="Layout_orderBasketcount"] .count span,
+.top_mypage a[module="Layout_orderBasketcount"] .count.EC-Layout_Basket-count-display span,
+.xans-element-.xans-layout.xans-layout-orderbasketcount .count span {
+    display: inline-block;
+    line-height: 1;
+}
+
+/* 사이드 장바구니 스타일 */
+.side-cart-panel {
+    position: fixed;
+    top: 0;
+    right: -70%;
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 9999;
+    transition: right 0.3s ease;
+    overflow: visible;
+}
+
+.side-cart-panel.open {
+    right: 0;
+}
+
+.side-cart-panel .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: #f8f8f8;
+}
+
+.side-cart-panel .cart-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.side-cart-panel .cart-header .close-cart {
+    cursor: pointer;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #333;
+}
+
+.side-cart-panel iframe {
+    width: 100%;
+    height: calc(100% - 51px);
+    border: none;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    display: none;
+}
+
+.cart-overlay.open {
+    display: block;
+}
 </style>
 
 	<div class="top_banner_box_inner">
@@ -50,12 +145,85 @@
 </div>
       </div><!-- //menu-main/1 -->
 
-			<div class="top_mypage">
-				<a href="javascript:;" class="eSearch"><!--@import(/svg/icon-search.html)--></a>
-				<a href="/myshop/index.html"><!--@import(/svg/icon-user.html)--></a>
-				<a href="javascript:void(0);" onclick="openCartSidebar()" module="Layout_orderBasketcount"><!--@import(/svg/icon-cart.html)--><span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
-			</div><!-- //top_mypage -->
+	<div class="top_mypage">
+		<a href="javascript:;" class="eSearch"><!--@import(/svg/icon-search.html)--></a>
+		<a href="/myshop/index.html"><!--@import(/svg/icon-user.html)--></a>
+		<a href="javascript:void(0);" class="cart-button" id="sideCartBtn" module="Layout_orderBasketcount"><!--@import(/svg/icon-cart.html)--><span class="count {$basket_count_display|display} {$basket_count_display_class}">
+			<span class="{$basket_count_class}">{$basket_count}</span></span></a>
+		<a href="/myshop/wish_list.html" class="wishlist"><!--@import(/svg/icon-heart.html)--></a>
 		</div><!-- //top_nav_box -->
 	</div><!-- //inner -->
 </header>
+
+<!-- 사이드 장바구니 패널 -->
+<div class="side-cart-panel" id="sideCartPanel">
+    <div class="cart-header">
+        <h3>장바구니</h3>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <iframe id="cartIframe" src="/order/basket.html" frameborder="0"></iframe>
+</div>
+
+<!-- 오버레이 -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sideCartBtn = document.getElementById('sideCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const sideCartPanel = document.getElementById('sideCartPanel');
+    const cartIframe = document.getElementById('cartIframe');
+    
+    // 장바구니 버튼 클릭 시 사이드 패널 열기
+    sideCartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sideCartPanel.classList.add('open');
+        cartOverlay.classList.add('open');
+        
+        // iframe에 CSS 주입하여 헤더와 푸터 숨기기
+        cartIframe.onload = function() {
+            try {
+                const iframeDoc = cartIframe.contentDocument || cartIframe.contentWindow.document;
+                const style = iframeDoc.createElement('style');
+                style.textContent = `
+                    #header, #footer, .path, .titleArea { 
+                        display: none !important; 
+                    }
+                    .top_nav_box, #top_nav_box, div.top_nav_box, div#top_nav_box {
+                        display: none !important;
+                    }
+                    body { 
+                        padding-top: 0 !important; 
+                        margin: 0 !important;
+                    }
+                    .xans-order-basketpackage {
+                        margin-top: 0 !important;
+                    }
+                `;
+                iframeDoc.head.appendChild(style);
+            } catch (e) {
+                console.error('iframe 접근 오류:', e);
+            }
+        };
+        
+        // iframe이 이미 로드되었다면 CSS 적용
+        if(cartIframe.contentDocument && cartIframe.contentDocument.readyState === 'complete') {
+            cartIframe.onload();
+        }
+    });
+    
+    // 닫기 버튼 클릭 시 사이드 패널 닫기
+    closeCartBtn.addEventListener('click', function() {
+        sideCartPanel.classList.remove('open');
+        cartOverlay.classList.remove('open');
+    });
+    
+    // 오버레이 클릭 시 사이드 패널 닫기
+    cartOverlay.addEventListener('click', function() {
+        sideCartPanel.classList.remove('open');
+        cartOverlay.classList.remove('open');
+    });
+});
+</script>
 <!--#ez="1/6"-->

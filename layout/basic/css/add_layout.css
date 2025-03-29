@@ -29,7 +29,10 @@
 	#header.layout3 .inner .top_nav_box .top_category {margin:0 130px 0 0;}
 	#header.layout3 .inner .top_nav_box .top_category > ul {justify-content: flex-start;}
 	#header.layout3 .inner .top_nav_box .top_mypage {top:0;flex-basis:auto;order:4;}
-	#header.layout3 .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count {top:40px;}
+				#header.layout3 .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count {
+					top: 40px;
+					right: 50px;
+				}
 
 	/* 하단 */
 	#footer.layout3 .inner .bt_logo {margin:0 auto 40px;text-align:center;}
